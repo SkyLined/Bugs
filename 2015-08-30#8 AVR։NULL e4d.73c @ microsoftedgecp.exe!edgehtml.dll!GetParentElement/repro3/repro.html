@@ -1,0 +1,7 @@
+<script>
+  var oDocument = open("blank.svg").document;
+  oDocument.execCommand("selectAll",false)
+  setTimeout(function() {
+    oDocument.execCommand("removeFormat");
+  }, 500);
+</script>

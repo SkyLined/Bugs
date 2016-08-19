@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      window.onload = function() {
+        var oCanvas = document.createElement("canvas");
+        var oContext2d = oCanvas.getContext("2d");
+        this.oImageData = oContext2d.createImageData(0x17001337,1);
+        function addressToIndex(iAddress) {
+          return iAddress + (iAddress < 0x7fff0000 ? +0x80010000 : -0x7fff0000);
+        }
+        this.oImageData.data[addressToIndex(0xDEADBEEF)] = 0x41;
+      };
+    </script>
+  </head>
+</html>

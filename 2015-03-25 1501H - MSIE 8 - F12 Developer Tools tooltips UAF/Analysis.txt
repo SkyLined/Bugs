@@ -1,0 +1,122 @@
+1501H - MSIE 8 - F12 Developer Tools tooltips use-after-free
+=====================================
+
+Synopsis
+--------
+When using the Developer Tools of MSIE 8, one might hover the mouse over a
+button in the "Script" tab, at which point a "tooltip" is shown. If one then
+clicks the button, a use-after-free occurs.
+
+Known affected software and attack vectors
+------------------------------------------
+  + MSIE 8
+
+    An attacker would need to get a target user to open a specially crafted
+    webpage. The attacker would then need to trick the target user into hovering
+    the mouse over a button until the tooltip is shown and then click the
+    button.
+
+Description
+-----------
+Open a new tab, and then open the Developer Tools by pressing F12, or
+selecting it from the "Tools" menu. Then select the "Scripts" tab in the
+Developer Tools window. Next hover the mouse over one of the buttons with the
+text "Start Debugging", "Run Script" and "Multi Line Mode"/"Single Line Mode".
+When a tooltip is shown, click the button. Here's what happens next with paged
+heap enabled:
+
+(4dc.814): Access violation - code c0000005 (first chance)
+First chance exceptions are reported before any exception handling.
+This exception may be expected and handled.
+eax=0b507fd0 ebx=00000200 ecx=06a48ea0 edx=00000001 esi=06a48ea0 edi=09a21fd0
+eip=7427c0d6 esp=0b40f98c ebp=0b40f98c iopl=0         nv up ei pl nz na po nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00010202
+comctl32!CToolTipsMgr::PopBubble+0xc:
+7427c0d6 8b400c          mov     eax,dword ptr [eax+0Ch] ds:0023:0b507fdc=????????
+
+1:019> kP
+ChildEBP RetAddr  
+0b40f98c 7427aa85 comctl32!CToolTipsMgr::PopBubble+0xc
+0b40f9b4 741fc26a comctl32!CToolTipsMgr::HandleRelayedMessage+0x117
+0b40faec 741fbf57 comctl32!CToolTipsMgr::ToolTipsWndProc+0x944
+0b40fb18 7651c4e7 comctl32!CToolTipsMgr::s_ToolTipsWndProc+0x32
+0b40fb44 7651c5e7 USER32!InternalCallWinProc+0x23
+0b40fbbc 76515294 USER32!UserCallWinProcCheckWow+0x14b
+0b40fbfc 76515582 USER32!SendMessageWorker+0x4d0
+0b40fc1c 741fc235 USER32!SendMessageW+0x7c
+0b40fc58 741f42aa comctl32!RelayToToolTips+0x49
+0b40fc78 741ff5ee comctl32!TTSubclassProc+0x33
+0b40fcdc 741ff490 comctl32!CallNextSubclassProc+0x3d
+0b40fd3c 7651c4e7 comctl32!MasterSubclassProc+0x54
+0b40fd68 7651c5e7 USER32!InternalCallWinProc+0x23
+0b40fde0 7651cc19 USER32!UserCallWinProcCheckWow+0x14b
+0b40fe40 7651cc70 USER32!DispatchMessageWorker+0x35e
+0b40fe50 6e8e98ef USER32!DispatchMessageW+0xf
+WARNING: Stack unwind information not available. Following frames may be wrong.
+0b40fe84 6e8ee3fb iedvtool+0x598ef
+0b40fe9c 76ceee1c iedvtool+0x5e3fb
+0b40fea8 770c37eb kernel32!BaseThreadInitThunk+0xe
+0b40fee8 770c37be ntdll!__RtlUserThreadStart+0x70
+0b40ff00 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+1:019> !heap -p -a @eax
+    address 0b507fd0 found in
+    _DPH_HEAP_ROOT @ 161000
+    in free-ed allocation (  DPH_HEAP_BLOCK:         VirtAddr         VirtSize)
+                                    b5119f4:          b507000             2000
+    6fb3947d verifier!AVrfDebugPageHeapReAllocate+0x0000036d
+    7712620b ntdll!RtlDebugReAllocateHeap+0x00000033
+    770ee4f0 ntdll!RtlReAllocateHeap+0x00000054
+    741f27fe comctl32!CToolTipsMgr::AddTool+0x00000031
+    741f28ca comctl32!CToolTipsMgr::ToolTipsWndProc+0x000009a4
+    741fbf57 comctl32!CToolTipsMgr::s_ToolTipsWndProc+0x00000032
+    7651c4e7 USER32!InternalCallWinProc+0x00000023
+    7651c5e7 USER32!UserCallWinProcCheckWow+0x0000014b
+    76515294 USER32!SendMessageWorker+0x000004d0
+    76515582 USER32!SendMessageW+0x0000007c
+    69cc8c71 jsdbgui+0x00028c71
+    69cc8fa2 jsdbgui+0x00028fa2
+    69cc903b jsdbgui+0x0002903b
+    69cca6e2 jsdbgui+0x0002a6e2
+    69cc5513 jsdbgui+0x00025513
+    7651c4e7 USER32!InternalCallWinProc+0x00000023
+    76535b7c USER32!UserCallDlgProcCheckWow+0x00000132
+    765359f3 USER32!DefDlgProcWorker+0x000000a8
+    7653a60e USER32!SendMessageWorker+0x00000340
+    76515582 USER32!SendMessageW+0x0000007c
+    741fc05d comctl32!CCSendNotify+0x000003e3
+    741f364c comctl32!SendNotifyEx+0x00000063
+    7427a9f4 comctl32!CToolTipsMgr::PopBubble+0x000000a3
+    7427c016 comctl32!CToolTipsMgr::PopBubble+0x0000001c
+    7427b50b comctl32!CToolTipsMgr::ShowVirtualBubble+0x00000010
+    741fc26a comctl32!CToolTipsMgr::ToolTipsWndProc+0x00000944
+    741fbf57 comctl32!CToolTipsMgr::s_ToolTipsWndProc+0x00000032
+    7651c4e7 USER32!InternalCallWinProc+0x00000023
+    7651c5e7 USER32!UserCallWinProcCheckWow+0x0000014b
+    76515294 USER32!SendMessageWorker+0x000004d0
+    76515582 USER32!SendMessageW+0x0000007c
+    741fc235 comctl32!RelayToToolTips+0x00000049
+
+Exploit
+-------
+Because the attacker vector appears highly unlikely to represent a risk to any
+user, I did not bother to do an in-depth investigation. However, the use-after-
+free occurs in the same process in which the web-page is rendered. This suggests
+that there may be a way for the web-page to reallocate the freed memory before
+its reuse and potentially exploit this issue. However, it appears that the free
+and re-use occur in a very short time span, which would make that rather hard if
+not impossible.
+
+Notes
+-----
+I allow vendors 60 days to fix an issue, unless they can provide an adequate
+reason for extending this deadline. Failure to meet a deadline without an
+adequate explanation will normally result in public disclosure of information
+regarding the vulnerability to the general public.
+
+Timeline
+--------
+23 January 2015: vulnerability discovered and reported to MSRC.
+23 January 2015: MSRC acknowledges receipt of report.
+25 March 2015: MSRC notified that deadline has been exceeded.
+25 March 2015: Full disclosure of vulnerability details.

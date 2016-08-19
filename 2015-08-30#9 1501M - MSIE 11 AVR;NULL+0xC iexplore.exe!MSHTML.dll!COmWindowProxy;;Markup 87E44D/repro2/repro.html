@@ -1,0 +1,8 @@
+<script>
+  var oWindow = open("target.html");
+  setTimeout(function() {
+    oCommentNode = oWindow.document.childNodes['0'];
+    oCommentNode.outerText="";
+    oCommentNode.document.designMode="off";
+  }, 500);
+</script>

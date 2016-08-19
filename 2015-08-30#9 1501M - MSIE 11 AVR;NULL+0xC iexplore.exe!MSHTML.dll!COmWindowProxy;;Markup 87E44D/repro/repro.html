@@ -1,0 +1,8 @@
+<script>
+  var oWindow = window.open("blank.html");
+  setTimeout(function() {
+    oNode=oWindow.document.childNodes[0];
+    oNode.outerText="";
+    oNode.document.designMode="off";
+  }, 500);
+</script>

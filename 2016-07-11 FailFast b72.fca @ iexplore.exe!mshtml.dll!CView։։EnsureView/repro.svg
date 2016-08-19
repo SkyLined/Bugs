@@ -1,0 +1,2 @@
+<svg xmlns="http://www.w3.org/2000/svg" onload="d=document;d[s='designMode']=z='on'"><script>
+setTimeout('d[e="execCommand"]("JustifyLeft");d[e](i="InsertImage");d[e]("SelectAll");d[e](i);d[s]="off";d[e](u="Undo");d[s]=z;d[e](u)')

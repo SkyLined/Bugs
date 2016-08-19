@@ -1,0 +1,44 @@
+1238m - MSIE 8 DOMImplementation.prototype.isPrototypeOf type confusion
+=====================================
+
+Synopsis
+--------
+Calling the isPrototypeOf method of the DOMImplementation interface as a
+function results in type confusion where an object is assumed to implement
+IUnknown when in fact it does not. The code attempts to call the Release method
+of IUnknown through the vftable at offset 0, but the object has the static
+value 002dc6c0 stored at this location. This mostly results in an access
+violation but may be used to execute arbitrary code by allocating memory with
+an attacker controlled value at this location.
+
+Known affected software and attack vectors
+------------------------------------------
+  + MSIE 8
+
+    An attacker would need to get a target user to open a specially crafted
+    webpage. Disabling JavaScript should prevent an attacker from triggering the
+    vulnerable code path.
+
+Repro
+-----
+<!DOCTYPE html>
+<script>
+  x = DOMImplementation.prototype.isPrototypeOf;
+  x();
+</script>
+
+Exploit
+-------
+No attempts were made to reverse the code and determine the root cause.
+
+A few attempts were made to control the value at offset 0 of the object in
+question, as well as get another object in its place with a different value at
+this location, but both efforts were brief and unsuccessful.
+
+No attempts were made to find a way to spray memory at address 002dc6c0 in order
+to execute arbitrary code.
+
+Credit
+------
+If you can confirm this as a security issue and would like to provide credits
+for reporting the issue in your advisory, please credit "SkyLined".

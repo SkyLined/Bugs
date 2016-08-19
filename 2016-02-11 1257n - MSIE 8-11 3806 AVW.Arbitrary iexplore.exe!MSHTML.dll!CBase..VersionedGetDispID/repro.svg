@@ -1,0 +1,7 @@
+<script xmlns="http://www.w3.org/2000/svg">
+  function fTargetLoadedCallback(oWindow) {
+    o={f:oWindow.DOMImplementation(0).prototype.hasFeature};
+    o.f();
+  };
+  open("target.html");
+</script>

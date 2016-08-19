@@ -1,0 +1,20 @@
+<html id="oHTML">
+<script>
+  var oAny = oHTML.appendChild(document.createElement("any"))
+  var afEventHandlers = [
+    null,
+    function(){
+      oHTML.removeChild(oAny);
+      oHTML.appendChild(document.createElement("other"))
+    },
+    null,
+    null,
+    function(){
+      oHTML.innerHTML = "";
+    },
+  ];
+  document.addEventListener("DOMNodeRemoved", function(){
+    afEventHandlers.shift()();
+  });
+  oHTML.innerHTML = "";
+</script>

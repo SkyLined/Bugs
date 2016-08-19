@@ -1,0 +1,7 @@
+<?><!DOCTYPE><o contenteditable ><script>
+oRange=getSelection().getRangeAt(0);
+oRange.setStartBefore(document.doctype);
+document.replaceChild(document.createProcessingInstruction("x", ""), document.doctype);
+oRange.cloneRange().extractContents();
+oRange.toString();
+</script>

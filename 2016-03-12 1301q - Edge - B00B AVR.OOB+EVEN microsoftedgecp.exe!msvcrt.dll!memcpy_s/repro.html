@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script>
+      document.addEventListener("DOMNodeRemoved", function(oEvent) {
+        oTextNode = document.createTextNode("");
+        document.body.insertBefore(oTextNode);
+      }, true);
+      onload = function(){
+        document.body.appendChild(oExistingChild);
+        for (var oNode = document.body.firstChild;
+             oNode && oNode != oNode.nextSibling; // note #1 below
+             oNode = oNode.nextSibling
+        ) {
+          // Doing this seems to be required to avoid triggering an assert.
+          // The tree is corrupt in that oTextNode.nextSibling == oTextNode
+          // hence the extra check at #1 to prevent an infinite loop.
+        }
+        alert(oTextNode.nodeValue);
+      }
+    </script>
+  </head>
+  <body id=oParent>x<x id=oExistingChild>x</x></body>
+</html>

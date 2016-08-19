@@ -1,0 +1,44 @@
+1211r - Microsoft Edge EDGEHTML CAttrArray::Destroy Use-after-free
+=====================================
+
+Synopsis
+--------
+Specially crafted HTML can cause Microsoft Edge to continue to use memory
+belonging to a CAttrArray after it has been freed.
+
+Known affected software and attack vectors
+------------------------------------------
+  + Microsoft Edge 11.0.10240.16384
+
+    An attacker would need to get a target user to open a specially crafted
+    webpage. JavaScript is not necessarily required to trigger the issue.
+
+Repro
+-----
+<x style="
+  background-image: inherit;
+  text-decoration: line-through;
+  height: 0;
+  width: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font: menu;">
+
+Description
+-----------
+When an element is created and style properties are added, these are stored in 
+a CAttrArray. The CAttrArray is initialy able to store 8 properties, if any
+more properties need to be stored, it will allocate more memory, copy existing
+properties and free the old memory. Adding a "font" style property as the
+ninth such property causes Edge to continue to use the old memory after it
+has been freed.
+
+Exploit
+-------
+What little investigation I did appears to indicate that there is no way to
+reallocate the freed memory before its reuse. It is therefore probably not
+possible to exploit this issue that way. I did not investigate how the freed
+memory is used by the code exactly, and I did not look into other methods to
+exploit the issue.

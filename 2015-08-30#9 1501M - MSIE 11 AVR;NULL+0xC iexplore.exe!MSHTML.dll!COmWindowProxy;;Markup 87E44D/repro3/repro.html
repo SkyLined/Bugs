@@ -1,0 +1,7 @@
+<iframe></iframe>
+<script>
+  var oWindow = document.getElementsByTagName("iframe")[0].contentWindow;
+  setTimeout(function() {
+    oWindow.document.createDocumentFragment(null).designMode="on";
+  }, 0);
+</script>

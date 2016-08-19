@@ -1,0 +1,49 @@
+Title: Chrome on x64 Windows createImageData arbitrary read&write
+
+Synopsis: Signedness errors and integer overflows in Google Chrome allow
+reading and writing of arbitrary memory when Chrome is running on a 64-bit
+version of Windows.
+
+Known affected versions:
+  All versions of Google Chrome since at least version 31, up to and including
+  version 33.
+
+Attack vectors:
+  An attacker would need to get a target user to open a specially crafted
+  webpage.
+
+Mitigations:
+  None.
+
+Description: 
+When using the createImageData of a canvas element to create a very large 
+ImageData object on x64 bit versions of Windows, the memory used for this
+object can get allocated at address 0x7FFF0000. This causes the mayority of the
+object's memory to be located at addresses above 0x7FFFFFFF. This allows
+exploitation of signedness errors/integer overflows in the code that handles
+reading and writing of pixel data, effectively allowing a script to read and
+write memory in the mayority of the process' adddress space.
+
+Exploitation:
+I've developed a generic way to turn an arbitrary read/write bug into control
+over execution flow, which I've named "R + W = E". This works as follows:
+1) Use JavaScript to spray the heap with an alternating array of a "target"
+   function and a "marker" integer.
+2) Use the arbitrary read bug to locate one of the "marker" integers on the
+   heap.
+3) The "marker" is followed by a pointer to a function structure for the
+   "target" function.
+4) The "target" function structure contains a pointer to the compiled "target"
+   function code in RWE memory.
+5) Scan RWE memory or an area that is not currently in use.
+6) Write shellcode to unused RWE memory.
+7) Read original compiled "target" function code.
+8) Overwrite compiled "target" function code with JMP instruction to shellcode.
+9) Execute "target" function to run shellcode.
+10) Shellcode returns cleanly.
+11) Overwrite compiled "target" function code with original code.
+12) Restore unused RWE memory where shellcode was stored.
+13) WIN!
+
+More details can be found in the in-line documentation of the exploit.
+

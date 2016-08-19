@@ -1,0 +1,10 @@
+<html id=h><script>
+  onload = function() {
+    d=document;
+    d.replaceChild(b,h);
+    d.designMode="on";
+    d.addEventListener("DOMSubtreeModified",function(){d.normalize()});
+    d.execCommand("JustifyCenter");
+  };
+</script>
+<body id=b> x</body></html>
