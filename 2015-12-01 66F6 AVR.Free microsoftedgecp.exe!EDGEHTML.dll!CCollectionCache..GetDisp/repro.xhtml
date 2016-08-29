@@ -1,0 +1,16 @@
+<script xmlns="http://www.w3.org/1999/xhtml"><![CDATA[
+  setTimeout(function () {
+    var oImage = new Image();
+    var oChildCollection = oImage.children;
+    oImage.textContent = "Z";
+    oImage.firstChild;
+    setTimeout(function() {
+      oImage.innerHTML = "<a></a>";
+      oChildCollection.namedItem(undefined);
+      oImage.textContent = ""; // free, can be changed to innerHTML = "";
+      // time to reallocate memory
+      oChildCollection.item(0); // reuse
+    });
+    oImage.outerHTML = "\1";
+  });
+]]></script>

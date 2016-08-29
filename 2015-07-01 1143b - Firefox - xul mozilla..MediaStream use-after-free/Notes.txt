@@ -1,0 +1,17 @@
+bc*
+bm xul!mozilla::MediaStream::MediaStream ".printf \"thread %X: call %y\\r\\n\", @$tid,@eip;gu;.printf \"  return new MediaStream = %X\\r\\n\",@eax;g"
+bm xul!mozilla::MediaStream::~MediaStream ".printf\"thread %X: call %y MediaStream = %X\\r\\n\",@$tid,@eip,@ecx;g"
+bm xul!mozilla::MediaStreamGraphImpl::MediaStreamGraphImpl ".printf \"thread %X: call %y\\r\\n\", @$tid,@eip;gu;.printf \"  return new MediaStreamGraphImpl = %X\\r\\n\",@eax;g"
+bm xul!mozilla::MediaStreamGraphImpl::AddStream ".printf \"thread %X: call %y MediaStreamGraphImpl = %X, MediaStream = %X\\r\\n\",@$tid,@eip,@ecx,poi(@esp+4);g"
+bm xul!mozilla::MediaStreamGraphImpl::RemoveStream ".printf \"thread %X: call %y MediaStreamGraphImpl = %X, MediaStream = %X\\r\\n\",@$tid,@eip,@ecx,poi(@esp+4);g"
+bm xul!mozilla::MediaStreamGraphImpl::~MediaStreamGraphImpl ".printf\"thread %X: call %y MediaStreamGraphImpl = %X\\r\\n\",@$tid,@eip,@ecx;g"
+bm xul!mozilla::GraphDriver::GraphDriver ".printf \"thread %X: call %y MediaStreamGraphImpl = %X\\r\\n\",@$tid,@eip,poi(@esp+4);gu;.printf \"  return new GraphDriver = %X\\r\\n\",@eax;g"
+bm xul!mozilla::GraphDriver::~GraphDriver ".printf\"thread %X: call %y GraphDriver = %X\\r\\n\",@$tid,@eip,@ecx;g"
+bm xul!mozilla::ThreadedDriver::ThreadedDriver ".printf \"thread %X: call %y MediaStreamGraphImpl = %X\\r\\n\",@$tid,@eip,poi(@esp+4);gu;.printf \"  return new ThreadedDriver = %X\\r\\n\",@eax;g"
+bm xul!mozilla::ThreadedDriver::Start ".printf \"thread %X: call %y ThreadedDriver = %X\\r\\n\",@$tid,@eip,@ecx;g"
+bm xul!mozilla::ThreadedDriver::Stop ".printf \"thread %X: call %y ThreadedDriver = %X\\r\\n\",@$tid,@eip,@ecx;g"
+bm xul!mozilla::ThreadedDriver::~ThreadedDriver ".printf\"thread %X: call %y ThreadedDriver = %X\\r\\n\",@$tid,@eip,@ecx;g"
+bm xul!mozilla::AudioCallbackDriver::AudioCallbackDriver ".printf \"thread %X: call %y MediaStreamGraphImpl = %X\\r\\n\",@$tid,@eip,poi(@esp+4);gu;.printf \"  return new AudioCallbackDriver = %X\\r\\n\",@eax;g"
+bm xul!`anonymous*namespace'::wasapi_stream_render_loop ".printf \"thread %X: enter wasapi_stream_render_loop\\r\\n\",@$tid;gu;.printf \"thread %X: exit wasapi_stream_render_loop\\r\\n\",@$tid;g"
+sx- -c ".printf \"thread %X: Access violation\\r\\n\",@$tid;g" av
+g

@@ -1,0 +1,46 @@
+MSIE 9 USER32 SmartStretchDIBits OOB read
+=========================================
+
+Synopsis
+--------
+A specially crafted icon file can cause USER32.dll to read out of bound data.
+
+Known affected software, attack vectors and mitigations
+-------------------------------------------------------
+  + MSIE 9
+
+    An attacker would need to get a target user to open a specially crafted
+    webpage. Disabling JavaScript should prevent an attacker from triggering the
+    vulnerable code path.
+
+
+Repro
+-----
+repro.html:
+
+    <style>*{cursor:url(/repro.ico)</style>
+
+repro.ico is a binary format and therefore not shown.
+
+Description
+-----------
+A truncated ico file, when loaded as a cursor in MSIE 9, can cause USER32 to
+attempt to read data beyond the end of the memory allocated for the file.
+
+Exploit
+-------
+The only obvious type of attack would be information disclosure. However, I
+assume any data read OOB will only affect the appearance of the mouse cursor,
+which the website cannot determine, so no information disclosure is possible.
+
+Notes
+-----
+I allow vendors 60 days to fix an issue, unless they can provide an adequate
+reason for extending this deadline. Failure to meet a deadline without an
+adequate explanation will normally result in public disclosure of information
+regarding the vulnerability to the general public.
+
+Credit
+------
+If you can confirm this as a security issue and would like to provide credits
+for reporting the issue in your advisory, please credit "SkyLined".

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      display_inline_block { display: inline-block }
+      float_right { float: right; }
+      position_absolute { position: absolute; }
+    </style>
+    <script>
+      function addNode(sTagName) {
+        return document.documentElement.appendChild(document.createElement(sTagName));
+      }
+      for (var i = 0; i < 7; i++) addNode("display_inline_block");
+      for (var i = 0; i < 4; i++) addNode("position_absolute");
+      for (var i = 0; i < 12; i++) addNode("float_right");
+      document.documentElement.offsetTop;
+      alert("Not reached");
+    </script>
+  </head>
+</html>

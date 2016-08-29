@@ -1,0 +1,133 @@
+1406D - MSIE 8 MSTHML Ptls5::FsDestroyTextLayoutSession use-after-free
+======================================================================
+
+Synopsis
+--------
+A specially crafted webpage can trigger a use-after-free vulnerability in MSIE.
+
+Known affected versions
+-----------------------
+  + MSIE 8
+
+Attack vectors
+--------------
+  * MSIE
+    
+    An attacker would need to get a target user to open a specially crafted
+    webpage.
+
+Mitigations
+-----------
+  * MSIE
+    
+    Disabling JavaScript should prevent an attacker from triggering the
+    vulnerable code path.
+
+Details
+-------
+MSIE allocates 2820 bytes, frees it and reuses it. I've left only the offset for
+the vulnerable function in the stack, as they show that this happens in quick
+successsion. I did not investigate if there is a way to control memory
+allocations in between these steps or if the freed memory is reused later as
+well, which might allow more time to attempt to control the issue.
+
+Allocation stack:
+    CPtsParaclient::NewPtr
+    Ptls5::TsAllocMemoryCore
+    Ptls5::FsAllocMemoryCore
+    Ptls5::FsDestroyFruitPool
+    Ptls5::FetchPoolUntilAfterCp
+    Ptls5::FetchPoolUntilAfterCp
+    Ptls5::FsFetchNextFruit
+    Ptls5::FsFetchNextFruitOfKind
+    Ptls5::FsDestroyTextLayoutSession+0x90a
+    ...etc... (see crash stack)
+
+Free stack:
+    CMemAlloc::Free
+    CPtsParaclient::DisposePtr
+    Ptls5::TsDestroyMemoryCore
+    Ptls5::FsDestroyMemoryCore
+    Ptls5::FsDestroyFruitPool
+    Ptls5::FetchPoolUntilAfterCp
+    Ptls5::FetchPoolUntilAfterCp
+    Ptls5::FsFetchNextFruit
+    Ptls5::FsFetchNextFruitOfKind
+    Ptls5::FFindLineInStorage
+    Ptls5::FsFormatLineBubble
+    Ptls5::FsFormatElement
+    Ptls5::FsFormatLineSimpleG
+    Ptls5::FsFormatEmptyLineStory
+    Ptls5::FsDestroyTextLayoutSession+0x9d2
+    ...etc... (see crash stack)
+
+Crash stack:
+    Ptls5::FsDestroyTextLayoutSession+0xa0a
+    Ptls5::FsGetLineNormal
+    Ptls5::FsFormatLinesNormal
+    Ptls5::FsUpdateCpsStory
+    Ptls5::FsUpdateCpsStory
+    Ptls5::FsFormatStoryG
+    Ptls5::FsGetFEmptyTextParaEndedWithLbcNilWord
+    Ptls5::FsGetFEmptyTextParaEndedWithLbcNilWord
+    Ptls5::FsDuplicateParaFormatResult
+    Ptls5::FsFormatOrReusePara
+    Ptls5::FsDestroyBrtrackElements
+    Ptls5::FsFormatDelayedParas
+    Ptls5::FsFillTrackMainFlow
+    Ptls5::FsFillTrack
+    Ptls5::FsFormatParaTrelPost
+    Ptls5::FsDuplicateParaFormatResult
+    Ptls5::FsFormatOrReusePara
+    Ptls5::FsDestroyBrtrackElements
+    Ptls5::FsFormatDelayedParas
+    Ptls5::FsFillTrackMainFlow
+    Ptls5::FsFillTrack
+    Ptls5::FsFillTrackWraper
+    Ptls5::FsConductCensusSpanLayout
+    Ptls5::FsConductCensusSpanLayout
+    Ptls5::FsFillLayoutWithSpanAreas
+    Ptls5::FsCreateSubpageCore
+    Ptls5::FsCreateSubpage
+    Ptls5::FsGetSavedPel
+    Ptls5::FsFormatPelCore
+    Ptls5::FsAdjustPageVertical
+    Ptls5::FsAdjustPageVertical
+    Ptls5::FsDuplicateParaFormatResult
+    Ptls5::FsFormatOrReusePara
+    Ptls5::FsDestroyBrtrackElements
+    Ptls5::FsFormatDelayedParas
+    Ptls5::FsFillTrackMainFlow
+    Ptls5::FsFillTrack
+    Ptls5::FsFillTrackWraper
+    Ptls5::FsConductCensusSpanLayout
+    Ptls5::FsFormatMathParaInGivenRectangleFiniteMain
+    Ptls5::FsFormatMathParaInGivenRectangleFiniteMain
+    Ptls5::FsFillMultiColumnLayout
+    Ptls5::FsDestroySpanLayoutContent
+    Ptls5::FsFillLayoutWithSpanAreas
+    Ptls5::FsConductCensusGeneralSection
+    Ptls5::FsFormatGeneralSection
+    Ptls5::FsFormatSection
+    Ptls5::FsDestroyPageBodyBreakRecord
+    Ptls5::FsFormatPageBody
+    Ptls5::FsCreatePageBottomlessCore
+    Ptls5::FsUpdateBottomlessPage
+    CCssDocumentLayout::GetPage
+    CCssPageLayout::CalcSizeVirtual
+    CLayout::CalcSize
+    CLayout::DoLayout
+    CCssPageLayout::Notify
+    NotifyElement
+    CMarkup::SendNotification
+    CMarkup::Notify
+    CElement::SendNotification
+    CElement::EnsureRecalcNotify
+    CElement::GetElementOffsets
+    CElement::get_offsetTop
+    G_LONGPTR
+    CBase::ContextInvokeEx
+    CElement::ContextInvokeEx
+    CInput::VersionedInvokeEx
+    PlainInvokeEx
+    ...etc...

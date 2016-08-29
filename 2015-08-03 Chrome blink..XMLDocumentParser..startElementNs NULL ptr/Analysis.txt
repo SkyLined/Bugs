@@ -1,0 +1,38 @@
+Assembler executed leading up to the crash:
+2:030:x86> ub @$ip
+chrome_child!blink::XMLDocumentParser::endElementNs+0x6e [c:\b\build\slave\win\build\src\third_party\webkit\source\core\xml\parser\xmldocumentparser.cpp @ 1132]:
+60766004 c3              ret
+60766005 ff4304          inc     dword ptr [ebx+4]
+60766008 e816dcffff      call    chrome_child!blink::XMLDocumentParser::exitText (60763c23)
+6076600d 8bb3a8000000    mov     esi,dword ptr [ebx+0A8h]
+60766013 85f6            test    esi,esi
+60766015 7403            je      chrome_child!blink::XMLDocumentParser::endElementNs+0x84 (6076601a)
+60766017 ff460c          inc     dword ptr [esi+0Ch]
+6076601a 8b83a8000000    mov     eax,dword ptr [ebx+0A8h]
+(Note crash appears to happen immediately following a call to "exitText")
+
+Relevant stack:
+2:030:x86> k 5
+ChildEBP RetAddr  
+00e5eb94 604c5926 chrome_child!blink::XMLDocumentParser::endElementNs+0x8a [c:\b\build\slave\win\build\src\third_party\webkit\source\core\xml\parser\xmldocumentparser.cpp @ 1071]
+00e5ebb8 60f86b01 chrome_child!xmlParseEndTag2+0x1e2 [c:\b\build\slave\win\build\src\third_party\libxml\src\parser.c @ 9816]
+00e5eca4 60f7f4ab chrome_child!xmlParseTryOrFinish+0x825 [c:\b\build\slave\win\build\src\third_party\libxml\src\parser.c @ 11676]
+00e5ecd4 607642a1 chrome_child!xmlParseChunk+0x28e [c:\b\build\slave\win\build\src\third_party\libxml\src\parser.c @ 12383]
+00e5ecf8 607652af chrome_child!blink::parseChunk+0x51 [c:\b\build\slave\win\build\src\third_party\webkit\source\core\xml\parser\xmldocumentparser.cpp @ 578]
+
+Relevant source:
+https://code.google.com/p/chromium/codesearch#chromium/src/third_party/WebKit/Source/core/xml/parser/XMLDocumentParser.cpp&q=XMLDocumentParser::endElementNs&sq=package:chromium&l=1071
+1071 
+1072     exitText();
+1073 
+1074    RefPtrWillBeRawPtr<ContainerNode> n = m_currentNode;
+1075    if (m_currentNode->isElementNode())
+1076        toElement(n.get())->finishParsingChildren();
+(The source appears slightly out-of-sync with my binary; crash was probably on line 1075)
+
+2:030:x86> ?? this->m_currentNode
+class WTF::RawPtr<blink::ContainerNode>
+   =5ff60000 rawPtrZapValue   : 0x905a4d
+   +0x000 m_ptr            : (null) 
+
+this->m_currentNode is NULL, which would trigger a NULL ptr here.

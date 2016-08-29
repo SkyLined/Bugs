@@ -1,0 +1,71 @@
+Steps to reproduce:
+
+<!doctype html>
+<script>
+  new AudioContext("telephony").createMediaStreamDestination();
+  location.href = "javascript:'and now we wait...'";
+</script>
+
+
+Actual results:
+
+A MediaStream object is created, which is used on three different threads: the main thread, a graph thread and a libcubeb thread. From the source at /dome/media/MediaStreamGraph.h, it appears the code tries to take into account the first two with regard to object life-time. However, I found that simply creating and deleting an object (see repro) will cause the object to be garbage collected at some point, before all references are deleted. This which will cause an access violation at 0x5a5a5a5a - a canary value to detect use-after-free. This seem to happen in the thread created for the wasapi_stream_render_loop function as well as the graph thread.
+
+
+
+Expected results:
+
+No use-after-free.
+
+Additional info:
+
+The following WinDBG breakpoints may be useful while debugging:
+bm xul!mozilla::MediaStream::MediaStream ".printf \"thread %X: call %y\\r\\n\", @$tid,@eip;gu;.printf \"  return new MediaStream = %X\\r\\n\",@eax;g"
+bm xul!mozilla::MediaStream::~MediaStream ".printf\"thread %X: call %y MediaStream = %X\\r\\n\",@$tid,@eip,@ecx;g"
+bm xul!mozilla::MediaStreamGraphImpl::MediaStreamGraphImpl ".printf \"thread %X: call %y\\r\\n\", @$tid,@eip;gu;.printf \"  return new MediaStreamGraphImpl = %X\\r\\n\",@eax;g"
+bm xul!mozilla::MediaStreamGraphImpl::AddStream ".printf \"thread %X: call %y MediaStreamGraphImpl = %X, MediaStream = %X\\r\\n\",@$tid,@eip,@ecx,poi(@esp+4);g"
+bm xul!mozilla::MediaStreamGraphImpl::RemoveStream ".printf \"thread %X: call %y MediaStreamGraphImpl = %X, MediaStream = %X\\r\\n\",@$tid,@eip,@ecx,poi(@esp+4);g"
+bm xul!mozilla::MediaStreamGraphImpl::~MediaStreamGraphImpl ".printf\"thread %X: call %y MediaStreamGraphImpl = %X\\r\\n\",@$tid,@eip,@ecx;g"
+bm xul!mozilla::GraphDriver::GraphDriver ".printf \"thread %X: call %y MediaStreamGraphImpl = %X\\r\\n\",@$tid,@eip,poi(@esp+4);gu;.printf \"  return new GraphDriver = %X\\r\\n\",@eax;g"
+bm xul!mozilla::GraphDriver::~GraphDriver ".printf\"thread %X: call %y GraphDriver = %X\\r\\n\",@$tid,@eip,@ecx;g"
+bm xul!mozilla::ThreadedDriver::ThreadedDriver ".printf \"thread %X: call %y MediaStreamGraphImpl = %X\\r\\n\",@$tid,@eip,poi(@esp+4);gu;.printf \"  return new ThreadedDriver = %X\\r\\n\",@eax;g"
+bm xul!mozilla::ThreadedDriver::Start ".printf \"thread %X: call %y ThreadedDriver = %X\\r\\n\",@$tid,@eip,@ecx;g"
+bm xul!mozilla::ThreadedDriver::Stop ".printf \"thread %X: call %y ThreadedDriver = %X\\r\\n\",@$tid,@eip,@ecx;g"
+bm xul!mozilla::ThreadedDriver::~ThreadedDriver ".printf\"thread %X: call %y ThreadedDriver = %X\\r\\n\",@$tid,@eip,@ecx;g"
+bm xul!mozilla::AudioCallbackDriver::AudioCallbackDriver ".printf \"thread %X: call %y MediaStreamGraphImpl = %X\\r\\n\",@$tid,@eip,poi(@esp+4);gu;.printf \"  return new AudioCallbackDriver = %X\\r\\n\",@eax;g"
+bm xul!`anonymous*namespace'::wasapi_stream_render_loop ".printf \"thread %X: enter wasapi_stream_render_loop\\r\\n\",@$tid;gu;.printf \"thread %X: exit wasapi_stream_render_loop\\r\\n\",@$tid;g"
+sx- -c ".printf \"thread %X: Access violation\\r\\n\",@$tid;g" av
+
+Here's a dump of the output created by these breakpoints during a crash:
+thread C88: call xul!mozilla::AudioCallbackDriver::AudioCallbackDriver (66cb9e11) MediaStreamGraphImpl = 16C2E0C0
+thread C88: call xul!mozilla::GraphDriver::GraphDriver (66cba3a0) MediaStreamGraphImpl = 16C2E0C0
+  return new GraphDriver = 16CFB000
+thread C88: call xul!mozilla::MediaStream::MediaStream (66cc4384)
+  return new MediaStream = 11646A20
+thread C88: call xul!mozilla::MediaStreamGraphImpl::MediaStreamGraphImpl (66cc4513)
+thread C88: call xul!mozilla::ThreadedDriver::ThreadedDriver (66cba569) MediaStreamGraphImpl = 16C2E8A0
+thread C88: call xul!mozilla::GraphDriver::GraphDriver (66cba3a0) MediaStreamGraphImpl = 16C2E8A0
+  return new GraphDriver = 16C8C860
+thread C88: call xul!mozilla::MediaStream::MediaStream (66cc4384)
+  return new MediaStream = 16286CF0
+thread C88: call xul!mozilla::MediaStream::MediaStream (66cc4384)
+  return new MediaStream = 11646BB0
+thread C88: call xul!mozilla::ThreadedDriver::Start (66cc0435) ThreadedDriver = 16C8C860
+thread 908: call xul!mozilla::MediaStreamGraphImpl::AddStream (66cc7548) MediaStreamGraphImpl = 16C2E8A0, MediaStream = 16286CF0
+thread E1C: enter wasapi_stream_render_loop
+thread E1C: call xul!mozilla::MediaStreamGraphImpl::AddStream (66cc7548) MediaStreamGraphImpl = 16C2E0C0, MediaStream = 11646A20
+thread E1C: call xul!mozilla::MediaStreamGraphImpl::AddStream (66cc7548) MediaStreamGraphImpl = 16C2E0C0, MediaStream = 11646BB0
+thread 908: call xul!mozilla::MediaStreamGraphImpl::RemoveStream (66cda097) MediaStreamGraphImpl = 16C2E8A0, MediaStream = 16286CF0
+thread 908: call xul!mozilla::MediaStream::~MediaStream (66cc5c01) MediaStream = 16286CF0
+(1cc.908): Access violation - code c0000005 (first chance)
+thread 908: Access violation
+(1cc.e1c): Access violation - code c0000005 (first chance)
+thread E1C: Access violation
+(1cc.e1c): Access violation - code c0000005 (!!! second chance !!!)
+eax=00000000 ebx=0009f900 ecx=00000008 edx=00000000 esi=00000002 edi=5a5a5a5a
+eip=66ce636b esp=0c5dfa14 ebp=16286cf0 iopl=0         nv up ei pl nz na po nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00010202
+xul!mozilla::StreamBuffer::FindTrack+0x12:
+66ce636b 3b07            cmp     eax,dword ptr [edi]  ds:0023:5a5a5a5a=????????
+
+Btw. I wonder why Firefox is still using 0x5a to fill freed memory, as this results in addresses that are theoretically reachable by heap-spraying. As a mitigation against exploitation, it would make more sense to spray with a value between 0xC0 and 0xFF. Such values would result in addresses that are too high to be allocated in 32-bit Windows.

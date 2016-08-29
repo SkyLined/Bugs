@@ -1,0 +1,22 @@
+<!DOCTYPE>
+<script defer id="script">
+  "#DEFER".toString();
+  window.onload = function() {
+    "#ONLOAD".toString();
+    //window.opener.restart();
+    "#ONLOAD DONE".toString();
+    //"~".toString()
+  }
+  "#ELEMENTS:".toString();
+  var oElementsCollection = document.getElementsByTagName("*"),
+      aoElements = [];
+  for (var i = 0; i < oElementsCollection.length; i++) {
+    aoElements[i] = oElementsCollection[i];
+  }
+  window.opener.save(aoElements);
+  "#document.designMode = \"on\";".toString();
+  document.designMode = "on";
+  "#DEFER DONE".toString();
+</script>
+<q id="q" dir="ltr">
+<ruby id="ruby" dir="rtl">

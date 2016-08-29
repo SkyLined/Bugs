@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg"><script>
+  document.addEventListener("DOMNodeInserted", function(){
+    document.adoptNode(document.documentElement);
+  }, false)
+  document.title = "";
+</script>

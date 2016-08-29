@@ -1,0 +1,1115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><HTML><HEAD><STYLE>LEGEND, TABLE {width:100%;}FIELDSET {margin-bottom: 5px;}FIELDSET.level0 {background: #F0F0F0;}LEGEND.level0 {background: #C0C0C0; border: 1px inset; font-size: 200%}FIELDSET.level1 {background: #E0E0E0;}LEGEND.level1 {background: #B0B0B0; border: 1px inset; font-size: 150%}FIELDSET.level2 {background: #D0D0D0;}LEGEND.level2 {background: #A0A0A0; border: 1px inset; font-size: 120%}FIELDSET.level3 {background: #C0C0C0;}LEGEND.level3 {background: #909090; border: 1px inset; font-size: 110%}FIELDSET.level4 {background: #B0B0B0;}LEGEND.level4 {background: #808080; border: 1px inset; font-size: 100%}SPAN.local_type {color: #000060;}SPAN.local_name {color: #0000FF;}SPAN.function_name { color: #004000;}TABLE,TR,TD {border: 1px solid silver; border-collapse: collapse;}* {white-space: nowrap;}PRE {white-space: pre;}.wrapable {white-space: normal; width:100%;}FIELDSET.hidden {border-bottom: 5px dashed #A0A0A0;}SPAN.hidden {display: none;}</STYLE><SCRIPT>function openAnchorEvent(event) {if (!event) event = window.event;openAnchor(event.srcElement.href.replace(/.*#/, ""));}function openAnchor(anchor) {targets = document.getElementsByName(anchor);if (targets.length == 1) {target = targets[0];while (target != null) {c = target.className;if (c.indexOf("hidden") > -1)target.className = c.replace(/\s*hidden\s*/, " ");target = target.parentElement}}}function flipLegend() {if (!event) event = window.event;legend = event.srcElement;while (legend.tagName != "LEGEND") legend = legend.parentElement;fieldset = legend.parentElement;flipHideables(fieldset);}function flipHideables(fieldset) {flipHiddenClass(fieldset);for (i in fieldset.children) {o = fieldset.children[i];c = o.className;if (c && c.indexOf("hideable") > -1) {flipHiddenClass(o);}}}function flipHiddenClass(element) {c = element.className;if (c.indexOf("hidden") > -1) {element.className = c.replace(/\s*hidden\s*/, " ");} else {element.className += " hidden";}}</SCRIPT></HEAD><BODY onload="if (location.hash) openAnchor(location.hash.substr(1));"><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Cdb event information</LEGEND><SPAN><PRE>id:             Opera.dll!+0x155C8E ReadAV@Arbitrary (8060c8e7fcb0cfaae2112b8e8050986e)
+description:    Security: Attempt to read from unallocated arbitrary memory (@0x4F19CFDC) in Opera.dll!+0x155C8E
+note:           The exception happens in the main process. Based on this information, this is expected to be a <B>critical</B> security issue!
+application:    Opera 12.01
+</PRE></SPAN><SPAN class="hideable hidden"><PRE>stack:          Opera.dll!+0x155C8E
+                Opera.dll!+0x169A3F
+                Opera.dll!+0x16A080
+                Opera.dll!+0xDB2EA
+                ntdll.dll!RtlpAllocateHeap
+                Opera.dll!+0xD0548
+                Opera.dll!+0xDC544
+                Opera.dll!+0xD0548
+                Opera.dll!+0x8D1A0
+                Opera.dll!+0x798B2
+                Opera.dll!+0x643A2
+                Opera.dll!+0x4762C
+                Opera.dll!+0x5EF2C
+                Opera.dll!+0x5EDE9
+                Opera.dll!+0x1B576B
+                Opera.dll!+0x1272F0
+                Opera.dll!+0x156BCC
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Pre event output</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Microsoft (R) Windows Debugger Version 6.2.8229.0 X86
+Copyright (c) Microsoft Corporation. All rights reserved.
+CommandLine: C:\Program Files (x86)\Opera\Opera.exe &quot;&quot;
+Symbol search path is: symsrv*symsrv.dll*c:\symbols*http://msdl.microsoft.com/download/symbols;symsrv*symsrv.dll*c:\symbols*http://symbols.mozilla.org/firefox;symsrv*symsrv.dll*c:\symbols*http://chromium-browser-symsrv.commondatastorage.googleapis.com
+Executable search path is: 
+ModLoad: 00b50000 00c27000   desktop_starter.exe
+ModLoad: 77490000 77610000   ntdll.dll
+Page heap: pid 0x4B8: page heap enabled with flags 0x3.
+ModLoad: 74830000 74890000   C:\Windows\syswow64\verifier.dll
+Page heap: pid 0x4B8: page heap enabled with flags 0x3.
+ModLoad: 76620000 76730000   C:\Windows\syswow64\kernel32.dll
+ModLoad: 76470000 764b6000   C:\Windows\syswow64\KERNELBASE.dll
+ModLoad: 74c60000 74d60000   C:\Windows\syswow64\USER32.dll
+ModLoad: 76930000 769c0000   C:\Windows\syswow64\GDI32.dll
+ModLoad: 75ff0000 75ffa000   C:\Windows\syswow64\LPK.dll
+ModLoad: 76890000 7692d000   C:\Windows\syswow64\USP10.dll
+ModLoad: 763c0000 7646c000   C:\Windows\syswow64\msvcrt.dll
+ModLoad: 764f0000 76590000   C:\Windows\syswow64\ADVAPI32.dll
+ModLoad: 74f40000 74f59000   C:\Windows\SysWOW64\sechost.dll
+ModLoad: 76ae0000 76bd0000   C:\Windows\syswow64\RPCRT4.dll
+ModLoad: 74b70000 74bd0000   C:\Windows\syswow64\SspiCli.dll
+ModLoad: 74b60000 74b6c000   C:\Windows\syswow64\CRYPTBASE.dll
+ModLoad: 753a0000 75fea000   C:\Windows\syswow64\SHELL32.dll
+ModLoad: 74c00000 74c57000   C:\Windows\syswow64\SHLWAPI.dll
+ModLoad: 76730000 7688c000   C:\Windows\syswow64\ole32.dll
+(4b8.1390): Break instruction exception - code 80000003 (first chance)
+        c:\symbols\wntdll.pdb\D74F79EB1F8D4A45ABCD2F476CCABACC2\wntdll.pdb
+eax=00000000 ebx=00000000 ecx=acf30000 edx=0024e348 esi=fffffffe edi=00000000
+eip=77530fab esp=001cf678 ebp=001cf6a4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!LdrpDoDebuggerBreak+0x2c:
+77530fab cc              int     3
+ModLoad: 74ee0000 74f40000   C:\Windows\SysWOW64\IMM32.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=001cf2cc edx=001cf2cd esi=fffdd000 edi=001cea94
+eip=774afc42 esp=001ce968 ebp=001ce9bc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74d90000 74e5c000   C:\Windows\syswow64\MSCTF.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=001cf2cc edx=001cf2cd esi=fffdd000 edi=001ce768
+eip=774afc42 esp=001ce63c ebp=001ce690 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 75140000 75175000   C:\Windows\SysWOW64\WS2_32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce4cc
+eip=774afc42 esp=001ce3a0 ebp=001ce3f4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 77460000 77466000   C:\Windows\syswow64\NSI.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce12c
+eip=774afc42 esp=001ce000 ebp=001ce054 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74f60000 74f65000   C:\Windows\SysWOW64\psapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce3a0
+eip=774afc42 esp=001ce274 ebp=001ce2c8 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 72370000 723f0000   C:\Windows\SysWOW64\uxtheme.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cdcec
+eip=774afc42 esp=001cdbc0 ebp=001cdc14 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 73310000 734ae000   C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\comctl32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cda2c
+eip=774afc42 esp=001cd900 ebp=001cd954 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 76590000 7661f000   C:\Windows\syswow64\OLEAUT32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cdca0
+eip=774afc42 esp=001cdb74 ebp=001cdbc8 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74fa0000 7513d000   C:\Windows\syswow64\SETUPAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffda000 edi=07a9f550
+eip=774afc42 esp=07a9f424 ebp=07a9f478 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 764c0000 764e7000   C:\Windows\syswow64\CFGMGR32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffda000 edi=07a9f1b0
+eip=774afc42 esp=07a9f084 ebp=07a9f0d8 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74be0000 74bf2000   C:\Windows\syswow64\DEVOBJ.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffda000 edi=07a9f1b0
+eip=774afc42 esp=07a9f084 ebp=07a9f0d8 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 76210000 76293000   C:\Windows\syswow64\CLBCatQ.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ccea8
+eip=774afc42 esp=001ccd7c ebp=001ccdd0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 73a50000 73b45000   C:\Windows\SysWOW64\propsys.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cc0dc
+eip=774afc42 esp=001cbfb0 ebp=001cc004 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74040000 74061000   C:\Windows\SysWOW64\ntmarta.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cc19c
+eip=774afc42 esp=001cc070 ebp=001cc0c4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 76130000 76175000   C:\Windows\syswow64\WLDAP32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cbdfc
+eip=774afc42 esp=001cbcd0 ebp=001cbd24 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 6b2e0000 6c165000   C:\Program Files (x86)\Opera\Opera.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce4e8
+eip=774afc42 esp=001ce3bc ebp=001ce410 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 723f0000 72422000   C:\Windows\SysWOW64\WINMM.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce1bc
+eip=774afc42 esp=001ce090 ebp=001ce0e4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74aa0000 74aa9000   C:\Windows\SysWOW64\VERSION.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce1bc
+eip=774afc42 esp=001ce090 ebp=001ce0e4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 72200000 72207000   C:\Windows\SysWOW64\WSOCK32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce1bc
+eip=774afc42 esp=001ce090 ebp=001ce0e4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 75140000 75175000   C:\Windows\syswow64\WS2_32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cde1c
+eip=774afc42 esp=001cdcf0 ebp=001cdd44 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 77460000 77466000   C:\Windows\syswow64\NSI.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cda7c
+eip=774afc42 esp=001cd950 ebp=001cd9a4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74e60000 74edb000   C:\Windows\syswow64\COMDLG32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce1bc
+eip=774afc42 esp=001ce090 ebp=001ce0e4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74220000 742e8000   C:\Windows\SysWOW64\OPENGL32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce1bc
+eip=774afc42 esp=001ce090 ebp=001ce0e4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 744a0000 744c2000   C:\Windows\SysWOW64\GLU32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cde1c
+eip=774afc42 esp=001cdcf0 ebp=001cdd44 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 73ee0000 73fc7000   C:\Windows\SysWOW64\DDRAW.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cde1c
+eip=774afc42 esp=001cdcf0 ebp=001cdd44 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 747d0000 747d6000   C:\Windows\SysWOW64\DCIMAN32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cda7c
+eip=774afc42 esp=001cd950 ebp=001cd9a4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 71d90000 71da3000   C:\Windows\SysWOW64\dwmapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cda7c
+eip=774afc42 esp=001cd950 ebp=001cd9a4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74f70000 74f9d000   C:\Windows\SysWOW64\Wintrust.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce4ac
+eip=774afc42 esp=001ce380 ebp=001ce3d4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 762a0000 763be000   C:\Windows\syswow64\CRYPT32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce10c
+eip=774afc42 esp=001cdfe0 ebp=001ce034 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 76120000 7612c000   C:\Windows\syswow64\MSASN1.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cdd6c
+eip=774afc42 esp=001cdc40 ebp=001cdc94 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 08900000 08a1e000   C:\Windows\SysWOW64\Crypt32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce4ac
+eip=774afc42 esp=001ce380 ebp=001ce3d4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 08aa0000 08ba0000   C:\Windows\SysWOW64\user32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce1ec
+eip=774afc42 esp=001ce0c0 ebp=001ce114 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 00a40000 00ad0000   C:\Windows\SysWOW64\gdi32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce1ec
+eip=774afc42 esp=001ce0c0 ebp=001ce114 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 08aa0000 096ea000   C:\Windows\SysWOW64\shell32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce1ec
+eip=774afc42 esp=001ce0c0 ebp=001ce114 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 08aa0000 08bb0000   C:\Windows\SysWOW64\KERNEL32.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ce1ec
+eip=774afc42 esp=001ce0c0 ebp=001ce114 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 721f0000 721fb000   C:\Windows\SysWOW64\profapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cbcb4
+eip=774afc42 esp=001cbb88 ebp=001cbbdc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 00a40000 00add000   C:\Windows\SysWOW64\usp10.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cdf2c
+eip=774afc42 esp=001cde00 ebp=001cde54 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 734f0000 73501000   C:\Windows\SysWOW64\NETAPI32.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd848
+eip=774afc42 esp=001cd71c ebp=001cd770 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 734e0000 734e9000   C:\Windows\SysWOW64\netutils.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd4a8
+eip=774afc42 esp=001cd37c ebp=001cd3d0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 734c0000 734d9000   C:\Windows\SysWOW64\srvcli.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd4a8
+eip=774afc42 esp=001cd37c ebp=001cd3d0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 734b0000 734bf000   C:\Windows\SysWOW64\wkscli.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd4a8
+eip=774afc42 esp=001cd37c ebp=001cd3d0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 72210000 72226000   C:\Windows\SysWOW64\CRYPTSP.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd7cc
+eip=774afc42 esp=001cd6a0 ebp=001cd6f4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 721b0000 721eb000   C:\Windows\SysWOW64\rsaenh.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd704
+eip=774afc42 esp=001cd5d8 ebp=001cd62c iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74070000 74079000   C:\Windows\SysWOW64\LINKINFO.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cc4a4
+eip=774afc42 esp=001cc378 ebp=001cc3cc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 30030000 30c7a000   C:\Windows\SysWOW64\shell32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd0ac
+eip=774afc42 esp=001ccf80 ebp=001ccfd4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 1cd30000 1ce30000   C:\Windows\SysWOW64\USER32.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd6bc
+eip=774afc42 esp=001cd590 ebp=001cd5e4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74080000 74085000   C:\Windows\SysWOW64\Msimg32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cdf70
+eip=774afc42 esp=001cde44 ebp=001cde98 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74480000 74494000   C:\Windows\SysWOW64\devenum.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cce8c
+eip=774afc42 esp=001ccd60 ebp=001ccdb4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 747c0000 747cb000   C:\Windows\SysWOW64\msdmo.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cdd9c
+eip=774afc42 esp=001cdc70 ebp=001cdcc4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 73ec0000 73ed3000   C:\Windows\SysWOW64\avicap32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cde14
+eip=774afc42 esp=001cdce8 ebp=001cdd3c iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 73e90000 73eb1000   C:\Windows\SysWOW64\MSVFW32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cda74
+eip=774afc42 esp=001cd948 ebp=001cd99c iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 73d60000 73ed7000   C:\Windows\SysWOW64\quartz.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cceec
+eip=774afc42 esp=001ccdc0 ebp=001cce14 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 72f40000 72f8c000   C:\Windows\SysWOW64\apphelp.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd414
+eip=774afc42 esp=001cd2e8 ebp=001cd33c iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+Symbol search path is: symsrv*symsrv.dll*c:\symbols*http://msdl.microsoft.com/download/symbols;symsrv*symsrv.dll*c:\symbols*http://symbols.mozilla.org/firefox;symsrv*symsrv.dll*c:\symbols*http://chromium-browser-symsrv.commondatastorage.googleapis.com
+Executable search path is: 
+ModLoad: 00300000 003c8000   opera_plugin_wrapper.exe
+&lt;---- EVENT: break cpr ----&gt;
+eax=00346e86 ebx=fffde000 ecx=00000000 edx=00000000 esi=00000000 edi=00000000
+eip=774a01b4 esp=0057ff54 ebp=00000000 iopl=0         nv up ei pl nz na po nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000202
+774a01b4 89442404        mov     dword ptr [esp+4],eax ss:002b:0057ff58=00000000
+ModLoad: 77490000 77610000   ntdll.dll
+&lt;---- EVENT: break ld ----&gt;
+        c:\symbols\wntdll.pdb\D74F79EB1F8D4A45ABCD2F476CCABACC2\wntdll.pdb
+eax=00346e86 ebx=fffde000 ecx=00000000 edx=00000000 esi=00000000 edi=00000000
+eip=774a01b4 esp=0057ff54 ebp=00000000 iopl=0         nv up ei pl nz na po nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000202
+ntdll!RtlUserThreadStart:
+774a01b4 89442404        mov     dword ptr [esp+4],eax ss:002b:0057ff58=00000000
+ModLoad: 76620000 76730000   C:\Windows\syswow64\kernel32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057f8b4
+eip=774afc42 esp=0057f788 ebp=0057f7dc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 76470000 764b6000   C:\Windows\syswow64\KERNELBASE.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057f588
+eip=774afc42 esp=0057f45c ebp=0057f4b0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74aa0000 74aa9000   C:\Windows\SysWOW64\VERSION.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057f738
+eip=774afc42 esp=0057f60c ebp=0057f660 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 763c0000 7646c000   C:\Windows\syswow64\msvcrt.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057f398
+eip=774afc42 esp=0057f26c ebp=0057f2c0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 723f0000 72422000   C:\Windows\SysWOW64\WINMM.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057f738
+eip=774afc42 esp=0057f60c ebp=0057f660 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74c60000 74d60000   C:\Windows\syswow64\USER32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057f398
+eip=774afc42 esp=0057f26c ebp=0057f2c0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 76930000 769c0000   C:\Windows\syswow64\GDI32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057f06c
+eip=774afc42 esp=0057ef40 ebp=0057ef94 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 75ff0000 75ffa000   C:\Windows\syswow64\LPK.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057ed40
+eip=774afc42 esp=0057ec14 ebp=0057ec68 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 76890000 7692d000   C:\Windows\syswow64\USP10.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057ea14
+eip=774afc42 esp=0057e8e8 ebp=0057e93c iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 764f0000 76590000   C:\Windows\syswow64\ADVAPI32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057f06c
+eip=774afc42 esp=0057ef40 ebp=0057ef94 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74f40000 74f59000   C:\Windows\SysWOW64\sechost.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057eccc
+eip=774afc42 esp=0057eba0 ebp=0057ebf4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 76ae0000 76bd0000   C:\Windows\syswow64\RPCRT4.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057e92c
+eip=774afc42 esp=0057e800 ebp=0057e854 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74b70000 74bd0000   C:\Windows\syswow64\SspiCli.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057e600
+eip=774afc42 esp=0057e4d4 ebp=0057e528 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74b60000 74b6c000   C:\Windows\syswow64\CRYPTBASE.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057e2d4
+eip=774afc42 esp=0057e1a8 ebp=0057e1fc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 753a0000 75fea000   C:\Windows\syswow64\SHELL32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057f738
+eip=774afc42 esp=0057f60c ebp=0057f660 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74c00000 74c57000   C:\Windows\syswow64\SHLWAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057f398
+eip=774afc42 esp=0057f26c ebp=0057f2c0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 76730000 7688c000   C:\Windows\syswow64\ole32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057f738
+eip=774afc42 esp=0057f60c ebp=0057f660 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74ee0000 74f40000   C:\Windows\SysWOW64\IMM32.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057ee88
+eip=774afc42 esp=0057ed5c ebp=0057edb0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74d90000 74e5c000   C:\Windows\syswow64\MSCTF.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057eb5c
+eip=774afc42 esp=0057ea30 ebp=0057ea84 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 72370000 723f0000   C:\Windows\SysWOW64\uxtheme.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057f5cc
+eip=774afc42 esp=0057f4a0 ebp=0057f4f4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 71d90000 71da3000   C:\Windows\SysWOW64\dwmapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=0057f3d0
+eip=774afc42 esp=0057f2a4 ebp=0057f2f8 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 30030000 30c7a000   C:\Windows\SysWOW64\shell32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cc66c
+eip=774afc42 esp=001cc540 ebp=001cc594 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 715a0000 7169b000   C:\Windows\SysWOW64\WindowsCodecs.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cc7b8
+eip=774afc42 esp=001cc68c ebp=001cc6e0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 72fe0000 72ff2000   C:\Program Files (x86)\Common Files\TortoiseOverlays\TortoiseOverlays.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cb02c
+eip=774afc42 esp=001caf00 ebp=001caf54 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 730f0000 730fd000   C:\Program Files\TortoiseSVN\bin\TortoiseStub32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cb1ec
+eip=774afc42 esp=001cb0c0 ebp=001cb114 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 719e0000 71a4b000   C:\Program Files\TortoiseSVN\bin\TortoiseSVN32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001caffc
+eip=774afc42 esp=001caed0 ebp=001caf24 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 76000000 7611b000   C:\Windows\syswow64\WININET.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cacd0
+eip=774afc42 esp=001caba4 ebp=001cabf8 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74bd0000 74bd3000   C:\Windows\syswow64\Normaliz.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ca9a4
+eip=774afc42 esp=001ca878 ebp=001ca8cc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 751e0000 75398000   C:\Windows\syswow64\iertutil.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ca9a4
+eip=774afc42 esp=001ca878 ebp=001ca8cc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 769c0000 76ad1000   C:\Windows\syswow64\urlmon.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ca9a4
+eip=774afc42 esp=001ca878 ebp=001ca8cc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 6d660000 6d950000   C:\Program Files\TortoiseSVN\bin\libsvn_tsvn32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cacd0
+eip=774afc42 esp=001caba4 ebp=001cabf8 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 72440000 72464000   C:\Program Files\TortoiseSVN\bin\libapr_tsvn32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ca9a4
+eip=774afc42 esp=001ca878 ebp=001ca8cc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 72330000 7236c000   C:\Windows\SysWOW64\MSWSOCK.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ca678
+eip=774afc42 esp=001ca54c ebp=001ca5a0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 71910000 719cd000   C:\Windows\SysWOW64\MSVCR100.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ca678
+eip=774afc42 esp=001ca54c ebp=001ca5a0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 718d0000 71906000   C:\Program Files\TortoiseSVN\bin\libaprutil_tsvn32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ca9a4
+eip=774afc42 esp=001ca878 ebp=001ca8cc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 730d0000 730dd000   C:\Program Files\TortoiseSVN\bin\intl3_tsvn32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ca9a4
+eip=774afc42 esp=001ca878 ebp=001ca8cc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 718b0000 718c3000   C:\Program Files\TortoiseSVN\bin\libsasl32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ca9a4
+eip=774afc42 esp=001ca878 ebp=001ca8cc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 72e80000 72e88000   C:\Windows\SysWOW64\Secur32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ca9a4
+eip=774afc42 esp=001ca878 ebp=001ca8cc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 71700000 71769000   C:\Windows\SysWOW64\MSVCP100.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cacd0
+eip=774afc42 esp=001caba4 ebp=001cabf8 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 07f90000 07fa7000   C:\Users\SkyLined\AppData\Roaming\Dropbox\bin\DropboxExt.14.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cb02c
+eip=774afc42 esp=001caf00 ebp=001caf54 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74100000 741eb000   C:\Windows\SysWOW64\dbghelp.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cad00
+eip=774afc42 esp=001cabd4 ebp=001cac28 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 7c3a0000 7c41b000   C:\Users\SkyLined\AppData\Roaming\Dropbox\bin\MSVCP71.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cad00
+eip=774afc42 esp=001cabd4 ebp=001cac28 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 7c340000 7c396000   C:\Users\SkyLined\AppData\Roaming\Dropbox\bin\MSVCR71.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001ca9d4
+eip=774afc42 esp=001ca8a8 ebp=001ca8fc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 717b0000 717e1000   EhStorAPI.DLL
+&lt;---- EVENT: break ld ----&gt;
+        c:\symbols\apphelp.pdb\F442BEDCC0F646D3840D29898C5899CB2\apphelp.pdb
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=00000000 edi=00000314
+eip=774afc42 esp=001cb758 ebp=001cb7c0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 717b0000 717e1000   C:\Windows\SysWOW64\EhStorShell.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cb02c
+eip=774afc42 esp=001caf00 ebp=001caf54 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 72e70000 72e76000   C:\Windows\SysWOW64\IconCodecService.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cb55c
+eip=774afc42 esp=001cb430 ebp=001cb484 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74800000 74825000   C:\Windows\SysWOW64\POWRPROF.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd6c4
+eip=774afc42 esp=001cd598 ebp=001cd5ec iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74420000 7445c000   C:\Windows\SysWOW64\OLEACC.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd72c
+eip=774afc42 esp=001cd600 ebp=001cd654 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 25130000 25230000   C:\Windows\SysWOW64\USER32.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd72c
+eip=774afc42 esp=001cd600 ebp=001cd654 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 29530000 2968c000   C:\Windows\SysWOW64\ole32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd050
+eip=774afc42 esp=001ccf24 ebp=001ccf78 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+&lt;---- EVENT: break epr ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=77592100 edi=775920c0
+eip=774afca2 esp=0057fdcc ebp=0057fde8 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!NtTerminateProcess+0x12:
+774afca2 83c404          add     esp,4
+ModLoad: 74030000 7403e000   C:\Windows\SysWOW64\RpcRtRemote.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd888
+eip=774afc42 esp=001cd75c ebp=001cd7b0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 71890000 718a6000   C:\Windows\SysWOW64\thumbcache.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffda000 edi=07a9e35c
+eip=774afc42 esp=07a9e230 ebp=07a9e284 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 73c50000 73cc9000   C:\Windows\SysWOW64\mscms.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd890
+eip=774afc42 esp=001cd764 ebp=001cd7b8 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 722a0000 722b7000   C:\Windows\SysWOW64\USERENV.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fffdd000 edi=001cd4f0
+eip=774afc42 esp=001cd3c4 ebp=001cd418 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74790000 747be000   SHDOCVW.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=00000000 edi=000003a0
+eip=774afc42 esp=354bd3a8 ebp=354bd410 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74790000 747be000   C:\Windows\SysWOW64\shdocvw.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fff3d000 edi=354bcc7c
+eip=774afc42 esp=354bcb50 ebp=354bcba4 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 378c0000 3850a000   C:\Windows\SysWOW64\shell32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fff3d000 edi=354bdcf4
+eip=774afc42 esp=354bdbc8 ebp=354bdc1c iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 72490000 72500000   C:\Windows\SysWOW64\ntshrui.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fff3d000 edi=354be784
+eip=774afc42 esp=354be658 ebp=354be6ac iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 734c0000 734d9000   C:\Windows\SysWOW64\srvcli.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fff3d000 edi=354be6d4
+eip=774afc42 esp=354be5a8 ebp=354be5fc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 74020000 7402b000   C:\Windows\SysWOW64\cscapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fff3d000 edi=354be6a0
+eip=774afc42 esp=354be574 ebp=354be5c8 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 73720000 7372a000   C:\Windows\SysWOW64\slc.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fff3d000 edi=354be708
+eip=774afc42 esp=354be5dc ebp=354be630 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 079a0000 079d5000   C:\Windows\SysWOW64\ws2_32.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fff40000 edi=3b1cf820
+eip=774afc42 esp=3b1cf6f4 ebp=3b1cf748 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 72fd0000 72fd5000   C:\Windows\SysWOW64\wshtcpip.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fff40000 edi=3b1cf5a4
+eip=774afc42 esp=3b1cf478 ebp=3b1cf4cc iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 737a0000 737a6000   C:\Windows\SysWOW64\wship6.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fff40000 edi=3b1cf5c8
+eip=774afc42 esp=3b1cf49c ebp=3b1cf4f0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 722e0000 72324000   C:\Windows\SysWOW64\DNSAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fff40000 edi=3b1cebe4
+eip=774afc42 esp=3b1ceab8 ebp=3b1ceb0c iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 73510000 7352c000   C:\Windows\SysWOW64\IPHLPAPI.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fff40000 edi=3b1cea90
+eip=774afc42 esp=3b1ce964 ebp=3b1ce9b8 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 736c0000 736c7000   C:\Windows\SysWOW64\WINNSI.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fff40000 edi=3b1ce6f0
+eip=774afc42 esp=3b1ce5c4 ebp=3b1ce618 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 71770000 71776000   C:\Windows\SysWOW64\rasadhlp.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fff40000 edi=3b1cef40
+eip=774afc42 esp=3b1cee14 ebp=3b1cee68 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+ModLoad: 73fd0000 74008000   C:\Windows\SysWOW64\fwpuclnt.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00000000 edx=00000000 esi=fff40000 edi=3b1cefb8
+eip=774afc42 esp=3b1cee8c ebp=3b1ceee0 iopl=0         nv up ei pl zr na pe nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246
+ntdll!ZwMapViewOfSection+0x12:
+774afc42 83c404          add     esp,4
+(4b8.1390): Access violation - code c0000005 (first chance)
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Processes, threads and modules</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Process 0x4B8: desktop_starter.exe (main)
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" ""
+--- Threads for process 0x4B8 ---
+     0x1390: (unnamed) (event source)
+     0x139C: (unnamed)
+     0x1118: (unnamed)
+     0x698: (unnamed)
+     0x13D0: (unnamed)
+     0x8EC: (unnamed)
+     0xF34: (unnamed)
+     0x10A0: (unnamed)
+     0xB84: (unnamed)
+     0x750: (unnamed)
+     0x568: (unnamed)
+     0x1308: (unnamed)
+     0x1300: (unnamed)
+--- Modules for process 0x4B8 ---
+     WINNSI.DLL: 0x736C0000-0x736C7000
+     DropboxExt.14.dll: 0x7F90000-0x7FA7000
+     OPENGL32.dll: 0x74220000-0x742E8000
+     OLEACC.dll: 0x74420000-0x7445C000
+     TortoiseOverlays.dll: 0x72FE0000-0x72FF2000
+     msvcrt.dll: 0x763C0000-0x7646C000
+     WININET.dll: 0x76000000-0x7611B000
+     rsaenh.dll: 0x721B0000-0x721EB000
+     ntshrui.dll: 0x72490000-0x72500000
+     CRYPT32.dll: 0x762A0000-0x763BE000
+     WindowsCodecs.dll: 0x715A0000-0x7169B000
+     netutils.dll: 0x734E0000-0x734E9000
+     MSVCR71.dll: 0x7C340000-0x7C396000
+     comctl32.dll: 0x73310000-0x734AE000
+     CFGMGR32.dll: 0x764C0000-0x764E7000
+     TortoiseSVN32.dll: 0x719E0000-0x71A4B000
+     TortoiseStub32.dll: 0x730F0000-0x730FD000
+     wshtcpip.dll: 0x72FD0000-0x72FD5000
+     MSASN1.dll: 0x76120000-0x7612C000
+     KERNELBASE.dll: 0x76470000-0x764B6000
+     VERSION.dll: 0x74AA0000-0x74AA9000
+     LPK.dll: 0x75FF0000-0x75FFA000
+     Wintrust.dll: 0x74F70000-0x74F9D000
+     IMM32.DLL: 0x74EE0000-0x74F40000
+     COMDLG32.dll: 0x74E60000-0x74EDB000
+     libaprutil_tsvn32.dll: 0x718D0000-0x71906000
+     LINKINFO.dll: 0x74070000-0x74079000
+     MSVFW32.dll: 0x73E90000-0x73EB1000
+     ntdll.dll: 0x77490000-0x77610000
+     dbghelp.dll: 0x74100000-0x741EB000
+     WS2_32.dll: 0x75140000-0x75175000
+     gdi32.dll: 0xA40000-0xAD0000
+     dwmapi.dll: 0x71D90000-0x71DA3000
+     avicap32.dll: 0x73EC0000-0x73ED3000
+     GLU32.dll: 0x744A0000-0x744C2000
+     srvcli.dll: 0x734C0000-0x734D9000
+     MSCTF.dll: 0x74D90000-0x74E5C000
+     msdmo.dll: 0x747C0000-0x747CB000
+     MSVCR100.dll: 0x71910000-0x719CD000
+     USP10.dll: 0x76890000-0x7692D000
+     shell32.dll: 0x30030000-0x30C7A000
+     CLBCatQ.DLL: 0x76210000-0x76293000
+     profapi.dll: 0x721F0000-0x721FB000
+     propsys.dll: 0x73A50000-0x73B45000
+     MSVCP71.dll: 0x7C3A0000-0x7C41B000
+     libsasl32.dll: 0x718B0000-0x718C3000
+     usp10.dll: 0xA40000-0xADD000
+     WSOCK32.dll: 0x72200000-0x72207000
+     SHLWAPI.dll: 0x74C00000-0x74C57000
+     intl3_tsvn32.dll: 0x730D0000-0x730DD000
+     devenum.dll: 0x74480000-0x74494000
+     IconCodecService.dll: 0x72E70000-0x72E76000
+     DNSAPI.dll: 0x722E0000-0x72324000
+     desktop_starter.exe: 0xB50000-0xC27000
+     RPCRT4.dll: 0x76AE0000-0x76BD0000
+     NETAPI32.DLL: 0x734F0000-0x73501000
+     ADVAPI32.dll: 0x764F0000-0x76590000
+     SETUPAPI.dll: 0x74FA0000-0x7513D000
+     USER32.DLL: 0x1CD30000-0x1CE30000
+     mscms.dll: 0x73C50000-0x73CC9000
+     Opera.dll: 0x6B2E0000-0x6C165000
+     RpcRtRemote.dll: 0x74030000-0x7403E000
+     OLEAUT32.dll: 0x76590000-0x7661F000
+     MSWSOCK.dll: 0x72330000-0x7236C000
+     fwpuclnt.dll: 0x73FD0000-0x74008000
+     Crypt32.dll: 0x8900000-0x8A1E000
+     cscapi.dll: 0x74020000-0x7402B000
+     libapr_tsvn32.dll: 0x72440000-0x72464000
+     shell32.dll: 0x8AA0000-0x96EA000
+     CRYPTSP.dll: 0x72210000-0x72226000
+     USER32.dll: 0x74C60000-0x74D60000
+     psapi.dll: 0x74F60000-0x74F65000
+     slc.dll: 0x73720000-0x7372A000
+     user32.dll: 0x8AA0000-0x8BA0000
+     kernel32.dll: 0x76620000-0x76730000
+     ntmarta.dll: 0x74040000-0x74061000
+     iertutil.dll: 0x751E0000-0x75398000
+     CRYPTBASE.dll: 0x74B60000-0x74B6C000
+     wkscli.dll: 0x734B0000-0x734BF000
+     ole32.dll: 0x76730000-0x7688C000
+     USERENV.dll: 0x722A0000-0x722B7000
+     wship6.dll: 0x737A0000-0x737A6000
+     NSI.dll: 0x77460000-0x77466000
+     WLDAP32.dll: 0x76130000-0x76175000
+     urlmon.dll: 0x769C0000-0x76AD1000
+     libsvn_tsvn32.dll: 0x6D660000-0x6D950000
+     Normaliz.dll: 0x74BD0000-0x74BD3000
+     verifier.dll: 0x74830000-0x74890000
+     Msimg32.dll: 0x74080000-0x74085000
+     SHELL32.dll: 0x753A0000-0x75FEA000
+     quartz.dll: 0x73D60000-0x73ED7000
+     uxtheme.dll: 0x72370000-0x723F0000
+     KERNEL32.DLL: 0x8AA0000-0x8BB0000
+     DDRAW.dll: 0x73EE0000-0x73FC7000
+     WINMM.dll: 0x723F0000-0x72422000
+     sechost.dll: 0x74F40000-0x74F59000
+     SspiCli.dll: 0x74B70000-0x74BD0000
+     DCIMAN32.dll: 0x747D0000-0x747D6000
+     IPHLPAPI.DLL: 0x73510000-0x7352C000
+     GDI32.dll: 0x76930000-0x769C0000
+     DEVOBJ.dll: 0x74BE0000-0x74BF2000
+     Secur32.dll: 0x72E80000-0x72E88000
+     MSVCP100.dll: 0x71700000-0x71769000
+     EhStorShell.dll: 0x717B0000-0x717E1000
+     rasadhlp.dll: 0x71770000-0x71776000
+     apphelp.dll: 0x72F40000-0x72F8C000
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 "><LEGEND onclick="flipLegend()" class="level0">Stack frames</LEGEND><SPAN></SPAN><SPAN class="hideable "><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-0">Frame 0: Opera.dll!+0x155C8E</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-1">Frame 1: Opera.dll!+0x169A3F</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-2">Frame 2: Opera.dll!+0x16A080</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-3">Frame 3: Opera.dll!+0xDB2EA</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-4">Frame 4: ntdll.dll!RtlpAllocateHeap+0xE73</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-ntdll.dll!RtlpAllocateHeap">ntdll.dll!RtlpAllocateHeap</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-5">Frame 5: Opera.dll!+0xD0548</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-6">Frame 6: Opera.dll!+0xDC544</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-7">Frame 7: Opera.dll!+0xD0548</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-8">Frame 8: Opera.dll!+0x8D1A0</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-9">Frame 9: Opera.dll!+0x798B2</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-10">Frame 10: Opera.dll!+0x643A2</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-11">Frame 11: Opera.dll!+0x4762C</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-12">Frame 12: Opera.dll!+0x5EF2C</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-13">Frame 13: Opera.dll!+0x5EDE9</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-14">Frame 14: Opera.dll!+0x1B576B</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-15">Frame 15: Opera.dll!+0x1272F0</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-16">Frame 16: Opera.dll!+0x156BCC</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Memory regions</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Functions</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-ntdll.dll!RtlpAllocateHeap">ntdll.dll!RtlpAllocateHeap</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        ntdll.dll+0x338FD
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        Opera.dll+0x1296
+Disassembly: not available
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET></BODY></HTML>

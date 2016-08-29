@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>
+      var oWindow = window.open("target.xhtml");
+      (function () {
+        if (oWindow.document.getElementsByTagName("base").length) {
+          oWindow.document.execCommand("SelectAll");
+          oWindow.document.execCommand("Copy");
+          oWindow.document.execCommand("Paste");
+        } else {
+          setTimeout(arguments.callee);
+        };
+      })();
+    </script>
+  </head>
+</html>

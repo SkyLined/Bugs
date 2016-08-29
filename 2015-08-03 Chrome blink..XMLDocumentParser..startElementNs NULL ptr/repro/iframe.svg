@@ -1,0 +1,16 @@
+<x xmlns="http://www.w3.org/2000/svg">
+<script>
+  document.addEventListener("DOMCharacterDataModified",function (){
+    window.frameElement.outerHTML = "x";
+  },true);
+/*
+  document.addEventListener("DOMActivate",main,false);
+  document.addEventListener("DOMCharacterDataModified",main,true);
+  document.addEventListener("DOMNodeInserted",main,true);
+  document.addEventListener("DOMNodeInsertedIntoDocument",main,false);
+  document.addEventListener("DOMNodeRemoved",main,true);
+  document.addEventListener("DOMNodeRemovedFromDocument",main,false);
+*/
+</script>
+<a>
+</x>

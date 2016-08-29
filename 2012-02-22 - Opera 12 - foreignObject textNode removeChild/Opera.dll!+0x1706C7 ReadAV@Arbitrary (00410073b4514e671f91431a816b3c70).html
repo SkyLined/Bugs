@@ -1,0 +1,815 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><HTML><HEAD><STYLE>LEGEND, TABLE {width:100%;}FIELDSET {margin-bottom: 5px;}FIELDSET.level0 {background: #F0F0F0;}LEGEND.level0 {background: #C0C0C0; border: 1px inset; font-size: 200%}FIELDSET.level1 {background: #E0E0E0;}LEGEND.level1 {background: #B0B0B0; border: 1px inset; font-size: 150%}FIELDSET.level2 {background: #D0D0D0;}LEGEND.level2 {background: #A0A0A0; border: 1px inset; font-size: 120%}FIELDSET.level3 {background: #C0C0C0;}LEGEND.level3 {background: #909090; border: 1px inset; font-size: 110%}FIELDSET.level4 {background: #B0B0B0;}LEGEND.level4 {background: #808080; border: 1px inset; font-size: 100%}SPAN.local_type {color: #000060;}SPAN.local_name {color: #0000FF;}SPAN.function_name { color: #004000;}TABLE,TR,TD {border: 1px solid silver; border-collapse: collapse;}* {white-space: nowrap;}PRE {white-space: pre;}.wrapable {white-space: normal; width:100%;}FIELDSET.hidden {border-bottom: 5px dashed #A0A0A0;}SPAN.hidden {display: none;}</STYLE><SCRIPT>function openAnchorEvent(event) {if (!event) event = window.event;openAnchor(event.srcElement.href.replace(/.*#/, ""));}function openAnchor(anchor) {targets = document.getElementsByName(anchor);if (targets.length == 1) {target = targets[0];while (target != null) {c = target.className;if (c.indexOf("hidden") > -1)target.className = c.replace(/\s*hidden\s*/, " ");target = target.parentElement}}}function flipLegend() {if (!event) event = window.event;legend = event.srcElement;while (legend.tagName != "LEGEND") legend = legend.parentElement;fieldset = legend.parentElement;flipHideables(fieldset);}function flipHideables(fieldset) {flipHiddenClass(fieldset);for (i in fieldset.children) {o = fieldset.children[i];c = o.className;if (c && c.indexOf("hideable") > -1) {flipHiddenClass(o);}}}function flipHiddenClass(element) {c = element.className;if (c.indexOf("hidden") > -1) {element.className = c.replace(/\s*hidden\s*/, " ");} else {element.className += " hidden";}}</SCRIPT></HEAD><BODY onload="if (location.hash) openAnchor(location.hash.substr(1));"><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Cdb event information</LEGEND><SPAN><PRE>id:             Opera.dll!+0x1706C7 ReadAV@Arbitrary (00410073b4514e671f91431a816b3c70)
+description:    Security: Attempt to read from unallocated arbitrary memory (@0x30303A35) in Opera.dll!+0x1706C7
+note:           The exception happens in the main process. Based on this information, this is expected to be a <B>critical</B> security issue!
+</PRE></SPAN><SPAN class="hideable hidden"><PRE>stack:          Opera.dll!+0x1706C7
+                Opera.dll!+0x1702B3
+                Opera.dll!+0x17161B
+                Opera.dll!+0x1BA87E
+                Opera.dll!+0x9B5E26
+                Opera.dll!+0x1D4938
+                Opera.dll!+0x1C9BEB
+                Opera.dll!+0x1D4938
+                Opera.dll!+0x2286BC
+                Opera.dll!+0x23981C
+                Opera.dll!+0x4D1C7
+                Opera.dll!+0x271507
+                Opera.dll!+0x26323B
+                Opera.dll!+0x263300
+                Opera.dll!+0x19C342
+                Opera.dll!+0x18BAA0
+                Opera.dll!+0x1720D3
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Pre event output</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Microsoft (R) Windows Debugger Version 6.9.0003.113 X86
+Copyright (c) Microsoft Corporation. All rights reserved.
+CommandLine: C:\Program Files\Opera\Opera.exe &quot;http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret&quot;
+Symbol search path is: CACHE*D:\Symbols;SRV*http://msdl.microsoft.com/download/symbols;SRV*http://chromium-browser-symsrv.commondatastorage.googleapis.com;SRV*http://symbols.mozilla.org/firefox;SRV*http://developer.apple.com/internet/safari/windows_symbols
+Executable search path is: 
+ModLoad: 00400000 004e9000   desktop_starter.exe
+ModLoad: 7c900000 7c9b2000   ntdll.dll
+ModLoad: 7c800000 7c8f6000   C:\WINDOWS\system32\kernel32.dll
+ModLoad: 7e410000 7e4a1000   C:\WINDOWS\system32\USER32.dll
+ModLoad: 77f10000 77f59000   C:\WINDOWS\system32\GDI32.dll
+ModLoad: 77dd0000 77e6b000   C:\WINDOWS\system32\ADVAPI32.dll
+ModLoad: 77e70000 77f03000   C:\WINDOWS\system32\RPCRT4.dll
+ModLoad: 77fe0000 77ff1000   C:\WINDOWS\system32\Secur32.dll
+ModLoad: 7c9c0000 7d1d7000   C:\WINDOWS\system32\SHELL32.dll
+ModLoad: 77c10000 77c68000   C:\WINDOWS\system32\msvcrt.dll
+ModLoad: 77f60000 77fd6000   C:\WINDOWS\system32\SHLWAPI.dll
+ModLoad: 774e0000 7761e000   C:\WINDOWS\system32\ole32.dll
+(d74.a90): Break instruction exception - code 80000003 (first chance)
+eax=00251eb4 ebx=7ffdf000 ecx=00000006 edx=00000040 esi=00251f48 edi=00251eb4
+eip=7c90120e esp=0012fb20 ebp=0012fc94 iopl=0         nv up ei pl nz na po nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000202
+ntdll!DbgBreakPoint:
+7c90120e cc              int     3
+ModLoad: 76390000 763ad000   C:\WINDOWS\system32\IMM32.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00340000 edx=7c90e514 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012eb7c ebp=0012ec70 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 629c0000 629c9000   C:\WINDOWS\system32\LPK.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=00000006 ebx=00000000 ecx=00152eb6 edx=00000003 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012ebf0 ebp=0012ece4 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 74d90000 74dfb000   C:\WINDOWS\system32\USP10.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=77f123d4 ebx=00000000 ecx=77f17c79 edx=629c5200 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e8c0 ebp=0012e9b4 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 773d0000 774d3000   C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.6028_x-ww_61e65202\comctl32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=009d0000 edx=7c90e514 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012ee3c ebp=0012ef30 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 71ab0000 71ac7000   C:\WINDOWS\system32\WS2_32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=003c0000 edx=7c90e514 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012ea14 ebp=0012eb08 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 71aa0000 71aa8000   C:\WINDOWS\system32\WS2HELP.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=7c903e94 ebx=00000000 ecx=7c92b8e7 edx=71ac2e00 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e6e4 ebp=0012e7d8 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 76bf0000 76bfb000   C:\WINDOWS\system32\psapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=003a0000 edx=7c90e514 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e7e0 ebp=0012e8d4 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 5ad70000 5ada8000   C:\WINDOWS\system32\uxtheme.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=003c0000 edx=7c90e514 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e118 ebp=0012e20c iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 77920000 77a13000   C:\WINDOWS\system32\SETUPAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=7ffde000 ebx=00000000 ecx=006dbd60 edx=00000002 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e3ec ebp=0012e4e0 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 67250000 68000000   C:\Program Files\Opera\Opera.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=776078e4 edx=7c90e514 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e994 ebp=0012ea88 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 67250000 68000000   C:\Program Files\Opera\Opera.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=67250000 ebx=00000000 ecx=00000100 edx=00daf000 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012ea44 ebp=0012eb38 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 76b40000 76b6d000   C:\WINDOWS\system32\WINMM.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000003 ebx=00000000 ecx=00000002 edx=00000001 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e730 ebp=0012e824 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 77c00000 77c08000   C:\WINDOWS\system32\VERSION.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=77dd1e48 ebx=00000000 ecx=77df3918 edx=67e1b600 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e730 ebp=0012e824 iopl=0         nv up ei pl nz na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000206
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 71ad0000 71ad9000   C:\WINDOWS\system32\WSOCK32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=77c011d8 ebx=00000000 ecx=77c018aa edx=67e1b800 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e730 ebp=0012e824 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 71ab0000 71ac7000   C:\WINDOWS\system32\WS2_32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=7c802878 ebx=00000000 ecx=7c811336 edx=71ad3100 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e400 ebp=0012e4f4 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 71aa0000 71aa8000   C:\WINDOWS\system32\WS2HELP.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=7c903e94 ebx=00000000 ecx=7c92b8e7 edx=71ac2e00 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e0d0 ebp=0012e1c4 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 763b0000 763f9000   C:\WINDOWS\system32\COMDLG32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=77f12040 ebx=00000000 ecx=77f18086 edx=67e1d100 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e730 ebp=0012e824 iopl=0         nv up ei pl nz na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000206
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 77120000 771ab000   C:\WINDOWS\system32\OLEAUT32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=774fa6f8 ebx=00000000 ecx=774ff1bc edx=67e1d600 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e730 ebp=0012e824 iopl=0         nv up ei pl nz na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000206
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 76c30000 76c5e000   C:\WINDOWS\system32\Wintrust.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00ab0000 edx=7c90e514 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e9f4 ebp=0012eae8 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 77a80000 77b15000   C:\WINDOWS\system32\CRYPT32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=77dd2160 ebx=00000000 ecx=77dd5a84 edx=76c58000 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e6e0 ebp=0012e7d4 iopl=0         nv up ei pl nz na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000206
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 77b20000 77b32000   C:\WINDOWS\system32\MSASN1.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=7c802dac ebx=00000000 ecx=7c834003 edx=77b04100 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e3cc ebp=0012e4c0 iopl=0         nv up ei pl nz na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000206
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 76c90000 76cb8000   C:\WINDOWS\system32\IMAGEHLP.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=77a81d08 ebx=00000000 ecx=77acd4d2 edx=76c58100 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e6e0 ebp=0012e7d4 iopl=0         nv up ei pl nz na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000206
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 755c0000 755ee000   C:\WINDOWS\system32\msctfime.ime
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=00bc0000 edx=7c90e514 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012dab0 ebp=0012dba4 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 769c0000 76a74000   C:\WINDOWS\system32\USERENV.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=fffffffb ebx=00000000 ecx=00000000 edx=ffffffff esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e0bc ebp=0012e1b0 iopl=0         nv up ei pl nz na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000206
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 76380000 76385000   C:\WINDOWS\system32\Msimg32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=10cd0000 edx=7c90e514 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e424 ebp=0012e518 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 71a50000 71a8f000   C:\WINDOWS\system32\mswsock.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=10ed0000 edx=7c90e514 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012dda0 ebp=0012de94 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 662b0000 66308000   C:\WINDOWS\system32\hnetcfg.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=7ffde000 ebx=00000000 ecx=71a516fb edx=7c97e174 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012dc24 ebp=0012dd18 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 71a90000 71a98000   C:\WINDOWS\System32\wshtcpip.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=10f10000 edx=7c90e514 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012e0dc ebp=0012e1d0 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 76f20000 76f47000   C:\WINDOWS\system32\DNSAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=feeefeee ebx=00000000 ecx=00000235 edx=00169378 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012d9a4 ebp=0012da98 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 76d60000 76d79000   C:\WINDOWS\system32\iphlpapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0012e060 ebx=00000000 ecx=76f22e90 edx=71a5a214 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012d838 ebp=0012d92c iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 76fb0000 76fb8000   C:\WINDOWS\System32\winrnr.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=10f20000 edx=7c90e514 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012da68 ebp=0012db5c iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 76f60000 76f8c000   C:\WINDOWS\system32\WLDAP32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=77c596d0 ebx=00000000 ecx=77c47e61 edx=76fb4000 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012d738 ebp=0012d82c iopl=0         nv up ei pl nz na po nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000202
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 76fc0000 76fc6000   C:\WINDOWS\system32\rasadhlp.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00176000 ebx=00000000 ecx=1102e3b8 edx=00001000 esi=00000000 edi=00000000
+eip=7c90e514 esp=1102ed80 ebp=1102ee74 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+ModLoad: 61880000 618ba000   C:\WINDOWS\system32\OLEACC.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00000000 ebx=00000000 ecx=11350000 edx=7c90e514 esi=00000000 edi=00000000
+eip=7c90e514 esp=0012d844 ebp=0012d938 iopl=0         nv up ei ng nz ac pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000296
+ntdll!KiFastSystemCallRet:
+7c90e514 c3              ret
+(d74.a90): Access violation - code c0000005 (first chance)
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Processes, threads and modules</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Process 0xD74: desktop_starter.exe (main)
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+     0n3444 C:\Program Files\Opera\Opera.exe
+     Command Line: "C:\Program Files\Opera\Opera.exe" "http://localhost:28876/index.html?secret=BrowserTestWithTimeoutsSecret"
+--- Threads for process 0xD74 ---
+     0xA90: (unnamed) (event source)
+     0xE84: (unnamed)
+     0xA3C: (unnamed)
+     0x95C: (unnamed)
+     0x9A8: (unnamed)
+     0x2F0: (unnamed)
+     0x908: (unnamed)
+     0x5A4: (unnamed)
+     0x86C: (unnamed)
+     0xF3C: (unnamed)
+--- Modules for process 0xD74 ---
+     kernel32.dll: 0x7C800000-0x7C8F6000
+     winrnr.dll: 0x76FB0000-0x76FB8000
+     ntdll.dll: 0x7C900000-0x7C9B2000
+     IMAGEHLP.dll: 0x76C90000-0x76CB8000
+     psapi.dll: 0x76BF0000-0x76BFB000
+     USERENV.dll: 0x769C0000-0x76A74000
+     WS2HELP.dll: 0x71AA0000-0x71AA8000
+     msvcrt.dll: 0x77C10000-0x77C68000
+     iphlpapi.dll: 0x76D60000-0x76D79000
+     uxtheme.dll: 0x5AD70000-0x5ADA8000
+     WLDAP32.dll: 0x76F60000-0x76F8C000
+     WSOCK32.dll: 0x71AD0000-0x71AD9000
+     SHLWAPI.dll: 0x77F60000-0x77FD6000
+     WS2_32.dll: 0x71AB0000-0x71AC7000
+     CRYPT32.dll: 0x77A80000-0x77B15000
+     MSASN1.dll: 0x77B20000-0x77B32000
+     desktop_starter.exe: 0x400000-0x4E9000
+     mswsock.dll: 0x71A50000-0x71A8F000
+     Msimg32.dll: 0x76380000-0x76385000
+     SHELL32.dll: 0x7C9C0000-0x7D1D7000
+     RPCRT4.dll: 0x77E70000-0x77F03000
+     comctl32.dll: 0x773D0000-0x774D3000
+     ADVAPI32.dll: 0x77DD0000-0x77E6B000
+     SETUPAPI.dll: 0x77920000-0x77A13000
+     OLEACC.dll: 0x61880000-0x618BA000
+     Opera.dll: 0x67250000-0x68000000
+     wshtcpip.dll: 0x71A90000-0x71A98000
+     DNSAPI.dll: 0x76F20000-0x76F47000
+     WINMM.dll: 0x76B40000-0x76B6D000
+     USP10.dll: 0x74D90000-0x74DFB000
+     VERSION.dll: 0x77C00000-0x77C08000
+     LPK.DLL: 0x629C0000-0x629C9000
+     Wintrust.dll: 0x76C30000-0x76C5E000
+     GDI32.dll: 0x77F10000-0x77F59000
+     Secur32.dll: 0x77FE0000-0x77FF1000
+     IMM32.DLL: 0x76390000-0x763AD000
+     hnetcfg.dll: 0x662B0000-0x66308000
+     OLEAUT32.dll: 0x77120000-0x771AB000
+     USER32.dll: 0x7E410000-0x7E4A1000
+     COMDLG32.dll: 0x763B0000-0x763F9000
+     ole32.dll: 0x774E0000-0x7761E000
+     rasadhlp.dll: 0x76FC0000-0x76FC6000
+     msctfime.ime: 0x755C0000-0x755EE000
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 "><LEGEND onclick="flipLegend()" class="level0">Stack frames</LEGEND><SPAN></SPAN><SPAN class="hideable "><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-0">Frame 0: Opera.dll!+0x1706C7</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Opera!OpSetLaunchMan+0x16f3fe:
+673c0697 1c89            sbb     al,89h
+673c0699 842480          test    byte ptr [eax+eax*4],ah
+673c069c 0000            add     byte ptr [eax],al
+673c069e 003b            add     byte ptr [ebx],bh
+673c06a0 55              push    ebp
+673c06a1 100f            adc     byte ptr [edi],cl
+673c06a3 84a902000089    test    byte ptr [ecx-76FFFFFEh],ch
+673c06a9 54              push    esp
+673c06aa 2434            and     al,34h
+673c06ac 8d642400        lea     esp,[esp]
+673c06b0 3bd3            cmp     edx,ebx
+673c06b2 0f8492020000    je      Opera!OpSetLaunchMan+0x16f6b1 (673c094a)
+673c06b8 8b4a14          mov     ecx,dword ptr [edx+14h]
+673c06bb 8954241c        mov     dword ptr [esp+1Ch],edx
+673c06bf 3bcb            cmp     ecx,ebx
+673c06c1 0f84c9803200    je      Opera!OpGetNextUninstallFile+0x135abd (676e8790)
+Opera!OpSetLaunchMan+0x16f42e:
+673c06c7 8b01            mov     eax,dword ptr [ecx]
+673c06c9 8b8088000000    mov     eax,dword ptr [eax+88h]
+673c06cf 3d7b8e5c67      cmp     eax,offset Opera!OpGetNextUninstallFile+0x161a8 (675c8e7b)
+673c06d4 0f859f803200    jne     Opera!OpGetNextUninstallFile+0x135aa6 (676e8779)
+673c06da 8bc2            mov     eax,edx
+673c06dc 8b12            mov     edx,dword ptr [edx]
+673c06de 89542434        mov     dword ptr [esp+34h],edx
+673c06e2 3b5510          cmp     edx,dword ptr [ebp+10h]
+673c06e5 75c9            jne     Opera!OpSetLaunchMan+0x16f417 (673c06b0)
+673c06e7 3bc3            cmp     eax,ebx
+673c06e9 0f845b020000    je      Opera!OpSetLaunchMan+0x16f6b1 (673c094a)
+673c06ef 8b4014          mov     eax,dword ptr [eax+14h]
+673c06f2 3bc3            cmp     eax,ebx
+673c06f4 0f8450020000    je      Opera!OpSetLaunchMan+0x16f6b1 (673c094a)
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-1">Frame 1: Opera.dll!+0x1702B3</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Opera!OpSetLaunchMan+0x16efea:
+673c0283 3200            xor     al,byte ptr [eax]
+673c0285 8b7f04          mov     edi,dword ptr [edi+4]
+673c0288 3bfe            cmp     edi,esi
+673c028a 7410            je      Opera!OpSetLaunchMan+0x16f003 (673c029c)
+673c028c 8b550c          mov     edx,dword ptr [ebp+0Ch]
+673c028f 8b4c2414        mov     ecx,dword ptr [esp+14h]
+673c0293 8b442424        mov     eax,dword ptr [esp+24h]
+673c0297 e934ffffff      jmp     Opera!OpSetLaunchMan+0x16ef37 (673c01d0)
+673c029c 5f              pop     edi
+673c029d 5e              pop     esi
+673c029e 5b              pop     ebx
+673c029f 8be5            mov     esp,ebp
+673c02a1 5d              pop     ebp
+673c02a2 c20800          ret     8
+673c02a5 8b4c241c        mov     ecx,dword ptr [esp+1Ch]
+673c02a9 51              push    ecx
+673c02aa 52              push    edx
+673c02ab 53              push    ebx
+673c02ac 8bcf            mov     ecx,edi
+673c02ae e86d020000      call    Opera!OpSetLaunchMan+0x16f287 (673c0520)
+Opera!OpSetLaunchMan+0x16f01a:
+673c02b3 ebba            jmp     Opera!OpSetLaunchMan+0x16efd6 (673c026f)
+673c02b5 397728          cmp     dword ptr [edi+28h],esi
+673c02b8 0f8c71ffffff    jl      Opera!OpSetLaunchMan+0x16ef96 (673c022f)
+673c02be 89742414        mov     dword ptr [esp+14h],esi
+673c02c2 e970ffffff      jmp     Opera!OpSetLaunchMan+0x16ef9e (673c0237)
+673c02c7 3d107e3c67      cmp     eax,offset Opera!OpSetLaunchMan+0x176b77 (673c7e10)
+673c02cc 0f85ba010000    jne     Opera!OpSetLaunchMan+0x16f1f3 (673c048c)
+673c02d2 8b4714          mov     eax,dword ptr [edi+14h]
+673c02d5 89442418        mov     dword ptr [esp+18h],eax
+673c02d9 8b03            mov     eax,dword ptr [ebx]
+673c02db 8b4014          mov     eax,dword ptr [eax+14h]
+673c02de 33c9            xor     ecx,ecx
+673c02e0 66898c2480000000 mov     word ptr [esp+80h],cx
+</PRE></SPAN></FIELDSET><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Registers</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>eax=00000000 ebx=00000000 ecx=30303a35 edx=0c0ad938 esi=0c1c4e90 edi=0012ce08
+eip=673c06c7 esp=0012c9d8 ebp=0012cadc iopl=0         nv up ei pl nz na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00010206
+fpcw=027F: rn 53 puozdi  fpsw=0037: top=0 cc=0000 --pu-zdi  fptw=FFFF
+fopcode=0158  fpip=001b:67327acf  fpdp=0023:0c16b04c
+st0= 2.486707854609396532610e-0908  st1= 1.000000000000000000000e+0002
+st2=-1.600000000000000000000e+0005  st3= 1.600000000000000000000e+0003
+st4= 1.600000000000000000000e+0003  st5= 1.200000000000000000000e+0001
+st6= 1.000000000000000000000e+0000  st7= 1.000000000000000000000e+0000
+mm0=805034338a343640  mm1=c800000000000000
+mm2=9c40000000000000  mm3=c800000000000000
+mm4=c800000000000000  mm5=c000000000000000
+mm6=8000000000000000  mm7=8000000000000000
+xmm0=0 0 0 0
+xmm1=0 0 8.22147 0
+xmm2=0 1.5064e-042 0 4.90454e-044
+xmm3=0 0 8.22147 0
+xmm4=0 0 0 0
+xmm5=0 0 0 0
+xmm6=0 0 0 0
+xmm7=0 0 8.22147 0
+Opera!OpSetLaunchMan+0x16f42e:
+673c06c7 8b01            mov     eax,dword ptr [ecx]  ds:0023:30303a35=????????
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-2">Frame 2: Opera.dll!+0x17161B</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Opera!OpSetLaunchMan+0x170352:
+673c15eb 3bc3            cmp     eax,ebx
+673c15ed 0f85ba123200    jne     Opera!OpGetNextUninstallFile+0x12fbda (676e28ad)
+673c15f3 899984020000    mov     dword ptr [ecx+284h],ebx
+673c15f9 8b4904          mov     ecx,dword ptr [ecx+4]
+673c15fc 894c2410        mov     dword ptr [esp+10h],ecx
+673c1600 3bcb            cmp     ecx,ebx
+673c1602 75be            jne     Opera!OpSetLaunchMan+0x170329 (673c15c2)
+673c1604 8b44240c        mov     eax,dword ptr [esp+0Ch]
+673c1608 8b4c2444        mov     ecx,dword ptr [esp+44h]
+673c160c 8b49e4          mov     ecx,dword ptr [ecx-1Ch]
+673c160f 8b11            mov     edx,dword ptr [ecx]
+673c1611 50              push    eax
+673c1612 8b82e4000000    mov     eax,dword ptr [edx+0E4h]
+673c1618 57              push    edi
+673c1619 ffd0            call    eax
+Opera!OpSetLaunchMan+0x170382:
+673c161b 8b4c240c        mov     ecx,dword ptr [esp+0Ch]
+673c161f 8b4104          mov     eax,dword ptr [ecx+4]
+673c1622 3bc3            cmp     eax,ebx
+673c1624 7450            je      Opera!OpSetLaunchMan+0x1703dd (673c1676)
+673c1626 89442410        mov     dword ptr [esp+10h],eax
+673c162a 8bc8            mov     ecx,eax
+673c162c 8d642400        lea     esp,[esp]
+673c1630 395910          cmp     dword ptr [ecx+10h],ebx
+673c1633 743d            je      Opera!OpSetLaunchMan+0x1703d9 (673c1672)
+673c1635 8b8184020000    mov     eax,dword ptr [ecx+284h]
+673c163b 895910          mov     dword ptr [ecx+10h],ebx
+673c163e 899988020000    mov     dword ptr [ecx+288h],ebx
+673c1644 89998c020000    mov     dword ptr [ecx+28Ch],ebx
+673c164a 899990020000    mov     dword ptr [ecx+290h],ebx
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-3">Frame 3: Opera.dll!+0x1BA87E</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Opera!OpSetLaunchMan+0x1b95b5:
+6740a84e 748b            je      Opera!OpSetLaunchMan+0x1b9542 (6740a7db)
+6740a850 48              dec     eax
+6740a851 54              push    esp
+6740a852 8b91b4030000    mov     edx,dword ptr [ecx+3B4h]
+6740a858 c782d400000001000000 mov dword ptr [edx+0D4h],1
+6740a862 8b07            mov     eax,dword ptr [edi]
+6740a864 8b502c          mov     edx,dword ptr [eax+2Ch]
+6740a867 8bcf            mov     ecx,edi
+6740a869 ffd2            call    edx
+6740a86b 8b4c2410        mov     ecx,dword ptr [esp+10h]
+6740a86f 8b4124          mov     eax,dword ptr [ecx+24h]
+6740a872 8b5038          mov     edx,dword ptr [eax+38h]
+6740a875 6a00            push    0
+6740a877 83c124          add     ecx,24h
+6740a87a 53              push    ebx
+6740a87b 57              push    edi
+6740a87c ffd2            call    edx
+Opera!OpSetLaunchMan+0x1b95e5:
+6740a87e 8b07            mov     eax,dword ptr [edi]
+6740a880 8b5030          mov     edx,dword ptr [eax+30h]
+6740a883 8bcf            mov     ecx,edi
+6740a885 ffd2            call    edx
+6740a887 8b4774          mov     eax,dword ptr [edi+74h]
+6740a88a 8b4854          mov     ecx,dword ptr [eax+54h]
+6740a88d 8b91b4030000    mov     edx,dword ptr [ecx+3B4h]
+6740a893 8d442414        lea     eax,[esp+14h]
+6740a897 c782d400000000000000 mov dword ptr [edx+0D4h],0
+6740a8a1 3bf0            cmp     esi,eax
+6740a8a3 7507            jne     Opera!OpSetLaunchMan+0x1b9613 (6740a8ac)
+6740a8a5 8bce            mov     ecx,esi
+6740a8a7 e85452f6ff      call    Opera!OpSetLaunchMan+0x11e867 (6736fb00)
+6740a8ac 837f3c00        cmp     dword ptr [edi+3Ch],0
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-4">Frame 4: Opera.dll!+0x9B5E26</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpWaitFileWasPresent">Opera.dll!OpWaitFileWasPresent</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Opera!OpWaitFileWasPresent+0x4ac716:
+67c05df6 c074d88b46      sal     byte ptr [eax+ebx*8-75h],46h
+67c05dfb 44              inc     esp
+67c05dfc 8bb0b4030000    mov     esi,dword ptr [eax+3B4h]
+67c05e02 8b86d4000000    mov     eax,dword ptr [esi+0D4h]
+67c05e08 89442438        mov     dword ptr [esp+38h],eax
+67c05e0c 8d44242c        lea     eax,[esp+2Ch]
+67c05e10 50              push    eax
+67c05e11 89bed4000000    mov     dword ptr [esi+0D4h],edi
+67c05e17 ff735c          push    dword ptr [ebx+5Ch]
+67c05e1a 8d8c249c000000  lea     ecx,[esp+9Ch]
+67c05e21 e81a4880ff      call    Opera!OpSetLaunchMan+0x1b93a7 (6740a640)
+Opera!OpWaitFileWasPresent+0x4ac746:
+67c05e26 8b442434        mov     eax,dword ptr [esp+34h]
+67c05e2a 8d4c2428        lea     ecx,[esp+28h]
+67c05e2e 8986d4000000    mov     dword ptr [esi+0D4h],eax
+67c05e34 e8c79c76ff      call    Opera!OpSetLaunchMan+0x11e867 (6736fb00)
+67c05e39 8b442424        mov     eax,dword ptr [esp+24h]
+67c05e3d 8d7340          lea     esi,[ebx+40h]
+67c05e40 8d7c2448        lea     edi,[esp+48h]
+67c05e44 a5              movs    dword ptr es:[edi],dword ptr [esi]
+67c05e45 a5              movs    dword ptr es:[edi],dword ptr [esi]
+67c05e46 a5              movs    dword ptr es:[edi],dword ptr [esi]
+67c05e47 a5              movs    dword ptr es:[edi],dword ptr [esi]
+67c05e48 8b7034          mov     esi,dword ptr [eax+34h]
+67c05e4b 8b06            mov     eax,dword ptr [esi]
+67c05e4d 8bce            mov     ecx,esi
+67c05e4f ff5044          call    dword ptr [eax+44h]
+67c05e52 8364241400      and     dword ptr [esp+14h],0
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-5">Frame 5: Opera.dll!+0x1D4938</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Opera!OpSetLaunchMan+0x1d366f:
+67424908 0000            add     byte ptr [eax],al
+6742490a 0000            add     byte ptr [eax],al
+6742490c e8cf080000      call    Opera!OpSetLaunchMan+0x1d3f47 (674251e0)
+67424911 8bd8            mov     ebx,eax
+67424913 83fb03          cmp     ebx,3
+67424916 7520            jne     Opera!OpSetLaunchMan+0x1d369f (67424938)
+67424918 8b4638          mov     eax,dword ptr [esi+38h]
+6742491b 3bc3            cmp     eax,ebx
+6742491d 0f8785e62900    ja      Opera!OpGetNextUninstallFile+0x1102d5 (676c2fa8)
+67424923 8b4634          mov     eax,dword ptr [esi+34h]
+67424926 85c0            test    eax,eax
+67424928 0f85d0000000    jne     Opera!OpSetLaunchMan+0x1d3765 (674249fe)
+6742492e 8b16            mov     edx,dword ptr [esi]
+67424930 8b4210          mov     eax,dword ptr [edx+10h]
+67424933 57              push    edi
+67424934 8bce            mov     ecx,esi
+67424936 ffd0            call    eax
+Opera!OpSetLaunchMan+0x1d369f:
+67424938 8a44240c        mov     al,byte ptr [esp+0Ch]
+6742493c a804            test    al,4
+6742493e 757f            jne     Opera!OpSetLaunchMan+0x1d3726 (674249bf)
+67424940 a802            test    al,2
+67424942 0f85c3000000    jne     Opera!OpSetLaunchMan+0x1d3772 (67424a0b)
+67424948 8b87cc000000    mov     eax,dword ptr [edi+0CCh]
+6742494e 85c0            test    eax,eax
+67424950 0f846ee62900    je      Opera!OpGetNextUninstallFile+0x1102f1 (676c2fc4)
+67424956 ff4804          dec     dword ptr [eax+4]
+67424959 8b4004          mov     eax,dword ptr [eax+4]
+6742495c 8b97cc000000    mov     edx,dword ptr [edi+0CCh]
+67424962 8d0c40          lea     ecx,[eax+eax*2]
+67424965 d944ca08        fld     dword ptr [edx+ecx*8+8]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-6">Frame 6: Opera.dll!+0x1C9BEB</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Opera!OpSetLaunchMan+0x1c8922:
+67419bbb c27d2d          ret     2D7Dh
+67419bbe 8b5668          mov     edx,dword ptr [esi+68h]
+67419bc1 03d0            add     edx,eax
+67419bc3 3bca            cmp     ecx,edx
+67419bc5 7d24            jge     Opera!OpSetLaunchMan+0x1c8952 (67419beb)
+67419bc7 8b4c2414        mov     ecx,dword ptr [esp+14h]
+67419bcb 8b54241c        mov     edx,dword ptr [esp+1Ch]
+67419bcf 8b4664          mov     eax,dword ptr [esi+64h]
+67419bd2 03d1            add     edx,ecx
+67419bd4 3bc2            cmp     eax,edx
+67419bd6 7d13            jge     Opera!OpSetLaunchMan+0x1c8952 (67419beb)
+67419bd8 8b566c          mov     edx,dword ptr [esi+6Ch]
+67419bdb 03d0            add     edx,eax
+67419bdd 3bca            cmp     ecx,edx
+67419bdf 7d0a            jge     Opera!OpSetLaunchMan+0x1c8952 (67419beb)
+67419be1 8b07            mov     eax,dword ptr [edi]
+67419be3 8b500c          mov     edx,dword ptr [eax+0Ch]
+67419be6 56              push    esi
+67419be7 8bcf            mov     ecx,edi
+67419be9 ffd2            call    edx
+Opera!OpSetLaunchMan+0x1c8952:
+67419beb 8b7f04          mov     edi,dword ptr [edi+4]
+67419bee 85ff            test    edi,edi
+67419bf0 759e            jne     Opera!OpSetLaunchMan+0x1c88f7 (67419b90)
+67419bf2 5f              pop     edi
+67419bf3 5e              pop     esi
+67419bf4 5b              pop     ebx
+67419bf5 8be5            mov     esp,ebp
+67419bf7 5d              pop     ebp
+67419bf8 c20400          ret     4
+67419bfb cc              int     3
+67419bfc cc              int     3
+67419bfd cc              int     3
+67419bfe cc              int     3
+67419bff cc              int     3
+67419c00 83ec24          sub     esp,24h
+67419c03 d905c4dfe067    fld     dword ptr [Opera!OpWaitFileWasPresent+0x6b48e4 (67e0dfc4)]
+67419c09 53              push    ebx
+67419c0a d912            fst     dword ptr [edx]
+67419c0c 56              push    esi
+67419c0d d95a04          fstp    dword ptr [edx+4]
+67419c10 57              push    edi
+67419c11 d905c8dfe067    fld     dword ptr [Opera!OpWaitFileWasPresent+0x6b48e8 (67e0dfc8)]
+67419c17 d95208          fst     dword ptr [edx+8]
+67419c1a d95a0c          fstp    dword ptr [edx+0Ch]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-7">Frame 7: Opera.dll!+0x1D4938</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Opera!OpSetLaunchMan+0x1d366f:
+67424908 0000            add     byte ptr [eax],al
+6742490a 0000            add     byte ptr [eax],al
+6742490c e8cf080000      call    Opera!OpSetLaunchMan+0x1d3f47 (674251e0)
+67424911 8bd8            mov     ebx,eax
+67424913 83fb03          cmp     ebx,3
+67424916 7520            jne     Opera!OpSetLaunchMan+0x1d369f (67424938)
+67424918 8b4638          mov     eax,dword ptr [esi+38h]
+6742491b 3bc3            cmp     eax,ebx
+6742491d 0f8785e62900    ja      Opera!OpGetNextUninstallFile+0x1102d5 (676c2fa8)
+67424923 8b4634          mov     eax,dword ptr [esi+34h]
+67424926 85c0            test    eax,eax
+67424928 0f85d0000000    jne     Opera!OpSetLaunchMan+0x1d3765 (674249fe)
+6742492e 8b16            mov     edx,dword ptr [esi]
+67424930 8b4210          mov     eax,dword ptr [edx+10h]
+67424933 57              push    edi
+67424934 8bce            mov     ecx,esi
+67424936 ffd0            call    eax
+Opera!OpSetLaunchMan+0x1d369f:
+67424938 8a44240c        mov     al,byte ptr [esp+0Ch]
+6742493c a804            test    al,4
+6742493e 757f            jne     Opera!OpSetLaunchMan+0x1d3726 (674249bf)
+67424940 a802            test    al,2
+67424942 0f85c3000000    jne     Opera!OpSetLaunchMan+0x1d3772 (67424a0b)
+67424948 8b87cc000000    mov     eax,dword ptr [edi+0CCh]
+6742494e 85c0            test    eax,eax
+67424950 0f846ee62900    je      Opera!OpGetNextUninstallFile+0x1102f1 (676c2fc4)
+67424956 ff4804          dec     dword ptr [eax+4]
+67424959 8b4004          mov     eax,dword ptr [eax+4]
+6742495c 8b97cc000000    mov     edx,dword ptr [edi+0CCh]
+67424962 8d0c40          lea     ecx,[eax+eax*2]
+67424965 d944ca08        fld     dword ptr [edx+ecx*8+8]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-8">Frame 8: Opera.dll!+0x2286BC</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Opera!OpSetLaunchMan+0x2273f3:
+6747868c 1300            adc     eax,dword ptr [eax]
+6747868e 59              pop     ecx
+6747868f 5f              pop     edi
+67478690 8bc6            mov     eax,esi
+67478692 5e              pop     esi
+67478693 5b              pop     ebx
+67478694 c20400          ret     4
+67478697 55              push    ebp
+67478698 8bec            mov     ebp,esp
+6747869a 83e4f8          and     esp,0FFFFFFF8h
+6747869d 83ec14          sub     esp,14h
+674786a0 53              push    ebx
+674786a1 56              push    esi
+674786a2 8bf1            mov     esi,ecx
+674786a4 33db            xor     ebx,ebx
+674786a6 f6465c01        test    byte ptr [esi+5Ch],1
+674786aa 57              push    edi
+674786ab 8b7d08          mov     edi,dword ptr [ebp+8]
+674786ae 0f8544a92400    jne     Opera!OpGetNextUninstallFile+0x110325 (676c2ff8)
+674786b4 57              push    edi
+674786b5 8bce            mov     ecx,esi
+674786b7 e834c2faff      call    Opera!OpSetLaunchMan+0x1d3657 (674248f0)
+Opera!OpSetLaunchMan+0x227423:
+674786bc 8bf0            mov     esi,eax
+674786be 85db            test    ebx,ebx
+674786c0 0f856da92400    jne     Opera!OpGetNextUninstallFile+0x110360 (676c3033)
+674786c6 5f              pop     edi
+674786c7 8bc6            mov     eax,esi
+674786c9 5e              pop     esi
+674786ca 5b              pop     ebx
+674786cb 8be5            mov     esp,ebp
+674786cd 5d              pop     ebp
+674786ce c20400          ret     4
+674786d1 56              push    esi
+674786d2 6a14            push    14h
+674786d4 e87daf1300      call    Opera!OpGetNextUninstallFile+0x983 (675b3656)
+674786d9 8bf0            mov     esi,eax
+674786db 33c0            xor     eax,eax
+674786dd 59              pop     ecx
+674786de 3bf0            cmp     esi,eax
+674786e0 7410            je      Opera!OpSetLaunchMan+0x227459 (674786f2)
+674786e2 50              push    eax
+674786e3 50              push    eax
+674786e4 50              push    eax
+674786e5 ff742414        push    dword ptr [esp+14h]
+674786e9 8b442420        mov     eax,dword ptr [esp+20h]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-9">Frame 9: Opera.dll!+0x23981C</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Opera!OpSetLaunchMan+0x238553:
+674897ec 85c0            test    eax,eax
+674897ee 7808            js      Opera!OpSetLaunchMan+0x23855f (674897f8)
+674897f0 c744240c01000000 mov     dword ptr [esp+0Ch],1
+674897f8 8d8688000000    lea     eax,[esi+88h]
+674897fe 385808          cmp     byte ptr [eax+8],bl
+67489801 0f8527992300    jne     Opera!OpGetNextUninstallFile+0x11045b (676c312e)
+67489807 8d4660          lea     eax,[esi+60h]
+6748980a 50              push    eax
+6748980b e80e93fdff      call    Opera!OpSetLaunchMan+0x211885 (67462b1e)
+67489810 85c0            test    eax,eax
+67489812 783d            js      Opera!OpSetLaunchMan+0x2385b8 (67489851)
+67489814 57              push    edi
+67489815 8bce            mov     ecx,esi
+67489817 e87beefeff      call    Opera!OpSetLaunchMan+0x2273fe (67478697)
+Opera!OpSetLaunchMan+0x238583:
+6748981c 8bd8            mov     ebx,eax
+6748981e 8bc7            mov     eax,edi
+67489820 e899e0ffff      call    Opera!OpSetLaunchMan+0x236625 (674878be)
+67489825 837c240c00      cmp     dword ptr [esp+0Ch],0
+6748982a 7413            je      Opera!OpSetLaunchMan+0x2385a6 (6748983f)
+6748982c 8d87a4000000    lea     eax,[edi+0A4h]
+67489832 e8a4c0e0ff      call    Opera!OpSetLaunchMan+0x44642 (672958db)
+67489837 57              push    edi
+67489838 8bd0            mov     edx,eax
+6748983a e8abc0e0ff      call    Opera!OpSetLaunchMan+0x44651 (672958ea)
+6748983f 8bc7            mov     eax,edi
+67489841 e878e0ffff      call    Opera!OpSetLaunchMan+0x236625 (674878be)
+67489846 8bc3            mov     eax,ebx
+67489848 5f              pop     edi
+67489849 5e              pop     esi
+6748984a 5b              pop     ebx
+6748984b 8be5            mov     esp,ebp
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-10">Frame 10: Opera.dll!+0x4D1C7</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Opera!OpSetLaunchMan+0x4befe:
+6729d197 00483b          add     byte ptr [eax+3Bh],cl
+6729d19a 87800100000f    xchg    eax,dword ptr [eax+0F000001h]
+6729d1a0 83d0a7          adc     eax,0FFFFFFA7h
+6729d1a3 42              inc     edx
+6729d1a4 008b8f7c0100    add     byte ptr [ebx+17C8Fh],cl
+6729d1aa 008b1c815357    add     byte ptr [ebx+5753811Ch],cl
+6729d1b0 e8ecfeffff      call    Opera!OpSetLaunchMan+0x4be08 (6729d0a1)
+6729d1b5 8b8768010000    mov     eax,dword ptr [edi+168h]
+6729d1bb 8b482c          mov     ecx,dword ptr [eax+2Ch]
+6729d1be 8b01            mov     eax,dword ptr [ecx]
+6729d1c0 8d7708          lea     esi,[edi+8]
+6729d1c3 56              push    esi
+6729d1c4 ff500c          call    dword ptr [eax+0Ch]
+Opera!OpSetLaunchMan+0x4bf2e:
+6729d1c7 83a770010000ef  and     dword ptr [edi+170h],0FFFFFFEFh
+6729d1ce 8945fc          mov     dword ptr [ebp-4],eax
+6729d1d1 3d11f0ffff      cmp     eax,0FFFFF011h
+6729d1d6 0f84a0a74200    je      Opera!OpGetNextUninstallFile+0x114ca9 (676c797c)
+6729d1dc 53              push    ebx
+6729d1dd 8d9f4c010000    lea     ebx,[edi+14Ch]
+6729d1e3 e8b38f0100      call    Opera!OpSetLaunchMan+0x64f02 (672b619b)
+6729d1e8 e83c060000      call    Opera!OpSetLaunchMan+0x4c590 (6729d829)
+6729d1ed 837dfc00        cmp     dword ptr [ebp-4],0
+6729d1f1 0f8c85a74200    jl      Opera!OpGetNextUninstallFile+0x114ca9 (676c797c)
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><HR>(Intermediate frames not shown)<HR></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Memory regions</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Functions</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        Opera.dll+0x1299
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-Opera.dll!OpWaitFileWasPresent">Opera.dll!OpWaitFileWasPresent</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        Opera.dll+0x5096E0
+Disassembly: not available
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET></BODY></HTML>

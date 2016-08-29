@@ -1,0 +1,116 @@
+VULNERABILITY DESCRIPTION
+Through carefully crafted HTTP responses, a malicious website is able to read information from the main chrome process.
+
+VULNERABILITY DETAILS
+The "HttpStreamParser" class (src\net\http\http_stream_parser.cc) is used to send HTTP requests and receive HTTP responses. Its "read_buf_" member is used to store HTTP response data received from the server. Parts of the code are written under the assumption that the response currently being parsed is always stored at the start of this buffer ("read_buf_->StartOfBuffer()"), other parts take into account that this may not be the case ("read_buf_->StartOfBuffer() + read_buf_unused_offset_"). In most cases, responses are removed from the buffer once they have been parsed and any superfluous data is moved to the beginning of the buffer, to be treated as part of the next response. However, the code special cases HTTP 1xx replies and returns a result without removing the request from the buffer. This means that the response to the next request will not be stored at the start of the buffer, but after the HTTP 1xx response.
+
+The code that special cases HTTP 1xx responses is:
+src\net\http\http_stream_parser.cc:
+580 |  if (end_of_header_offset == -1) {
+<snip>
+587 |  } else {
+588 |    // Note where the headers stop.
+589 |    read_buf_unused_offset_ = end_of_header_offset;
+590 |
+591 |    if (response_->headers->response_code() / 100 == 1) {
+592 |      // After processing a 1xx response, the caller will ask for the next
+593 |      // header, so reset state to support that.  We don't just skip these
+594 |      // completely because 1xx codes aren't acceptable when establishing a
+595 |      // tunnel.
+596 |      io_state_ = STATE_REQUEST_SENT;
+597 |      response_header_start_offset_ = -1;
+The code above does not remove the HTTP 1xx response from the buffer at this point.
+598 |    } else {
+The code that follows either removes the response from the buffer immediately, or expects it to be removed in a call to ReadResponseBody later.
+<snip>
+619 |  return result;
+620 |}
+
+A look through the code has revealed one location where this can lead to a security issue (also in "DoReadHeadersComplete"). The code uses an offset from the start of the buffer (rather than the start of the current responses) to pass as an argument to a "DoParseResponseHeaders". 
+
+src\net\http\http_stream_parser.cc:
+540 |  if (result == ERR_CONNECTION_CLOSED) {
+<snip>
+554 |    // Parse things as well as we can and let the caller decide what to do.
+555 |    int end_offset;
+556 |    if (response_header_start_offset_ >= 0) {
+557 |      io_state_ = STATE_READ_BODY_COMPLETE;
+558 |      end_offset = read_buf_->offset();
+"end_offset" is relative to the start of the buffer ("read_buf_->StartOfBuffer()").
+559 |    } else {
+560 |      io_state_ = STATE_BODY_PENDING;
+561 |      end_offset = 0;
+"end_offset" is relative to the start of the current response ("read_buf_->StartOfBuffer() + read_buf_unused_offset_").
+562 |    }
+563 |    int rv = DoParseResponseHeaders(end_offset);
+<snip>
+
+"DoParseResponseHeaders" passes the argument unchanged to "HttpUtil::AssembleRawHeaders":
+src\net\http\http_stream_parser.cc:
+782 |int HttpStreamParser::DoParseResponseHeaders(int end_offset) {
+783 |  scoped_refptr<HttpResponseHeaders> headers;
+784 |  if (response_header_start_offset_ >= 0) {
+785 |    headers = new HttpResponseHeaders(HttpUtil::AssembleRawHeaders(
+786 |        read_buf_->StartOfBuffer() + read_buf_unused_offset_, end_offset));
+<snip>
+
+"HttpUtil::AssembleRawHeaders" takes two arguments: a pointer to a buffer, and the length of the buffer. The pointer is calculated correctly (in "DoParseResponseHeaders") and points to the start of the current response. The length is the offset that was calculated incorrectly in "DoReadHeadersComplete". If the current response is preceded by a HTTP 1xx response in the buffer, this length is larger than it should be: the calculated value will be the correct length plus the size of the previous HTTP 1xx response ("read_buf_unused_offset_").
+
+src\net\http\http_util.cc:
+582 |std::string HttpUtil::AssembleRawHeaders(const char* input_begin,
+583 |                                         int input_len) {
+584 |  std::string raw_headers;
+585 |  raw_headers.reserve(input_len);
+586 |
+587 |  const char* input_end = input_begin + input_len;
+"input_begin" was calculated as ("read_buf_->StartOfBuffer() + read_buf_unused_offset_"), "input_len" was incorrectly calculated as "len(headers) + read_buf_unused_offset_", so "input_end" will be "read_buf_->StartOfBuffer() + 2 * read_buf_unused_offset_ + len(headers)", which is beyond the end of the actual headers. The code will continue to rely on this incorrect value to try to create a copy of the headers, inadvertently makeing a copy of data that is not part of the response and may not even be part of the read_buf_ buffer. This could cause the code to copy memory immediately following "read_buf_" into a string that represents the response headers. This string is passed to the process that made the request, allowing a webpage inside the sandbox to read memory from the main process' heap.
+
+An ascii diagram might be useful to illustrate what is going on:
+
+  read_buf_:                      "HTTP 100 Continue\r\n...HTTP XXX Current response\r\n...Unused..."
+  read_buf_->StartOfBuffer()  -----^
+  read_buf_->capacity()  ----------[================================================================]
+  read_buf_->offset()  ------------[=======================================================]
+  read_buf_unused_offset_   -------[=======================]
+  
+  DoReadHeadersComplete/DoParseResponseHeaders:
+  end_offset  ---------------------[=======================================================]
+  
+  AssembleRawHeaders:
+  input_begin ---------------------------------------------^
+  input_len  ----------------------------------------------[========================================###############]
+  error in input_len value   --------------------------------------------------------------[========###############]
+    (== read_buf_unused_offset_)
+  Memory read from the main process' heap  ---------------------------------------------------------[##############]
+
+VERSION
+Since the affected code has not been changed since 2009, I assume this affects all versions of Chrome released in the last few years
+
+REPRODUCTION CASE
+Attached is a simple proof-of-concept; it consist of a server that hosts a simple webpage. The webpage uses XMLHttpRequest to make requests to the server. The server responds with a carefully crafted reply to exploit the vulnerability. The webpage then uses getAllResponseHeaders() to read the memory copied from the main process' heap, and posts it to the server, which displays the memory. The PoC makes no attempt to influence the layout of the main process' memory, so arbitrary data will be shown and access violation may occur. With the PoC loaded in one tab, simply browsing the internet in another should put some interesting information on the heap that gets leaked tot the poc server.
+
+IMPACT
+The impact depends on what happens to be stored on the heap immediately following the buffer. Since a webpage can influence the activities of the main process (eg. it can ask it to make other HTTP requests), a certain amount of control over the heap layout is possible. An attacker could attempt to create a "heap feng shui"-like attack where careful manipulation of the main process' activities allow reading of various types of information from the main process' heap. (The attached PoC does not attempt to do this). The most obvious targets that come to mind are http request/response data for different domains and function pointers that can be used to bypass ASLR/DEP. There are undoubtely many other forms of interesting information that can be revealed in this way.
+
+There are little limits to the number of times an attacker can exploit this vulnerability. If the buffer happens to be stored at the end of the heap, attempts to exploit this vulnerability could trigger an access violation/segmentation fault when the code attempts to read beyond the buffer from unallocated memory addresses. An attacker might be able to reduce this risk with "heap feng shui"-like tricks as well.
+
+FIX:
+I've identified and tested two approaches to fixing this bug:
+1) Fix the code where it relies on the response being stored at the start of the buffer.
+  Attached is "option 1.patch", which fixes the code that causes this vulnerability as well as other parts of the code. These other parts of the code do not immediately appear to cause security issues, fixing them is a defense in depth.
+
+2) Remove the HTTP 1xx response from the buffer.
+  There is inline documentation in the source that explains why HTTP 1xx responses are handled in a special way, but it doesn't make much sense to me. AFAICT the code should remove the response from the buffer and switch to STATE_DONE. To be on the safe side, I've included a patch that does remove the response, but keeps the code that switches to STATE_REQUEST_SENT in case there really is a good reason to do so.
+  Added benfit of this fix is that it removes a potential DoS attack, where a server responds with many large HTTP 1xx replies to exhaust memory in the main process.
+
+RELATED ISSUES
+There are multiple locations in http_stream_parser.cc that are affected by this problem, but none of them appear to cause (serious) issues. Patch #1 includes fixes for these as a precautionary measure.
+The PoC frequently triggers an unrelated NULL ptr in the renderer if you have the inspector open, for which I've filed issue 299880.
+
+Attached:
+poc.zip:
+  poc.py -> A PoC server that serve a malicious webpage at http://localhost:28876/
+  proxy.html -> PoC client side code (used by poc.py)
+option 1.patch -> Fixes the issue by removing the assumption that responses are always located at the start of the buffer.
+option 2.patch -> Fixes the issue by removing HTTP 1xx responses from the buffer.
+

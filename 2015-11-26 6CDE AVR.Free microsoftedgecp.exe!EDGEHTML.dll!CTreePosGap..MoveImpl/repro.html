@@ -1,0 +1,11 @@
+<script>
+  setTimeout(function() {
+    var o1 = document.getElementById("x"),
+        o2 = document.createElement("select");
+    o1.insertBefore(o2, o1.firstChild);
+    setTimeout(function () {
+      o1.appendChild(o2);
+    },100);
+  },100);
+</script>
+<select id=x>#

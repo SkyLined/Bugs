@@ -1,0 +1,18 @@
+<script>
+  window.open("heap2.html");
+  var aoOldElements = null;
+  function save(aoElements) {
+    if (aoOldElements) {
+      "#OLDELEMENTS:".toString();
+      showElements(aoOldElements);
+    }
+    "#ELEMENTS:".toString();
+    showElements(aoElements);
+    aoOldElements = aoElements;
+  }
+  function showElements(aoElements) {
+    for (var i = 0; i < aoElements.length; i++) {
+      aoElements[i].hasChildNodes();
+    }
+  }
+</script>

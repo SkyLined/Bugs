@@ -1,0 +1,21 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+  <script type="text/javascript">
+    <![CDATA[
+      window.onload=function(){
+        var aoForeignObjects = document.getElementsByTagName("foreignObject");
+
+        // Free
+        for (var i = 0; i < aoForeignObjects.length; i++) {
+          var oForeignObject = aoForeignObjects[i];
+          oForeignObject.removeChild(oForeignObject.firstChild);
+          opera.collect();
+        }
+        setTimeout(function(){
+          location.reload();
+        }, 100);
+      }
+    ]]>
+  </script>
+  <foreignObject width="1px" height="1px">text</foreignObject>
+</svg>

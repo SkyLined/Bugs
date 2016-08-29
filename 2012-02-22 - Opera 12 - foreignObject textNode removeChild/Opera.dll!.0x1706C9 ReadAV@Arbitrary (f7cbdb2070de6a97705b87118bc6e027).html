@@ -1,0 +1,573 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><HTML><HEAD><STYLE>LEGEND, TABLE {width:100%;}FIELDSET {margin-bottom: 5px;}FIELDSET.level0 {background: #F0F0F0;}LEGEND.level0 {background: #C0C0C0; border: 1px inset; font-size: 200%}FIELDSET.level1 {background: #E0E0E0;}LEGEND.level1 {background: #B0B0B0; border: 1px inset; font-size: 150%}FIELDSET.level2 {background: #D0D0D0;}LEGEND.level2 {background: #A0A0A0; border: 1px inset; font-size: 120%}FIELDSET.level3 {background: #C0C0C0;}LEGEND.level3 {background: #909090; border: 1px inset; font-size: 110%}FIELDSET.level4 {background: #B0B0B0;}LEGEND.level4 {background: #808080; border: 1px inset; font-size: 100%}SPAN.local_type {color: #000060;}SPAN.local_name {color: #0000FF;}SPAN.function_name { color: #004000;}TABLE,TR,TD {border: 1px solid silver; border-collapse: collapse;}* {white-space: nowrap;}PRE {white-space: pre;}.wrapable {white-space: normal; width:100%;}FIELDSET.hidden {border-bottom: 5px dashed #A0A0A0;}SPAN.hidden {display: none;}</STYLE><SCRIPT>function openAnchorEvent(event) {if (!event) event = window.event;openAnchor(event.srcElement.href.replace(/.*#/, ""));}function openAnchor(anchor) {targets = document.getElementsByName(anchor);if (targets.length == 1) {target = targets[0];while (target != null) {c = target.className;if (c.indexOf("hidden") > -1)target.className = c.replace(/\s*hidden\s*/, " ");target = target.parentElement}}}function flipLegend() {if (!event) event = window.event;legend = event.srcElement;while (legend.tagName != "LEGEND") legend = legend.parentElement;fieldset = legend.parentElement;flipHideables(fieldset);}function flipHideables(fieldset) {flipHiddenClass(fieldset);for (i in fieldset.children) {o = fieldset.children[i];c = o.className;if (c && c.indexOf("hideable") > -1) {flipHiddenClass(o);}}}function flipHiddenClass(element) {c = element.className;if (c.indexOf("hidden") > -1) {element.className = c.replace(/\s*hidden\s*/, " ");} else {element.className += " hidden";}}</SCRIPT></HEAD><BODY onload="if (location.hash) openAnchor(location.hash.substr(1));"><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Cdb event information</LEGEND><SPAN><PRE>id:             Opera.dll!+0x1706C9 ReadAV@Arbitrary (f7cbdb2070de6a97705b87118bc6e027)
+description:    Security: Attempt to read from unallocated arbitrary memory (@0x414141C9) in Opera.dll!+0x1706C9
+note:           The exception happens in the main process. Based on this information, this is expected to be a <B>critical</B> security issue!
+application:    Opera 11.61
+</PRE></SPAN><SPAN class="hideable hidden"><PRE>stack:          Opera.dll!+0x1706C9
+                Opera.dll!+0x1702B3
+                Opera.dll!+0x17161B
+                Opera.dll!+0x1BA87E
+                Opera.dll!+0x9B5E26
+                Opera.dll!+0x1D4938
+                Opera.dll!+0x1C9BEB
+                Opera.dll!+0x1D4938
+                Opera.dll!+0x2286BC
+                Opera.dll!+0x23981C
+                Opera.dll!+0x4D1C7
+                Opera.dll!+0x271507
+                Opera.dll!+0x26323B
+                Opera.dll!+0x263300
+                Opera.dll!+0x19C342
+                Opera.dll!+0x18BAA0
+                Opera.dll!+0x1720D3
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Pre event output</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Microsoft (R) Windows Debugger Version 6.12.0002.633 AMD64
+Copyright (c) Microsoft Corporation. All rights reserved.
+CommandLine: C:\Program Files (x86)\Opera\Opera.exe &quot;file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg&quot;
+Symbol search path is: CACHE*C:\ProgramData\dbg\sym;SRV*http://msdl.microsoft.com/download/symbols;SRV*http://chromium-browser-symsrv.commondatastorage.googleapis.com;SRV*http://symbols.mozilla.org/firefox;SRV*http://developer.apple.com/internet/safari/windows_symbols
+Executable search path is: 
+ModLoad: 00000000`00c10000 00000000`00cf9000   desktop_starter.exe
+ModLoad: 00000000`77380000 00000000`77529000   ntdll.dll
+ModLoad: 00000000`77560000 00000000`776e0000   ntdll32.dll
+ModLoad: 00000000`74be0000 00000000`74c1f000   C:\Windows\SYSTEM32\wow64.dll
+ModLoad: 00000000`74b80000 00000000`74bdc000   C:\Windows\SYSTEM32\wow64win.dll
+ModLoad: 00000000`74b70000 00000000`74b78000   C:\Windows\SYSTEM32\wow64cpu.dll
+(3e84.3a0c): Break instruction exception - code 80000003 (first chance)
+ntdll!LdrpDoDebuggerBreak+0x30:
+00000000`7742cb60 cc              int     3
+ModLoad: 00000000`77260000 00000000`7737f000   WOW64_IMAGE_SECTION
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76320000 00000000`76430000   WOW64_IMAGE_SECTION
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`77260000 00000000`7737f000   NOT_AN_IMAGE
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76df0000 00000000`76eea000   NOT_AN_IMAGE
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76320000 00000000`76430000   C:\Windows\syswow64\kernel32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76620000 00000000`76666000   C:\Windows\syswow64\KERNELBASE.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`761d0000 00000000`762d0000   C:\Windows\syswow64\USER32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`769f0000 00000000`76a80000   C:\Windows\syswow64\GDI32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76670000 00000000`7667a000   C:\Windows\syswow64\LPK.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76680000 00000000`7671d000   C:\Windows\syswow64\USP10.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`74ca0000 00000000`74d4c000   C:\Windows\syswow64\msvcrt.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`75010000 00000000`750b0000   C:\Windows\syswow64\ADVAPI32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76300000 00000000`76319000   C:\Windows\SysWOW64\sechost.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76ae0000 00000000`76bd0000   C:\Windows\syswow64\RPCRT4.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`74c40000 00000000`74ca0000   C:\Windows\syswow64\SspiCli.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`74c30000 00000000`74c3c000   C:\Windows\syswow64\CRYPTBASE.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`75170000 00000000`75dba000   C:\Windows\syswow64\SHELL32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76720000 00000000`76777000   C:\Windows\syswow64\SHLWAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`764c0000 00000000`7661c000   C:\Windows\syswow64\ole32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+(3e84.3a0c): WOW64 breakpoint - code 4000001f (first chance)
+ModLoad: 76a80000 76ae0000   C:\Windows\SysWOW64\IMM32.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76bd0000 00000000`76c9c000   C:\Windows\syswow64\MSCTF.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76780000 00000000`767b5000   C:\Windows\SysWOW64\WS2_32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`77530000 00000000`77536000   C:\Windows\syswow64\NSI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`750b0000 00000000`750b5000   C:\Windows\SysWOW64\psapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`71760000 00000000`718fe000   C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\comctl32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`750c0000 00000000`7514f000   C:\Windows\syswow64\OLEAUT32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`767c0000 00000000`7695d000   C:\Windows\syswow64\SETUPAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`762d0000 00000000`762f7000   C:\Windows\syswow64\CFGMGR32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`75150000 00000000`75162000   C:\Windows\syswow64\DEVOBJ.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`75dc0000 00000000`75e43000   C:\Windows\syswow64\CLBCatQ.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`6f830000 00000000`6f925000   C:\Windows\SysWOW64\propsys.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`74ad0000 00000000`74af1000   C:\Windows\SysWOW64\ntmarta.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`74d80000 00000000`74dc5000   C:\Windows\syswow64\WLDAP32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`68160000 00000000`68f10000   C:\Program Files (x86)\Opera\Opera.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`73ba0000 00000000`73bd2000   C:\Windows\SysWOW64\WINMM.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`74b60000 00000000`74b69000   C:\Windows\SysWOW64\VERSION.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`73ae0000 00000000`73ae7000   C:\Windows\SysWOW64\WSOCK32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76780000 00000000`767b5000   C:\Windows\syswow64\WS2_32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`77530000 00000000`77536000   C:\Windows\syswow64\NSI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76970000 00000000`769eb000   C:\Windows\syswow64\COMDLG32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`761a0000 00000000`761cd000   C:\Windows\SysWOW64\Wintrust.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76080000 00000000`7619d000   C:\Windows\syswow64\CRYPT32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`76070000 00000000`7607c000   C:\Windows\syswow64\MSASN1.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`02900000 00000000`02a1d000   C:\Windows\SysWOW64\Crypt32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`02900000 00000000`02a10000   C:\Windows\SysWOW64\KERNEL32.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`02900000 00000000`02a00000   C:\Windows\SysWOW64\user32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`73be0000 00000000`73c60000   C:\Windows\SysWOW64\uxtheme.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`02610000 00000000`026a0000   C:\Windows\SysWOW64\gdi32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`02af0000 00000000`0373a000   C:\Windows\SysWOW64\shell32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`02900000 00000000`02a10000   C:\Windows\SysWOW64\KERNEL32.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`73b30000 00000000`73b43000   C:\Windows\SysWOW64\dwmapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`748c0000 00000000`748cb000   C:\Windows\SysWOW64\profapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`6db80000 00000000`6db89000   C:\Windows\SysWOW64\LINKINFO.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`03ce0000 00000000`0492a000   C:\Windows\SysWOW64\shell32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`031f0000 00000000`032f0000   C:\Windows\SysWOW64\USER32.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`73300000 00000000`73305000   C:\Windows\SysWOW64\Msimg32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`73af0000 00000000`73b2c000   C:\Windows\SysWOW64\mswsock.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`73950000 00000000`73955000   C:\Windows\SysWOW64\wshtcpip.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`73940000 00000000`73950000   C:\Windows\SysWOW64\NLAapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`73930000 00000000`73940000   C:\Windows\SysWOW64\napinsp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`73910000 00000000`73922000   C:\Windows\SysWOW64\pnrpnsp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`73980000 00000000`739c4000   C:\Windows\SysWOW64\DNSAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`73900000 00000000`73908000   C:\Windows\SysWOW64\winrnr.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`02790000 00000000`027c5000   C:\Windows\SysWOW64\ws2_32.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`732c0000 00000000`732c6000   C:\Windows\SysWOW64\wship6.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`742d0000 00000000`742ec000   C:\Windows\SysWOW64\IPHLPAPI.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`742c0000 00000000`742c7000   C:\Windows\SysWOW64\WINNSI.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`738b0000 00000000`738b6000   C:\Windows\SysWOW64\rasadhlp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`738c0000 00000000`738f8000   C:\Windows\SysWOW64\fwpuclnt.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`74190000 00000000`741b5000   C:\Windows\SysWOW64\POWRPROF.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`73660000 00000000`7369c000   C:\Windows\SysWOW64\OLEACC.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`04e30000 00000000`04f30000   C:\Windows\SysWOW64\USER32.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+ModLoad: 00000000`04e30000 00000000`04f8c000   C:\Windows\SysWOW64\ole32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`773d159a c3              ret
+(3e84.3a0c): Access violation - code c0000005 (first chance)
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Processes, threads and modules</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Process 0x3E84: desktop_starter.exe (main)
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+     0n16004 opera.exe
+     Command Line: "C:\Program Files (x86)\Opera\Opera.exe" "file://C:\src\FUZZ_F~1\DATA\OPERA1~1.14\repro.svg"
+--- Threads for process 0x3E84 ---
+     0x3A0C: (unnamed) (event source)
+     0x5770: (unnamed)
+     0x2DF0: (unnamed)
+     0x5588: (unnamed)
+     0x1354: (unnamed)
+     0x29C0: (unnamed)
+     0x39E0: (unnamed)
+     0x2C68: (unnamed)
+     0x1F28: (unnamed)
+     0x3738: (unnamed)
+--- Modules for process 0x3E84 ---
+     ws2_32.DLL: 0x2790000-0x27C5000
+     wow64.dll: 0x74BE0000-0x74C1F000
+     WINNSI.DLL: 0x742C0000-0x742C7000
+     wow64cpu.dll: 0x74B70000-0x74B78000
+     kernel32.dll: 0x76320000-0x76430000
+     winrnr.dll: 0x73900000-0x73908000
+     ntdll.dll: 0x77380000-0x77529000
+     ole32.dll: 0x4E30000-0x4F8C000
+     IMM32.DLL: 0x76A80000-0x76AE0000
+     MSCTF.dll: 0x76BD0000-0x76C9C000
+     CRYPTBASE.dll: 0x74C30000-0x74C3C000
+     ole32.dll: 0x764C0000-0x7661C000
+     napinsp.dll: 0x73930000-0x73940000
+     user32.dll: 0x2900000-0x2A00000
+     wship6.dll: 0x732C0000-0x732C6000
+     msvcrt.dll: 0x74CA0000-0x74D4C000
+     NSI.dll: 0x77530000-0x77536000
+     USER32.DLL: 0x31F0000-0x32F0000
+     pnrpnsp.dll: 0x73910000-0x73922000
+     WSOCK32.dll: 0x73AE0000-0x73AE7000
+     SHLWAPI.dll: 0x76720000-0x76777000
+     WS2_32.dll: 0x76780000-0x767B5000
+     wow64win.dll: 0x74B80000-0x74BDC000
+     CRYPT32.dll: 0x76080000-0x7619D000
+     WLDAP32.dll: 0x74D80000-0x74DC5000
+     fwpuclnt.dll: 0x738C0000-0x738F8000
+     desktop_starter.exe: 0xC10000-0xCF9000
+     mswsock.dll: 0x73AF0000-0x73B2C000
+     Msimg32.dll: 0x73300000-0x73305000
+     SHELL32.dll: 0x75170000-0x75DBA000
+     RPCRT4.dll: 0x76AE0000-0x76BD0000
+     comctl32.dll: 0x71760000-0x718FE000
+     ADVAPI32.dll: 0x75010000-0x750B0000
+     CFGMGR32.dll: 0x762D0000-0x762F7000
+     KERNEL32.DLL: 0x2900000-0x2A10000
+     SETUPAPI.dll: 0x767C0000-0x7695D000
+     ntdll32.dll: 0x77560000-0x776E0000
+     POWRPROF.DLL: 0x74190000-0x741B5000
+     dwmapi.dll: 0x73B30000-0x73B43000
+     OLEACC.dll: 0x73660000-0x7369C000
+     KERNELBASE.dll: 0x76620000-0x76666000
+     DNSAPI.dll: 0x73980000-0x739C4000
+     uxtheme.dll: 0x73BE0000-0x73C60000
+     Opera.dll: 0x68160000-0x68F10000
+     wshtcpip.dll: 0x73950000-0x73955000
+     MSASN1.dll: 0x76070000-0x7607C000
+     shell32.dll: 0x2AF0000-0x373A000
+     WINMM.dll: 0x73BA0000-0x73BD2000
+     USP10.dll: 0x76680000-0x7671D000
+     OLEAUT32.dll: 0x750C0000-0x7514F000
+     LPK.dll: 0x76670000-0x7667A000
+     NOT_AN_IMAGE: 0x77260000-0x7737F000
+     WOW64_IMAGE_SECTION: 0x77260000-0x7737F000
+     propsys.dll: 0x6F830000-0x6F925000
+     SspiCli.dll: 0x74C40000-0x74CA0000
+     Wintrust.dll: 0x761A0000-0x761CD000
+     IPHLPAPI.DLL: 0x742D0000-0x742EC000
+     GDI32.dll: 0x769F0000-0x76A80000
+     DEVOBJ.dll: 0x75150000-0x75162000
+     NLAapi.dll: 0x73940000-0x73950000
+     Crypt32.dll: 0x2900000-0x2A1D000
+     LINKINFO.dll: 0x6DB80000-0x6DB89000
+     ntmarta.dll: 0x74AD0000-0x74AF1000
+     sechost.dll: 0x76300000-0x76319000
+     CLBCatQ.DLL: 0x75DC0000-0x75E43000
+     shell32.dll: 0x3CE0000-0x492A000
+     VERSION.dll: 0x74B60000-0x74B69000
+     USER32.dll: 0x761D0000-0x762D0000
+     COMDLG32.dll: 0x76970000-0x769EB000
+     profapi.dll: 0x748C0000-0x748CB000
+     psapi.dll: 0x750B0000-0x750B5000
+     rasadhlp.dll: 0x738B0000-0x738B6000
+     gdi32.dll: 0x2610000-0x26A0000
+     USER32.DLL: 0x4E30000-0x4F30000
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 "><LEGEND onclick="flipLegend()" class="level0">Stack frames</LEGEND><SPAN></SPAN><SPAN class="hideable "><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-0">Frame 0: Opera.dll!+0x1706C9</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-1">Frame 1: Opera.dll!+0x1702B3</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-2">Frame 2: Opera.dll!+0x17161B</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-3">Frame 3: Opera.dll!+0x1BA87E</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-4">Frame 4: Opera.dll!+0x9B5E26</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpWaitFileWasPresent">Opera.dll!OpWaitFileWasPresent</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-5">Frame 5: Opera.dll!+0x1D4938</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-6">Frame 6: Opera.dll!+0x1C9BEB</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-7">Frame 7: Opera.dll!+0x1D4938</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-8">Frame 8: Opera.dll!+0x2286BC</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-9">Frame 9: Opera.dll!+0x23981C</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-10">Frame 10: Opera.dll!+0x4D1C7</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-11">Frame 11: Opera.dll!+0x271507</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-12">Frame 12: Opera.dll!+0x26323B</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-13">Frame 13: Opera.dll!+0x263300</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-14">Frame 14: Opera.dll!+0x19C342</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-15">Frame 15: Opera.dll!+0x18BAA0</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-16">Frame 16: Opera.dll!+0x1720D3</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Memory regions</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Functions</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-Opera.dll!OpSetLaunchMan">Opera.dll!OpSetLaunchMan</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        Opera.dll+0x1299
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-Opera.dll!OpWaitFileWasPresent">Opera.dll!OpWaitFileWasPresent</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        Opera.dll+0x5096E0
+Disassembly: not available
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET></BODY></HTML>
