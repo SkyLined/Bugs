@@ -1,5 +1,5 @@
 \#*
 *.lnk
-*.URL
+#*.URL
 *.zip
 details.txt
