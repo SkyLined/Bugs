@@ -1,0 +1,14 @@
+<svg id="x" xmlns="http://www.w3.org/2000/svg"><script>
+onload=function(){
+  d=document;
+  d.designMode="on";
+  d[e="execCommand"]("Indent");
+  for (
+    d[e]("SelectAll");
+    d[e]("Outdent");
+    d[e](x.textContent="Undo")
+  )
+    d[e]("Delete"),
+    x.appendChild(d.createElement(e));
+}
+</script>
