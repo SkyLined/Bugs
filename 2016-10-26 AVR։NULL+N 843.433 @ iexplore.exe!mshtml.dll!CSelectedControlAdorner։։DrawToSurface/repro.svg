@@ -1,0 +1,12 @@
+<svg id="x" xmlns="http://www.w3.org/2000/svg">
+	<script>
+	  onload=function() {
+      d=document;
+      d.execCommand("SelectAll");
+      x.appendChild(d.createTextNode("x"));
+      d.execCommand("InsertParagraph");
+      d.appendChild(d.createElement("a"));
+      d.designMode="on";
+      d.execCommand("InsertImage");
+    };
+	</script>
