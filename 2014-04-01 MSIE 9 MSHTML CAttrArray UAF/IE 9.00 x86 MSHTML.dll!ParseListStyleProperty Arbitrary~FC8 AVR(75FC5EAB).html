@@ -1,0 +1,2196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><HTML><HEAD><STYLE>LEGEND, TABLE {width:100%;}FIELDSET {margin-bottom: 5px;}FIELDSET.level0 {background: #F0F0F0;}LEGEND.level0 {background: #C0C0C0; border: 1px inset; font-size: 200%}FIELDSET.level1 {background: #E0E0E0;}LEGEND.level1 {background: #B0B0B0; border: 1px inset; font-size: 150%}FIELDSET.level2 {background: #D0D0D0;}LEGEND.level2 {background: #A0A0A0; border: 1px inset; font-size: 120%}FIELDSET.level3 {background: #C0C0C0;}LEGEND.level3 {background: #909090; border: 1px inset; font-size: 110%}FIELDSET.level4 {background: #B0B0B0;}LEGEND.level4 {background: #808080; border: 1px inset; font-size: 100%}SPAN.local_type {color: #000060;}SPAN.local_name {color: #0000FF;}SPAN.function_name { color: #004000;}TABLE,TR,TD {border: 1px solid silver; border-collapse: collapse;}* {white-space: nowrap;}PRE {white-space: pre;}.wrapable {white-space: normal; width:100%;}FIELDSET.hidden {border-bottom: 5px dashed #A0A0A0;}SPAN.hidden {display: none;}</STYLE><SCRIPT>function openAnchorEvent(oElement) {openAnchor(oElement.href.replace(/.*#/, ""));}function openAnchor(anchor) {targets = document.getElementsByName(anchor);if (targets.length == 1) {target = targets[0];while (target != null) {c = target.className;if (c.indexOf("hidden") > -1)target.className = c.replace(/\s*hidden\s*/, " ");target = target.parentElement}}}function flipLegend(oElement) {legend = oElement;while (legend.tagName != "LEGEND") legend = legend.parentElement;fieldset = legend.parentElement;flipHideables(fieldset);}function flipHideables(fieldset) {flipHiddenClass(fieldset);for (i in fieldset.children) {o = fieldset.children[i];c = o.className;if (c && c.indexOf("hideable") > -1) {flipHiddenClass(o);}}}function flipHiddenClass(element) {c = element.className;if (c.indexOf("hidden") > -1) {element.className = c.replace(/\s*hidden\s*/, " ");} else {element.className += " hidden";}}</SCRIPT></HEAD><BODY onload="if (location.hash) openAnchor(location.hash.substr(1));"><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend(this)" class="level0">Cdb event information</LEGEND><SPAN><PRE>id:             MSHTML.dll!ParseListStyleProperty Arbitrary~FC8 AVR(75FC5EAB)
+description:    Security: Attempt to read from unallocated arbitrary memory (@0x10BC7FC8) in MSHTML.dll!ParseListStyleProperty
+note:           Based on this information, this is expected to be a security issue!
+</PRE></SPAN><SPAN class="hideable hidden"><PRE>stack:          MSHTML.dll!ParseListStyleProperty
+                MSHTML.dll!PROPERTYDESC::HandleStyleComponentProperty
+                MSHTML.dll!CCSSStyleDeclaration::setPropertyInternal
+                MSHTML.dll!CWritableCSSStyleDeclaration::setPropertyInternal
+                MSHTML.dll!CCSSStyleDeclaration::setPropertyHelper
+                MSHTML.dll!CCSSStyleDeclaration::setProperty
+                MSHTML.dll!CFastDOM::CCSSStyleDeclaration::Trampoline_setProperty
+                jscript9.dll!Js::JavascriptFunction::CallFunction
+                jscript9.dll!Js::JavascriptExternalFunction::ExternalFunctionThunk
+                jscript9.dll!Js::JavascriptFunction::CallFunction
+                jscript9.dll!Js::InterpreterStackFrame::OP_CallI&lt;...&gt;
+                jscript9.dll!Js::InterpreterStackFrame::ProcessThunk
+                jscript9.dll!Js::InterpreterStackFrame::InterpreterThunk
+                jscript9.dll!Js::GlobalObject::ExecuteEvalParsedFunction
+                jscript9.dll!Js::GlobalObject::EntryEval
+                jscript9.dll!Js::JavascriptFunction::CallFunction
+                jscript9.dll!Js::JavascriptFunction::CallRootFunction
+                jscript9.dll!ScriptSite::CallRootFunction
+                jscript9.dll!ScriptSite::Execute
+                jscript9.dll!JavascriptDispatch::InvokeOnSelf
+                jscript9.dll!JavascriptDispatch::InvokeEx
+                dispex.dll!IDispatchEx_InvokeEx_Stub
+                dispex.dll!IDispatchEx_RemoteInvokeEx_Thunk
+                RPCRT4.dll!NdrStubCall2
+                ole32.dll!CStdStubBuffer_Invoke
+                ole32.dll!SyncStubInvoke
+                ole32.dll!StubInvoke
+                ole32.dll!CCtxComChnl::ContextInvoke
+                ole32.dll!MTAInvoke
+                ole32.dll!STAInvoke
+                ole32.dll!AppInvoke
+                ole32.dll!ComInvokeWithLockAndIPID
+                ole32.dll!ComInvoke
+                ole32.dll!ThreadDispatch
+                ole32.dll!ThreadWndProc
+                USER32.dll!InternalCallWinProc
+                USER32.dll!UserCallWinProcCheckWow
+                USER32.dll!DispatchMessageWorker
+                USER32.dll!DispatchMessageW
+                IEFRAME.dll!CTabWindow::_TabWindowThreadProc
+                IEFRAME.dll!LCIETab_ThreadProc
+                iertutil.dll!CIsoScope::RegisterThread
+                IEFRAME.dll!Detour_DefWindowProcA
+                kernel32.dll!BaseThreadInitThunk
+                ntdll.dll!__RtlUserThreadStart
+                ntdll.dll!_RtlUserThreadStart
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend(this)" class="level0">Pre event output</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Microsoft (R) Windows Debugger Version 6.2.8229.0 X86
+Copyright (c) Microsoft Corporation. All rights reserved.
+CommandLine: &quot;C:\Program Files\Internet Explorer\iexplore.exe&quot; http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+Symbol search path is: srv*\\server\Symbols*http://msdl.microsoft.com/download/symbols;srv*\\server\Symbols*http://symbols.mozilla.org/firefox;srv*\\server\Symbols*http://chromium-browser-symsrv.commondatastorage.googleapis.com
+Executable search path is: 
+ModLoad: 013e0000 01498000   iexplore.exe
+ModLoad: 77930000 77a6c000   ntdll.dll
+ModLoad: 6fbd0000 6fc30000   C:\Windows\system32\verifier.dll
+Page heap: pid 0xB58: page heap enabled with flags 0x3.
+ModLoad: 77a80000 77b54000   C:\Windows\system32\kernel32.dll
+ModLoad: 75b70000 75bbb000   C:\Windows\system32\KERNELBASE.dll
+ModLoad: 77770000 77810000   C:\Windows\system32\ADVAPI32.dll
+ModLoad: 76950000 769fc000   C:\Windows\system32\msvcrt.dll
+ModLoad: 76480000 76499000   C:\Windows\SYSTEM32\sechost.dll
+ModLoad: 767c0000 76862000   C:\Windows\system32\RPCRT4.dll
+ModLoad: 76880000 76949000   C:\Windows\system32\USER32.dll
+ModLoad: 76430000 7647e000   C:\Windows\system32\GDI32.dll
+ModLoad: 77a70000 77a7a000   C:\Windows\system32\LPK.dll
+ModLoad: 76390000 7642d000   C:\Windows\system32\USP10.dll
+ModLoad: 762a0000 762f7000   C:\Windows\system32\SHLWAPI.dll
+ModLoad: 76a50000 7769a000   C:\Windows\system32\SHELL32.dll
+ModLoad: 76660000 767bc000   C:\Windows\system32\ole32.dll
+ModLoad: 77810000 77922000   C:\Windows\system32\urlmon.dll
+ModLoad: 75fd0000 7605f000   C:\Windows\system32\OLEAUT32.dll
+ModLoad: 760e0000 76299000   C:\Windows\system32\iertutil.dll
+ModLoad: 75e30000 75f4b000   C:\Windows\system32\WININET.dll
+ModLoad: 76870000 76873000   C:\Windows\system32\Normaliz.dll
+(b58.aec): Break instruction exception - code 80000003 (first chance)
+eax=00000000 ebx=00000000 ecx=001af874 edx=779770f4 esi=fffffffe edi=00000000
+eip=779d05a6 esp=001af890 ebp=001af8bc iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!LdrpDoDebuggerBreak+0x2c:
+779d05a6 cc              int     3
+ModLoad: 76640000 7665f000   C:\Windows\system32\IMM32.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=017b2000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001aedf0
+eip=779770f4 esp=001aed08 ebp=001aed5c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 776a0000 7776c000   C:\Windows\system32\MSCTF.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=017c0000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001aea50
+eip=779770f4 esp=001ae968 ebp=001ae9bc iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75a10000 75a1c000   C:\Windows\system32\CRYPTBASE.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=02897000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001af9ec
+eip=779770f4 esp=001af904 ebp=001af958 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 73360000 73ca7000   C:\Windows\system32\IEFRAME.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=028cd000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001af974
+eip=779770f4 esp=001af88c ebp=001af8e0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75fb0000 75fb5000   C:\Windows\system32\PSAPI.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=03656000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001af648
+eip=779770f4 esp=001af560 ebp=001af5b4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 71cc0000 71cfc000   C:\Windows\system32\OLEACC.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=03670000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001af648
+eip=779770f4 esp=001af560 ebp=001af5b4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74a10000 74bae000   C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\comctl32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=036fe000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001af378
+eip=779770f4 esp=001af290 ebp=001af2e4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76060000 760db000   C:\Windows\system32\comdlg32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=037b8000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001af9a4
+eip=779770f4 esp=001af8bc ebp=001af910 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75960000 75968000   C:\Windows\system32\Secur32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=01a1a000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae578
+eip=779770f4 esp=001ae490 ebp=001ae4e4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75980000 7599b000   C:\Windows\system32\SSPICLI.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=027d8000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae488
+eip=779770f4 esp=001ae3a0 ebp=001ae3f4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75ac0000 75acb000   C:\Windows\system32\profapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=039e4000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ab770
+eip=779770f4 esp=001ab688 ebp=001ab6dc iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74e70000 74e91000   C:\Windows\system32\ntmarta.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=027e2000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae5c4
+eip=779770f4 esp=001ae4dc ebp=001ae530 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76a00000 76a45000   C:\Windows\system32\WLDAP32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=028c3000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae224
+eip=779770f4 esp=001ae13c ebp=001ae190 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75dc0000 75df5000   C:\Windows\system32\WS2_32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=036ea000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae43c
+eip=779770f4 esp=001ae354 ebp=001ae3a8 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75fc0000 75fc6000   C:\Windows\system32\NSI.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=03c54000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae09c
+eip=779770f4 esp=001adfb4 ebp=001ae008 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 753b0000 753f4000   C:\Windows\system32\dnsapi.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=03d7c000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae648
+eip=779770f4 esp=001ae560 ebp=001ae5b4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 72910000 7292c000   C:\Windows\system32\iphlpapi.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=03dd2000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae648
+eip=779770f4 esp=001ae560 ebp=001ae5b4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 72900000 72907000   C:\Windows\system32\WINNSI.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=03ddc000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae2a8
+eip=779770f4 esp=001ae1c0 ebp=001ae214 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76300000 76383000   C:\Windows\system32\CLBCatQ.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=03e38000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdd000 edi=0436f188
+eip=779770f4 esp=0436f0a0 ebp=0436f0f4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 72bc0000 72c1a000   C:\Windows\System32\netprofm.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=03f75000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdd000 edi=0436e3b8
+eip=779770f4 esp=0436e2d0 ebp=0436e324 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 73f50000 73f60000   C:\Windows\System32\nlaapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=03f89000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdd000 edi=0436e018
+eip=779770f4 esp=0436df30 ebp=0436df84 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75530000 75546000   C:\Windows\system32\CRYPTSP.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04026000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdd000 edi=0436e59c
+eip=779770f4 esp=0436e4b4 ebp=0436e508 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 752d0000 7530b000   C:\Windows\system32\rsaenh.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=03bfe000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdd000 edi=0436e4d4
+eip=779770f4 esp=0436e3ec ebp=0436e440 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75ab0000 75abe000   C:\Windows\system32\RpcRtRemote.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04402000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdd000 edi=0436e2cc
+eip=779770f4 esp=0436e1e4 ebp=0436e238 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 72bb0000 72bb8000   C:\Windows\System32\npmproxy.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=044e7000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdd000 edi=0436e4a8
+eip=779770f4 esp=0436e3c0 ebp=0436e414 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 754f0000 7552c000   C:\Windows\system32\mswsock.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04a13000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdd000 edi=0436ee24
+eip=779770f4 esp=0436ed3c ebp=0436ed90 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75040000 75045000   C:\Windows\System32\wshtcpip.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04990000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdd000 edi=0436f060
+eip=779770f4 esp=0436ef78 ebp=0436efcc iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 754e0000 754e6000   C:\Windows\System32\wship6.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0396b000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdd000 edi=0436f084
+eip=779770f4 esp=0436ef9c ebp=0436eff0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 72970000 72994000   C:\Program Files\Internet Explorer\sqmapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=049ca000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001af738
+eip=779770f4 esp=001af650 ebp=001af6a4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 71280000 71286000   C:\Windows\system32\rasadhlp.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04a37000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdd000 edi=0436e9fc
+eip=779770f4 esp=0436e914 ebp=0436e968 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 6eef0000 6ef42000   C:\Windows\system32\RASAPI32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04f02000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae4b4
+eip=779770f4 esp=001ae3cc ebp=001ae420 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 6e9d0000 6e9e5000   C:\Windows\system32\rasman.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04f12000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae114
+eip=779770f4 esp=001ae02c ebp=001ae080 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 6fec0000 6fecd000   C:\Windows\system32\rtutils.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04f36000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae450
+eip=779770f4 esp=001ae368 ebp=001ae3bc iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 72990000 72996000   C:\Windows\system32\sensapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04b33000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae584
+eip=779770f4 esp=001ae49c ebp=001ae4f0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 727e0000 72818000   C:\Windows\System32\fwpuclnt.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04eec000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdd000 edi=0436ea74
+eip=779770f4 esp=0436e98c ebp=0436e9e0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 6cbb0000 6cbe3000   C:\Program Files\Internet Explorer\ieproxy.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04982000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffd6000 edi=0524f234
+eip=779770f4 esp=0524f14c ebp=0524f1a0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 72960000 7298d000   C:\Windows\system32\IEUI.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=05c56000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001addec
+eip=779770f4 esp=001add04 ebp=001add58 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 70840000 70845000   C:\Windows\system32\MSIMG32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=05c64000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001adac0
+eip=779770f4 esp=001ad9d8 ebp=001ada2c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74890000 748d0000   C:\Windows\system32\UxTheme.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=06414000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae41c
+eip=779770f4 esp=001ae334 ebp=001ae388 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 759c0000 75a0c000   C:\Windows\system32\apphelp.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=06170000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001a9e08
+eip=779770f4 esp=001a9d20 ebp=001a9d74 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74330000 7435f000   C:\Windows\system32\xmllite.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0726f000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001adb78
+eip=779770f4 esp=001ada90 ebp=001adae4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 71f70000 720df000   C:\Windows\system32\explorerframe.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=07d1d000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ad408
+eip=779770f4 esp=001ad320 ebp=001ad374 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 743d0000 743ff000   C:\Windows\system32\DUser.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=07d39000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ad068
+eip=779770f4 esp=001acf80 ebp=001acfd4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74430000 744e2000   C:\Windows\system32\DUI70.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=07d47000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ad068
+eip=779770f4 esp=001acf80 ebp=001acfd4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74000000 74011000   C:\Windows\system32\netapi32.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=07b1c000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001abbc0
+eip=779770f4 esp=001abad8 ebp=001abb2c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 73eb0000 73eb9000   C:\Windows\system32\netutils.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=07de2000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ab820
+eip=779770f4 esp=001ab738 ebp=001ab78c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 758e0000 758f9000   C:\Windows\system32\srvcli.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=07df2000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ab820
+eip=779770f4 esp=001ab738 ebp=001ab78c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 73ea0000 73eaf000   C:\Windows\system32\wkscli.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=07e00000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ab820
+eip=779770f4 esp=001ab738 ebp=001ab78c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+Symbol search path is: srv*\\server\Symbols*http://msdl.microsoft.com/download/symbols;srv*\\server\Symbols*http://symbols.mozilla.org/firefox;srv*\\server\Symbols*http://chromium-browser-symsrv.commondatastorage.googleapis.com
+Executable search path is: 
+ModLoad: 013e0000 01498000   iexplore.exe
+&lt;---- EVENT: break cpr ----&gt;
+eax=013e26b0 ebx=7ffdb000 ecx=00000000 edx=00000000 esi=00000000 edi=00000000
+eip=779770d8 esp=0027fe28 ebp=00000000 iopl=0         nv up ei pl nz na po nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000200
+779770d8 89442404        mov     dword ptr [esp+4],eax ss:0023:0027fe2c=00000000
+ModLoad: 77930000 77a6c000   ntdll.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=013e26b0 ebx=7ffdb000 ecx=00000000 edx=00000000 esi=00000000 edi=00000000
+eip=779770d8 esp=0027fe28 ebp=00000000 iopl=0         nv up ei pl nz na po nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000200
+ntdll!RtlUserThreadStart:
+779770d8 89442404        mov     dword ptr [esp+4],eax ss:0023:0027fe2c=00000000
+ModLoad: 6fbd0000 6fc30000   C:\Windows\system32\verifier.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0027f670 ebx=77a0ec40 ecx=779cdf1c edx=00000003 esi=7ffdf000 edi=00000000
+eip=779770f4 esp=0027f4d4 ebp=0027f88c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+Page heap: pid 0x6EC: page heap enabled with flags 0x3.
+ModLoad: 77a80000 77b54000   C:\Windows\system32\kernel32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00069000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f7c0
+eip=779770f4 esp=0027f6d8 ebp=0027f72c iopl=0         nv up ei pl nz na po nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000202
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75b70000 75bbb000   C:\Windows\system32\KERNELBASE.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0006f000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f420
+eip=779770f4 esp=0027f338 ebp=0027f38c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 77770000 77810000   C:\Windows\system32\ADVAPI32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0009f000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f640
+eip=779770f4 esp=0027f558 ebp=0027f5ac iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76950000 769fc000   C:\Windows\system32\msvcrt.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=000a3000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f314
+eip=779770f4 esp=0027f22c ebp=0027f280 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76480000 76499000   C:\Windows\SYSTEM32\sechost.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=000b5000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f314
+eip=779770f4 esp=0027f22c ebp=0027f280 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 767c0000 76862000   C:\Windows\system32\RPCRT4.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=000c5000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027ef74
+eip=779770f4 esp=0027ee8c ebp=0027eee0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76880000 76949000   C:\Windows\system32\USER32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=000e5000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f640
+eip=779770f4 esp=0027f558 ebp=0027f5ac iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76430000 7647e000   C:\Windows\system32\GDI32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=000eb000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f2a0
+eip=779770f4 esp=0027f1b8 ebp=0027f20c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 77a70000 77a7a000   C:\Windows\system32\LPK.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=000f7000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027ef74
+eip=779770f4 esp=0027ee8c ebp=0027eee0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76390000 7642d000   C:\Windows\system32\USP10.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=00105000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027ec48
+eip=779770f4 esp=0027eb60 ebp=0027ebb4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 762a0000 762f7000   C:\Windows\system32\SHLWAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0011d000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f640
+eip=779770f4 esp=0027f558 ebp=0027f5ac iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76a50000 7769a000   C:\Windows\system32\SHELL32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0012f000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f640
+eip=779770f4 esp=0027f558 ebp=0027f5ac iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76660000 767bc000   C:\Windows\system32\ole32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0014d000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f640
+eip=779770f4 esp=0027f558 ebp=0027f5ac iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 77810000 77922000   C:\Windows\system32\urlmon.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=01708000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f640
+eip=779770f4 esp=0027f558 ebp=0027f5ac iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75fd0000 7605f000   C:\Windows\system32\OLEAUT32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=01710000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f314
+eip=779770f4 esp=0027f22c ebp=0027f280 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 760e0000 76299000   C:\Windows\system32\iertutil.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=01734000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f314
+eip=779770f4 esp=0027f22c ebp=0027f280 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75e30000 75f4b000   C:\Windows\system32\WININET.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=01744000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f314
+eip=779770f4 esp=0027f22c ebp=0027f280 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76870000 76873000   C:\Windows\system32\Normaliz.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=01754000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027efe8
+eip=779770f4 esp=0027ef00 ebp=0027ef54 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76640000 7665f000   C:\Windows\system32\IMM32.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=017cc000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027eebc
+eip=779770f4 esp=0027edd4 ebp=0027ee28 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 776a0000 7776c000   C:\Windows\system32\MSCTF.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=017da000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027eb1c
+eip=779770f4 esp=0027ea34 ebp=0027ea88 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75a10000 75a1c000   C:\Windows\system32\CRYPTBASE.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=02891000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027fab4
+eip=779770f4 esp=0027f9cc ebp=0027fa20 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 73360000 73ca7000   C:\Windows\system32\IEFRAME.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=028b9000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027fa44
+eip=779770f4 esp=0027f95c ebp=0027f9b0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75fb0000 75fb5000   C:\Windows\system32\PSAPI.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=028c1000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f718
+eip=779770f4 esp=0027f630 ebp=0027f684 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 71cc0000 71cfc000   C:\Windows\system32\OLEACC.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0320c000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f718
+eip=779770f4 esp=0027f630 ebp=0027f684 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74a10000 74bae000   C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\comctl32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0329a000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f448
+eip=779770f4 esp=0027f360 ebp=0027f3b4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76060000 760db000   C:\Windows\system32\comdlg32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=032f0000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f958
+eip=779770f4 esp=0027f870 ebp=0027f8c4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 706a0000 706d2000   C:\Program Files\Internet Explorer\IEShims.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=03392000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f8e0
+eip=779770f4 esp=0027f7f8 ebp=0027f84c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75960000 75968000   C:\Windows\system32\Secur32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=033ed000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f484
+eip=779770f4 esp=0027f39c ebp=0027f3f0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75980000 7599b000   C:\Windows\system32\SSPICLI.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=033f5000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f394
+eip=779770f4 esp=0027f2ac ebp=0027f300 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75ac0000 75acb000   C:\Windows\system32\profapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=037c7000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027c67c
+eip=779770f4 esp=0027c594 ebp=0027c5e8 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75dc0000 75df5000   C:\Windows\system32\WS2_32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=038a4000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f348
+eip=779770f4 esp=0027f260 ebp=0027f2b4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75fc0000 75fc6000   C:\Windows\system32\NSI.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=038b2000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027efa8
+eip=779770f4 esp=0027eec0 ebp=0027ef14 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 753b0000 753f4000   C:\Windows\system32\dnsapi.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=03a8e000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f554
+eip=779770f4 esp=0027f46c ebp=0027f4c0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 72910000 7292c000   C:\Windows\system32\iphlpapi.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=03acc000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f554
+eip=779770f4 esp=0027f46c ebp=0027f4c0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 72900000 72907000   C:\Windows\system32\WINNSI.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=03ad6000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f1b4
+eip=779770f4 esp=0027f0cc ebp=0027f120 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75ab0000 75abe000   C:\Windows\system32\RpcRtRemote.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=03d14000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f4c8
+eip=779770f4 esp=0027f3e0 ebp=0027f434 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 70670000 70694000   C:\Program Files\Internet Explorer\sqmapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=027d4000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffdf000 edi=0027f6e8
+eip=779770f4 esp=0027f600 ebp=0027f654 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75530000 75546000   C:\Windows\system32\CRYPTSP.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=040e3000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483f58c
+eip=779770f4 esp=0483f4a4 ebp=0483f4f8 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 752d0000 7530b000   C:\Windows\system32\rsaenh.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=03a68000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483f4c4
+eip=779770f4 esp=0483f3dc ebp=0483f430 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76300000 76383000   C:\Windows\system32\CLBCatQ.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=0441e000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483f4a8
+eip=779770f4 esp=0483f3c0 ebp=0483f414 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 6cbb0000 6cbe3000   C:\Program Files\Internet Explorer\ieproxy.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=03abc000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483f268
+eip=779770f4 esp=0483f180 ebp=0483f1d4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 759c0000 75a0c000   C:\Windows\system32\apphelp.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04bc3000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483af80
+eip=779770f4 esp=0483ae98 ebp=0483aeec iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74070000 7409e000   C:\Windows\system32\MLANG.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04bef000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=04838684
+eip=779770f4 esp=0483859c ebp=048385f0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74e70000 74e91000   C:\Windows\system32\ntmarta.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=03834000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483d464
+eip=779770f4 esp=0483d37c ebp=0483d3d0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 76a00000 76a45000   C:\Windows\system32\WLDAP32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04b6b000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483d0c4
+eip=779770f4 esp=0483cfdc ebp=0483d030 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 6eef0000 6ef42000   C:\Windows\system32\RASAPI32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04e5e000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483d280
+eip=779770f4 esp=0483d198 ebp=0483d1ec iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 6e9d0000 6e9e5000   C:\Windows\system32\rasman.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04e6e000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483cee0
+eip=779770f4 esp=0483cdf8 ebp=0483ce4c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 6fec0000 6fecd000   C:\Windows\system32\rtutils.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04e94000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483d21c
+eip=779770f4 esp=0483d134 ebp=0483d188 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 72990000 72996000   C:\Windows\system32\sensapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=03d76000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483d350
+eip=779770f4 esp=0483d268 ebp=0483d2bc iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 67b30000 686fe000   C:\Windows\system32\MSHTML.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04ef0000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd8000 edi=0429fa9c
+eip=779770f4 esp=0429f9b4 ebp=0429fa08 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74fb0000 74fb9000   C:\Windows\system32\VERSION.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04f0a000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd8000 edi=0429f770
+eip=779770f4 esp=0429f688 ebp=0429f6dc iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74000000 74011000   C:\Windows\system32\netapi32.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=04b1e000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483ce78
+eip=779770f4 esp=0483cd90 ebp=0483cde4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 73eb0000 73eb9000   C:\Windows\system32\netutils.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04ece000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483cad8
+eip=779770f4 esp=0483c9f0 ebp=0483ca44 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 758e0000 758f9000   C:\Windows\system32\srvcli.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04d9a000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483cad8
+eip=779770f4 esp=0483c9f0 ebp=0483ca44 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 73ea0000 73eaf000   C:\Windows\system32\wkscli.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=055b3000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483cad8
+eip=779770f4 esp=0483c9f0 ebp=0483ca44 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 73f50000 73f60000   C:\Windows\system32\NLAapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=04f0c000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483c958
+eip=779770f4 esp=0483c870 ebp=0483c8c4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 71280000 71286000   C:\Windows\system32\rasadhlp.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0564f000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483cbf0
+eip=779770f4 esp=0483cb08 ebp=0483cb5c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 754f0000 7552c000   C:\Windows\system32\mswsock.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=05c82000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffaf000 edi=05eaf310
+eip=779770f4 esp=05eaf228 ebp=05eaf27c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75040000 75045000   C:\Windows\System32\wshtcpip.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=05661000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffaf000 edi=05eaf54c
+eip=779770f4 esp=05eaf464 ebp=05eaf4b8 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74130000 74155000   C:\Windows\system32\peerdist.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=05cc4000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483d048
+eip=779770f4 esp=0483cf60 ebp=0483cfb4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75110000 75127000   C:\Windows\system32\USERENV.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=05cd2000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483cca8
+eip=779770f4 esp=0483cbc0 ebp=0483cc14 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 756a0000 756bb000   C:\Windows\system32\AUTHZ.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=05ce4000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483cca8
+eip=779770f4 esp=0483cbc0 ebp=0483cc14 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74890000 748d0000   C:\Windows\system32\UxTheme.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=062aa000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483c95c
+eip=779770f4 esp=0483c874 ebp=0483c8c8 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 71d00000 71daa000   C:\Program Files\Classic Shell\ClassicExplorer32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=06344000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483c208
+eip=779770f4 esp=0483c120 ebp=0483c174 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74360000 74373000   C:\Windows\system32\dwmapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=06354000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483bedc
+eip=779770f4 esp=0483bdf4 ebp=0483be48 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 71c80000 71cb2000   C:\Windows\system32\WINMM.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=06364000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483bedc
+eip=779770f4 esp=0483bdf4 ebp=0483be48 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75b40000 75b6e000   C:\Windows\system32\WINTRUST.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=06380000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483bedc
+eip=779770f4 esp=0483bdf4 ebp=0483be48 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75bf0000 75d10000   C:\Windows\system32\CRYPT32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0638a000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483bbb0
+eip=779770f4 esp=0483bac8 ebp=0483bb1c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75b30000 75b3c000   C:\Windows\system32\MSASN1.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0649a000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483b884
+eip=779770f4 esp=0483b79c ebp=0483b7f0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74360000 74373000   C:\Windows\system32\dwmapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=071da000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483d014
+eip=779770f4 esp=0483cf2c ebp=0483cf80 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75a20000 75a7f000   C:\Windows\system32\SXS.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=064fc000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483c370
+eip=779770f4 esp=0483c288 ebp=0483c2dc iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75a20000 75a7f000   C:\Windows\system32\SXS.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=08866000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001ae020
+eip=779770f4 esp=001adf38 ebp=001adf8c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74070000 7409e000   C:\Windows\system32\MLANG.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=08595000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001a8644
+eip=779770f4 esp=001a855c ebp=001a85b0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 748d0000 749c5000   C:\Windows\system32\propsys.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=089c6000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffdf000 edi=001abf78
+eip=779770f4 esp=001abe90 ebp=001abee4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 754e0000 754e6000   C:\Windows\System32\wship6.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=06520000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd8000 edi=0429ea6c
+eip=779770f4 esp=0429e984 ebp=0429e9d8 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 727e0000 72818000   C:\Windows\System32\fwpuclnt.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=070a0000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd8000 edi=0429e45c
+eip=779770f4 esp=0429e374 ebp=0429e3c8 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 764a0000 7663d000   C:\Windows\system32\SETUPAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0899e000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffd5000 edi=053cfa10
+eip=779770f4 esp=053cf928 ebp=053cf97c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75bc0000 75be7000   C:\Windows\system32\CFGMGR32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0897c000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffd5000 edi=053cf670
+eip=779770f4 esp=053cf588 ebp=053cf5dc iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75da0000 75db2000   C:\Windows\system32\DEVOBJ.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=085a9000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffd5000 edi=053cf670
+eip=779770f4 esp=053cf588 ebp=053cf5dc iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 6fb10000 6fb7c000   C:\Windows\System32\ieapfltr.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=07b0e000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483c2a8
+eip=779770f4 esp=0483c1c0 ebp=0483c214 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 6a850000 6aa0d000   C:\Windows\System32\jscript9.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=07b85000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483c0f8
+eip=779770f4 esp=0483c010 ebp=0483c064 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74050000 7405b000   C:\Windows\system32\msimtf.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=07dae000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=048396e8
+eip=779770f4 esp=04839600 ebp=04839654 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 748d0000 749c5000   C:\Windows\system32\PROPSYS.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=07e5e000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483a880
+eip=779770f4 esp=0483a798 ebp=0483a7ec iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 70500000 70657000   C:\Windows\System32\msxml6.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=08406000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483b9b8
+eip=779770f4 esp=0483b8d0 ebp=0483b924 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 764a0000 7663d000   C:\Windows\system32\setupapi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=08832000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483b194
+eip=779770f4 esp=0483b0ac ebp=0483b100 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75bc0000 75be7000   C:\Windows\system32\CFGMGR32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=08838000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483adf4
+eip=779770f4 esp=0483ad0c ebp=0483ad60 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75da0000 75db2000   C:\Windows\system32\DEVOBJ.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=08856000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483adf4
+eip=779770f4 esp=0483ad0c ebp=0483ad60 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 6a500000 6a847000   C:\Windows\system32\d2d1.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=088b0000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483b0f4
+eip=779770f4 esp=0483b00c ebp=0483b060 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 6a3c0000 6a4f5000   C:\Windows\system32\DWrite.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=088ce000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483b0f4
+eip=779770f4 esp=0483b00c ebp=0483b060 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 72260000 722ac000   C:\Windows\system32\dxgi.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=08f20000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483b0f4
+eip=779770f4 esp=0483b00c ebp=0483b060 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75b40000 75b6e000   C:\Windows\system32\WINTRUST.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=08487000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=04836d80
+eip=779770f4 esp=04836c98 ebp=04836cec iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75bf0000 75d10000   C:\Windows\system32\CRYPT32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=05f62000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=04836a54
+eip=779770f4 esp=0483696c ebp=048369c0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75b30000 75b3c000   C:\Windows\system32\MSASN1.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=08fae000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=04836728
+eip=779770f4 esp=04836640 ebp=04836694 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 725f0000 7261c000   C:\Windows\system32\d3d10_1.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=05c31000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483b0a0
+eip=779770f4 esp=0483afb8 ebp=0483b00c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 725a0000 725e1000   C:\Windows\system32\d3d10_1core.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=07e26000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483ad74
+eip=779770f4 esp=0483ac8c ebp=0483ace0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 720e0000 72255000   C:\Windows\system32\d3d11.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0941a000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483ad74
+eip=779770f4 esp=0483ac8c ebp=0483ace0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 6a1d0000 6a3b9000   C:\Windows\system32\D3D10Warp.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=09458000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffd9000 edi=0483a5a8
+eip=779770f4 esp=0483a4c0 ebp=0483a514 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 71d00000 71daa000   C:\Program Files\Classic Shell\ClassicExplorer32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=07e46000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffa5000 edi=0baebe48
+eip=779770f4 esp=0baebd60 ebp=0baebdb4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 71c80000 71cb2000   C:\Windows\system32\WINMM.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0bb93000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffa5000 edi=0baebb1c
+eip=779770f4 esp=0baeba34 ebp=0baeba88 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 70670000 7069b000   C:\Windows\system32\msls31.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0beb3000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffa5000 edi=0bae9158
+eip=779770f4 esp=0bae9070 ebp=0bae90c4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 71d00000 71daa000   C:\Program Files\Classic Shell\ClassicExplorer32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0b26d000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffa1000 edi=0cdbc448
+eip=779770f4 esp=0cdbc360 ebp=0cdbc3b4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 71c80000 71cb2000   C:\Windows\system32\WINMM.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0c9e9000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffa1000 edi=0cdbc11c
+eip=779770f4 esp=0cdbc034 ebp=0cdbc088 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 70130000 70138000   C:\Windows\system32\dispex.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0d02c000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffa5000 edi=0baec58c
+eip=779770f4 esp=0baec4a4 ebp=0baec4f8 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 71d00000 71daa000   C:\Program Files\Classic Shell\ClassicExplorer32.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0be27000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ff9d000 edi=0e18be78
+eip=779770f4 esp=0e18bd90 ebp=0e18bde4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 71c80000 71cb2000   C:\Windows\system32\WINMM.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0e1c5000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ff9d000 edi=0e18bb4c
+eip=779770f4 esp=0e18ba64 ebp=0e18bab8 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74330000 7435f000   C:\Windows\system32\XmlLite.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0f1d0000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffa1000 edi=0cdbb39c
+eip=779770f4 esp=0cdbb2b4 ebp=0cdbb308 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74fb0000 74fb9000   C:\Windows\system32\VERSION.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0d1c8000 ebx=00000000 ecx=011b1000 edx=00000000 esi=7ffad000 edi=09b1dd70
+eip=779770f4 esp=09b1dc88 ebp=09b1dcdc iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 751d0000 751d8000   C:\Windows\system32\credssp.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0f5e4000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffa8000 edi=0916dd48
+eip=779770f4 esp=0916dc60 ebp=0916dcb4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75340000 7537f000   C:\Windows\system32\schannel.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=0ea80000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffa8000 edi=0916df4c
+eip=779770f4 esp=0916de64 ebp=0916deb8 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75660000 75698000   C:\Windows\system32\ncrypt.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0e2a4000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffa8000 edi=0916dc48
+eip=779770f4 esp=0916db60 ebp=0916dbb4 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75640000 75657000   C:\Windows\system32\bcrypt.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0f402000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffa8000 edi=0916d91c
+eip=779770f4 esp=0916d834 ebp=0916d888 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 75210000 7524d000   C:\Windows\system32\bcryptprimitives.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0d1fa000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffa8000 edi=0916d964
+eip=779770f4 esp=0916d87c ebp=0916d8d0 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 750f0000 75106000   C:\Windows\system32\GPAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=103b0000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffa8000 edi=0916d798
+eip=779770f4 esp=0916d6b0 ebp=0916d704 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 71920000 7193c000   C:\Windows\system32\cryptnet.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=0f687000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ffa8000 edi=0916d7a0
+eip=779770f4 esp=0916d6b8 ebp=0916d70c iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+ModLoad: 74650000 74675000   C:\Windows\system32\POWRPROF.DLL
+&lt;---- EVENT: break ld ----&gt;
+eax=1156a000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ff9d000 edi=0e18c914
+eip=779770f4 esp=0e18c82c ebp=0e18c880 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+(6ec.de4): C++ EH exception - code e06d7363 (first chance)
+ModLoad: 71c80000 71cb2000   C:\Windows\system32\WINMM.dll
+&lt;---- EVENT: break ld ----&gt;
+eax=1041c000 ebx=00000000 ecx=00051000 edx=00000000 esi=7ff9d000 edi=0e18d0f8
+eip=779770f4 esp=0e18d010 ebp=0e18d064 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00000246
+ntdll!KiFastSystemCallRet:
+779770f4 c3              ret
+(6ec.e44): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): C++ EH exception - code e06d7363 (first chance)
+(6ec.de4): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): C++ EH exception - code e06d7363 (first chance)
+(6ec.de4): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): C++ EH exception - code e06d7363 (first chance)
+(6ec.de4): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): C++ EH exception - code e06d7363 (first chance)
+(6ec.de4): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): C++ EH exception - code e06d7363 (first chance)
+(6ec.de4): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): Unknown exception - code 8000ffff (first chance)
+(6ec.de4): Unknown exception - code 8000ffff (first chance)
+(6ec.de4): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): C++ EH exception - code e06d7363 (first chance)
+(6ec.de4): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): C++ EH exception - code e06d7363 (first chance)
+(6ec.de4): C++ EH exception - code e06d7363 (first chance)
+(6ec.e44): Access violation - code c0000005 (first chance)
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend(this)" class="level0">Processes, threads and modules</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Process 0xB58: iexplore.exe (main)
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+--- Threads for process 0xB58 not available ---
+--- Modules for process 0xB58 ---
+     netapi32.DLL: 0x74000000-0x74011000
+     RASAPI32.dll: 0x6EEF0000-0x6EF42000
+     WINNSI.DLL: 0x72900000-0x72907000
+     kernel32.dll: 0x77A80000-0x77B54000
+     rasman.dll: 0x6E9D0000-0x6E9E5000
+     ntdll.dll: 0x77930000-0x77A6C000
+     netprofm.dll: 0x72BC0000-0x72C1A000
+     IMM32.DLL: 0x76640000-0x7665F000
+     iertutil.dll: 0x760E0000-0x76299000
+     MSIMG32.dll: 0x70840000-0x70845000
+     CRYPTBASE.DLL: 0x75A10000-0x75A1C000
+     wkscli.dll: 0x73EA0000-0x73EAF000
+     ole32.dll: 0x76660000-0x767BC000
+     explorerframe.dll: 0x71F70000-0x720DF000
+     wship6.dll: 0x754E0000-0x754E6000
+     msvcrt.dll: 0x76950000-0x769FC000
+     WININET.dll: 0x75E30000-0x75F4B000
+     NSI.dll: 0x75FC0000-0x75FC6000
+     rtutils.dll: 0x6FEC0000-0x6FECD000
+     dnsapi.DLL: 0x753B0000-0x753F4000
+     SHLWAPI.dll: 0x762A0000-0x762F7000
+     fwpuclnt.dll: 0x727E0000-0x72818000
+     Normaliz.dll: 0x76870000-0x76873000
+     WS2_32.dll: 0x75DC0000-0x75DF5000
+     netutils.dll: 0x73EB0000-0x73EB9000
+     xmllite.dll: 0x74330000-0x7435F000
+     WLDAP32.dll: 0x76A00000-0x76A45000
+     verifier.dll: 0x6FBD0000-0x6FC30000
+     mswsock.dll: 0x754F0000-0x7552C000
+     comdlg32.dll: 0x76060000-0x760DB000
+     SHELL32.dll: 0x76A50000-0x7769A000
+     RPCRT4.dll: 0x767C0000-0x76862000
+     SSPICLI.DLL: 0x75980000-0x7599B000
+     PSAPI.DLL: 0x75FB0000-0x75FB5000
+     ADVAPI32.dll: 0x77770000-0x77810000
+     iphlpapi.DLL: 0x72910000-0x7292C000
+     ieproxy.dll: 0x6CBB0000-0x6CBE3000
+     IEUI.dll: 0x72960000-0x7298D000
+     OLEACC.dll: 0x71CC0000-0x71CFC000
+     KERNELBASE.dll: 0x75B70000-0x75BBB000
+     nlaapi.dll: 0x73F50000-0x73F60000
+     RpcRtRemote.dll: 0x75AB0000-0x75ABE000
+     wshtcpip.dll: 0x75040000-0x75045000
+     npmproxy.dll: 0x72BB0000-0x72BB8000
+     DUser.dll: 0x743D0000-0x743FF000
+     sqmapi.dll: 0x72970000-0x72994000
+     USP10.dll: 0x76390000-0x7642D000
+     OLEAUT32.dll: 0x75FD0000-0x7605F000
+     LPK.dll: 0x77A70000-0x77A7A000
+     srvcli.dll: 0x758E0000-0x758F9000
+     comctl32.dll: 0x74A10000-0x74BAE000
+     MSCTF.dll: 0x776A0000-0x7776C000
+     IEFRAME.dll: 0x73360000-0x73CA7000
+     GDI32.dll: 0x76430000-0x7647E000
+     UxTheme.dll: 0x74890000-0x748D0000
+     DUI70.dll: 0x74430000-0x744E2000
+     Secur32.dll: 0x75960000-0x75968000
+     rsaenh.dll: 0x752D0000-0x7530B000
+     ntmarta.dll: 0x74E70000-0x74E91000
+     sechost.dll: 0x76480000-0x76499000
+     CLBCatQ.DLL: 0x76300000-0x76383000
+     CRYPTSP.dll: 0x75530000-0x75546000
+     USER32.dll: 0x76880000-0x76949000
+     sensapi.dll: 0x72990000-0x72996000
+     urlmon.dll: 0x77810000-0x77922000
+     profapi.dll: 0x75AC0000-0x75ACB000
+     iexplore.exe: 0x13E0000-0x1498000
+     rasadhlp.dll: 0x71280000-0x71286000
+     apphelp.dll: 0x759C0000-0x75A0C000
+Process 0x6EC: iexplore.exe (child)
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" http://SL-W7-IE9-2:32768/Ping-WithSomethingToMakeItASemiUniqueStringThatCanBeDifferentiatedFromOtherRequests
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" SCODEF:2904 CREDAT:14337
+--- Threads for process 0x6EC ---
+     0xB28: (unnamed)
+     0x408: (unnamed)
+     0x378: (unnamed)
+     0xE80: (unnamed)
+     0xAFC: (unnamed)
+     0xD40: (unnamed)
+     0xC6C: (unnamed)
+     0xBB4: (unnamed)
+     0xE1C: (unnamed)
+     0xDC8: (unnamed)
+     0x814: (unnamed)
+     0x8BC: (unnamed)
+     0x958: (unnamed)
+     0x458: (unnamed)
+     0x9EC: (unnamed)
+     0x97C: (unnamed)
+     0xEB0: (unnamed)
+     0x920: (unnamed)
+     0xDCC: (unnamed)
+     0xCD8: (unnamed)
+     0x860: (unnamed)
+     0x8CC: (unnamed)
+     0xA3C: (unnamed)
+     0xCF8: (unnamed)
+     0x8E4: (unnamed)
+     0xC08: (unnamed)
+     0x984: (unnamed)
+     0xE44: (unnamed) (event source)
+     0x410: (unnamed)
+     0x11C: (unnamed)
+     0x4C4: (unnamed)
+     0xDE4: (unnamed)
+     0xD28: (unnamed)
+     0x75C: (unnamed)
+     0xDC4: (unnamed)
+     0xD18: (unnamed)
+     0xB84: (unnamed)
+--- Modules for process 0x6EC ---
+     dispex.dll: 0x70130000-0x70138000
+     WINNSI.DLL: 0x72900000-0x72907000
+     OLEACC.dll: 0x71CC0000-0x71CFC000
+     d3d10_1.dll: 0x725F0000-0x7261C000
+     msvcrt.dll: 0x76950000-0x769FC000
+     ClassicExplorer32.dll: 0x71D00000-0x71DAA000
+     rsaenh.dll: 0x752D0000-0x7530B000
+     cryptnet.dll: 0x71920000-0x7193C000
+     CRYPT32.dll: 0x75BF0000-0x75D10000
+     SXS.DLL: 0x75A20000-0x75A7F000
+     netutils.dll: 0x73EB0000-0x73EB9000
+     ieproxy.dll: 0x6CBB0000-0x6CBE3000
+     comctl32.dll: 0x74A10000-0x74BAE000
+     CFGMGR32.dll: 0x75BC0000-0x75BE7000
+     comdlg32.dll: 0x76060000-0x760DB000
+     wshtcpip.dll: 0x75040000-0x75045000
+     bcryptprimitives.dll: 0x75210000-0x7524D000
+     KERNELBASE.dll: 0x75B70000-0x75BBB000
+     VERSION.dll: 0x74FB0000-0x74FB9000
+     LPK.dll: 0x77A70000-0x77A7A000
+     IEFRAME.dll: 0x73360000-0x73CA7000
+     UxTheme.dll: 0x74890000-0x748D0000
+     bcrypt.dll: 0x75640000-0x75657000
+     IMM32.DLL: 0x76640000-0x7665F000
+     D3D10Warp.dll: 0x6A1D0000-0x6A3B9000
+     msxml6.dll: 0x70500000-0x70657000
+     IEShims.dll: 0x706A0000-0x706D2000
+     RASAPI32.dll: 0x6EEF0000-0x6EF42000
+     ntdll.dll: 0x77930000-0x77A6C000
+     d2d1.dll: 0x6A500000-0x6A847000
+     d3d10_1core.dll: 0x725A0000-0x725E1000
+     explorerframe.dll: 0x71F70000-0x720DF000
+     schannel.DLL: 0x75340000-0x7537F000
+     WS2_32.dll: 0x75DC0000-0x75DF5000
+     xmllite.dll: 0x74330000-0x7435F000
+     MSIMG32.dll: 0x70840000-0x70845000
+     WININET.dll: 0x75E30000-0x75F4B000
+     dwmapi.dll: 0x74360000-0x74373000
+     ieapfltr.dll: 0x6FB10000-0x6FB7C000
+     srvcli.dll: 0x758E0000-0x758F9000
+     MSCTF.dll: 0x776A0000-0x7776C000
+     sqmapi.dll: 0x70670000-0x70694000
+     MLANG.dll: 0x74070000-0x7409E000
+     sechost.dll: 0x76480000-0x76499000
+     wship6.dll: 0x754E0000-0x754E6000
+     PSAPI.DLL: 0x75FB0000-0x75FB5000
+     profapi.dll: 0x75AC0000-0x75ACB000
+     propsys.dll: 0x748D0000-0x749C5000
+     iexplore.exe: 0x13E0000-0x1498000
+     DUser.dll: 0x743D0000-0x743FF000
+     iphlpapi.DLL: 0x72910000-0x7292C000
+     rtutils.dll: 0x6FEC0000-0x6FECD000
+     MSASN1.dll: 0x75B30000-0x75B3C000
+     SHLWAPI.dll: 0x762A0000-0x762F7000
+     WLDAP32.dll: 0x76A00000-0x76A45000
+     peerdist.dll: 0x74130000-0x74155000
+     RPCRT4.dll: 0x767C0000-0x76862000
+     SSPICLI.DLL: 0x75980000-0x7599B000
+     netprofm.dll: 0x72BC0000-0x72C1A000
+     ADVAPI32.dll: 0x77770000-0x77810000
+     WINTRUST.dll: 0x75B40000-0x75B6E000
+     SETUPAPI.dll: 0x764A0000-0x7663D000
+     mswsock.dll: 0x754F0000-0x7552C000
+     GDI32.dll: 0x76430000-0x7647E000
+     msimtf.dll: 0x74050000-0x7405B000
+     nlaapi.dll: 0x73F50000-0x73F60000
+     RpcRtRemote.dll: 0x75AB0000-0x75ABE000
+     OLEAUT32.dll: 0x75FD0000-0x7605F000
+     MSHTML.dll: 0x67B30000-0x686FE000
+     fwpuclnt.dll: 0x727E0000-0x72818000
+     GPAPI.dll: 0x750F0000-0x75106000
+     NLAapi.dll: 0x73F50000-0x73F60000
+     ncrypt.dll: 0x75660000-0x75698000
+     CRYPTSP.dll: 0x75530000-0x75546000
+     USER32.dll: 0x76880000-0x76949000
+     sensapi.dll: 0x72990000-0x72996000
+     d3d11.dll: 0x720E0000-0x72255000
+     DWrite.dll: 0x6A3C0000-0x6A4F5000
+     AUTHZ.dll: 0x756A0000-0x756BB000
+     POWRPROF.DLL: 0x74650000-0x74675000
+     kernel32.dll: 0x77A80000-0x77B54000
+     ntmarta.dll: 0x74E70000-0x74E91000
+     iertutil.dll: 0x760E0000-0x76299000
+     credssp.dll: 0x751D0000-0x751D8000
+     CRYPTBASE.DLL: 0x75A10000-0x75A1C000
+     wkscli.dll: 0x73EA0000-0x73EAF000
+     ole32.dll: 0x76660000-0x767BC000
+     USERENV.dll: 0x75110000-0x75127000
+     PROPSYS.dll: 0x748D0000-0x749C5000
+     CLBCatQ.DLL: 0x76300000-0x76383000
+     NSI.dll: 0x75FC0000-0x75FC6000
+     DUI70.dll: 0x74430000-0x744E2000
+     urlmon.dll: 0x77810000-0x77922000
+     Normaliz.dll: 0x76870000-0x76873000
+     dnsapi.DLL: 0x753B0000-0x753F4000
+     verifier.dll: 0x6FBD0000-0x6FC30000
+     SHELL32.dll: 0x76A50000-0x7769A000
+     msls31.dll: 0x70670000-0x7069B000
+     jscript9.dll: 0x6A850000-0x6AA0D000
+     npmproxy.dll: 0x72BB0000-0x72BB8000
+     WINMM.dll: 0x71C80000-0x71CB2000
+     USP10.dll: 0x76390000-0x7642D000
+     IEUI.dll: 0x72960000-0x7298D000
+     DEVOBJ.dll: 0x75DA0000-0x75DB2000
+     Secur32.dll: 0x75960000-0x75968000
+     rasman.dll: 0x6E9D0000-0x6E9E5000
+     XmlLite.dll: 0x74330000-0x7435F000
+     netapi32.DLL: 0x74000000-0x74011000
+     rasadhlp.dll: 0x71280000-0x71286000
+     dxgi.dll: 0x72260000-0x722AC000
+     setupapi.dll: 0x764A0000-0x7663D000
+     apphelp.dll: 0x759C0000-0x75A0C000
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 "><LEGEND onclick="flipLegend(this)" class="level0">Stack frames</LEGEND><SPAN></SPAN><SPAN class="hideable "><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-0">Frame 0: MSHTML.dll!ParseListStyleProperty+0x57F</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-MSHTML.dll!ParseListStyleProperty">MSHTML.dll!ParseListStyleProperty</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!ParseListStyleProperty+0x447:
+67c42b00 d04cd867        ror     byte ptr [eax+ebx*8+67h],1
+67c42b04 c745d401000000  mov     dword ptr [ebp-2Ch],1
+67c42b0b e8befdffff      call    MSHTML!PROPERTYDESC::TryLoadFromString (67c428ce)
+67c42b10 837dd000        cmp     dword ptr [ebp-30h],0
+67c42b14 7519            jne     MSHTML!ParseListStyleProperty+0x4d1 (67c42b2f)
+67c42b16 56              push    esi
+67c42b17 57              push    edi
+67c42b18 8d55f0          lea     edx,[ebp-10h]
+67c42b1b 52              push    edx
+67c42b1c 8bc3            mov     eax,ebx
+67c42b1e b94493d867      mov     ecx,offset MSHTML!s_propdescCCSSStyleDeclarationlistStyleImage (67d89344)
+67c42b23 c745d001000000  mov     dword ptr [ebp-30h],1
+67c42b2a e89ffdffff      call    MSHTML!PROPERTYDESC::TryLoadFromString (67c428ce)
+67c42b2f 8b45e0          mov     eax,dword ptr [ebp-20h]
+MSHTML!ParseListStyleProperty+0x4d2:
+67c42b30 45              inc     ebp
+67c42b31 e085            loopne  MSHTML!PROPERTYDESC::HandleStyleComponentProperty+0xd80 (67c42ab8)
+67c42b33 c00f85          ror     byte ptr [edi],85h
+67c42b36 30fd            xor     ch,bh
+67c42b38 ff              ???
+67c42b39 ff              ???
+67c42b3a 3945d4          cmp     dword ptr [ebp-2Ch],eax
+67c42b3d 0f849bda3b00    je      MSHTML!ParseListStyleProperty+0x4e1 (680005de)
+67c42b43 837db000        cmp     dword ptr [ebp-50h],0
+67c42b47 7525            jne     MSHTML!ParseListStyleProperty+0x52a (67c42b6e)
+67c42b49 56              push    esi
+67c42b4a 57              push    edi
+67c42b4b 68b84cd867      push    offset MSHTML!`string' (67d84cb8)
+67c42b50 8bc3            mov     eax,ebx
+67c42b52 0d8000f800      or      eax,0F80080h
+67c42b57 50              push    eax
+67c42b58 68c84bd867      push    offset MSHTML!s_propdescCCSSStyleDeclarationlistStylePosition (67d84bc8)
+67c42b5d ff15c84bd867    call    dword ptr [MSHTML!s_propdescCCSSStyleDeclarationlistStylePosition (67d84bc8)]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-1">Frame 1: MSHTML.dll!PROPERTYDESC::HandleStyleComponentProperty+0xC19</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-MSHTML.dll!PROPERTYDESC::HandleStyleComponentProperty">MSHTML.dll!PROPERTYDESC::HandleStyleComponentProperty</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!PROPERTYDESC::HandleStyleComponentProperty+0x8cb:
+67d9865e 54              push    esp
+67d9865f 2464            and     al,64h
+67d98661 52              push    edx
+67d98662 68ab130180      push    800113ABh
+67d98667 8bce            mov     ecx,esi
+67d98669 ffd0            call    eax
+67d9866b 8d4c2470        lea     ecx,[esp+70h]
+67d9866f 51              push    ecx
+67d98670 ff156cf25e68    call    dword ptr [MSHTML!_imp__VariantClear (685ef26c)]
+67d98676 807c244b00      cmp     byte ptr [esp+4Bh],0
+67d9867b 7427            je      MSHTML!PROPERTYDESC::HandleStyleComponentProperty+0x911 (67d986a4)
+67d9867d 8d542460        lea     edx,[esp+60h]
+67d98681 52              push    edx
+67d98682 68ab130180      push    800113ABh
+67d98687 8bc6            mov     eax,esi
+67d98689 e802814300      call    MSHTML!CBase::CreatePropChangeUndo (681d0790)
+67d9868e 8bd8            mov     ebx,eax
+MSHTML!PROPERTYDESC::HandleStyleComponentProperty+0x8fb:
+67d9868e 8bd8            mov     ebx,eax
+67d98690 85db            test    ebx,ebx
+67d98692 7410            je      MSHTML!PROPERTYDESC::HandleStyleComponentProperty+0x911 (67d986a4)
+67d98694 8d442460        lea     eax,[esp+60h]
+67d98698 50              push    eax
+67d98699 ff156cf25e68    call    dword ptr [MSHTML!_imp__VariantClear (685ef26c)]
+67d9869f e910f5ffff      jmp     MSHTML!PROPERTYDESC::HandleStyleComponentProperty+0x1955 (67d97bb4)
+67d986a4 8d4c2460        lea     ecx,[esp+60h]
+67d986a8 51              push    ecx
+67d986a9 ff156cf25e68    call    dword ptr [MSHTML!_imp__VariantClear (685ef26c)]
+67d986af c7442428ab130180 mov     dword ptr [esp+28h],800113ABh
+67d986b7 e9e8f4ffff      jmp     MSHTML!PROPERTYDESC::HandleStyleComponentProperty+0x10bd (67d97ba4)
+67d986bc 8b54241c        mov     edx,dword ptr [esp+1Ch]
+</PRE></SPAN></FIELDSET><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Registers</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>eax=80070057 ebx=00012622 ecx=10bc7fc8 edx=67d84bc8 esi=122e3fe4 edi=122e3ff8
+eip=6800060b esp=0cdbcbd8 ebp=0cdbcc70 iopl=0         nv up ei pl nz na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00010206
+fpcw=027F: rn 53 puozdi  fpsw=4020: top=0 cc=1000 --p-----  fptw=FFFF
+fopcode=0000  fpip=001b:67d76f74  fpdp=0023:11b7bfa4
+st0= 0.000000000000000000000e+0000  st1= 0.000000000000000000000e+0000
+st2= 0.000000000000000000000e+0000  st3= 0.000000000000000000000e+0000
+st4= 1.000000000000000000000e+0000  st5= 1.000000000000000000000e+0002
+st6= 1.000000000000000000000e+0002  st7= 1.000000000000000000000e+0000
+mm0=0000000000000000  mm1=0000000000000000
+mm2=0000000000000000  mm3=0000000000000000
+mm4=8000000000000000  mm5=c800000000000000
+mm6=c800000000000000  mm7=8000000000000000
+xmm0=0 0 0 0
+xmm1=0 0 0 0.0153854
+xmm2=8.69386e-034 -1.#QNAN 1.17709e-043 8.69333e-034
+xmm3=1.1911e-043 8.6944e-034 -1.#QNAN 1.28919e-043
+xmm4=-1.#QNAN 1.21913e-043 8.69493e-034 -1.#QNAN
+xmm5=8.69628e-034 -1.#QNAN 1.20512e-043 8.69575e-034
+xmm6=8.26766e-044 8.70077e-034 -1.#QNAN 1.24716e-043
+xmm7=-1.#QNAN 1.10703e-043 8.7012e-034 -1.#QNAN
+MSHTML!ParseListStyleProperty+0x57f:
+6800060b 8b19            mov     ebx,dword ptr [ecx]  ds:0023:10bc7fc8=????????
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-2">Frame 2: MSHTML.dll!CCSSStyleDeclaration::setPropertyInternal+0x77</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-MSHTML.dll!CCSSStyleDeclaration::setPropertyInternal">MSHTML.dll!CCSSStyleDeclaration::setPropertyInternal</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!CCSSStyleDeclaration::setPropertyInternal+0x47:
+682972f9 00538b          add     byte ptr [ebx-75h],dl
+682972fc 5d              pop     ebp
+682972fd 08f7            or      bh,dh
+682972ff 43              inc     ebx
+68297300 1400            adc     al,0
+68297302 0010            add     byte ptr [eax],dl
+68297304 00740e8b        add     byte ptr [esi+ecx-75h],dh
+68297308 07              pop     es
+68297309 8b9080010000    mov     edx,dword ptr [eax+180h]
+6829730f 8bcf            mov     ecx,edi
+68297311 ffd2            call    edx
+68297313 eb02            jmp     MSHTML!CCSSStyleDeclaration::setPropertyInternal+0x65 (68297317)
+68297315 8bc7            mov     eax,edi
+68297317 8b0b            mov     ecx,dword ptr [ebx]
+68297319 50              push    eax
+6829731a 8b450c          mov     eax,dword ptr [ebp+0Ch]
+6829731d 57              push    edi
+6829731e 50              push    eax
+6829731f 81ce2204f800    or      esi,0F80422h
+68297325 56              push    esi
+68297326 53              push    ebx
+68297327 ffd1            call    ecx
+68297329 5b              pop     ebx
+MSHTML!CCSSStyleDeclaration::setPropertyInternal+0x77:
+68297329 5b              pop     ebx
+6829732a 3d03000280      cmp     eax,80020003h
+6829732f 7518            jne     MSHTML!CCSSStyleDeclaration::setPropertyInternal+0x97 (68297349)
+68297331 5f              pop     edi
+68297332 33c0            xor     eax,eax
+68297334 5e              pop     esi
+68297335 5d              pop     ebp
+68297336 c20c00          ret     0Ch
+68297339 8b17            mov     edx,dword ptr [edi]
+6829733b 8b4508          mov     eax,dword ptr [ebp+8]
+6829733e 8b92a8070000    mov     edx,dword ptr [edx+7A8h]
+68297344 50              push    eax
+68297345 8bcf            mov     ecx,edi
+68297347 ffd2            call    edx
+68297349 5f              pop     edi
+6829734a 5e              pop     esi
+6829734b 5d              pop     ebp
+6829734c c20c00          ret     0Ch
+6829734f 90              nop
+68297350 90              nop
+68297351 90              nop
+68297352 90              nop
+68297353 90              nop
+MSHTML!CCSSStyleDeclaration::itemInternal:
+68297354 8bff            mov     edi,edi
+68297356 55              push    ebp
+68297357 8bec            mov     ebp,esp
+68297359 8b5508          mov     edx,dword ptr [ebp+8]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-3">Frame 3: MSHTML.dll!CWritableCSSStyleDeclaration::setPropertyInternal+0x1D</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-MSHTML.dll!CWritableCSSStyleDeclaration::setPropertyInternal">MSHTML.dll!CWritableCSSStyleDeclaration::setPropertyInternal</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!CWritableCSSStyleDeclaration::removePropertyInternal+0x1d:
+68297d01 e81e030000      call    MSHTML!CWritableCSSStyleDeclaration::RemovePropFromArray (68298024)
+68297d06 8bc6            mov     eax,esi
+68297d08 5f              pop     edi
+68297d09 5e              pop     esi
+68297d0a 5b              pop     ebx
+68297d0b 5d              pop     ebp
+68297d0c c20400          ret     4
+68297d0f 90              nop
+68297d10 90              nop
+68297d11 90              nop
+68297d12 90              nop
+68297d13 90              nop
+MSHTML!CWritableCSSStyleDeclaration::setPropertyInternal:
+68297d14 8bff            mov     edi,edi
+68297d16 55              push    ebp
+68297d17 8bec            mov     ebp,esp
+68297d19 8b4510          mov     eax,dword ptr [ebp+10h]
+68297d1c 53              push    ebx
+68297d1d 8b5d08          mov     ebx,dword ptr [ebp+8]
+68297d20 56              push    esi
+68297d21 57              push    edi
+68297d22 8bf9            mov     edi,ecx
+68297d24 8b4d0c          mov     ecx,dword ptr [ebp+0Ch]
+68297d27 50              push    eax
+68297d28 51              push    ecx
+68297d29 53              push    ebx
+68297d2a 8bcf            mov     ecx,edi
+68297d2c e881f5ffff      call    MSHTML!CCSSStyleDeclaration::setPropertyInternal (682972b2)
+68297d31 8bf0            mov     esi,eax
+MSHTML!CWritableCSSStyleDeclaration::setPropertyInternal+0x1d:
+68297d31 8bf0            mov     esi,eax
+68297d33 85f6            test    esi,esi
+68297d35 750e            jne     MSHTML!CWritableCSSStyleDeclaration::setPropertyInternal+0x31 (68297d45)
+68297d37 8b531c          mov     edx,dword ptr [ebx+1Ch]
+68297d3a 53              push    ebx
+68297d3b 52              push    edx
+68297d3c 8bcf            mov     ecx,edi
+68297d3e e8b1adb5ff      call    MSHTML!CWritableCSSStyleDeclaration::AddPropToArray (67df2af4)
+68297d43 8bc6            mov     eax,esi
+68297d45 5f              pop     edi
+68297d46 5e              pop     esi
+68297d47 5b              pop     ebx
+68297d48 5d              pop     ebp
+68297d49 c20c00          ret     0Ch
+68297d4c 90              nop
+68297d4d 90              nop
+68297d4e 90              nop
+68297d4f 90              nop
+68297d50 90              nop
+MSHTML!CWritableCSSStyleDeclaration::AppendComponentPropToArray:
+68297d51 8bff            mov     edi,edi
+68297d53 55              push    ebp
+68297d54 8bec            mov     ebp,esp
+68297d56 83e4f8          and     esp,0FFFFFFF8h
+68297d59 83ec0c          sub     esp,0Ch
+68297d5c 8b450c          mov     eax,dword ptr [ebp+0Ch]
+68297d5f 53              push    ebx
+68297d60 56              push    esi
+68297d61 57              push    edi
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-4">Frame 4: MSHTML.dll!CCSSStyleDeclaration::setPropertyHelper+0x3E</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-MSHTML.dll!CCSSStyleDeclaration::setPropertyHelper">MSHTML.dll!CCSSStyleDeclaration::setPropertyHelper</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!CCSSStyleDeclaration::setPropertyHelper+0xe:
+68296db6 85f6            test    esi,esi
+68296db8 743b            je      MSHTML!CCSSStyleDeclaration::setPropertyHelper+0x4d (68296df5)
+68296dba 894508          mov     dword ptr [ebp+8],eax
+68296dbd 8d4508          lea     eax,[ebp+8]
+68296dc0 50              push    eax
+68296dc1 e8728398ff      call    MSHTML!CCSSStyleDeclaration::GetPropertyDesc (67c1f138)
+68296dc6 85c0            test    eax,eax
+68296dc8 7522            jne     MSHTML!CCSSStyleDeclaration::setPropertyHelper+0x44 (68296dec)
+68296dca 8b4d08          mov     ecx,dword ptr [ebp+8]
+68296dcd 85c9            test    ecx,ecx
+68296dcf 7424            je      MSHTML!CCSSStyleDeclaration::setPropertyHelper+0x4d (68296df5)
+68296dd1 8b4510          mov     eax,dword ptr [ebp+10h]
+68296dd4 8b17            mov     edx,dword ptr [edi]
+68296dd6 8b92b0070000    mov     edx,dword ptr [edx+7B0h]
+68296ddc 50              push    eax
+68296ddd 8b450c          mov     eax,dword ptr [ebp+0Ch]
+68296de0 50              push    eax
+68296de1 51              push    ecx
+68296de2 8bcf            mov     ecx,edi
+68296de4 ffd2            call    edx
+68296de6 5f              pop     edi
+MSHTML!CCSSStyleDeclaration::setPropertyHelper+0x3e:
+68296de6 5f              pop     edi
+68296de7 5e              pop     esi
+68296de8 5d              pop     ebp
+68296de9 c20c00          ret     0Ch
+68296dec 3d06000280      cmp     eax,80020006h
+68296df1 7502            jne     MSHTML!CCSSStyleDeclaration::setPropertyHelper+0x4d (68296df5)
+68296df3 33c0            xor     eax,eax
+68296df5 5f              pop     edi
+68296df6 5e              pop     esi
+68296df7 5d              pop     ebp
+68296df8 c20c00          ret     0Ch
+68296dfb 90              nop
+68296dfc 90              nop
+68296dfd 90              nop
+68296dfe 90              nop
+68296dff 90              nop
+MSHTML!CCSSStyleDeclaration::getPropertyPriorityInternal:
+68296e00 8bff            mov     edi,edi
+68296e02 55              push    ebp
+68296e03 8bec            mov     ebp,esp
+68296e05 51              push    ecx
+68296e06 8b450c          mov     eax,dword ptr [ebp+0Ch]
+68296e09 56              push    esi
+68296e0a 8bf1            mov     esi,ecx
+68296e0c 8b4d08          mov     ecx,dword ptr [ebp+8]
+68296e0f 57              push    edi
+68296e10 c70000000000    mov     dword ptr [eax],0
+68296e16 8b411c          mov     eax,dword ptr [ecx+1Ch]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-5">Frame 5: MSHTML.dll!CCSSStyleDeclaration::setProperty+0x49</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-MSHTML.dll!CCSSStyleDeclaration::setProperty">MSHTML.dll!CCSSStyleDeclaration::setProperty</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!CCSSStyleDeclaration::setProperty+0x19:
+68296d25 80663bf1        and     byte ptr [esi+3Bh],0F1h
+68296d29 752c            jne     MSHTML!CCSSStyleDeclaration::setProperty+0x4b (68296d57)
+68296d2b 8b5208          mov     edx,dword ptr [edx+8]
+68296d2e 85d2            test    edx,edx
+68296d30 7425            je      MSHTML!CCSSStyleDeclaration::setProperty+0x4b (68296d57)
+68296d32 8b4d14          mov     ecx,dword ptr [ebp+14h]
+68296d35 33c0            xor     eax,eax
+68296d37 85c9            test    ecx,ecx
+68296d39 7408            je      MSHTML!CCSSStyleDeclaration::setProperty+0x37 (68296d43)
+68296d3b 663b31          cmp     si,word ptr [ecx]
+68296d3e 7503            jne     MSHTML!CCSSStyleDeclaration::setProperty+0x37 (68296d43)
+68296d40 8b4108          mov     eax,dword ptr [ecx+8]
+68296d43 8b33            mov     esi,dword ptr [ebx]
+68296d45 50              push    eax
+68296d46 8b450c          mov     eax,dword ptr [ebp+0Ch]
+68296d49 52              push    edx
+68296d4a 8b969c070000    mov     edx,dword ptr [esi+79Ch]
+68296d50 50              push    eax
+68296d51 8bcb            mov     ecx,ebx
+68296d53 ffd2            call    edx
+68296d55 eb37            jmp     MSHTML!CCSSStyleDeclaration::setProperty+0x82 (68296d8e)
+MSHTML!CCSSStyleDeclaration::setProperty+0x49:
+68296d55 eb37            jmp     MSHTML!CCSSStyleDeclaration::setProperty+0x82 (68296d8e)
+68296d57 ba01000000      mov     edx,1
+68296d5c 663bd1          cmp     dx,cx
+68296d5f 752d            jne     MSHTML!CCSSStyleDeclaration::setProperty+0x82 (68296d8e)
+68296d61 8b750c          mov     esi,dword ptr [ebp+0Ch]
+68296d64 8d4510          lea     eax,[ebp+10h]
+68296d67 50              push    eax
+68296d68 8bcb            mov     ecx,ebx
+68296d6a c7451000000000  mov     dword ptr [ebp+10h],0
+68296d71 e8c28398ff      call    MSHTML!CCSSStyleDeclaration::GetPropertyDesc (67c1f138)
+68296d76 85c0            test    eax,eax
+68296d78 7516            jne     MSHTML!CCSSStyleDeclaration::setProperty+0x84 (68296d90)
+68296d7a 8b4d10          mov     ecx,dword ptr [ebp+10h]
+68296d7d 85c9            test    ecx,ecx
+68296d7f 740d            je      MSHTML!CCSSStyleDeclaration::setProperty+0x82 (68296d8e)
+68296d81 8b13            mov     edx,dword ptr [ebx]
+68296d83 8b82a8070000    mov     eax,dword ptr [edx+7A8h]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-6">Frame 6: MSHTML.dll!CFastDOM::CCSSStyleDeclaration::Trampoline_setProperty+0xAE</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-MSHTML.dll!CFastDOM::CCSSStyleDeclaration::Trampoline_setProperty">MSHTML.dll!CFastDOM::CCSSStyleDeclaration::Trampoline_setProperty</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!CFastDOM::CCSSStyleDeclaration::Trampoline_setProperty+0x7e:
+682e662c 2418            and     al,18h
+682e662e eb13            jmp     MSHTML!CFastDOM::CCSSStyleDeclaration::Trampoline_setProperty+0x95 (682e6643)
+682e6630 8b551c          mov     edx,dword ptr [ebp+1Ch]
+682e6633 52              push    edx
+682e6634 8d7c241c        lea     edi,[esp+1Ch]
+682e6638 e871fe9aff      call    MSHTML!CJScript9Holder::VarToVARIANT (67c964ae)
+682e663d 8bf8            mov     edi,eax
+682e663f 85ff            test    edi,edi
+682e6641 7522            jne     MSHTML!CFastDOM::CCSSStyleDeclaration::Trampoline_setProperty+0xb7 (682e6665)
+682e6643 8b542440        mov     edx,dword ptr [esp+40h]
+682e6647 8d442418        lea     eax,[esp+18h]
+682e664b 50              push    eax
+682e664c 8b442414        mov     eax,dword ptr [esp+14h]
+682e6650 8d4c242c        lea     ecx,[esp+2Ch]
+682e6654 51              push    ecx
+682e6655 52              push    edx
+682e6656 50              push    eax
+682e6657 e8b006fbff      call    MSHTML!CCSSStyleDeclaration::setProperty (68296d0c)
+682e665c 8d4c2418        lea     ecx,[esp+18h]
+MSHTML!CFastDOM::CCSSStyleDeclaration::Trampoline_setProperty+0xae:
+682e665c 8d4c2418        lea     ecx,[esp+18h]
+682e6660 51              push    ecx
+682e6661 8bf8            mov     edi,eax
+682e6663 ffd3            call    ebx
+682e6665 8d542428        lea     edx,[esp+28h]
+682e6669 52              push    edx
+682e666a ffd3            call    ebx
+682e666c 8d442438        lea     eax,[esp+38h]
+682e6670 50              push    eax
+682e6671 ffd3            call    ebx
+682e6673 85ff            test    edi,edi
+682e6675 740e            je      MSHTML!CFastDOM::CCSSStyleDeclaration::Trampoline_setProperty+0xd7 (682e6685)
+682e6677 8b4c2410        mov     ecx,dword ptr [esp+10h]
+682e667b 8b550c          mov     edx,dword ptr [ebp+0Ch]
+682e667e 51              push    ecx
+682e667f 52              push    edx
+682e6680 e8442b0900      call    MSHTML!CFastDOM::ThrowDOMError (683791c9)
+682e6685 8b06            mov     eax,dword ptr [esi]
+682e6687 8b4808          mov     ecx,dword ptr [eax+8]
+682e668a 56              push    esi
+682e668b ffd1            call    ecx
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-7">Frame 7: jscript9.dll!Js::JavascriptFunction::CallFunction+0xC4</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-jscript9.dll!Js::JavascriptFunction::CallFunction">jscript9.dll!Js::JavascriptFunction::CallFunction</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Matched: 6a8583cf          jscript9!Js::JavascriptFunction::CallFunction = &lt;no type information&gt;
+Matched: 6a91e61c          jscript9!Js::JavascriptFunction::CallFunction = &lt;no type information&gt;
+Ambiguous symbol error at '@!&quot;jscript9!Js::JavascriptFunction::CallFunction&quot;+0X94 @!&quot;jscript9!Js::JavascriptFunction::CallFunction&quot;+0XC4;u @!&quot;jscript9!Js::JavascriptFunction::CallFunction&quot;+0XC4 @!&quot;jscript9!Js::JavascriptFunction::CallFunction&quot;+0XF4;'
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-8">Frame 8: jscript9.dll!Js::JavascriptExternalFunction::ExternalFunctionThunk+0x117</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-jscript9.dll!Js::JavascriptExternalFunction::ExternalFunctionThunk">jscript9.dll!Js::JavascriptExternalFunction::ExternalFunctionThunk</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>jscript9!Js::JavascriptExternalFunction::ExternalFunctionThunk+0x103:
+6a89a94e 55              push    ebp
+6a89a94f fc              cld
+6a89a950 8d4510          lea     eax,[ebp+10h]
+6a89a953 50              push    eax
+6a89a954 8b55d4          mov     edx,dword ptr [ebp-2Ch]
+6a89a957 52              push    edx
+6a89a958 8b4320          mov     eax,dword ptr [ebx+20h]
+6a89a95b 50              push    eax
+6a89a95c 53              push    ebx
+6a89a95d e86ddafbff      call    jscript9!Js::JavascriptFunction::CallFunction (6a8583cf)
+6a89a962 8bd8            mov     ebx,eax
+6a89a964 895de4          mov     dword ptr [ebp-1Ch],ebx
+6a89a967 c745fcfeffffff  mov     dword ptr [ebp-4],0FFFFFFFEh
+6a89a96e e846000000      call    jscript9!Js::JavascriptExternalFunction::ExternalFunctionThunk+0x143 (6a89a9b9)
+6a89a973 85db            test    ebx,ebx
+6a89a975 7554            jne     jscript9!Js::JavascriptExternalFunction::ExternalFunctionThunk+0x155 (6a89a9cb)
+6a89a977 8b8f80050000    mov     ecx,dword ptr [edi+580h]
+6a89a97d 8b992c010000    mov     ebx,dword ptr [ecx+12Ch]
+jscript9!Js::JavascriptExternalFunction::ExternalFunctionThunk+0x133:
+6a89a97e 99              cdq
+6a89a97f 2c01            sub     al,1
+6a89a981 0000            add     byte ptr [eax],al
+6a89a983 8bc3            mov     eax,ebx
+6a89a985 8b4df0          mov     ecx,dword ptr [ebp-10h]
+6a89a988 64890d00000000  mov     dword ptr fs:[0],ecx
+6a89a98f 59              pop     ecx
+6a89a990 5f              pop     edi
+6a89a991 5e              pop     esi
+6a89a992 5b              pop     ebx
+6a89a993 8be5            mov     esp,ebp
+6a89a995 5d              pop     ebp
+6a89a996 c3              ret
+6a89a997 90              nop
+6a89a998 fe              ???
+6a89a999 ff              ???
+6a89a99a ff              ???
+6a89a99b ff00            inc     dword ptr [eax]
+6a89a99d 0000            add     byte ptr [eax],al
+6a89a99f 00c4            add     ah,al
+6a89a9a1 ff              ???
+6a89a9a2 ff              ???
+6a89a9a3 ff00            inc     dword ptr [eax]
+6a89a9a5 0000            add     byte ptr [eax],al
+6a89a9a7 00fe            add     dh,bh
+6a89a9a9 ff              ???
+6a89a9aa ff              ???
+6a89a9ab ff00            inc     dword ptr [eax]
+6a89a9ad 0000            add     byte ptr [eax],al
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-9">Frame 9: jscript9.dll!Js::JavascriptFunction::CallFunction+0xC4</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-jscript9.dll!Js::JavascriptFunction::CallFunction">jscript9.dll!Js::JavascriptFunction::CallFunction</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Matched: 6a8583cf          jscript9!Js::JavascriptFunction::CallFunction = &lt;no type information&gt;
+Matched: 6a91e61c          jscript9!Js::JavascriptFunction::CallFunction = &lt;no type information&gt;
+Ambiguous symbol error at '@!&quot;jscript9!Js::JavascriptFunction::CallFunction&quot;+0X94 @!&quot;jscript9!Js::JavascriptFunction::CallFunction&quot;+0XC4;u @!&quot;jscript9!Js::JavascriptFunction::CallFunction&quot;+0XC4 @!&quot;jscript9!Js::JavascriptFunction::CallFunction&quot;+0XF4;'
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-10">Frame 10: jscript9.dll!Js::InterpreterStackFrame::OP_CallI&lt;Js::OpLayoutCallI_OneByte&gt;+0x43</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-jscript9.dll!Js::InterpreterStackFrame::OP_CallI&lt;Js::OpLayoutCallI_OneByte&gt;">jscript9.dll!Js::InterpreterStackFrame::OP_CallI&lt;Js::OpLayoutCallI_OneByte&gt;</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Couldn't resolve error at '@!&quot;jscript9!Js::InterpreterStackFrame::OP_CallI&lt;Js::OpLayoutCallI_OneByte&gt;&quot;+0X13 @!&quot;jscript9!Js::InterpreterStackFrame::OP_CallI&lt;Js::OpLayoutCallI_OneByte&gt;&quot;+0X43;u @!&quot;jscript9!Js::InterpreterStackFrame::OP_CallI&lt;Js::OpLayoutCallI_OneByte&gt;&quot;+0X43 @!&quot;jscript9!Js::InterpreterStackFrame::OP_CallI&lt;Js::OpLayoutCallI_OneByte&gt;&quot;+0X73;'
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><HR>(Intermediate frames not shown)<HR></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend(this)" class="level0">Memory regions</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend(this)" class="level0">Functions</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-dispex.dll!IDispatchEx_InvokeEx_Stub">dispex.dll!IDispatchEx_InvokeEx_Stub</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        dispex.dll+0x2B20
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-dispex.dll!IDispatchEx_RemoteInvokeEx_Thunk">dispex.dll!IDispatchEx_RemoteInvokeEx_Thunk</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        dispex.dll+0x2640
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-IEFRAME.dll!CTabWindow::_TabWindowThreadProc">IEFRAME.dll!CTabWindow::_TabWindowThreadProc</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        IEFRAME.dll+0xF1431
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-IEFRAME.dll!Detour_DefWindowProcA">IEFRAME.dll!Detour_DefWindowProcA</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        IEFRAME.dll+0x99685
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-IEFRAME.dll!LCIETab_ThreadProc">IEFRAME.dll!LCIETab_ThreadProc</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        IEFRAME.dll+0x1110F1
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-ntdll.dll!_RtlUserThreadStart">ntdll.dll!_RtlUserThreadStart</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        ntdll.dll+0x637A3
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-ntdll.dll!__RtlUserThreadStart">ntdll.dll!__RtlUserThreadStart</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        ntdll.dll+0x637C4
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-RPCRT4.dll!NdrStubCall2">RPCRT4.dll!NdrStubCall2</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        RPCRT4.dll+0x960D4
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-MSHTML.dll!CCSSStyleDeclaration::setProperty">MSHTML.dll!CCSSStyleDeclaration::setProperty</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x766D0C
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-MSHTML.dll!CCSSStyleDeclaration::setPropertyHelper">MSHTML.dll!CCSSStyleDeclaration::setPropertyHelper</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x766DA8
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-MSHTML.dll!CCSSStyleDeclaration::setPropertyInternal">MSHTML.dll!CCSSStyleDeclaration::setPropertyInternal</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x7672B2
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-MSHTML.dll!CFastDOM::CCSSStyleDeclaration::Trampoline_setProperty">MSHTML.dll!CFastDOM::CCSSStyleDeclaration::Trampoline_setProperty</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x7B65AE
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-MSHTML.dll!CWritableCSSStyleDeclaration::setPropertyInternal">MSHTML.dll!CWritableCSSStyleDeclaration::setPropertyInternal</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x767D14
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-MSHTML.dll!PROPERTYDESC::HandleStyleComponentProperty">MSHTML.dll!PROPERTYDESC::HandleStyleComponentProperty</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x267A75
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-MSHTML.dll!ParseListStyleProperty">MSHTML.dll!ParseListStyleProperty</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1125B1
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-USER32.dll!DispatchMessageW">USER32.dll!DispatchMessageW</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        USER32.dll+0x1CC61
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-USER32.dll!DispatchMessageWorker">USER32.dll!DispatchMessageWorker</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        USER32.dll+0x1CB33
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-USER32.dll!InternalCallWinProc">USER32.dll!InternalCallWinProc</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        USER32.dll+0x1C4C4
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-USER32.dll!UserCallWinProcCheckWow">USER32.dll!UserCallWinProcCheckWow</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        USER32.dll+0x1C534
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-kernel32.dll!BaseThreadInitThunk">kernel32.dll!BaseThreadInitThunk</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        kernel32.dll+0x4EE0A
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-iertutil.dll!CIsoScope::RegisterThread">iertutil.dll!CIsoScope::RegisterThread</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        iertutil.dll+0x144C7D
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-ole32.dll!AppInvoke">ole32.dll!AppInvoke</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (class CMessageCall *, class CRpcChannelBuffer *, struct IRpcStubBuffer *, void *, void *, struct tagIPIDEntry *, struct LocalThis *)
+Address:        ole32.dll+0x13DC3B
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-ole32.dll!CCtxComChnl::ContextInvoke">ole32.dll!CCtxComChnl::ContextInvoke</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (struct tagRPCOLEMESSAGE *, struct IRpcStubBuffer *, struct tagIPIDEntry *, unsigned long *)
+Address:        ole32.dll+0x5895D
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-ole32.dll!CStdStubBuffer_Invoke">ole32.dll!CStdStubBuffer_Invoke</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (struct IRpcStubBuffer *, struct tagRPCOLEMESSAGE *, struct IRpcChannelBuffer *)
+Address:        ole32.dll+0x13D776
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-ole32.dll!ComInvoke">ole32.dll!ComInvoke</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (class CMessageCall *)
+Address:        ole32.dll+0x13E18C
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-ole32.dll!ComInvokeWithLockAndIPID">ole32.dll!ComInvokeWithLockAndIPID</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (class CMessageCall *, struct tagIPIDEntry *)
+Address:        ole32.dll+0x13D8C5
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-ole32.dll!MTAInvoke">ole32.dll!MTAInvoke</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (struct tagRPCOLEMESSAGE *, unsigned long, struct IRpcStubBuffer *, class IInternalChannelBuffer *, struct tagIPIDEntry *, unsigned long *)
+Address:        ole32.dll+0x5891E
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-ole32.dll!STAInvoke">ole32.dll!STAInvoke</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (struct tagRPCOLEMESSAGE *, unsigned long, struct IRpcStubBuffer *, class IInternalChannelBuffer *, void *, struct tagIPIDEntry *, unsigned long *)
+Address:        ole32.dll+0x594C0
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-ole32.dll!StubInvoke">ole32.dll!StubInvoke</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (struct tagRPCOLEMESSAGE *, class CStdIdentity *, struct IRpcStubBuffer *, struct IRpcChannelBuffer *, struct tagIPIDEntry *, unsigned long *)
+Address:        ole32.dll+0x13DD55
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-ole32.dll!SyncStubInvoke">ole32.dll!SyncStubInvoke</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (struct tagRPCOLEMESSAGE *, struct _GUID *, class CIDObject *, void *, struct IRpcChannelBuffer *, struct IRpcStubBuffer *, unsigned long *)
+Address:        ole32.dll+0x13D842
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-ole32.dll!ThreadDispatch">ole32.dll!ThreadDispatch</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (void *)
+Address:        ole32.dll+0x5934D
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-ole32.dll!ThreadWndProc">ole32.dll!ThreadWndProc</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (struct HWND__ *, unsigned int, unsigned int, long)
+Address:        ole32.dll+0x59286
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-jscript9.dll!JavascriptDispatch::InvokeEx">jscript9.dll!JavascriptDispatch::InvokeEx</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        jscript9.dll+0x7CD9
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-jscript9.dll!JavascriptDispatch::InvokeOnSelf">jscript9.dll!JavascriptDispatch::InvokeOnSelf</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        jscript9.dll+0x50024
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-jscript9.dll!Js::GlobalObject::EntryEval">jscript9.dll!Js::GlobalObject::EntryEval</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        jscript9.dll+0x9639F
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-jscript9.dll!Js::GlobalObject::ExecuteEvalParsedFunction">jscript9.dll!Js::GlobalObject::ExecuteEvalParsedFunction</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        jscript9.dll+0x964BD
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-jscript9.dll!Js::InterpreterStackFrame::InterpreterThunk">jscript9.dll!Js::InterpreterStackFrame::InterpreterThunk</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        jscript9.dll+0x5FB5C
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-jscript9.dll!Js::InterpreterStackFrame::OP_CallI&lt;Js::OpLayoutCallI_OneByte&gt;">jscript9.dll!Js::InterpreterStackFrame::OP_CallI&lt;Js::OpLayoutCallI_OneByte&gt;</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        (unknown)
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-jscript9.dll!Js::InterpreterStackFrame::ProcessThunk">jscript9.dll!Js::InterpreterStackFrame::ProcessThunk</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        jscript9.dll+0x5FCE2
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-jscript9.dll!Js::JavascriptExternalFunction::ExternalFunctionThunk">jscript9.dll!Js::JavascriptExternalFunction::ExternalFunctionThunk</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        jscript9.dll+0x4A867
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-jscript9.dll!Js::JavascriptFunction::CallFunction">jscript9.dll!Js::JavascriptFunction::CallFunction</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        jscript9.dll+0xCE61C
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-jscript9.dll!Js::JavascriptFunction::CallRootFunction">jscript9.dll!Js::JavascriptFunction::CallRootFunction</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        jscript9.dll+0x82D2
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-jscript9.dll!ScriptSite::CallRootFunction">jscript9.dll!ScriptSite::CallRootFunction</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        jscript9.dll+0x8263
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-jscript9.dll!ScriptSite::Execute">jscript9.dll!ScriptSite::Execute</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        jscript9.dll+0x81DF
+Disassembly: not available
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET></BODY></HTML>
