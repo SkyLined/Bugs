@@ -1,0 +1,53 @@
+1405B - MSIE11 MSHTML CView::CalculateImageImmunity use-after-free
+=====================================
+
+Synopsis
+--------
+Specially crafted HTML can cause a use-after-free vulnerability in MSIE 11.
+
+Known affected versions
+-----------------------
+  + MSIE 11
+
+Attack vectors
+--------------
+  * MSIE
+    
+    An attacker would need to get a target user to open a specially crafted
+    webpage.
+
+Mitigations
+-----------
+  * MSIE
+    
+    As far as can be determined, disabling JavaScript should prevent an
+    attacker from triggering the vulnerable code path.
+
+Repro
+-----
+
+    <script>
+      var oDocumentFragment = document.createDocumentFragment(),
+          oElement = document.createElement('x');
+      oDocumentFragment.appendChild(oElement);
+      oElement.style.listStyleImage = "url(x)";
+      oDocumentFragment.removeChild(oElement);
+    </script>
+
+Description
+-----------
+Setting the "listStyleImage" property of the oElement causes MSIE 11 to
+allocate 0x4C bytes for an "image context" structure, which contains a
+reference to the cDoc object as well as a reference to the same CMarkup
+object as the oDocumentFragment (amongst other things).
+Because the element is remove from the document fragment, this context is
+freed on the next "draw". However, the code continues to use the freed context
+almost immediately after it is freed.
+
+Exploit
+-------
+I tried a few tricks to see if there was an easy way to reallocate the freed
+memory before the reuse, but was unable to find anything. I do not know if
+there is a way to cause further reuse of the freed memory later on in the code.
+Running the repro as-is without page heap does not appear to trigger crashes.
+

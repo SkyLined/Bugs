@@ -1,0 +1,3076 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><HTML><HEAD><STYLE>LEGEND, TABLE {width:100%;}FIELDSET {margin-bottom: 5px;}FIELDSET.level0 {background: #F0F0F0;}LEGEND.level0 {background: #C0C0C0; border: 1px inset; font-size: 200%}FIELDSET.level1 {background: #E0E0E0;}LEGEND.level1 {background: #B0B0B0; border: 1px inset; font-size: 150%}FIELDSET.level2 {background: #D0D0D0;}LEGEND.level2 {background: #A0A0A0; border: 1px inset; font-size: 120%}FIELDSET.level3 {background: #C0C0C0;}LEGEND.level3 {background: #909090; border: 1px inset; font-size: 110%}FIELDSET.level4 {background: #B0B0B0;}LEGEND.level4 {background: #808080; border: 1px inset; font-size: 100%}SPAN.local_type {color: #000060;}SPAN.local_name {color: #0000FF;}SPAN.function_name { color: #004000;}TABLE,TR,TD {border: 1px solid silver; border-collapse: collapse;}* {white-space: nowrap;}PRE {white-space: pre;}.wrapable {white-space: normal; width:100%;}FIELDSET.hidden {border-bottom: 5px dashed #A0A0A0;}SPAN.hidden {display: none;}</STYLE><SCRIPT>function openAnchorEvent(oElement) {openAnchor(oElement.href.replace(/.*#/, ""));}function openAnchor(anchor) {targets = document.getElementsByName(anchor);if (targets.length == 1) {target = targets[0];while (target != null) {c = target.className;if (c.indexOf("hidden") > -1)target.className = c.replace(/\s*hidden\s*/, " ");target = target.parentElement}}}function flipLegend(oElement) {legend = oElement;while (legend.tagName != "LEGEND") legend = legend.parentElement;fieldset = legend.parentElement;flipHideables(fieldset);}function flipHideables(fieldset) {flipHiddenClass(fieldset);for (i in fieldset.children) {o = fieldset.children[i];c = o.className;if (c && c.indexOf("hideable") > -1) {flipHiddenClass(o);}}}function flipHiddenClass(element) {c = element.className;if (c.indexOf("hidden") > -1) {element.className = c.replace(/\s*hidden\s*/, " ");} else {element.className += " hidden";}}</SCRIPT></HEAD><BODY onload="if (location.hash) openAnchor(location.hash.substr(1));"><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend(this)" class="level0">Cdb event information</LEGEND><SPAN><PRE>id:             MSHTML.dll!CView::CalculateImageImmunity Arbitrary~FB0 AVR(2B4083E3)
+description:    Security: Attempt to read from unallocated arbitrary memory (@0x56F06FB0) in MSHTML.dll!CView::CalculateImageImmunity
+note:           The exception happens in the main process. Based on this information, this is expected to be a <B>critical</B> security issue!
+</PRE></SPAN><SPAN class="hideable hidden"><PRE>stack:          MSHTML.dll!CView::CalculateImageImmunity
+                MSHTML.dll!CView::EnsureView
+                MSHTML.dll!CView::EnsureViewCallback
+                MSHTML.dll!GlobalWndOnMethodCall
+                MSHTML.dll!GlobalWndProc
+                USER32.dll!UserCallWinProcCheckWow
+                USER32.dll!DispatchMessageWorker
+                IEFRAME.dll!CTabWindow::_TabWindowThreadProc
+                IEFRAME.dll!LCIETab_ThreadProc
+                iertutil.dll!CIsoWinMsg::PostQueuedMessagesToComponent
+                IEShims.dll!NS_CreateThread::DesktopIE_ThreadProc
+                kernel32.dll!BaseThreadInitThunk
+                ntdll.dll!RtlUserThreadStart
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend(this)" class="level0">Pre event output</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Microsoft (R) Windows Debugger Version 6.2.8229.0 AMD64
+Copyright (c) Microsoft Corporation. All rights reserved.
+CommandLine: &quot;C:\Program Files\Internet Explorer\iexplore.exe&quot; &quot;http://A2-X2:32768/pinger.html&quot;
+Symbol search path is: srv*\\server\Symbols*http://msdl.microsoft.com/download/symbols;srv*\\server\Symbols*http://symbols.mozilla.org/firefox;srv*\\server\Symbols*http://chromium-browser-symsrv.commondatastorage.googleapis.com
+Executable search path is: 
+ModLoad: 00000001`3f600000 00000001`3f6c6000   iexplore.exe
+ModLoad: 00000000`76f40000 00000000`770e9000   ntdll.dll
+ModLoad: 000007fe`f5870000 000007fe`f58de000   C:\Windows\system32\verifier.dll
+Page heap: pid 0x744: page heap enabled with flags 0x3.
+ModLoad: 00000000`76d20000 00000000`76e3f000   C:\Windows\system32\kernel32.dll
+ModLoad: 000007fe`fd070000 000007fe`fd0db000   C:\Windows\system32\KERNELBASE.dll
+ModLoad: 00000000`76e40000 00000000`76f3a000   C:\Windows\system32\USER32.dll
+ModLoad: 000007fe`fe120000 000007fe`fe187000   C:\Windows\system32\GDI32.dll
+ModLoad: 000007fe`fe390000 000007fe`fe39e000   C:\Windows\system32\LPK.dll
+ModLoad: 000007fe`fed50000 000007fe`fee19000   C:\Windows\system32\USP10.dll
+ModLoad: 000007fe`fe2f0000 000007fe`fe38f000   C:\Windows\system32\msvcrt.dll
+ModLoad: 000007fe`fcdb0000 000007fe`fcdb5000   C:\Windows\system32\api-ms-win-downlevel-advapi32-l1-1-0.dll
+ModLoad: 000007fe`ff170000 000007fe`ff24b000   C:\Windows\system32\advapi32.DLL
+ModLoad: 000007fe`fec50000 000007fe`fec6f000   C:\Windows\SYSTEM32\sechost.dll
+ModLoad: 000007fe`fe3a0000 000007fe`fe4cd000   C:\Windows\system32\RPCRT4.dll
+ModLoad: 000007fe`f4960000 000007fe`f4964000   C:\Windows\system32\api-ms-win-downlevel-shell32-l1-1-0.dll
+ModLoad: 000007fe`fd390000 000007fe`fe118000   C:\Windows\system32\shell32.DLL
+ModLoad: 000007fe`fec70000 000007fe`fece1000   C:\Windows\system32\SHLWAPI.dll
+ModLoad: 000007fe`fee20000 000007fe`ff0c9000   C:\Windows\system32\iertutil.dll
+ModLoad: 000007fe`fd020000 000007fe`fd024000   C:\Windows\system32\api-ms-win-downlevel-version-l1-1-0.dll
+ModLoad: 000007fe`fbe40000 000007fe`fbe4c000   C:\Windows\system32\version.DLL
+ModLoad: 000007fe`fd0f0000 000007fe`fd0f4000   C:\Windows\system32\api-ms-win-downlevel-user32-l1-1-0.dll
+ModLoad: 000007fe`fce60000 000007fe`fce63000   C:\Windows\system32\api-ms-win-downlevel-normaliz-l1-1-0.dll
+ModLoad: 00000000`77110000 00000000`77113000   C:\Windows\system32\normaliz.DLL
+ModLoad: 000007fe`fd120000 000007fe`fd124000   C:\Windows\system32\api-ms-win-downlevel-shlwapi-l1-1-0.dll
+(744.ab4): Break instruction exception - code 80000003 (first chance)
+ntdll!LdrpDoDebuggerBreak+0x30:
+00000000`76fecb70 cc              int     3
+ModLoad: 000007fe`fe9f0000 000007fe`fea1e000   C:\Windows\system32\IMM32.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fe8e0000 000007fe`fe9e9000   C:\Windows\system32\MSCTF.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fcbf0000 000007fe`fcbff000   C:\Windows\system32\CRYPTBASE.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f4970000 000007fe`f5663000   C:\Windows\system32\IEFRAME.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fd180000 000007fe`fd383000   C:\Windows\system32\ole32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fe6d0000 000007fe`fe7a7000   C:\Windows\system32\OLEAUT32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fb920000 000007fe`fbb14000   C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_fa396087175ac9ac\comctl32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f5740000 000007fe`f579c000   C:\Program Files\Internet Explorer\IEShims.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`ff0d0000 000007fe`ff167000   C:\Windows\system32\comdlg32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fd0e0000 000007fe`fd0e4000   C:\Windows\system32\api-ms-win-downlevel-ole32-l1-1-0.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fe190000 000007fe`fe2f0000   C:\Windows\system32\urlmon.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fea20000 000007fe`fec4f000   C:\Windows\system32\WININET.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f3200000 000007fe`f3248000   C:\Program Files\Internet Explorer\sqmapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f88b0000 000007fe`f88b4000   C:\Windows\system32\api-ms-win-downlevel-advapi32-l2-1-0.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f3250000 000007fe`f3254000   C:\Windows\system32\api-ms-win-downlevel-shlwapi-l2-1-0.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fcd00000 000007fe`fcd0f000   C:\Windows\system32\profapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fc9a0000 000007fe`fc9ab000   C:\Windows\system32\Secur32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fcb60000 000007fe`fcb85000   C:\Windows\system32\SSPICLI.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fd130000 000007fe`fd17d000   C:\Windows\system32\WS2_32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fe8d0000 000007fe`fe8d8000   C:\Windows\system32\NSI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f7910000 000007fe`f7981000   C:\Windows\system32\winhttp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f78a0000 000007fe`f7904000   C:\Windows\system32\webio.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fc530000 000007fe`fc585000   C:\Windows\system32\mswsock.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fc520000 000007fe`fc527000   C:\Windows\System32\wship6.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fe830000 000007fe`fe8c9000   C:\Windows\system32\CLBCatQ.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fa890000 000007fe`fa8b7000   C:\Windows\system32\IPHLPAPI.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fa8d0000 000007fe`fa8db000   C:\Windows\system32\WINNSI.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f7240000 000007fe`f72b4000   C:\Windows\System32\netprofm.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`face0000 000007fe`facf5000   C:\Windows\System32\nlaapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fc590000 000007fe`fc5a7000   C:\Windows\system32\CRYPTSP.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fc290000 000007fe`fc2d7000   C:\Windows\system32\rsaenh.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fcce0000 000007fe`fccf4000   C:\Windows\system32\RpcRtRemote.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f6cb0000 000007fe`f6cbc000   C:\Windows\System32\npmproxy.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fbf10000 000007fe`fbf17000   C:\Windows\System32\wshtcpip.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fc3b0000 000007fe`fc40b000   C:\Windows\system32\DNSAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f7630000 000007fe`f7638000   C:\Windows\system32\rasadhlp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fa740000 000007fe`fa793000   C:\Windows\System32\fwpuclnt.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f2250000 000007fe`f2305000   C:\Program Files\Internet Explorer\ieproxy.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fcb90000 000007fe`fcbe7000   C:\Windows\system32\apphelp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f45b0000 000007fe`f463e000   C:\Windows\system32\IEUI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fb5a0000 000007fe`fb5f6000   C:\Windows\system32\UxTheme.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fa140000 000007fe`fa194000   C:\Windows\system32\oleacc.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fa920000 000007fe`faa81000   C:\Windows\system32\windowscodecs.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fb1d0000 000007fe`fb1e8000   C:\Windows\system32\dwmapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f9520000 000007fe`f96ea000   C:\Windows\system32\explorerframe.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fb230000 000007fe`fb273000   C:\Windows\system32\DUser.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fb280000 000007fe`fb372000   C:\Windows\system32\DUI70.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`eee20000 000007fe`f049f000   C:\Windows\system32\MSHTML.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f3260000 000007fe`f329b000   C:\Windows\system32\MLANG.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fb600000 000007fe`fb72c000   C:\Windows\system32\PROPSYS.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fa7c0000 000007fe`fa7d1000   C:\Windows\system32\dhcpcsvc6.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fa7a0000 000007fe`fa7b8000   C:\Windows\system32\dhcpcsvc.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fcc00000 000007fe`fcc91000   C:\Windows\system32\SXS.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fe4f0000 000007fe`fe6c7000   C:\Windows\system32\SETUPAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fce70000 000007fe`fcea6000   C:\Windows\system32\CFGMGR32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fd100000 000007fe`fd11a000   C:\Windows\system32\DEVOBJ.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fbe10000 000007fe`fbe3d000   C:\Windows\system32\ntmarta.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fecf0000 000007fe`fed42000   C:\Windows\system32\WLDAP32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f1cc0000 000007fe`f224d000   C:\Windows\System32\jscript9.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fceb0000 000007fe`fd01c000   C:\Windows\system32\CRYPT32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fcda0000 000007fe`fcdaf000   C:\Windows\system32\MSASN1.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fc6e0000 000007fe`fc702000   C:\Windows\system32\bcrypt.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fc1d0000 000007fe`fc21c000   C:\Windows\system32\bcryptprimitives.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f44d0000 000007fe`f45a3000   C:\Windows\System32\ieapfltr.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f88e0000 000007fe`f88ee000   C:\Windows\system32\msimtf.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f4060000 000007fe`f4424000   C:\Windows\system32\d2d1.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f3860000 000007fe`f39f6000   C:\Windows\system32\DWrite.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f8f40000 000007fe`f8f9d000   C:\Windows\system32\dxgi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fd030000 000007fe`fd06a000   C:\Windows\system32\WINTRUST.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f8d60000 000007fe`f8f35000   C:\Windows\system32\d3d11.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f3cd0000 000007fe`f3f49000   C:\Windows\system32\D3D10Warp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fa080000 000007fe`fa13a000   C:\Windows\system32\uiautomationcore.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 00000000`77100000 00000000`77107000   C:\Windows\system32\PSAPI.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f88d0000 000007fe`f88da000   C:\Windows\system32\dispex.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f4010000 000007fe`f4052000   C:\Windows\system32\msls31.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fc040000 000007fe`fc05e000   C:\Windows\system32\USERENV.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f6820000 000007fe`f682c000   C:\Windows\system32\LINKINFO.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f7e20000 000007fe`f8011000   C:\Windows\System32\msxml6.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fc190000 000007fe`fc19a000   C:\Windows\system32\credssp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fc320000 000007fe`fc377000   C:\Windows\system32\schannel.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fc710000 000007fe`fc75d000   C:\Windows\system32\ncrypt.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fc020000 000007fe`fc03b000   C:\Windows\system32\GPAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f7a20000 000007fe`f7a47000   C:\Windows\system32\cryptnet.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f67e0000 000007fe`f67e9000   C:\Windows\system32\SensApi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`faef0000 000007fe`faf1c000   C:\Windows\system32\POWRPROF.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f9c20000 000007fe`f9c5b000   C:\Windows\system32\WINMM.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+ModLoad: 000007fe`f6790000 000007fe`f67dd000   C:\Windows\System32\Dxtrans.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fac30000 000007fe`fac49000   C:\Windows\System32\ATL.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f88c0000 000007fe`f88ce000   C:\Windows\system32\ddrawex.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f3760000 000007fe`f3851000   C:\Windows\system32\DDRAW.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f87f0000 000007fe`f87f8000   C:\Windows\system32\DCIMAN32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f97e0000 000007fe`f9851000   C:\Windows\system32\winspool.drv
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+(744.348): Unknown exception - code 000006ba (first chance)
+(744.348): Unknown exception - code 000006ba (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+ModLoad: 000007fe`fb070000 000007fe`fb0a5000   C:\Windows\system32\XmlLite.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+ModLoad: 000007fe`f1940000 000007fe`f1b14000   C:\Windows\System32\msxml3.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.b08): Unknown exception - code 80010012 (first chance)
+(744.b08): Unknown exception - code 80010012 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+ModLoad: 000007fe`faef0000 000007fe`faf1c000   C:\Windows\system32\POWRPROF.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+ModLoad: 000007fe`f7910000 000007fe`f7981000   C:\Windows\system32\Winhttp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`f78a0000 000007fe`f7904000   C:\Windows\system32\webio.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+ModLoad: 000007fe`f3fa0000 000007fe`f400f000   C:\Windows\System32\Wpc.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fc7d0000 000007fe`fc83d000   C:\Windows\System32\wevtapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fa300000 000007fe`fa314000   C:\Windows\system32\samcli.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fb730000 000007fe`fb74d000   C:\Windows\system32\SAMLIB.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+ModLoad: 000007fe`fa580000 000007fe`fa58c000   C:\Windows\system32\netutils.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+ModLoad: 000007fe`f6650000 000007fe`f6660000   C:\Windows\system32\ImgUtil.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!ZwMapViewOfSection+0xa:
+00000000`76f9153a c3              ret
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.348): C++ EH exception - code e06d7363 (first chance)
+(744.b08): C++ EH exception - code e06d7363 (first chance)
+(744.348): Access violation - code c0000005 (first chance)
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend(this)" class="level0">Processes, threads and modules</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Process 0x744: iexplore.exe (main)
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+     Command Line: "C:\Program Files\Internet Explorer\iexplore.exe" "http://A2-X2:32768/pinger.html"
+--- Threads for process 0x744 ---
+     0xAB4: (unnamed)
+     0x8E4: (unnamed)
+     0x23C: (unnamed)
+     0x28C: (unnamed)
+     0x9F8: (unnamed)
+     0x510: (unnamed)
+     0x974: (unnamed)
+     0x618: (unnamed)
+     0x460: (unnamed)
+     0x398: (unnamed)
+     0x764: (unnamed)
+     0x820: (unnamed)
+     0x940: (unnamed)
+     0x818: (unnamed)
+     0x204: (unnamed)
+     0x524: (unnamed)
+     0x258: (unnamed)
+     0xAFC: (unnamed)
+     0x5C0: (unnamed)
+     0x424: (unnamed)
+     0xBCC: (unnamed)
+     0xAE4: (unnamed)
+     0x8C8: (unnamed)
+     0xAF0: (unnamed)
+     0x8D0: (unnamed)
+     0xBA8: (unnamed)
+     0xA50: (unnamed)
+     0xA70: (unnamed)
+     0x348: (unnamed) (event source)
+     0x964: (unnamed)
+     0x9EC: (unnamed)
+     0x660: (unnamed)
+     0xB08: (unnamed)
+     0xAC4: (unnamed)
+     0x830: (unnamed)
+     0x5B8: (unnamed)
+     0x5E4: (unnamed)
+     0x8FC: (unnamed)
+     0x1A8: (unnamed)
+--- Modules for process 0x744 ---
+     dispex.dll: 0x7FEF88D0000-0x7FEF88DA000
+     WINNSI.DLL: 0x7FEFA8D0000-0x7FEFA8DB000
+     samcli.dll: 0x7FEFA300000-0x7FEFA314000
+     msvcrt.dll: 0x7FEFE2F0000-0x7FEFE38F000
+     WININET.dll: 0x7FEFEA20000-0x7FEFEC4F000
+     api-ms-win-downlevel-shlwapi-l1-1-0.dll: 0x7FEFD120000-0x7FEFD124000
+     SAMLIB.dll: 0x7FEFB730000-0x7FEFB74D000
+     rsaenh.dll: 0x7FEFC290000-0x7FEFC2D7000
+     dhcpcsvc6.DLL: 0x7FEFA7C0000-0x7FEFA7D1000
+     api-ms-win-downlevel-advapi32-l1-1-0.dll: 0x7FEFCDB0000-0x7FEFCDB5000
+     cryptnet.dll: 0x7FEF7A20000-0x7FEF7A47000
+     ddrawex.dll: 0x7FEF88C0000-0x7FEF88CE000
+     CRYPT32.dll: 0x7FEFCEB0000-0x7FEFD01C000
+     SXS.DLL: 0x7FEFCC00000-0x7FEFCC91000
+     mswsock.dll: 0x7FEFC530000-0x7FEFC585000
+     ieproxy.dll: 0x7FEF2250000-0x7FEF2305000
+     SensApi.dll: 0x7FEF67E0000-0x7FEF67E9000
+     comctl32.dll: 0x7FEFB920000-0x7FEFBB14000
+     CFGMGR32.dll: 0x7FEFCE70000-0x7FEFCEA6000
+     DWrite.dll: 0x7FEF3860000-0x7FEF39F6000
+     wshtcpip.dll: 0x7FEFBF10000-0x7FEFBF17000
+     DNSAPI.dll: 0x7FEFC3B0000-0x7FEFC40B000
+     bcryptprimitives.dll: 0x7FEFC1D0000-0x7FEFC21C000
+     KERNELBASE.dll: 0x7FEFD070000-0x7FEFD0DB000
+     LPK.dll: 0x7FEFE390000-0x7FEFE39E000
+     shell32.DLL: 0x7FEFD390000-0x7FEFE118000
+     IEFRAME.dll: 0x7FEF4970000-0x7FEF5663000
+     UxTheme.dll: 0x7FEFB5A0000-0x7FEFB5F6000
+     bcrypt.dll: 0x7FEFC6E0000-0x7FEFC702000
+     IMM32.DLL: 0x7FEFE9F0000-0x7FEFEA1E000
+     msxml3.dll: 0x7FEF1940000-0x7FEF1B14000
+     D3D10Warp.dll: 0x7FEF3CD0000-0x7FEF3F49000
+     LINKINFO.dll: 0x7FEF6820000-0x7FEF682C000
+     msxml6.dll: 0x7FEF7E20000-0x7FEF8011000
+     ImgUtil.dll: 0x7FEF6650000-0x7FEF6660000
+     uiautomationcore.dll: 0x7FEFA080000-0x7FEFA13A000
+     IEShims.dll: 0x7FEF5740000-0x7FEF579C000
+     ntdll.dll: 0x76F40000-0x770E9000
+     Dxtrans.dll: 0x7FEF6790000-0x7FEF67DD000
+     api-ms-win-downlevel-version-l1-1-0.dll: 0x7FEFD020000-0x7FEFD024000
+     d2d1.dll: 0x7FEF4060000-0x7FEF4424000
+     PROPSYS.dll: 0x7FEFB600000-0x7FEFB72C000
+     api-ms-win-downlevel-normaliz-l1-1-0.dll: 0x7FEFCE60000-0x7FEFCE63000
+     schannel.DLL: 0x7FEFC320000-0x7FEFC377000
+     WS2_32.dll: 0x7FEFD130000-0x7FEFD17D000
+     version.DLL: 0x7FEFBE40000-0x7FEFBE4C000
+     comdlg32.dll: 0x7FEFF0D0000-0x7FEFF167000
+     dwmapi.dll: 0x7FEFB1D0000-0x7FEFB1E8000
+     ieapfltr.dll: 0x7FEF44D0000-0x7FEF45A3000
+     MSCTF.dll: 0x7FEFE8E0000-0x7FEFE9E9000
+     d3d11.dll: 0x7FEF8D60000-0x7FEF8F35000
+     api-ms-win-downlevel-shlwapi-l2-1-0.dll: 0x7FEF3250000-0x7FEF3254000
+     WINMM.dll: 0x7FEF9C20000-0x7FEF9C5B000
+     MLANG.dll: 0x7FEF3260000-0x7FEF329B000
+     sechost.dll: 0x7FEFEC50000-0x7FEFEC6F000
+     CLBCatQ.DLL: 0x7FEFE830000-0x7FEFE8C9000
+     PSAPI.DLL: 0x77100000-0x77107000
+     profapi.dll: 0x7FEFCD00000-0x7FEFCD0F000
+     iexplore.exe: 0x13F600000-0x13F6C6000
+     webio.dll: 0x7FEF78A0000-0x7FEF7904000
+     ATL.DLL: 0x7FEFAC30000-0x7FEFAC49000
+     DUser.dll: 0x7FEFB230000-0x7FEFB273000
+     MSASN1.dll: 0x7FEFCDA0000-0x7FEFCDAF000
+     SHLWAPI.dll: 0x7FEFEC70000-0x7FEFECE1000
+     WLDAP32.dll: 0x7FEFECF0000-0x7FEFED42000
+     RPCRT4.dll: 0x7FEFE3A0000-0x7FEFE4CD000
+     SSPICLI.DLL: 0x7FEFCB60000-0x7FEFCB85000
+     netprofm.dll: 0x7FEF7240000-0x7FEF72B4000
+     dhcpcsvc.DLL: 0x7FEFA7A0000-0x7FEFA7B8000
+     WINTRUST.dll: 0x7FEFD030000-0x7FEFD06A000
+     SETUPAPI.dll: 0x7FEFE4F0000-0x7FEFE6C7000
+     GDI32.dll: 0x7FEFE120000-0x7FEFE187000
+     oleacc.dll: 0x7FEFA140000-0x7FEFA194000
+     msimtf.dll: 0x7FEF88E0000-0x7FEF88EE000
+     nlaapi.dll: 0x7FEFACE0000-0x7FEFACF5000
+     RpcRtRemote.dll: 0x7FEFCCE0000-0x7FEFCCF4000
+     OLEAUT32.dll: 0x7FEFE6D0000-0x7FEFE7A7000
+     MSHTML.dll: 0x7FEEEE20000-0x7FEF049F000
+     fwpuclnt.dll: 0x7FEFA740000-0x7FEFA793000
+     GPAPI.dll: 0x7FEFC020000-0x7FEFC03B000
+     ncrypt.dll: 0x7FEFC710000-0x7FEFC75D000
+     CRYPTSP.dll: 0x7FEFC590000-0x7FEFC5A7000
+     USER32.dll: 0x76E40000-0x76F3A000
+     netutils.dll: 0x7FEFA580000-0x7FEFA58C000
+     advapi32.DLL: 0x7FEFF170000-0x7FEFF24B000
+     POWRPROF.DLL: 0x7FEFAEF0000-0x7FEFAF1C000
+     kernel32.dll: 0x76D20000-0x76E3F000
+     Winhttp.dll: 0x7FEF7910000-0x7FEF7981000
+     iertutil.dll: 0x7FEFEE20000-0x7FEFF0C9000
+     credssp.dll: 0x7FEFC190000-0x7FEFC19A000
+     CRYPTBASE.DLL: 0x7FEFCBF0000-0x7FEFCBFF000
+     ole32.dll: 0x7FEFD180000-0x7FEFD383000
+     USERENV.dll: 0x7FEFC040000-0x7FEFC05E000
+     explorerframe.dll: 0x7FEF9520000-0x7FEF96EA000
+     wship6.dll: 0x7FEFC520000-0x7FEFC527000
+     NSI.dll: 0x7FEFE8D0000-0x7FEFE8D8000
+     DUI70.dll: 0x7FEFB280000-0x7FEFB372000
+     urlmon.dll: 0x7FEFE190000-0x7FEFE2F0000
+     api-ms-win-downlevel-ole32-l1-1-0.dll: 0x7FEFD0E0000-0x7FEFD0E4000
+     api-ms-win-downlevel-user32-l1-1-0.dll: 0x7FEFD0F0000-0x7FEFD0F4000
+     verifier.dll: 0x7FEF5870000-0x7FEF58DE000
+     windowscodecs.dll: 0x7FEFA920000-0x7FEFAA81000
+     api-ms-win-downlevel-shell32-l1-1-0.dll: 0x7FEF4960000-0x7FEF4964000
+     winspool.drv: 0x7FEF97E0000-0x7FEF9851000
+     msls31.dll: 0x7FEF4010000-0x7FEF4052000
+     jscript9.dll: 0x7FEF1CC0000-0x7FEF224D000
+     Wpc.dll: 0x7FEF3FA0000-0x7FEF400F000
+     normaliz.DLL: 0x77110000-0x77113000
+     npmproxy.dll: 0x7FEF6CB0000-0x7FEF6CBC000
+     DDRAW.dll: 0x7FEF3760000-0x7FEF3851000
+     sqmapi.dll: 0x7FEF3200000-0x7FEF3248000
+     USP10.dll: 0x7FEFED50000-0x7FEFEE19000
+     winhttp.dll: 0x7FEF7910000-0x7FEF7981000
+     DCIMAN32.dll: 0x7FEF87F0000-0x7FEF87F8000
+     IPHLPAPI.DLL: 0x7FEFA890000-0x7FEFA8B7000
+     IEUI.dll: 0x7FEF45B0000-0x7FEF463E000
+     DEVOBJ.dll: 0x7FEFD100000-0x7FEFD11A000
+     wevtapi.dll: 0x7FEFC7D0000-0x7FEFC83D000
+     api-ms-win-downlevel-advapi32-l2-1-0.dll: 0x7FEF88B0000-0x7FEF88B4000
+     Secur32.dll: 0x7FEFC9A0000-0x7FEFC9AB000
+     ntmarta.dll: 0x7FEFBE10000-0x7FEFBE3D000
+     XmlLite.dll: 0x7FEFB070000-0x7FEFB0A5000
+     rasadhlp.dll: 0x7FEF7630000-0x7FEF7638000
+     dxgi.dll: 0x7FEF8F40000-0x7FEF8F9D000
+     apphelp.dll: 0x7FEFCB90000-0x7FEFCBE7000
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 "><LEGEND onclick="flipLegend(this)" class="level0">Stack frames</LEGEND><SPAN></SPAN><SPAN class="hideable "><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-0">Frame 0: MSHTML.dll!CView::CalculateImageImmunity+0x6F6</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-MSHTML.dll!CView::CalculateImageImmunity">MSHTML.dll!CView::CalculateImageImmunity</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!CDispTopLevelScroller::GetLayoutViewportScrollOffset+0x1cd:
+000007fe`eef7aab6 8945c8          mov     dword ptr [rbp-38h],eax
+000007fe`eef7aab9 8a4520          mov     al,byte ptr [rbp+20h]
+000007fe`eef7aabc 8955d8          mov     dword ptr [rbp-28h],edx
+000007fe`eef7aabf 24fe            and     al,0FEh
+000007fe`eef7aac1 4c896d18        mov     qword ptr [rbp+18h],r13
+000007fe`eef7aac5 48894d10        mov     qword ptr [rbp+10h],rcx
+000007fe`eef7aac9 0c02            or      al,2
+000007fe`eef7aacb 884520          mov     byte ptr [rbp+20h],al
+000007fe`eef7aace 4885ff          test    rdi,rdi
+000007fe`eef7aad1 0f85670f6e00    jne     MSHTML!CDispTopLevelScroller::GetLayoutViewportScrollOffset+0x23f (000007fe`ef65ba3e)
+000007fe`eef7aad7 e9390f6e00      jmp     MSHTML!CDispTopLevelScroller::GetLayoutViewportScrollOffset+0x1ea (000007fe`ef65ba15)
+000007fe`eef7aadc cc              int     3
+000007fe`eef7aadd 8065bcef        and     byte ptr [rbp-44h],0EFh
+000007fe`eef7aae1 f30f117c2438    movss   dword ptr [rsp+38h],xmm7
+MSHTML!CDispTopLevelScroller::GetLayoutViewportScrollOffset+0x216:
+000007fe`eef7aae6 3844886c        cmp     byte ptr [rax+rcx*4+6Ch],al
+000007fe`eef7aaea 2430            and     al,30h
+000007fe`eef7aaec 488d55b0        lea     rdx,[rbp-50h]
+000007fe`eef7aaf0 4533c9          xor     r9d,r9d
+000007fe`eef7aaf3 41b8049c0000    mov     r8d,9C04h
+000007fe`eef7aaf9 488bcb          mov     rcx,rbx
+000007fe`eef7aafc 44886c2428      mov     byte ptr [rsp+28h],r13b
+000007fe`eef7ab01 4c896c2420      mov     qword ptr [rsp+20h],r13
+000007fe`eef7ab06 e8e54bebff      call    MSHTML!CDispNode::AddPreNodeTransform (000007fe`eee2f6f0)
+000007fe`eef7ab0b 488d7db0        lea     rdi,[rbp-50h]
+000007fe`eef7ab0f e92a0f6e00      jmp     MSHTML!CDispTopLevelScroller::GetLayoutViewportScrollOffset+0x23f (000007fe`ef65ba3e)
+000007fe`eef7ab14 cc              int     3
+000007fe`eef7ab15 488b8b28010000  mov     rcx,qword ptr [rbx+128h]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-1">Frame 1: MSHTML.dll!CView::EnsureView+0xE6E</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-MSHTML.dll!CView::EnsureView">MSHTML.dll!CView::EnsureView</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!CDispRecalcContext::Init+0x2a:
+000007fe`eee38ef6 0088913a0100    add     byte ptr [rax+13A91h],cl
+000007fe`eee38efc 0089813c0100    add     byte ptr [rcx+13C81h],cl
+000007fe`eee38f02 008981400100    add     byte ptr [rcx+14081h],cl
+000007fe`eee38f08 006689          add     byte ptr [rsi-77h],ah
+000007fe`eee38f0b 91              xchg    eax,ecx
+000007fe`eee38f0c 1f              ???
+000007fe`eee38f0d 0100            add     dword ptr [rax],eax
+000007fe`eee38f0f 006689          add     byte ptr [rsi-77h],ah
+000007fe`eee38f12 91              xchg    eax,ecx
+000007fe`eee38f13 1c01            sbb     al,1
+000007fe`eee38f15 0000            add     byte ptr [rax],al
+000007fe`eee38f17 8991e0010000    mov     dword ptr [rcx+1E0h],edx
+000007fe`eee38f1d 88911e010000    mov     byte ptr [rcx+11Eh],dl
+000007fe`eee38f23 488991a0010000  mov     qword ptr [rcx+1A0h],rdx
+MSHTML!CDispRecalcContext::Init+0x5a:
+000007fe`eee38f26 a00100008891210100 mov   al,byte ptr [0001219188000001h]
+000007fe`eee38f2f 004889          add     byte ptr [rax-77h],cl
+000007fe`eee38f32 91              xchg    eax,ecx
+000007fe`eee38f33 f00100          lock add dword ptr [rax],eax
+000007fe`eee38f36 00488b          add     byte ptr [rax-75h],cl
+000007fe`eee38f39 89d8            mov     eax,ebx
+000007fe`eee38f3b 0000            add     byte ptr [rax],al
+000007fe`eee38f3d 004883          add     byte ptr [rax-7Dh],cl
+000007fe`eee38f40 c4              ???
+000007fe`eee38f41 28eb            sub     bl,ch
+000007fe`eee38f43 08cc            or      ah,cl
+000007fe`eee38f45 90              nop
+000007fe`eee38f46 90              nop
+000007fe`eee38f47 90              nop
+000007fe`eee38f48 90              nop
+000007fe`eee38f49 90              nop
+000007fe`eee38f4a 90              nop
+000007fe`eee38f4b 90              nop
+MSHTML!CDispClipTransform::SetToIdentity:
+000007fe`eee38f4c 48894c2408      mov     qword ptr [rsp+8],rcx
+000007fe`eee38f51 53              push    rbx
+000007fe`eee38f52 4883ec20        sub     rsp,20h
+000007fe`eee38f56 488b5c2430      mov     rbx,qword ptr [rsp+30h]
+</PRE></SPAN></FIELDSET><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Registers</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>rax=0000000000000000 rbx=0000000000000000 rcx=0000000000000000
+rdx=000000005d0598c0 rsi=00000000540bdf70 rdi=000000000000000c
+rip=000007feeef7a2d9 rsp=0000000022dbc160 rbp=0000000022dbc1e9
+ r8=0000000000000000  r9=0000000000000000 r10=0000000000000000
+r11=0000000022dbc110 r12=0000000000000080 r13=0000000020bbefa0
+r14=0000000000000000 r15=0000000056f06f80
+iopl=0         nv up ei pl zr na po nc
+cs=0033  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00010246
+fpcw=027F    fpsw=0000    fptw=0000
+st0= 0.000000000000000000000e+0000  st1= 0.000000000000000000000e+0000
+st2= 0.000000000000000000000e+0000  st3= 0.000000000000000000000e+0000
+st4= 0.000000000000000000000e+0000  st5= 0.000000000000000000000e+0000
+st6= 0.000000000000000000000e+0000  st7= 0.000000000000000000000e+0000
+mm0=0000000000000000  mm1=0000000000000000
+mm2=0000000000000000  mm3=0000000000000000
+mm4=0000000000000000  mm5=0000000000000000
+mm6=0000000000000000  mm7=0000000000000000
+xmm0=0 0 0 0
+xmm1=0 0 0 0
+xmm2=0 0 0 0
+xmm3=0 0 0 0
+xmm4=0 0 0 0
+xmm5=0 0 0 0
+xmm6=5.43704e-043 7.1186e-043 -1.#QNAN -1.#QNAN
+xmm7=0 0 0 0
+xmm8=0 0 0 0
+xmm9=0 0 0 0
+xmm10=0 0 0 0
+xmm11=0 0 0 0
+xmm12=0 0 0 0
+xmm13=0 0 0 0
+xmm14=0 0 0 0
+xmm15=0 0 0 0
+MSHTML!CView::CalculateImageImmunity+0x6f6:
+000007fe`eef7a2d9 498b7730        mov     rsi,qword ptr [r15+30h] ds:00000000`56f06fb0=????????????????
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-2">Frame 2: MSHTML.dll!CView::EnsureViewCallback+0x58</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-MSHTML.dll!CView::EnsureViewCallback">MSHTML.dll!CView::EnsureViewCallback</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!CView::EnsureViewCallback+0x28:
+000007fe`ef51d3f8 f705be5ecc0000200000 test dword ptr [MSHTML!Microsoft_IEEnableBits (000007fe`f01e32c0)],2000h
+000007fe`ef51d402 0f85a4e03b00    jne     MSHTML!`CBackgroundInfo::Property&lt;CBackgroundImage&gt;'::`7'::`dynamic atexit destructor for 'fieldDefaultValue''+0x1a4f02 (000007fe`ef8db4ac)
+000007fe`ef51d408 488b056989ce00  mov     rax,qword ptr [MSHTML!g_pHtmPerfCtl (000007fe`f0205d78)]
+000007fe`ef51d40f 4885c0          test    rax,rax
+000007fe`ef51d412 0f85aae03b00    jne     MSHTML!`CBackgroundInfo::Property&lt;CBackgroundImage&gt;'::`7'::`dynamic atexit destructor for 'fieldDefaultValue''+0x1a4f18 (000007fe`ef8db4c2)
+000007fe`ef51d418 8b542448        mov     edx,dword ptr [rsp+48h]
+000007fe`ef51d41c 488bcb          mov     rcx,rbx
+000007fe`ef51d41f 0fbaea12        bts     edx,12h
+000007fe`ef51d423 e890ac91ff      call    MSHTML!CView::EnsureView (000007fe`eee380b8)
+000007fe`ef51d428 488d4c2420      lea     rcx,[rsp+20h]
+MSHTML!CView::EnsureViewCallback+0x58:
+000007fe`ef51d428 488d4c2420      lea     rcx,[rsp+20h]
+000007fe`ef51d42d e85e9d90ff      call    MSHTML!CServer::CLock::~CLock (000007fe`eee27190)
+000007fe`ef51d432 4883c430        add     rsp,30h
+000007fe`ef51d436 5b              pop     rbx
+000007fe`ef51d437 c3              ret
+000007fe`ef51d438 a810            test    al,10h
+000007fe`ef51d43a 0f85885b98ff    jne     MSHTML!GetBorderInfoHelper+0x158 (000007fe`eeea2fc8)
+000007fe`ef51d440 e902780100      jmp     MSHTML!GetBorderInfoHelper+0x6b8 (000007fe`ef534c47)
+000007fe`ef51d445 cc              int     3
+000007fe`ef51d446 f7458000000200  test    dword ptr [rbp-80h],20000h
+000007fe`ef51d44d 0f8512d896ff    jne     MSHTML!CDispNode::AddPreNodeClipTransform+0x2319 (000007fe`eee8ac65)
+000007fe`ef51d453 e9a99c1300      jmp     MSHTML!CDispNode::AddPreNodeClipTransform+0x262c (000007fe`ef657101)
+000007fe`ef51d458 cc              int     3
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-3">Frame 3: MSHTML.dll!GlobalWndOnMethodCall+0x1DA</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-MSHTML.dll!GlobalWndOnMethodCall">MSHTML.dll!GlobalWndOnMethodCall</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!GlobalWndOnMethodCall+0x1aa:
+000007fe`eee335d6 8b0407          mov     eax,dword ptr [rdi+rax]
+000007fe`eee335d9 498b88e8150000  mov     rcx,qword ptr [r8+15E8h]
+000007fe`eee335e0 488b01          mov     rax,qword ptr [rcx]
+000007fe`eee335e3 ff9098000000    call    qword ptr [rax+98h]
+000007fe`eee335e9 03f5            add     esi,ebp
+000007fe`eee335eb 488d7f08        lea     rdi,[rdi+8]
+000007fe`eee335ef 3bb3fc010000    cmp     esi,dword ptr [rbx+1FCh]
+000007fe`eee335f5 7cd7            jl      MSHTML!GlobalWndOnMethodCall+0x1a2 (000007fe`eee335ce)
+000007fe`eee335f7 8b6c2420        mov     ebp,dword ptr [rsp+20h]
+000007fe`eee335fb 488b542428      mov     rdx,qword ptr [rsp+28h]
+000007fe`eee33600 498bcc          mov     rcx,r12
+000007fe`eee33603 41ffd5          call    r13
+000007fe`eee33606 4533e4          xor     r12d,r12d
+MSHTML!GlobalWndOnMethodCall+0x1da:
+000007fe`eee33606 4533e4          xor     r12d,r12d
+000007fe`eee33609 418bf4          mov     esi,r12d
+000007fe`eee3360c 4439a3fc010000  cmp     dword ptr [rbx+1FCh],r12d
+000007fe`eee33613 7e32            jle     MSHTML!GlobalWndOnMethodCall+0x21b (000007fe`eee33647)
+000007fe`eee33615 418bfc          mov     edi,r12d
+000007fe`eee33618 418d6c2401      lea     ebp,[r12+1]
+000007fe`eee3361d 488b8300020000  mov     rax,qword ptr [rbx+200h]
+000007fe`eee33624 488b0c07        mov     rcx,qword ptr [rdi+rax]
+000007fe`eee33628 4439a19c1b0000  cmp     dword ptr [rcx+1B9Ch],r12d
+000007fe`eee3362f 0f8f2c618900    jg      MSHTML!`CBackgroundInfo::Property&lt;CBackgroundImage&gt;'::`7'::`dynamic atexit destructor for 'fieldDefaultValue''+0x5d66f (000007fe`ef6c9761)
+000007fe`eee33635 03f5            add     esi,ebp
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-4">Frame 4: MSHTML.dll!GlobalWndProc+0x179</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-MSHTML.dll!GlobalWndProc">MSHTML.dll!GlobalWndProc</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!GlobalWndProc+0x1d8:
+000007fe`eee26519 ebb7            jmp     MSHTML!GlobalWndProc+0x179 (000007fe`eee264d2)
+000007fe`eee2651b cc              int     3
+000007fe`eee2651c 90              nop
+000007fe`eee2651d 90              nop
+000007fe`eee2651e 90              nop
+000007fe`eee2651f 90              nop
+000007fe`eee26520 90              nop
+000007fe`eee26521 90              nop
+000007fe`eee26522 90              nop
+000007fe`eee26523 90              nop
+000007fe`eee26524 90              nop
+000007fe`eee26525 90              nop
+000007fe`eee26526 90              nop
+000007fe`eee26527 90              nop
+000007fe`eee26528 90              nop
+000007fe`eee26529 90              nop
+000007fe`eee2652a 90              nop
+000007fe`eee2652b 90              nop
+000007fe`eee2652c 90              nop
+000007fe`eee2652d 90              nop
+000007fe`eee2652e 90              nop
+000007fe`eee2652f 90              nop
+000007fe`eee26530 48895c2418      mov     qword ptr [rsp+18h],rbx
+000007fe`eee26535 89542410        mov     dword ptr [rsp+10h],edx
+000007fe`eee26539 48894c2408      mov     qword ptr [rsp+8],rcx
+000007fe`eee2653e 57              push    rdi
+000007fe`eee2653f 4883ec30        sub     rsp,30h
+000007fe`eee26543 8b0dbf8d3b01    mov     ecx,dword ptr [MSHTML!tls_index (000007fe`f01df308)]
+000007fe`eee26549 65488b042558000000 mov   rax,qword ptr gs:[58h]
+MSHTML!CHtmScriptParseCtx::Execute+0xd9:
+000007fe`eee26549 65488b042558000000 mov   rax,qword ptr gs:[58h]
+000007fe`eee26552 bf08000000      mov     edi,8
+000007fe`eee26557 488b04c8        mov     rax,qword ptr [rax+rcx*8]
+000007fe`eee2655b 488b3c07        mov     rdi,qword ptr [rdi+rax]
+000007fe`eee2655f 4885ff          test    rdi,rdi
+000007fe`eee26562 7458            je      MSHTML!CHtmScriptParseCtx::Execute+0x144 (000007fe`eee265bc)
+000007fe`eee26564 8b542448        mov     edx,dword ptr [rsp+48h]
+000007fe`eee26568 81fa00200000    cmp     edx,2000h
+000007fe`eee2656e 744c            je      MSHTML!CHtmScriptParseCtx::Execute+0x144 (000007fe`eee265bc)
+000007fe`eee26570 81fa01200000    cmp     edx,2001h
+000007fe`eee26576 0f84bc5e2000    je      MSHTML!CHtmScriptParseCtx::Execute+0x157 (000007fe`ef02c438)
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-5">Frame 5: USER32.dll!UserCallWinProcCheckWow+0x1AD</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-USER32.dll!UserCallWinProcCheckWow">USER32.dll!UserCallWinProcCheckWow</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>USER32!HMValidateHandle+0x11:
+00000000`76e59c31 83ec20          sub     esp,20h
+00000000`76e59c34 65488b3c2530000000 mov   rdi,qword ptr gs:[30h]
+00000000`76e59c3d 488b0534860700  mov     rax,qword ptr [USER32!gpsi (00000000`76ed2278)]
+00000000`76e59c44 488bf1          mov     rsi,rcx
+00000000`76e59c47 0fb7c9          movzx   ecx,cx
+00000000`76e59c4a 33db            xor     ebx,ebx
+00000000`76e59c4c 4881c700080000  add     rdi,800h
+00000000`76e59c53 0fb6ea          movzx   ebp,dl
+00000000`76e59c56 483b4808        cmp     rcx,qword ptr [rax+8]
+00000000`76e59c5a 7358            jae     USER32!HMValidateHandle+0x9e (00000000`76e59cb4)
+00000000`76e59c5c 8b058e8a0700    mov     eax,dword ptr [USER32!gSharedInfo+0x10 (00000000`76ed26f0)]
+USER32!HMValidateHandle+0x41:
+00000000`76e59c61 000f            add     byte ptr [rdi],cl
+00000000`76e59c63 af              scas    dword ptr [rdi]
+00000000`76e59c64 c18bc8488bc648  ror     dword ptr [rbx-3974B738h],48h
+00000000`76e59c6b 030d778a0700    add     ecx,dword ptr [USER32!gSharedInfo+0x8 (00000000`76ed26e8)]
+00000000`76e59c71 48c1e810        shr     rax,10h
+00000000`76e59c75 663b4112        cmp     ax,word ptr [rcx+12h]
+00000000`76e59c79 0f85db40ffff    jne     USER32!HMValidateHandle+0x5b (00000000`76e4dd5a)
+00000000`76e59c7f f6411101        test    byte ptr [rcx+11h],1
+00000000`76e59c83 752f            jne     USER32!HMValidateHandle+0x9e (00000000`76e59cb4)
+00000000`76e59c85 40386910        cmp     byte ptr [rcx+10h],bpl
+00000000`76e59c89 7529            jne     USER32!HMValidateHandle+0x9e (00000000`76e59cb4)
+00000000`76e59c8b 488b4720        mov     rax,qword ptr [rdi+20h]
+00000000`76e59c8f 488b19          mov     rbx,qword ptr [rcx]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-6">Frame 6: USER32.dll!DispatchMessageWorker+0x3B5</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-USER32.dll!DispatchMessageWorker">USER32.dll!DispatchMessageWorker</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>USER32!UserCallWinProcCheckWow+0x8b:
+00000000`76e59b35 498bd6          mov     rdx,r14
+00000000`76e59b38 488d4c2450      lea     rcx,[rsp+50h]
+00000000`76e59b3d ff1535850600    call    qword ptr [USER32!_imp_RtlActivateActivationContextUnsafeFast (00000000`76ec2078)]
+00000000`76e59b43 f0013db6850700  lock add dword ptr [USER32!gcCallUserApiHook (00000000`76ed2100)],edi
+00000000`76e59b4a 483935a7860700  cmp     qword ptr [USER32!ghmodUserApiHook (00000000`76ed21f8)],rsi
+00000000`76e59b51 0f8483c3feff    je      USER32!UserCallWinProcCheckWow+0xb9 (00000000`76e45eda)
+00000000`76e59b57 3935d3850700    cmp     dword ptr [USER32!gfUserApiHook (00000000`76ed2130)],esi
+00000000`76e59b5d 0f8477c3feff    je      USER32!UserCallWinProcCheckWow+0xb9 (00000000`76e45eda)
+00000000`76e59b63 8bf7            mov     esi,edi
+00000000`76e59b65 897c2430        mov     dword ptr [rsp+30h],edi
+USER32!UserCallWinProcCheckWow+0xb3:
+00000000`76e59b65 897c2430        mov     dword ptr [rsp+30h],edi
+00000000`76e59b69 eb00            jmp     USER32!UserCallWinProcCheckWow+0xc5 (00000000`76e59b6b)
+00000000`76e59b6b 85f6            test    esi,esi
+00000000`76e59b6d 7445            je      USER32!UserCallWinProcCheckWow+0x190 (00000000`76e59bb4)
+00000000`76e59b6f 83bc24f800000000 cmp     dword ptr [rsp+0F8h],0
+00000000`76e59b77 743b            je      USER32!UserCallWinProcCheckWow+0x190 (00000000`76e59bb4)
+00000000`76e59b79 418bd5          mov     edx,r13d
+00000000`76e59b7c c1ea03          shr     edx,3
+00000000`76e59b7f 4c8b053a880700  mov     r8,qword ptr [USER32!guah+0x60 (00000000`76ed23c0)]
+00000000`76e59b86 4d85c0          test    r8,r8
+00000000`76e59b89 0f8412eeffff    je      USER32!UserCallWinProcCheckWow+0x106 (00000000`76e589a1)
+00000000`76e59b8f 3b1533880700    cmp     edx,dword ptr [USER32!guah+0x68 (00000000`76ed23c8)]
+00000000`76e59b95 0f8306eeffff    jae     USER32!UserCallWinProcCheckWow+0x106 (00000000`76e589a1)
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-7">Frame 7: IEFRAME.dll!CTabWindow::_TabWindowThreadProc+0x4B0</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-IEFRAME.dll!CTabWindow::_TabWindowThreadProc">IEFRAME.dll!CTabWindow::_TabWindowThreadProc</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>IEFRAME!WinList_RegisterAsync+0x94:
+000007fe`f49a4f80 2458            and     al,58h
+000007fe`f49a4f82 488b742460      mov     rsi,qword ptr [rsp+60h]
+000007fe`f49a4f87 8bc7            mov     eax,edi
+000007fe`f49a4f89 488b7c2468      mov     rdi,qword ptr [rsp+68h]
+000007fe`f49a4f8e 4883c440        add     rsp,40h
+000007fe`f49a4f92 415e            pop     r14
+000007fe`f49a4f94 c3              ret
+000007fe`f49a4f95 90              nop
+000007fe`f49a4f96 90              nop
+000007fe`f49a4f97 90              nop
+000007fe`f49a4f98 90              nop
+000007fe`f49a4f99 90              nop
+000007fe`f49a4f9a 90              nop
+000007fe`f49a4f9b 90              nop
+IEFRAME!CShellBrowser2::_InitializeRecoveryProxy:
+000007fe`f49a4f9c fff3            push    rbx
+000007fe`f49a4f9e 4883ec20        sub     rsp,20h
+000007fe`f49a4fa2 488bd9          mov     rbx,rcx
+000007fe`f49a4fa5 488b8958010000  mov     rcx,qword ptr [rcx+158h]
+000007fe`f49a4fac 4c8d442430      lea     r8,[rsp+30h]
+IEFRAME!CShellBrowser2::_InitializeRecoveryProxy+0x14:
+000007fe`f49a4fb0 30488b          xor     byte ptr [rax-75h],cl
+000007fe`f49a4fb3 01488d          add     dword ptr [rax-73h],ecx
+000007fe`f49a4fb6 15bdca1300      adc     eax,13CABDh
+000007fe`f49a4fbb ff10            call    qword ptr [rax]
+000007fe`f49a4fbd 85c0            test    eax,eax
+000007fe`f49a4fbf 7843            js      IEFRAME!CShellBrowser2::_InitializeRecoveryProxy+0x68 (000007fe`f49a5004)
+000007fe`f49a4fc1 488b8bc8190000  mov     rcx,qword ptr [rbx+19C8h]
+000007fe`f49a4fc8 4885c9          test    rcx,rcx
+000007fe`f49a4fcb 742c            je      IEFRAME!CShellBrowser2::_InitializeRecoveryProxy+0x5d (000007fe`f49a4ff9)
+000007fe`f49a4fcd 4883bbd019000000 cmp     qword ptr [rbx+19D0h],0
+000007fe`f49a4fd5 7522            jne     IEFRAME!CShellBrowser2::_InitializeRecoveryProxy+0x5d (000007fe`f49a4ff9)
+000007fe`f49a4fd7 488d93d0190000  lea     rdx,[rbx+19D0h]
+000007fe`f49a4fde e89d900000      call    IEFRAME!CTravelLogRecoveryDataProxy::CreateInstance (000007fe`f49ae080)
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-8">Frame 8: IEFRAME.dll!LCIETab_ThreadProc+0x2F0</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-IEFRAME.dll!LCIETab_ThreadProc">IEFRAME.dll!LCIETab_ThreadProc</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>IEFRAME!LCIETab_ThreadProc+0x29c:
+000007fe`f49a3b30 87488d          xchg    ecx,dword ptr [rax-73h]
+000007fe`f49a3b33 15885b1700      adc     eax,175B88h
+000007fe`f49a3b38 4d8bc6          mov     r8,r14
+000007fe`f49a3b3b e850d70000      call    IEFRAME!MarshalToGIT (000007fe`f49b1290)
+000007fe`f49a3b40 8bd8            mov     ebx,eax
+000007fe`f49a3b42 85c0            test    eax,eax
+000007fe`f49a3b44 780b            js      IEFRAME!LCIETab_ThreadProc+0x2bd (000007fe`f49a3b51)
+000007fe`f49a3b46 418b0e          mov     ecx,dword ptr [r14]
+000007fe`f49a3b49 ff15f91f7200    call    qword ptr [IEFRAME!_imp_?SetUserBrokerYAJKZ (000007fe`f50c5b48)]
+000007fe`f49a3b4f 8bd8            mov     ebx,eax
+000007fe`f49a3b51 488b4d87        mov     rcx,qword ptr [rbp-79h]
+000007fe`f49a3b55 488b01          mov     rax,qword ptr [rcx]
+000007fe`f49a3b58 ff5010          call    qword ptr [rax+10h]
+000007fe`f49a3b5b 85db            test    ebx,ebx
+000007fe`f49a3b5d 0f88e3911e00    js      IEFRAME!LCIETab_ThreadProc+0x416 (000007fe`f4b8cd46)
+IEFRAME!LCIETab_ThreadProc+0x2cc:
+000007fe`f49a3b60 91              xchg    eax,ecx
+000007fe`f49a3b61 1e              ???
+000007fe`f49a3b62 008b8ee80000    add     byte ptr [rbx+0E88Eh],cl
+000007fe`f49a3b68 00ff            add     bh,bh
+000007fe`f49a3b6a 15391f7200      adc     eax,721F39h
+000007fe`f49a3b6f 83a6e800000000  and     dword ptr [rsi+0E8h],0
+000007fe`f49a3b76 488364244000    and     qword ptr [rsp+40h],0
+000007fe`f49a3b7c 488bcf          mov     rcx,rdi
+000007fe`f49a3b7f e87c0f0000      call    IEFRAME!CTabWindow::_TabWindowThreadProc (000007fe`f49a4b00)
+000007fe`f49a3b84 41833e00        cmp     dword ptr [r14],0
+000007fe`f49a3b88 8bd8            mov     ebx,eax
+000007fe`f49a3b8a 7410            je      IEFRAME!LCIETab_ThreadProc+0x308 (000007fe`f49a3b9c)
+000007fe`f49a3b8c 33c9            xor     ecx,ecx
+000007fe`f49a3b8e ff15b41f7200    call    qword ptr [IEFRAME!_imp_?SetUserBrokerYAJKZ (000007fe`f50c5b48)]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-9">Frame 9: iertutil.dll!CIsoWinMsg::PostQueuedMessagesToComponent+0x5B</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-iertutil.dll!CIsoWinMsg::PostQueuedMessagesToComponent">iertutil.dll!CIsoWinMsg::PostQueuedMessagesToComponent</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>iertutil!CIsoWinMsg::PostQueuedMessagesToComponent+0x2b:
+000007fe`fee5347b 0f846d9e1a00    je      iertutil!`Microsoft::WRL::Module&lt;1,Microsoft::WRL::Details::DefaultModule&lt;1&gt; &gt;::Create'::`2'::`dynamic atexit destructor for 'module''+0xa944 (000007fe`feffd2ee)
+000007fe`fee53481 85db            test    ebx,ebx
+000007fe`fee53483 0f85079e1a00    jne     iertutil!`Microsoft::WRL::Module&lt;1,Microsoft::WRL::Details::DefaultModule&lt;1&gt; &gt;::Create'::`2'::`dynamic atexit destructor for 'module''+0xa8e6 (000007fe`feffd290)
+000007fe`fee53489 488b5c2450      mov     rbx,qword ptr [rsp+50h]
+000007fe`fee5348e 4883c430        add     rsp,30h
+000007fe`fee53492 5f              pop     rdi
+000007fe`fee53493 5e              pop     rsi
+000007fe`fee53494 5d              pop     rbp
+000007fe`fee53495 c3              ret
+000007fe`fee53496 399ee4000000    cmp     dword ptr [rsi+0E4h],ebx
+000007fe`fee5349c 0f84c2fffdff    je      iertutil!CIsoScope::_RegisterComponent+0x1bc (000007fe`fee33464)
+000007fe`fee534a2 488dbeec000000  lea     rdi,[rsi+0ECh]
+000007fe`fee534a9 e87609feff      call    iertutil!IsoGetCurrentProcessManager (000007fe`fee33e24)
+iertutil!CIsoScope::_RegisterComponent+0x3b6:
+000007fe`fee534ab 09fe            or      esi,edi
+000007fe`fee534ad ff8bd8e8dbe0    dec     dword ptr [rbx-1F241728h]
+000007fe`fee534b3 fc              cld
+000007fe`fee534b4 ff8bd38bc848    dec     dword ptr [rbx+48C88BD3h]
+000007fe`fee534ba 897c2420        mov     dword ptr [rsp+20h],edi
+000007fe`fee534be e811000000      call    iertutil!TFlatIsoMessage&lt;unsigned long&gt;::Post (000007fe`fee534d4)
+000007fe`fee534c3 33db            xor     ebx,ebx
+000007fe`fee534c5 e99afffdff      jmp     iertutil!CIsoScope::_RegisterComponent+0x1bc (000007fe`fee33464)
+000007fe`fee534ca cc              int     3
+000007fe`fee534cb 90              nop
+000007fe`fee534cc 90              nop
+000007fe`fee534cd 90              nop
+000007fe`fee534ce 90              nop
+000007fe`fee534cf 90              nop
+000007fe`fee534d0 90              nop
+000007fe`fee534d1 90              nop
+000007fe`fee534d2 90              nop
+000007fe`fee534d3 90              nop
+iertutil!TFlatIsoMessage&lt;unsigned long&gt;::Post:
+000007fe`fee534d4 488bc4          mov     rax,rsp
+000007fe`fee534d7 48895808        mov     qword ptr [rax+8],rbx
+000007fe`fee534db 48897010        mov     qword ptr [rax+10h],rsi
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Frame-10">Frame 10: IEShims.dll!NS_CreateThread::DesktopIE_ThreadProc+0x82</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent(this)" href="#Function-IEShims.dll!NS_CreateThread::DesktopIE_ThreadProc">IEShims.dll!NS_CreateThread::DesktopIE_ThreadProc</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend(this)" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>IEShims!NS_CreateThread::DesktopIE_ThreadProc+0x52:
+000007fe`f5755e16 0400            add     al,0
+000007fe`f5755e18 8bd8            mov     ebx,eax
+000007fe`f5755e1a e8e1c0feff      call    IEShims!IEProcessHelper::TabWindow (000007fe`f5741f00)
+000007fe`f5755e1f 488d4c2438      lea     rcx,[rsp+38h]
+000007fe`f5755e24 ff5020          call    qword ptr [rax+20h]
+000007fe`f5755e27 8b0d3bb30300    mov     ecx,dword ptr [IEShims!NS_PreserveThreadContextInternal::g_tlsThreadContext (000007fe`f5791168)]
+000007fe`f5755e2d 83f9ff          cmp     ecx,0FFFFFFFFh
+000007fe`f5755e30 740b            je      IEShims!NS_CreateThread::DesktopIE_ThreadProc+0x79 (000007fe`f5755e3d)
+000007fe`f5755e32 488d542420      lea     rdx,[rsp+20h]
+000007fe`f5755e37 ff15d3240400    call    qword ptr [IEShims!_imp_TlsSetValue (000007fe`f5798310)]
+000007fe`f5755e3d 488b4c2428      mov     rcx,qword ptr [rsp+28h]
+000007fe`f5755e42 ff542420        call    qword ptr [rsp+20h]
+000007fe`f5755e46 8b0d1cb30300    mov     ecx,dword ptr [IEShims!NS_PreserveThreadContextInternal::g_tlsThreadContext (000007fe`f5791168)]
+IEShims!NS_CreateThread::DesktopIE_ThreadProc+0x82:
+000007fe`f5755e46 8b0d1cb30300    mov     ecx,dword ptr [IEShims!NS_PreserveThreadContextInternal::g_tlsThreadContext (000007fe`f5791168)]
+000007fe`f5755e4c 8bf8            mov     edi,eax
+000007fe`f5755e4e 83f9ff          cmp     ecx,0FFFFFFFFh
+000007fe`f5755e51 7408            je      IEShims!NS_CreateThread::DesktopIE_ThreadProc+0x97 (000007fe`f5755e5b)
+000007fe`f5755e53 33d2            xor     edx,edx
+000007fe`f5755e55 ff15b5240400    call    qword ptr [IEShims!_imp_TlsSetValue (000007fe`f5798310)]
+000007fe`f5755e5b 803df3b2030000  cmp     byte ptr [IEShims!NS_HangResistanceInternal::g_fEnabled (000007fe`f5791155)],0
+000007fe`f5755e62 7408            je      IEShims!NS_CreateThread::DesktopIE_ThreadProc+0xa8 (000007fe`f5755e6c)
+000007fe`f5755e64 e837c0feff      call    IEShims!IEProcessHelper::FrameUtil (000007fe`f5741ea0)
+000007fe`f5755e69 ff5008          call    qword ptr [rax+8]
+000007fe`f5755e6c 85db            test    ebx,ebx
+000007fe`f5755e6e 781a            js      IEShims!NS_CreateThread::DesktopIE_ThreadProc+0xc6 (000007fe`f5755e8a)
+000007fe`f5755e70 ff150a240400    call    qword ptr [IEShims!_imp_GetCurrentThreadId (000007fe`f5798280)]
+000007fe`f5755e76 488d542450      lea     rdx,[rsp+50h]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><HR>(Intermediate frames not shown)<HR></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend(this)" class="level0">Memory regions</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend(this)" class="level0">Functions</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-IEFRAME.dll!CTabWindow::_TabWindowThreadProc">IEFRAME.dll!CTabWindow::_TabWindowThreadProc</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        IEFRAME.dll+0x34B00
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-IEFRAME.dll!LCIETab_ThreadProc">IEFRAME.dll!LCIETab_ThreadProc</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        IEFRAME.dll+0x33870
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-IEShims.dll!NS_CreateThread::DesktopIE_ThreadProc">IEShims.dll!NS_CreateThread::DesktopIE_ThreadProc</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        IEShims.dll+0x15DC4
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-ntdll.dll!RtlUserThreadStart">ntdll.dll!RtlUserThreadStart</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        ntdll.dll+0x2C520
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-MSHTML.dll!CView::CalculateImageImmunity">MSHTML.dll!CView::CalculateImageImmunity</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x15A3F0
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-MSHTML.dll!CView::EnsureView">MSHTML.dll!CView::EnsureView</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x180B8
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-MSHTML.dll!CView::EnsureViewCallback">MSHTML.dll!CView::EnsureViewCallback</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x6FD3D0
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-MSHTML.dll!GlobalWndOnMethodCall">MSHTML.dll!GlobalWndOnMethodCall</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1342C
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-MSHTML.dll!GlobalWndProc">MSHTML.dll!GlobalWndProc</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x63D0
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-USER32.dll!DispatchMessageWorker">USER32.dll!DispatchMessageWorker</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        USER32.dll+0x197B0
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-USER32.dll!UserCallWinProcCheckWow">USER32.dll!UserCallWinProcCheckWow</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        USER32.dll+0x19AB4
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-kernel32.dll!BaseThreadInitThunk">kernel32.dll!BaseThreadInitThunk</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        kernel32.dll+0x159E0
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend(this)" class="level1"><A name="Function-iertutil.dll!CIsoWinMsg::PostQueuedMessagesToComponent">iertutil.dll!CIsoWinMsg::PostQueuedMessagesToComponent</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        iertutil.dll+0x33450
+Disassembly: not available
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET></BODY></HTML>
