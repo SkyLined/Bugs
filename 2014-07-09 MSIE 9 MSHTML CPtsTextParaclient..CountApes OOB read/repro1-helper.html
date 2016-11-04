@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      oElement1 {
+        position: absolute;
+      }
+      oElement2:after {
+        position: relative;
+        content: counter(x);
+      }
+    </style>
+    <script type="text/javascript">
+    window.onload = function () {
+      
+      oElement1 = document.createElement('oElement1');
+      document.documentElement.appendChild(oElement1);
+      
+      oElement2 = document.createElement('oElement2');
+      document.documentElement.appendChild(oElement2);
+    };
+    
+    </script>
+  </head>
+</html>

@@ -1,0 +1,296 @@
+The crash is in MSHTML!CPtsTextParaclient::CountApes:
+68c0d08b 8bff            mov     edi,edi
+68c0d08d 55              push    ebp
+68c0d08e 8bec            mov     ebp,esp
+68c0d090 83ec08          sub     esp,8
+68c0d093 53              push    ebx
+68c0d094 8b5820          mov     ebx,dword ptr [eax+20h]
+68c0d097 56              push    esi
+68c0d098 8d4824          lea     ecx,[eax+24h]
+68c0d09b 57              push    edi
+68c0d09c 894df8          mov     dword ptr [ebp-8],ecx
+68c0d09f c745fc00000000  mov     dword ptr [ebp-4],0
+68c0d0a6 85db            test    ebx,ebx
+68c0d0a8 0f841aaa4e00    je      MSHTML!CPtsTextParaclient::CountApes+0x1b7 (690f7ac8)
+68c0d0ae 3b5df8          cmp     ebx,dword ptr [ebp-8]
+68c0d0b1 0f8403cfffff    je      MSHTML!CPtsTextParaclient::CountApes+0x1b3 (68c09fba)
+68c0d0b7 8b03            mov     eax,dword ptr [ebx]  ds:0023:dcbabbbb=????????
+
+ebx is taken from eax+20, which was passed by the caller.
+
+1:020> !heap -p -a @eax
+    address 0b00efb4 found in
+    _DPH_HEAP_ROOT @ 51000
+    in busy allocation (  DPH_HEAP_BLOCK:         UserAddr         UserSize -         VirtAddr         VirtSize)
+                                 af126e8:          b00efd8               24 -          b00e000             2000
+    71908e89 verifier!AVrfDebugPageHeapAllocate+0x00000229
+    77c15ede ntdll!RtlDebugAllocateHeap+0x00000030
+    77bda40a ntdll!RtlpAllocateHeap+0x000000c4
+    77ba5ae0 ntdll!RtlAllocateHeap+0x0000023a
+    683928a3 MSHTML!CGeneratedTreeNode::InitBeginPos+0x00000016
+    683926b4 MSHTML!CGeneratedContent::InsertOneNode+0x00000044
+    6839264d MSHTML!CGeneratedContent::CreateNode+0x000000b8
+    68392be1 MSHTML!CGeneratedContent::CreateContent+0x000000d6
+    68392b0b MSHTML!CGeneratedContent::ApplyContentExpressionCore+0x00000109
+    681a397c MSHTML!CElement::ComputeFormatsVirtual+0x000021c9
+    682e9421 MSHTML!CElement::ComputeFormats+0x000000f1
+    682e9340 MSHTML!CTreeNode::ComputeFormats+0x000000ba
+    682eabb8 MSHTML!CTreeNode::ComputeFormatsHelper+0x00000040
+    682f1a63 MSHTML!CTreeNode::GetFancyFormat+0x00000032
+    682f6b22 MSHTML!CLayoutBlock::GetDisplayAndPosition+0x00000052
+    682f7853 MSHTML!CLayoutBlock::IdentifyBlock+0x00000050
+    6834c390 MSHTML!CTextBlock::IdentifyRunTypeToBuild+0x000000fd
+    6834d1d0 MSHTML!CTextBlock::GetNextPosForBidi+0x00000102
+    6834c45b MSHTML!CTextBlock::SBlockBuildingState::CTextBlockBidiData::GetNextRun+0x00000046
+    683451d0 MSHTML!SBidiAnalysis::CheckIfBidiAnalysisIsNeeded+0x00000069
+    6834bdc2 MSHTML!CTextBlock::SBlockBuildingState::SetToTextBlock+0x00000077
+    6834c93a MSHTML!CTextBlock::BuildTextBlock+0x000002de
+    6834ba66 MSHTML!CLayoutBlock::BuildBlock+0x000003ef
+    682f75cb MSHTML!CBlockContainerBlock::BuildBlockContainer+0x0000090d
+    682f7cb2 MSHTML!CLayoutBlock::BuildBlock+0x000002e8
+    682f75cb MSHTML!CBlockContainerBlock::BuildBlockContainer+0x0000090d
+    682f7cb2 MSHTML!CLayoutBlock::BuildBlock+0x000002e8
+    682f7e35 MSHTML!CCssDocumentLayout::GetPage+0x00000723
+    680f4bb0 MSHTML!CHtmlPageLayout::CalcSizeVirtual+0x00000478
+    6832e825 MSHTML!CLayout::CalcSize+0x000005a0
+    683c4002 MSHTML!CLayout::DoLayout+0x0000024b
+    6856e37d MSHTML!CView::ExecuteLayoutTasks+0x0000003b
+
+@eax is 0x24 bytes before the start of valid allocated memory! So it appears the caller is providing a bad pointer.
+
+MSHTML!CPtsTextParaclient::GetNumberApeCorners:                                                 0
+68cc6748 8bff            mov     edi,edi                                                        |
+68cc674a 55              push    ebp                                                            |
+68cc674b 8bec            mov     ebp,esp                                                        |
+68cc674d 8b4518          mov     eax,dword ptr [ebp+18h]                                        |
+68cc6750 83ec10          sub     esp,10h                                                        |
+68cc6753 57              push    edi                                                            |
+68cc6754 85c0            test    eax,eax                                                        |
+68cc6756 0f847b114300    je      MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x10 (690f78d7) |
+68cc675c 53              push    ebx                                                            |
+68cc675d 56              push    esi                                                            |
+68cc675e 8b750c          mov     esi,dword ptr [ebp+0Ch]                                        |
+68cc6761 c70000000000    mov     dword ptr [eax],0                                              |
+68cc6767 8b4608          mov     eax,dword ptr [esi+8]                                          |
+68cc676a 33db            xor     ebx,ebx                                                        |
+68cc676c 241f            and     al,1Fh                                                         |
+68cc676e 895dfc          mov     dword ptr [ebp-4],ebx                                          |
+68cc6771 3c02            cmp     al,2                                                           |
+68cc6773 0f8578114300    jne     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x43 (690f78f1) |
+68cc6779 8bc6            mov     eax,esi                                                        |
+68cc677b e8731e2500      call    MSHTML!CLayoutBlock::IsValid (68f185f3)                        |
+68cc6780 0fb6f8          movzx   edi,al                                                         |
+68cc6783 f7df            neg     edi                                                            |
+68cc6785 1bff            sbb     edi,edi                                                        |
+68cc6787 81e7fbbfff7f    and     edi,7FFFBFFBh                                                  |
+68cc678d 81c705400080    add     edi,80004005h                                                  |
+68cc6793 7808            js      MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x75 (68cc679d) |
+68cc6795 ff4604          inc     dword ptr [esi+4]                                              |
+68cc6798 8975fc          mov     dword ptr [ebp-4],esi                                          |
+68cc679b 8bde            mov     ebx,esi                                                        |
+68cc679d 33f6            xor     esi,esi                                                        |
+68cc679f 3bfe            cmp     edi,esi                                                        |
+68cc67a1 0f8c0638f4ff    jl      MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x7b (68c09fad) |
+68cc67a7 8a430c          mov     al,byte ptr [ebx+0Ch]                                          |
+68cc67aa a810            test    al,10h                                                         |
+68cc67ac 0f85ec37f4ff    jne     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0xa4 (68c09f9e) `=> 1
+68cc67b2 a804            test    al,4
+68cc67b4 740d            je      MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x183 (68cc67c3)
+68cc67b6 8b4b18          mov     ecx,dword ptr [ebx+18h]
+68cc67b9 f6410c10        test    byte ptr [ecx+0Ch],10h
+68cc67bd 0f85db37f4ff    jne     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0xa4 (68c09f9e)
+68cc67c3 ff4b04          dec     dword ptr [ebx+4]
+68cc67c6 0f840c124300    je      MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x188 (690f79d8)
+68cc67cc 5e              pop     esi
+68cc67cd 5b              pop     ebx
+68cc67ce 85ff            test    edi,edi
+68cc67d0 0f850d114300    jne     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x1c (690f78e3)
+68cc67d6 33c0            xor     eax,eax
+68cc67d8 5f              pop     edi
+68cc67d9 8be5            mov     esp,ebp
+68cc67db 5d              pop     ebp
+68cc67dc c21400          ret     14h
+
+
+68c09f9e f6435201        test    byte ptr [ebx+52h],1       ds:0023:08010fe2=01                   1
+68c09fa2 0f841bc80b00    je      MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x183 (68cc67c3)  |
+68c09fa8 e955d94e00      jmp     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0xae (690f7902)   `=> 2
+68c09fad 3bde            cmp     ebx,esi
+68c09faf 0f850ec80b00    jne     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x183 (68cc67c3)
+68c09fb5 e912c80b00      jmp     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x192 (68cc67cc)
+68c09fba 85db            test    ebx,ebx
+68c09fbc 0f8406db4e00    je      MSHTML!CPtsTextParaclient::CountApes+0x1b7 (690f7ac8)
+68c09fc2 8b4d08          mov     ecx,dword ptr [ebp+8]
+68c09fc5 8b55fc          mov     edx,dword ptr [ebp-4]
+68c09fc8 5f              pop     edi
+68c09fc9 5e              pop     esi
+68c09fca 8911            mov     dword ptr [ecx],edx
+68c09fcc 33c0            xor     eax,eax
+68c09fce 5b              pop     ebx
+68c09fcf 8be5            mov     esp,ebp
+68c09fd1 5d              pop     ebp
+68c09fd2 c20400          ret     4
+
+690f7902 8b5510          mov     edx,dword ptr [ebp+10h]                                            2  
+690f7905 52              push    edx                                                                |  
+690f7906 8bc3            mov     eax,ebx                                                            |  
+690f7908 8d4df0          lea     ecx,[ebp-10h]                                                      |  
+690f790b 8975f0          mov     dword ptr [ebp-10h],esi                                            |  
+690f790e 8975f4          mov     dword ptr [ebp-0Ch],esi                                            |  
+690f7911 8975f8          mov     dword ptr [ebp-8],esi                                              |  
+690f7914 e81213e2ff      call    MSHTML!SRunPointer::SetToBlockOffset (68f18c2b)                    |  
+690f7919 8bf8            mov     edi,eax                                                            |  
+690f791b 3bfe            cmp     edi,esi                                                            |  
+690f791d 7d0d            jge     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0xd8 (690f792c)     `=> 3
+690f791f 8d45fc          lea     eax,[ebp-4]                                                            
+690f7922 e8990bf2ff      call    MSHTML!SP<HtmlLayout::TextBlock>::~SP<HtmlLayout::TextBlock> (690184c0)
+690f7927 e9a0eebcff      jmp     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x192 (68cc67cc)        
+690f792c 8b5df0          mov     ebx,dword ptr [ebp-10h]                                              3
+690f792f 85db            test    ebx,ebx                                                              |
+690f7931 0f8499000000    je      MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x180 (690f79d0)      |
+690f7937 8b75f4          mov     esi,dword ptr [ebp-0Ch]                                              |
+690f793a 8d4df0          lea     ecx,[ebp-10h]                                                        |       7         12      17
+690f793d e82215e2ff      call    MSHTML!SRunPointer::OffsetInBlock (68f18e64)                         |       |         |       |
+690f7942 3b4514          cmp     eax,dword ptr [ebp+14h]                                              |       |         |       |
+690f7945 0f8f85000000    jg      MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x180 (690f79d0)      |       |         |       |
+690f794b 8d7df0          lea     edi,[ebp-10h]                                                        |       |         |       |
+690f794e e82aeae2ff      call    MSHTML!SRunPointer::IsRelativeCorner (68f2637d)                      |       |         |       |
+690f7953 84c0            test    al,al                                                                |       |         |       |
+690f7955 7429            je      MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x130 (690f7980)      `=> 4   `=> 8     `=> 13  |
+MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x103
+690f7957 8b4e0c          mov     ecx,dword ptr [esi+0Ch]                                                                        |
+690f795a 8b01            mov     eax,dword ptr [ecx]                                                                            |
+690f795c 83e001          and     eax,1                                                                                          |
+690f795f 8d550c          lea     edx,[ebp+0Ch]                                                                                  |
+690f7962 8d0440          lea     eax,[eax+eax*2]                                                                                |
+690f7965 52              push    edx                                                                                            |
+690f7966 8d44c1dc        lea     eax,[ecx+eax*8-24h]                                                                            |
+690f796a e81c57b1ff      call    MSHTML!CPtsTextParaclient::CountApes (68c0d08b)                                                `=> boom
+690f796f 8bf8            mov     edi,eax                                                               
+690f7971 85ff            test    edi,edi                                                               
+690f7973 7872            js      MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x1a5 (690f79e7)       
+690f7975 837d0c00        cmp     dword ptr [ebp+0Ch],0                                                 
+690f7979 7e05            jle     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x130 (690f7980)       
+690f797b 8b4518          mov     eax,dword ptr [ebp+18h]                                                  
+690f797e ff00            inc     dword ptr [eax]                                                          
+690f7980 33ff            xor     edi,edi                                                                4       8         13
+690f7982 897df8          mov     dword ptr [ebp-8],edi                                                  |       |         |
+690f7985 83fe01          cmp     esi,1                                                                  |       |         |
+690f7988 750f            jne     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x149 (690f7999)        |       `=> 9     `=> 14
+690f798a 397b5c          cmp     dword ptr [ebx+5Ch],edi                                                |         
+690f798d 7505            jne     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x144 (690f7994)        `=> 5     
+690f798f 8d7703          lea     esi,[edi+3]                                                                      
+690f7992 eb31            jmp     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x175 (690f79c5)                  
+690f7994 8b7360          mov     esi,dword ptr [ebx+60h]                                                  5       
+690f7997 eb2c            jmp     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x175 (690f79c5)          `=> 6   
+690f7999 83fe03          cmp     esi,3                                                                            9         14
+690f799c 750c            jne     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x15a (690f79aa)                  `=> 10    `=> 15
+690f799e 33db            xor     ebx,ebx                                                                          
+690f79a0 895df0          mov     dword ptr [ebp-10h],ebx                                                          
+690f79a3 33f6            xor     esi,esi                                                                          
+690f79a5 897df8          mov     dword ptr [ebp-8],edi                                                            
+690f79a8 eb1b            jmp     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x175 (690f79c5)                  
+690f79aa 8b435c          mov     eax,dword ptr [ebx+5Ch]                                                            10        15
+690f79ad 8b5360          mov     edx,dword ptr [ebx+60h]                                                            |         |
+690f79b0 8d4c40fd        lea     ecx,[eax+eax*2-3]                                                                  |         |
+690f79b4 8d04ca          lea     eax,[edx+ecx*8]                                                                    |         |
+690f79b7 3bf0            cmp     esi,eax                                                                            |         |
+690f79b9 7507            jne     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x172 (690f79c2)                    `=> 11    `=> 16
+690f79bb be03000000      mov     esi,3                                                                            
+690f79c0 eb03            jmp     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x175 (690f79c5)                  
+690f79c2 83c618          add     esi,18h                                                                              11        16
+690f79c5 8975f4          mov     dword ptr [ebp-0Ch],esi ss:0023:047baf48=00000001                          6         |         |
+690f79c8 3bdf            cmp     ebx,edi                                                                    |         |         |
+690f79ca 0f856affffff    jne     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0xe6 (690f793a)             `=> 7     `=> 12    `=> 17
+690f79d0 8b5dfc          mov     ebx,dword ptr [ebp-4]                                                            
+690f79d3 e9ebedbcff      jmp     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x183 (68cc67c3)                  
+690f79d8 8b13            mov     edx,dword ptr [ebx]                                                              
+690f79da 8bcb            mov     ecx,ebx                                                                          
+690f79dc 8b02            mov     eax,dword ptr [edx]                                                              
+690f79de 6a01            push    1                                                                                
+690f79e0 ffd0            call    eax                                                                              
+690f79e2 e9e5edbcff      jmp     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x192 (68cc67cc)                  
+690f79e7 8b4dfc          mov     ecx,dword ptr [ebp-4]                                                            
+690f79ea ff4904          dec     dword ptr [ecx+4]                                                                
+690f79ed 0f85d9edbcff    jne     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x192 (68cc67cc)                  
+690f79f3 8b11            mov     edx,dword ptr [ecx]                                                              
+690f79f5 ebe5            jmp     MSHTML!CPtsTextParaclient::GetNumberApeCorners+0x18c (690f79dc)                  
+690f79f7 8b06            mov     eax,dword ptr [esi]                                                              
+690f79f9 8b4824          mov     ecx,dword ptr [eax+24h]                                                          
+                                                                                                                  
+68527957 8b4e0c          mov     ecx,dword ptr [esi+0Ch] ds:0023:0af64fac=0664bfd8
+    address 0af64fa0 found in                                                                                   
+    _DPH_HEAP_ROOT @ 51000                                                                                      
+    in busy allocation (  DPH_HEAP_BLOCK:         UserAddr         UserSize -         VirtAddr         VirtSize)
+                                 ae82924:          af64f70               90 -          af64000             2000 
+    71908e89 verifier!AVrfDebugPageHeapAllocate+0x00000229                                                      
+    719092b2 verifier!AVrfDebugPageHeapReAllocate+0x000001a2                                                    
+    77c1620b ntdll!RtlDebugReAllocateHeap+0x00000033                                                            
+    77bde4f0 ntdll!RtlReAllocateHeap+0x00000054                                                                 
+    682776f8 MSHTML!_HeapRealloc+0x00000030                                                                     
+    68352028 MSHTML!CTextBlock::AddAtomRun+0x00000173                                                           
+    68355e56 MSHTML!CTextBlock::BuildSpanEndRun+0x0000008c                                                      
+    68355dd0 MSHTML!CTextBlock::BuildTextBlock+0x00000a51                                                       
+    6834ba66 MSHTML!CLayoutBlock::BuildBlock+0x000003ef                                                         
+    682f75cb MSHTML!CBlockContainerBlock::BuildBlockContainer+0x0000090d                                        
+    682f7cb2 MSHTML!CLayoutBlock::BuildBlock+0x000002e8                                                         
+    682f75cb MSHTML!CBlockContainerBlock::BuildBlockContainer+0x0000090d                                        
+    682f7cb2 MSHTML!CLayoutBlock::BuildBlock+0x000002e8                                                         
+    682f7e35 MSHTML!CCssDocumentLayout::GetPage+0x00000723                                                      
+    680f4bb0 MSHTML!CHtmlPageLayout::CalcSizeVirtual+0x00000478                                                 
+    6832e825 MSHTML!CLayout::CalcSize+0x000005a0                                                                
+    683c4002 MSHTML!CLayout::DoLayout+0x0000024b                                                                
+    6856e37d MSHTML!CView::ExecuteLayoutTasks+0x0000003b                                                        
+    682e5727 MSHTML!CView::EnsureView+0x000003e5                                                                
+    68307270 MSHTML!CView::EnsureViewCallback+0x000000c4                                                        
+    68418441 MSHTML!GlobalWndOnMethodCall+0x00000115                                                            
+    68437a6c MSHTML!GlobalWndProc+0x00000307                                                                    
+    761cc4e7 USER32!InternalCallWinProc+0x00000023                                                              
+    761cc5e7 USER32!UserCallWinProcCheckWow+0x0000014b                                                          
+    761ccc19 USER32!DispatchMessageWorker+0x0000035e                                                            
+    761ccc70 USER32!DispatchMessageW+0x0000000f                                                                 
+    70ef17a4 IEFRAME!CTabWindow::_TabWindowThreadProc+0x00000722                                                
+    70f113c6 IEFRAME!LCIETab_ThreadProc+0x00000317                                                              
+    776e2118 iertutil!CIsoScope::RegisterThread+0x000000ab                                                      
+    70eff8fb IEFRAME!Detour_DefWindowProcA+0x0000006c                                                           
+    763eee1c kernel32!BaseThreadInitThunk+0x0000000e                                                            
+    77bb37eb ntdll!__RtlUserThreadStart+0x00000070                                                              
+
+6852795a 8b01            mov     eax,dword ptr [ecx]  ds:0023:0664bfd8=000003e8
+    address 0664bfd8 found in
+    _DPH_HEAP_ROOT @ 51000
+    in busy allocation (  DPH_HEAP_BLOCK:         UserAddr         UserSize -         VirtAddr         VirtSize)
+                                 69806e8:          664bfd8               24 -          664b000             2000
+    71908e89 verifier!AVrfDebugPageHeapAllocate+0x00000229
+    77c15ede ntdll!RtlDebugAllocateHeap+0x00000030
+    77bda40a ntdll!RtlpAllocateHeap+0x000000c4
+    77ba5ae0 ntdll!RtlAllocateHeap+0x0000023a
+    683928a3 MSHTML!CGeneratedTreeNode::InitBeginPos+0x00000016
+    683926b4 MSHTML!CGeneratedContent::InsertOneNode+0x00000044
+    6839264d MSHTML!CGeneratedContent::CreateNode+0x000000b8
+    68392be1 MSHTML!CGeneratedContent::CreateContent+0x000000d6
+    68392b0b MSHTML!CGeneratedContent::ApplyContentExpressionCore+0x00000109
+    681a397c MSHTML!CElement::ComputeFormatsVirtual+0x000021c9
+    682e9421 MSHTML!CElement::ComputeFormats+0x000000f1
+    682e9340 MSHTML!CTreeNode::ComputeFormats+0x000000ba
+    682eabb8 MSHTML!CTreeNode::ComputeFormatsHelper+0x00000040
+    682f1a63 MSHTML!CTreeNode::GetFancyFormat+0x00000032
+    682f6b22 MSHTML!CLayoutBlock::GetDisplayAndPosition+0x00000052
+    682f7853 MSHTML!CLayoutBlock::IdentifyBlock+0x00000050
+    6834c390 MSHTML!CTextBlock::IdentifyRunTypeToBuild+0x000000fd
+    6834d1d0 MSHTML!CTextBlock::GetNextPosForBidi+0x00000102
+    6834c45b MSHTML!CTextBlock::SBlockBuildingState::CTextBlockBidiData::GetNextRun+0x00000046
+    683451d0 MSHTML!SBidiAnalysis::CheckIfBidiAnalysisIsNeeded+0x00000069
+    6834bdc2 MSHTML!CTextBlock::SBlockBuildingState::SetToTextBlock+0x00000077
+    6834c93a MSHTML!CTextBlock::BuildTextBlock+0x000002de
+    6834ba66 MSHTML!CLayoutBlock::BuildBlock+0x000003ef
+    682f75cb MSHTML!CBlockContainerBlock::BuildBlockContainer+0x0000090d
+    682f7cb2 MSHTML!CLayoutBlock::BuildBlock+0x000002e8
+    682f75cb MSHTML!CBlockContainerBlock::BuildBlockContainer+0x0000090d
+    682f7cb2 MSHTML!CLayoutBlock::BuildBlock+0x000002e8
+    682f7e35 MSHTML!CCssDocumentLayout::GetPage+0x00000723
+    680f4bb0 MSHTML!CHtmlPageLayout::CalcSizeVirtual+0x00000478
+    6832e825 MSHTML!CLayout::CalcSize+0x000005a0
+    683c4002 MSHTML!CLayout::DoLayout+0x0000024b
+    6856e37d MSHTML!CView::ExecuteLayoutTasks+0x0000003b
+                                                                                                                

@@ -1,0 +1,1858 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><HTML><HEAD><STYLE>LEGEND, TABLE {width:100%;}FIELDSET {margin-bottom: 5px;}FIELDSET.level0 {background: #F0F0F0;}LEGEND.level0 {background: #C0C0C0; border: 1px inset; font-size: 200%}FIELDSET.level1 {background: #E0E0E0;}LEGEND.level1 {background: #B0B0B0; border: 1px inset; font-size: 150%}FIELDSET.level2 {background: #D0D0D0;}LEGEND.level2 {background: #A0A0A0; border: 1px inset; font-size: 120%}FIELDSET.level3 {background: #C0C0C0;}LEGEND.level3 {background: #909090; border: 1px inset; font-size: 110%}FIELDSET.level4 {background: #B0B0B0;}LEGEND.level4 {background: #808080; border: 1px inset; font-size: 100%}SPAN.local_type {color: #000060;}SPAN.local_name {color: #0000FF;}SPAN.function_name { color: #004000;}TABLE,TR,TD {border: 1px solid silver; border-collapse: collapse;}* {white-space: nowrap;}PRE {white-space: pre;}.wrapable {white-space: normal; width:100%;}FIELDSET.hidden {border-bottom: 5px dashed #A0A0A0;}SPAN.hidden {display: none;}</STYLE><SCRIPT>function openAnchorEvent(event) {if (!event) event = window.event;openAnchor(event.srcElement.href.replace(/.*#/, ""));}function openAnchor(anchor) {targets = document.getElementsByName(anchor);if (targets.length == 1) {target = targets[0];while (target != null) {c = target.className;if (c.indexOf("hidden") > -1)target.className = c.replace(/\s*hidden\s*/, " ");target = target.parentElement}}}function flipLegend() {if (!event) event = window.event;legend = event.srcElement;while (legend.tagName != "LEGEND") legend = legend.parentElement;fieldset = legend.parentElement;flipHideables(fieldset);}function flipHideables(fieldset) {flipHiddenClass(fieldset);for (i in fieldset.children) {o = fieldset.children[i];c = o.className;if (c && c.indexOf("hideable") > -1) {flipHiddenClass(o);}}}function flipHiddenClass(element) {c = element.className;if (c.indexOf("hidden") > -1) {element.className = c.replace(/\s*hidden\s*/, " ");} else {element.className += " hidden";}}</SCRIPT></HEAD><BODY onload="if (location.hash) openAnchor(location.hash.substr(1));"><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Cdb event information</LEGEND><SPAN><PRE>id:             MSHTML.dll!CPtsTextParaclient::CountApes Arbitrary AVR(C1B4C602)
+description:    Security: Attempt to read from unallocated arbitrary memory (@0xDCBABBBB) in MSHTML.dll!CPtsTextParaclient::CountApes
+note:           Based on this information, this is expected to be a security issue!
+</PRE></SPAN><SPAN class="hideable hidden"><PRE>stack:          MSHTML.dll!CPtsTextParaclient::CountApes
+                MSHTML.dll!CPtsTextParaclient::GetNumberApeCorners
+                MSHTML.dll!Ptls5::FsFormatTextSimple
+                MSHTML.dll!Ptls5::FsQueryPageProperDetailsCore
+                MSHTML.dll!Ptls5::FsQueryPageProperDetailsCore
+                MSHTML.dll!Ptls5::FsDestroyParaFormatResult
+                MSHTML.dll!Ptls5::FsFormatOrReusePara
+                MSHTML.dll!Ptls5::FsDestroyBrtrackElements
+                MSHTML.dll!Ptls5::FsFormatDelayedParas
+                MSHTML.dll!Ptls5::FsFillTrackMainFlow
+                MSHTML.dll!Ptls5::FsFillTrack
+                MSHTML.dll!Ptls5::FsFormatParaTrelPost
+                MSHTML.dll!Ptls5::FsDestroyParaFormatResult
+                MSHTML.dll!Ptls5::FsFormatOrReusePara
+                MSHTML.dll!Ptls5::FsDestroyBrtrackElements
+                MSHTML.dll!Ptls5::FsFormatDelayedParas
+                MSHTML.dll!Ptls5::FsFillTrackMainFlow
+                MSHTML.dll!Ptls5::FsFillTrack
+                MSHTML.dll!Ptls5::FsInitSubpageContext
+                MSHTML.dll!Ptls5::FsCreateSubpageCore
+                MSHTML.dll!Ptls5::FsCreateSubpage
+                MSHTML.dll!Ptls5::FsFormatPelCorePre
+                MSHTML.dll!Ptls5::FsFormatPelCore
+                MSHTML.dll!Ptls5::FsRestoreMarginCollapsingState
+                MSHTML.dll!Ptls5::FsRestoreMarginCollapsingState
+                MSHTML.dll!Ptls5::FsDestroyParaFormatResult
+                MSHTML.dll!Ptls5::FsFormatOrReusePara
+                MSHTML.dll!Ptls5::FsDestroyBrtrackElements
+                MSHTML.dll!Ptls5::FsFormatDelayedParas
+                MSHTML.dll!Ptls5::FsFillTrackMainFlow
+                MSHTML.dll!Ptls5::FsFillTrack
+                MSHTML.dll!Ptls5::FsFillTrackWraper
+                MSHTML.dll!Ptls5::FsFillLayoutWithSpanAreas
+                MSHTML.dll!Ptls5::FsFillMultiColumnLayout
+                MSHTML.dll!Ptls5::FsFillMultiColumnLayout
+                MSHTML.dll!Ptls5::FsFillMultiColumnLayout
+                MSHTML.dll!Ptls5::FsFillLayoutWithSpanAreas
+                MSHTML.dll!Ptls5::FsFillLayoutWithSpanAreas
+                MSHTML.dll!Ptls5::FsFormatGeneralSection
+                MSHTML.dll!Ptls5::FsFormatGeneralSection
+                MSHTML.dll!Ptls5::FsFormatSection
+                MSHTML.dll!Ptls5::FsFormatPageBody
+                MSHTML.dll!Ptls5::FsFormatPageBody
+                MSHTML.dll!Ptls5::FsCreatePageBottomlessCore
+                MSHTML.dll!Ptls5::FsUpdateBottomlessPage
+                MSHTML.dll!CPtsDocumentLayout::FormatPage
+                MSHTML.dll!CCssDocumentLayout::FindOrFormatPage
+                MSHTML.dll!CCssDocumentLayout::GetPage
+                MSHTML.dll!CHtmlPageLayout::CalcSizeVirtual
+                MSHTML.dll!CLayout::CalcSize
+                MSHTML.dll!CFlowLayout::MeasureSite
+                MSHTML.dll!CFlowLayout::GetSiteWidth
+                MSHTML.dll!CLSMeasurer::GetSiteWidth
+                MSHTML.dll!CEmbeddedILSObj::Fmt
+                msls31.dll!ProcessOneRun
+                msls31.dll!FetchAppendEscCore
+                msls31.dll!LsDestroyLine
+                msls31.dll!LsDestroyLine
+                msls31.dll!LsCreateLine
+                MSHTML.dll!CLSMeasurer::LSDoCreateLine
+                MSHTML.dll!CLSMeasurer::LSMeasure
+                MSHTML.dll!CLSMeasurer::Measure
+                MSHTML.dll!CRecalcLinePtr::MeasureLine
+                MSHTML.dll!CDisplay::RecalcLinesWithMeasurer
+                MSHTML.dll!CDisplay::RecalcLines
+                MSHTML.dll!CDisplay::RecalcView
+                MSHTML.dll!CFlowLayout::CalcTextSize
+                MSHTML.dll!CFlowLayout::CalcSizeCoreCompat
+                MSHTML.dll!CFlowLayout::CalcSizeCore
+                MSHTML.dll!CFlowLayout::CalcSizeVirtual
+                MSHTML.dll!CLayout::CalcSize
+                MSHTML.dll!CFlowLayout::MeasureSite
+                MSHTML.dll!CFlowLayout::GetSiteWidth
+                MSHTML.dll!CLSMeasurer::GetSiteWidth
+                MSHTML.dll!CEmbeddedILSObj::Fmt
+                msls31.dll!ProcessOneRun
+                msls31.dll!FetchAppendEscCore
+                msls31.dll!LsDestroyLine
+                msls31.dll!LsDestroyLine
+                msls31.dll!LsCreateLine
+                MSHTML.dll!CLSMeasurer::LSDoCreateLine
+                MSHTML.dll!CLSMeasurer::LSMeasure
+                MSHTML.dll!CLSMeasurer::Measure
+                MSHTML.dll!CRecalcLinePtr::MeasureLine
+                MSHTML.dll!CDisplay::RecalcLinesWithMeasurer
+                MSHTML.dll!CDisplay::RecalcLines
+                MSHTML.dll!CDisplay::RecalcView
+                MSHTML.dll!CFlowLayout::CalcTextSize
+                MSHTML.dll!CFlowLayout::CalcSizeCoreCompat
+                MSHTML.dll!CFlowLayout::CalcSizeCore
+                MSHTML.dll!CBodyLayout::CalcSizeCore
+                MSHTML.dll!CFlowLayout::CalcSizeVirtual
+                MSHTML.dll!CLayout::CalcSize
+                MSHTML.dll!CLayout::CalcTopLayoutSize
+                MSHTML.dll!CView::EnsureSize
+                MSHTML.dll!CView::EnsureView
+                MSHTML.dll!CView::EnsureViewCallback
+                MSHTML.dll!GlobalWndOnMethodCall
+                MSHTML.dll!GlobalWndProc
+                USER32.dll!InternalCallWinProc
+                USER32.dll!UserCallWinProcCheckWow
+                USER32.dll!DispatchMessageWorker
+                USER32.dll!DispatchMessageW
+                IEFRAME.dll!CTabWindow::_TabWindowThreadProc
+                IEFRAME.dll!LCIETab_ThreadProc
+                iertutil.dll!CIsoScope::RegisterThread
+                IEFRAME.dll!Detour_DefWindowProcA
+                kernel32.dll!BaseThreadInitThunk
+                ntdll32.dll!__RtlUserThreadStart
+                ntdll32.dll!_RtlUserThreadStart
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Pre event output</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Microsoft (R) Windows Debugger Version 6.2.8229.0 AMD64
+Copyright (c) Microsoft Corporation. All rights reserved.
+CommandLine: &quot;C:\Program Files (x86)\Internet Explorer\iexplore.exe&quot; &quot;http://127.0.0.1:32768/pinger.html&quot;
+Symbol search path is: srv*\\FileServer\Shares\Symbols*http://msdl.microsoft.com/download/symbols;srv*\\FileServer\Shares\symbols*http://symbols.mozilla.org/firefox;srv*\\FileServer\Shares\symbols*http://chromium-browser-symsrv.commondatastorage.googleapis.com
+Executable search path is: 
+ModLoad: 00000000`01000000 00000000`010b8000   iexplore.exe
+ModLoad: 00000000`77830000 00000000`779b6000   ntdll.dll
+ModLoad: 00000000`779f0000 00000000`77b50000   ntdll32.dll
+ModLoad: 00000000`750a0000 00000000`750e5000   C:\Windows\system32\wow64.dll
+ModLoad: 00000000`75050000 00000000`7509e000   C:\Windows\system32\wow64win.dll
+ModLoad: 00000000`754f0000 00000000`754f9000   C:\Windows\system32\wow64cpu.dll
+(49c.4f0): Break instruction exception - code 80000003 (first chance)
+ntdll!DbgBreakPoint:
+00000000`778761f0 cc              int     3
+ModLoad: 00000000`774e0000 00000000`7760d000   WOW64_IMAGE_SECTION
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75d50000 00000000`75e60000   WOW64_IMAGE_SECTION
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`774e0000 00000000`7760d000   NOT_AN_IMAGE
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`77760000 00000000`7782d000   NOT_AN_IMAGE
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75420000 00000000`75451000   C:\Windows\syswow64\verifier.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+Page heap: pid 0x49C: page heap enabled with flags 0x3.
+ModLoad: 00000000`75d50000 00000000`75e60000   C:\Windows\syswow64\kernel32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75700000 00000000`757c6000   C:\Windows\syswow64\ADVAPI32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75c50000 00000000`75d40000   C:\Windows\syswow64\RPCRT4.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75510000 00000000`75570000   C:\Windows\syswow64\Secur32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75570000 00000000`75640000   C:\Windows\syswow64\USER32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`757d0000 00000000`75860000   C:\Windows\syswow64\GDI32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`76ff0000 00000000`7709a000   C:\Windows\syswow64\msvcrt.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`76b40000 00000000`76b99000   C:\Windows\syswow64\SHLWAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75e60000 00000000`76971000   C:\Windows\syswow64\SHELL32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`76c20000 00000000`76d65000   C:\Windows\syswow64\ole32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`758b0000 00000000`759c1000   C:\Windows\syswow64\urlmon.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75670000 00000000`756fd000   C:\Windows\syswow64\OLEAUT32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`76980000 00000000`76b39000   C:\Windows\syswow64\iertutil.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75b20000 00000000`75c3b000   C:\Windows\syswow64\WININET.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75c40000 00000000`75c43000   C:\Windows\syswow64\Normaliz.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+(49c.4f0): WOW64 breakpoint - code 4000001f (first chance)
+ModLoad: 76f90000 76ff0000   C:\Windows\SysWOW64\IMM32.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`770a0000 00000000`77168000   C:\Windows\syswow64\MSCTF.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`779c0000 00000000`779c9000   C:\Windows\syswow64\LPK.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`76ba0000 00000000`76c1d000   C:\Windows\syswow64\USP10.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74810000 00000000`749ae000   C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.6002.18305_none_5cb72f2a088b0ed3\comctl32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73ec0000 00000000`7480d000   C:\Windows\SysWOW64\IEFRAME.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75d40000 00000000`75d47000   C:\Windows\syswow64\PSAPI.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`753e0000 00000000`7541e000   C:\Windows\SysWOW64\OLEACC.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`759d0000 00000000`75a43000   C:\Windows\syswow64\comdlg32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`753b0000 00000000`753d1000   C:\Windows\SysWOW64\NTMARTA.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75860000 00000000`758a9000   C:\Windows\syswow64\WLDAP32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75640000 00000000`7566d000   C:\Windows\syswow64\WS2_32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75b10000 00000000`75b16000   C:\Windows\syswow64\NSI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75480000 00000000`75491000   C:\Windows\SysWOW64\SAMLIB.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75380000 00000000`753ac000   C:\Windows\SysWOW64\dnsapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75390000 00000000`753a9000   C:\Windows\SysWOW64\iphlpapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75010000 00000000`75045000   C:\Windows\SysWOW64\dhcpcsvc.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74fe0000 00000000`7500c000   C:\Windows\SysWOW64\DNSAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75380000 00000000`75387000   C:\Windows\SysWOW64\WINNSI.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74fb0000 00000000`74fd2000   C:\Windows\SysWOW64\dhcpcsvc6.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74f50000 00000000`74f74000   C:\Program Files (x86)\Internet Explorer\sqmapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74f70000 00000000`74fab000   C:\Windows\SysWOW64\rsaenh.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`76d70000 00000000`76df4000   C:\Windows\syswow64\CLBCatQ.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74af0000 00000000`74b43000   C:\Windows\SysWow64\ACTXPRXY.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74f40000 00000000`74f6c000   C:\Windows\SysWOW64\apphelp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74aa0000 00000000`74aea000   C:\Windows\SysWOW64\RASAPI32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74f20000 00000000`74f34000   C:\Windows\SysWOW64\rasman.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74a20000 00000000`74a96000   C:\Windows\SysWOW64\NETAPI32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`749e0000 00000000`74a11000   C:\Windows\SysWOW64\TAPI32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74f10000 00000000`74f1c000   C:\Windows\SysWOW64\rtutils.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73e80000 00000000`73eb2000   C:\Windows\SysWOW64\WINMM.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`749c0000 00000000`749de000   C:\Windows\SysWOW64\USERENV.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74f00000 00000000`74f06000   C:\Windows\SysWOW64\sensapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`749b0000 00000000`749b7000   C:\Windows\SysWOW64\credssp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73d80000 00000000`73e75000   C:\Windows\SysWOW64\CRYPT32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73d60000 00000000`73d72000   C:\Windows\SysWOW64\MSASN1.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`749b0000 00000000`749b7000   C:\Windows\SysWOW64\credssp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73cc0000 00000000`73d07000   C:\Windows\SysWOW64\schannel.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+Symbol search path is: srv*\\FileServer\Shares\Symbols*http://msdl.microsoft.com/download/symbols;srv*\\FileServer\Shares\symbols*http://symbols.mozilla.org/firefox;srv*\\FileServer\Shares\symbols*http://chromium-browser-symsrv.commondatastorage.googleapis.com
+Executable search path is: 
+ModLoad: 00000000`01000000 00000000`010b8000   iexplore.exe
+&lt;---- EVENT: break cpr ----&gt;
+00000000`77856840 4883ec48        sub     rsp,48h
+ModLoad: 00000000`77830000 00000000`779b6000   ntdll.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!RtlUserThreadStart:
+00000000`77856840 4883ec48        sub     rsp,48h
+ModLoad: 00000000`779f0000 00000000`77b50000   ntdll32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!RtlUserThreadStart:
+00000000`77856840 4883ec48        sub     rsp,48h
+ModLoad: 00000000`750a0000 00000000`750e5000   C:\Windows\system32\wow64.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75050000 00000000`7509e000   C:\Windows\system32\wow64win.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`754f0000 00000000`754f9000   C:\Windows\system32\wow64cpu.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`774e0000 00000000`7760d000   WOW64_IMAGE_SECTION
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75d50000 00000000`75e60000   WOW64_IMAGE_SECTION
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`774e0000 00000000`7760d000   NOT_AN_IMAGE
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`77760000 00000000`7782d000   NOT_AN_IMAGE
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75420000 00000000`75451000   C:\Windows\syswow64\verifier.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+Page heap: pid 0x1F4: page heap enabled with flags 0x3.
+ModLoad: 00000000`75d50000 00000000`75e60000   C:\Windows\syswow64\kernel32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75700000 00000000`757c6000   C:\Windows\syswow64\ADVAPI32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75c50000 00000000`75d40000   C:\Windows\syswow64\RPCRT4.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75510000 00000000`75570000   C:\Windows\syswow64\Secur32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75570000 00000000`75640000   C:\Windows\syswow64\USER32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`757d0000 00000000`75860000   C:\Windows\syswow64\GDI32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`76ff0000 00000000`7709a000   C:\Windows\syswow64\msvcrt.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`76b40000 00000000`76b99000   C:\Windows\syswow64\SHLWAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75e60000 00000000`76971000   C:\Windows\syswow64\SHELL32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`76c20000 00000000`76d65000   C:\Windows\syswow64\ole32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`758b0000 00000000`759c1000   C:\Windows\syswow64\urlmon.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73d30000 00000000`73d5d000   C:\Windows\SysWOW64\IEUI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75670000 00000000`756fd000   C:\Windows\syswow64\OLEAUT32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`76980000 00000000`76b39000   C:\Windows\syswow64\iertutil.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75b20000 00000000`75c3b000   C:\Windows\syswow64\WININET.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75c40000 00000000`75c43000   C:\Windows\syswow64\Normaliz.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73d20000 00000000`73d25000   C:\Windows\SysWOW64\MSIMG32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 76f90000 76ff0000   C:\Windows\SysWOW64\IMM32.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`770a0000 00000000`77168000   C:\Windows\syswow64\MSCTF.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`779c0000 00000000`779c9000   C:\Windows\syswow64\LPK.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`76ba0000 00000000`76c1d000   C:\Windows\syswow64\USP10.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74810000 00000000`749ae000   C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.6002.18305_none_5cb72f2a088b0ed3\comctl32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73ec0000 00000000`7480d000   C:\Windows\SysWOW64\IEFRAME.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75d40000 00000000`75d47000   C:\Windows\syswow64\PSAPI.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`753e0000 00000000`7541e000   C:\Windows\SysWOW64\OLEACC.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`759d0000 00000000`75a43000   C:\Windows\syswow64\comdlg32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73c40000 00000000`73c73000   C:\Program Files (x86)\Internet Explorer\ieproxy.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73c80000 00000000`73cb2000   C:\Program Files (x86)\Internet Explorer\IEShims.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73bc0000 00000000`73c40000   C:\Windows\SysWOW64\UxTheme.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73b00000 00000000`73bbb000   C:\Windows\SysWOW64\PROPSYS.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73af0000 00000000`73afb000   C:\Windows\SysWOW64\mssprxy.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75640000 00000000`7566d000   C:\Windows\syswow64\WS2_32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75b10000 00000000`75b16000   C:\Windows\syswow64\NSI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74fe0000 00000000`7500c000   C:\Windows\SysWOW64\dnsapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75390000 00000000`753a9000   C:\Windows\SysWOW64\iphlpapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75010000 00000000`75045000   C:\Windows\SysWOW64\dhcpcsvc.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74fe0000 00000000`7500c000   C:\Windows\SysWOW64\DNSAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75380000 00000000`75387000   C:\Windows\SysWOW64\WINNSI.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74fb0000 00000000`74fd2000   C:\Windows\SysWOW64\dhcpcsvc6.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73a90000 00000000`73ab4000   C:\Program Files (x86)\Internet Explorer\sqmapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73a90000 00000000`73abf000   C:\Windows\SysWOW64\xmllite.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`72630000 00000000`731f9000   C:\Windows\SysWOW64\MSHTML.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73d10000 00000000`73d18000   C:\Windows\SysWOW64\VERSION.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74f70000 00000000`74fab000   C:\Windows\SysWOW64\rsaenh.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`76d70000 00000000`76df4000   C:\Windows\syswow64\CLBCatQ.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73c40000 00000000`73c73000   C:\Program Files (x86)\Internet Explorer\ieproxy.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74af0000 00000000`74b43000   C:\Windows\SysWow64\ACTXPRXY.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74f40000 00000000`74f6c000   C:\Windows\SysWOW64\apphelp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73ac0000 00000000`73af0000   C:\Windows\SysWOW64\MLANG.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`753b0000 00000000`753d1000   C:\Windows\SysWOW64\NTMARTA.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75860000 00000000`758a9000   C:\Windows\syswow64\WLDAP32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75480000 00000000`75491000   C:\Windows\SysWOW64\SAMLIB.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74aa0000 00000000`74aea000   C:\Windows\SysWOW64\RASAPI32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74f20000 00000000`74f34000   C:\Windows\SysWOW64\rasman.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74a20000 00000000`74a96000   C:\Windows\SysWOW64\NETAPI32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`749e0000 00000000`74a11000   C:\Windows\SysWOW64\TAPI32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74f10000 00000000`74f1c000   C:\Windows\SysWOW64\rtutils.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73e80000 00000000`73eb2000   C:\Windows\SysWOW64\WINMM.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`749c0000 00000000`749de000   C:\Windows\SysWOW64\USERENV.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`749b0000 00000000`749b7000   C:\Windows\SysWOW64\credssp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73d80000 00000000`73e75000   C:\Windows\SysWOW64\CRYPT32.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73d60000 00000000`73d72000   C:\Windows\SysWOW64\MSASN1.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`74f00000 00000000`74f06000   C:\Windows\SysWOW64\sensapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`749b0000 00000000`749b7000   C:\Windows\SysWOW64\credssp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73cc0000 00000000`73d07000   C:\Windows\SysWOW64\schannel.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73a10000 00000000`73a4b000   C:\Windows\SysWOW64\mswsock.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73a70000 00000000`73a75000   C:\Windows\SysWOW64\wshtcpip.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73a60000 00000000`73a6f000   C:\Windows\SysWOW64\NLAapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73a80000 00000000`73a86000   C:\Windows\SysWOW64\rasadhlp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`739b0000 00000000`73a0f000   C:\Windows\SysWOW64\SXS.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`739b0000 00000000`73a0f000   C:\Windows\SysWOW64\SXS.DLL
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73ac0000 00000000`73af0000   C:\Windows\SysWOW64\MLANG.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`76e00000 00000000`76f8a000   C:\Windows\syswow64\SETUPAPI.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`738d0000 00000000`7393c000   C:\Windows\SysWOW64\ieapfltr.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73550000 00000000`7370b000   C:\Windows\SysWOW64\jscript9.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`739a0000 00000000`739ab000   C:\Windows\SysWOW64\msimtf.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73b00000 00000000`73bbb000   C:\Windows\SysWOW64\PROPSYS.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`733f0000 00000000`7354a000   C:\Windows\SysWOW64\msxml6.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`76e00000 00000000`76f8a000   C:\Windows\syswow64\setupapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73820000 00000000`738cb000   C:\Windows\SysWOW64\d2d1.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73710000 00000000`73819000   C:\Windows\SysWOW64\DWrite.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73370000 00000000`733f0000   C:\Windows\SysWOW64\dxgi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73a50000 00000000`73a5c000   C:\Windows\SysWOW64\dwmapi.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73970000 00000000`7399d000   C:\Windows\SysWOW64\WINTRUST.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`75ae0000 00000000`75b0a000   C:\Windows\syswow64\imagehlp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73940000 00000000`7396c000   C:\Windows\SysWOW64\d3d10_1.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73330000 00000000`7336a000   C:\Windows\SysWOW64\d3d10_1core.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`72500000 00000000`7262c000   C:\Windows\SysWOW64\D3D10Warp.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73bc0000 00000000`73c40000   C:\Windows\SysWOW64\UxTheme.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+ModLoad: 00000000`73300000 00000000`7332b000   C:\Windows\SysWOW64\msls31.dll
+&lt;---- EVENT: break ld ----&gt;
+ntdll!NtMapViewOfSection+0xa:
+00000000`778770fa c3              ret
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): C++ EH exception - code e06d7363 (first chance)
+(1f4.824): Access violation - code c0000005 (first chance)
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Processes, threads and modules</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Process 0x49C: iexplore.exe (main)
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+--- Threads for process 0x49C not available ---
+--- Modules for process 0x49C ---
+     wow64.dll: 0x750A0000-0x750E5000
+     WINNSI.DLL: 0x75380000-0x75387000
+     wow64cpu.dll: 0x754F0000-0x754F9000
+     kernel32.dll: 0x75D50000-0x75E60000
+     ntdll.dll: 0x77830000-0x779B6000
+     iertutil.dll: 0x76980000-0x76B39000
+     credssp.dll: 0x749B0000-0x749B7000
+     ole32.dll: 0x76C20000-0x76D65000
+     dhcpcsvc6.DLL: 0x74FB0000-0x74FD2000
+     ACTXPRXY.DLL: 0x74AF0000-0x74B43000
+     msvcrt.dll: 0x76FF0000-0x7709A000
+     WININET.dll: 0x75B20000-0x75C3B000
+     NSI.dll: 0x75B10000-0x75B16000
+     SAMLIB.dll: 0x75480000-0x75491000
+     rtutils.dll: 0x74F10000-0x74F1C000
+     dnsapi.dll: 0x75380000-0x753AC000
+     USERENV.dll: 0x749C0000-0x749DE000
+     urlmon.dll: 0x758B0000-0x759C1000
+     Normaliz.dll: 0x75C40000-0x75C43000
+     WS2_32.dll: 0x75640000-0x7566D000
+     wow64win.dll: 0x75050000-0x7509E000
+     CRYPT32.dll: 0x73D80000-0x73E75000
+     WLDAP32.dll: 0x75860000-0x758A9000
+     verifier.dll: 0x75420000-0x75451000
+     NETAPI32.dll: 0x74A20000-0x74A96000
+     comdlg32.dll: 0x759D0000-0x75A43000
+     SHELL32.dll: 0x75E60000-0x76971000
+     RPCRT4.dll: 0x75C50000-0x75D40000
+     comctl32.dll: 0x74810000-0x749AE000
+     ADVAPI32.dll: 0x75700000-0x757C6000
+     iphlpapi.dll: 0x75390000-0x753A9000
+     ntdll32.dll: 0x779F0000-0x77B50000
+     RASAPI32.dll: 0x74AA0000-0x74AEA000
+     MSASN1.dll: 0x73D60000-0x73D72000
+     OLEACC.dll: 0x753E0000-0x7541E000
+     PSAPI.DLL: 0x75D40000-0x75D47000
+     TAPI32.dll: 0x749E0000-0x74A11000
+     NTMARTA.DLL: 0x753B0000-0x753D1000
+     DNSAPI.dll: 0x74FE0000-0x7500C000
+     sqmapi.dll: 0x74F50000-0x74F74000
+     USP10.dll: 0x76BA0000-0x76C1D000
+     OLEAUT32.dll: 0x75670000-0x756FD000
+     LPK.DLL: 0x779C0000-0x779C9000
+     NOT_AN_IMAGE: 0x774E0000-0x7760D000
+     WOW64_IMAGE_SECTION: 0x774E0000-0x7760D000
+     MSCTF.dll: 0x770A0000-0x77168000
+     dhcpcsvc.DLL: 0x75010000-0x75045000
+     IEFRAME.dll: 0x73EC0000-0x7480D000
+     GDI32.dll: 0x757D0000-0x75860000
+     WINMM.dll: 0x73E80000-0x73EB2000
+     Secur32.dll: 0x75510000-0x75570000
+     rsaenh.dll: 0x74F70000-0x74FAB000
+     rasman.dll: 0x74F20000-0x74F34000
+     IMM32.DLL: 0x76F90000-0x76FF0000
+     CLBCatQ.DLL: 0x76D70000-0x76DF4000
+     schannel.dll: 0x73CC0000-0x73D07000
+     USER32.dll: 0x75570000-0x75640000
+     SHLWAPI.dll: 0x76B40000-0x76B99000
+     sensapi.dll: 0x74F00000-0x74F06000
+     iexplore.exe: 0x1000000-0x10B8000
+     apphelp.dll: 0x74F40000-0x74F6C000
+Process 0x1F4: iexplore.exe (child)
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" "http://127.0.0.1:32768/pinger.html"
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+     Command Line: "C:\Program Files (x86)\Internet Explorer\iexplore.exe" SCODEF:1180 CREDAT:203009
+--- Threads for process 0x1F4 ---
+     0x9C8: (unnamed)
+     0x4E0: (unnamed)
+     0x794: (unnamed)
+     0xAD8: (unnamed)
+     0x424: (unnamed)
+     0x6E4: (unnamed)
+     0xB44: (unnamed)
+     0x974: (unnamed)
+     0x610: (unnamed)
+     0x584: (unnamed)
+     0x480: (unnamed)
+     0x7D0: (unnamed)
+     0x178: (unnamed)
+     0x3C0: (unnamed)
+     0x3E4: (unnamed)
+     0x990: (unnamed)
+     0x698: (unnamed)
+     0x4EC: (unnamed)
+     0x920: (unnamed)
+     0x824: (unnamed) (event source)
+     0xBB4: (unnamed)
+     0x1A4: (unnamed)
+     0xB64: (unnamed)
+--- Modules for process 0x1F4 ---
+     WINNSI.DLL: 0x75380000-0x75387000
+     OLEACC.dll: 0x753E0000-0x7541E000
+     d3d10_1.dll: 0x73940000-0x7396C000
+     msvcrt.dll: 0x76FF0000-0x7709A000
+     WININET.dll: 0x75B20000-0x75C3B000
+     SAMLIB.dll: 0x75480000-0x75491000
+     rsaenh.dll: 0x74F70000-0x74FAB000
+     dhcpcsvc6.DLL: 0x74FB0000-0x74FD2000
+     CRYPT32.dll: 0x73D80000-0x73E75000
+     SXS.DLL: 0x739B0000-0x73A0F000
+     mswsock.dll: 0x73A10000-0x73A4B000
+     ieproxy.dll: 0x73C40000-0x73C73000
+     comctl32.dll: 0x74810000-0x749AE000
+     DWrite.dll: 0x73710000-0x73819000
+     wshtcpip.dll: 0x73A70000-0x73A75000
+     DNSAPI.dll: 0x74FE0000-0x7500C000
+     VERSION.dll: 0x73D10000-0x73D18000
+     LPK.DLL: 0x779C0000-0x779C9000
+     IEFRAME.dll: 0x73EC0000-0x7480D000
+     UxTheme.dll: 0x73BC0000-0x73C40000
+     IMM32.DLL: 0x76F90000-0x76FF0000
+     D3D10Warp.dll: 0x72500000-0x7262C000
+     msxml6.dll: 0x733F0000-0x7354A000
+     IEShims.dll: 0x73C80000-0x73CB2000
+     RASAPI32.dll: 0x74AA0000-0x74AEA000
+     ntdll.dll: 0x77830000-0x779B6000
+     d2d1.dll: 0x73820000-0x738CB000
+     MSIMG32.dll: 0x73D20000-0x73D25000
+     d3d10_1core.dll: 0x73330000-0x7336A000
+     PROPSYS.dll: 0x73B00000-0x73BBB000
+     TAPI32.dll: 0x749E0000-0x74A11000
+     schannel.dll: 0x73CC0000-0x73D07000
+     WS2_32.dll: 0x75640000-0x7566D000
+     xmllite.dll: 0x73A90000-0x73ABF000
+     comdlg32.dll: 0x759D0000-0x75A43000
+     dwmapi.dll: 0x73A50000-0x73A5C000
+     imagehlp.dll: 0x75AE0000-0x75B0A000
+     MSCTF.dll: 0x770A0000-0x77168000
+     sqmapi.dll: 0x73A90000-0x73AB4000
+     MLANG.dll: 0x73AC0000-0x73AF0000
+     CLBCatQ.DLL: 0x76D70000-0x76DF4000
+     PSAPI.DLL: 0x75D40000-0x75D47000
+     iexplore.exe: 0x1000000-0x10B8000
+     wow64win.dll: 0x75050000-0x7509E000
+     iphlpapi.dll: 0x75390000-0x753A9000
+     rtutils.dll: 0x74F10000-0x74F1C000
+     MSASN1.dll: 0x73D60000-0x73D72000
+     SHLWAPI.dll: 0x76B40000-0x76B99000
+     ACTXPRXY.DLL: 0x74AF0000-0x74B43000
+     WLDAP32.dll: 0x75860000-0x758A9000
+     RPCRT4.dll: 0x75C50000-0x75D40000
+     NETAPI32.dll: 0x74A20000-0x74A96000
+     ADVAPI32.dll: 0x75700000-0x757C6000
+     WINTRUST.dll: 0x73970000-0x7399D000
+     SETUPAPI.dll: 0x76E00000-0x76F8A000
+     GDI32.dll: 0x757D0000-0x75860000
+     msimtf.dll: 0x739A0000-0x739AB000
+     OLEAUT32.dll: 0x75670000-0x756FD000
+     MSHTML.dll: 0x72630000-0x731F9000
+     wow64.dll: 0x750A0000-0x750E5000
+     dhcpcsvc.DLL: 0x75010000-0x75045000
+     NLAapi.dll: 0x73A60000-0x73A6F000
+     USER32.dll: 0x75570000-0x75640000
+     sensapi.dll: 0x74F00000-0x74F06000
+     wow64cpu.dll: 0x754F0000-0x754F9000
+     kernel32.dll: 0x75D50000-0x75E60000
+     iertutil.dll: 0x76980000-0x76B39000
+     credssp.dll: 0x749B0000-0x749B7000
+     ole32.dll: 0x76C20000-0x76D65000
+     USERENV.dll: 0x749C0000-0x749DE000
+     mssprxy.dll: 0x73AF0000-0x73AFB000
+     NSI.dll: 0x75B10000-0x75B16000
+     urlmon.dll: 0x758B0000-0x759C1000
+     Normaliz.dll: 0x75C40000-0x75C43000
+     dnsapi.dll: 0x74FE0000-0x7500C000
+     verifier.dll: 0x75420000-0x75451000
+     SHELL32.dll: 0x75E60000-0x76971000
+     msls31.dll: 0x73300000-0x7332B000
+     jscript9.dll: 0x73550000-0x7370B000
+     ntdll32.dll: 0x779F0000-0x77B50000
+     NTMARTA.DLL: 0x753B0000-0x753D1000
+     ieapfltr.dll: 0x738D0000-0x7393C000
+     WINMM.dll: 0x73E80000-0x73EB2000
+     USP10.dll: 0x76BA0000-0x76C1D000
+     NOT_AN_IMAGE: 0x774E0000-0x7760D000
+     WOW64_IMAGE_SECTION: 0x774E0000-0x7760D000
+     IEUI.dll: 0x73D30000-0x73D5D000
+     Secur32.dll: 0x75510000-0x75570000
+     rasman.dll: 0x74F20000-0x74F34000
+     rasadhlp.dll: 0x73A80000-0x73A86000
+     dxgi.dll: 0x73370000-0x733F0000
+     setupapi.dll: 0x76E00000-0x76F8A000
+     apphelp.dll: 0x74F40000-0x74F6C000
+</PRE></SPAN></FIELDSET><FIELDSET class="level0 "><LEGEND onclick="flipLegend()" class="level0">Stack frames</LEGEND><SPAN></SPAN><SPAN class="hideable "><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-0">Frame 0: MSHTML.dll!CPtsTextParaclient::CountApes+0x2C</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-MSHTML.dll!CPtsTextParaclient::CountApes">MSHTML.dll!CPtsTextParaclient::CountApes</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!CPtsTextParaclient::CountApes+0x4e:
+7263d03f 90              nop
+7263d040 90              nop
+7263d041 90              nop
+7263d042 90              nop
+MSHTML!CPtsTextParaclient::CountApes:
+7263d043 8bff            mov     edi,edi
+7263d045 55              push    ebp
+7263d046 8bec            mov     ebp,esp
+7263d048 83ec08          sub     esp,8
+7263d04b 53              push    ebx
+7263d04c 8b5820          mov     ebx,dword ptr [eax+20h]
+7263d04f 56              push    esi
+7263d050 8d4824          lea     ecx,[eax+24h]
+7263d053 57              push    edi
+7263d054 894df8          mov     dword ptr [ebp-8],ecx
+7263d057 c745fc00000000  mov     dword ptr [ebp-4],0
+7263d05e 85db            test    ebx,ebx
+7263d060 0f84a5a24e00    je      MSHTML!CPtsTextParaclient::CountApes+0x1b7 (72b2730b)
+7263d066 3b5df8          cmp     ebx,dword ptr [ebp-8]
+7263d069 0f84f8ceffff    je      MSHTML!CPtsTextParaclient::CountApes+0x1b3 (72639f67)
+7263d06f 8b03            mov     eax,dword ptr [ebx]
+MSHTML!CPtsTextParaclient::CountApes+0x2c:
+7263d06f 8b03            mov     eax,dword ptr [ebx]
+7263d071 8bd0            mov     edx,eax
+7263d073 c1ea03          shr     edx,3
+7263d076 83e201          and     edx,1
+7263d079 75ae            jne     MSHTML!CPtsTextParaclient::CountApes+0x38 (7263d029)
+7263d07b 8bc8            mov     ecx,eax
+7263d07d 83e101          and     ecx,1
+7263d080 85c9            test    ecx,ecx
+7263d082 750c            jne     MSHTML!CPtsTextParaclient::CountApes+0x5e (7263d090)
+7263d084 8b5b14          mov     ebx,dword ptr [ebx+14h]
+7263d087 85db            test    ebx,ebx
+7263d089 75db            jne     MSHTML!CPtsTextParaclient::CountApes+0x23 (7263d066)
+7263d08b e964a24e00      jmp     MSHTML!CPtsTextParaclient::CountApes+0x19c (72b272f4)
+7263d090 85d2            test    edx,edx
+7263d092 0f8577bf0000    jne     MSHTML!CPtsTextParaclient::CountApes+0x62 (7264900f)
+7263d098 83e001          and     eax,1
+7263d09b 8d1440          lea     edx,[eax+eax*2]
+7263d09e 8d74d3dc        lea     esi,[ebx+edx*8-24h]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-1">Frame 1: MSHTML.dll!CPtsTextParaclient::GetNumberApeCorners+0x11B</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-MSHTML.dll!CPtsTextParaclient::GetNumberApeCorners">MSHTML.dll!CPtsTextParaclient::GetNumberApeCorners</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!CPtsTextParaclient::GetCpVisible+0x106:
+726f69bf 46              inc     esi
+726f69c0 04e9            add     al,0E9h
+726f69c2 8ebf00008a47    mov     st(-1),word ptr [edi+478A0000h]
+726f69c8 0dc0e807e9      or      eax,0E907E8C0h
+726f69cd 0d38000085      or      eax,85000038h
+726f69d2 ff0f            dec     dword ptr [edi]
+726f69d4 855533          test    dword ptr [ebp+33h],edx
+726f69d7 0000            add     byte ptr [eax],al
+726f69d9 e9f6330000      jmp     MSHTML!CMarginCollapsing::GetOneMarginInfo+0x3e5 (726f9dd4)
+726f69de 8933            mov     dword ptr [ebx],esi
+726f69e0 8b450c          mov     eax,dword ptr [ebp+0Ch]
+726f69e3 5e              pop     esi
+726f69e4 5b              pop     ebx
+726f69e5 5d              pop     ebp
+726f69e6 c20800          ret     8
+726f69e9 8937            mov     dword ptr [edi],esi
+726f69eb e9da390000      jmp     MSHTML!CMarginCollapsing::MoveToNextMargin+0x113 (726fa3ca)
+MSHTML!CMarginCollapsing::MoveToNextMargin+0x117:
+726f69ef 008bf085f60f    add     byte ptr [ebx+0FF685F0h],cl
+726f69f5 8400            test    byte ptr [eax],al
+726f69f7 3900            cmp     dword ptr [eax],eax
+726f69f9 00e9            add     cl,ch
+726f69fb b039            mov     al,39h
+726f69fd 0000            add     byte ptr [eax],al
+726f69ff c70700000000    mov     dword ptr [edi],0
+726f6a05 8b450c          mov     eax,dword ptr [ebp+0Ch]
+726f6a08 5e              pop     esi
+726f6a09 5b              pop     ebx
+726f6a0a 5d              pop     ebp
+726f6a0b c20800          ret     8
+726f6a0e 33f6            xor     esi,esi
+726f6a10 8937            mov     dword ptr [edi],esi
+726f6a12 e9783e0000      jmp     MSHTML!CMarginCollapsing::MoveToPreviousMargin+0x167 (726fa88f)
+726f6a17 c70700000000    mov     dword ptr [edi],0
+726f6a1d 8b45fc          mov     eax,dword ptr [ebp-4]
+</PRE></SPAN></FIELDSET><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Registers</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>eax=0e52afb4 ebx=dcbabbbb ecx=0e52afd8 edx=0bd291c0 esi=0e716ee0 edi=00000000
+eip=7263d06f esp=0bd29178 ebp=0bd2918c iopl=0         nv up ei ng nz na po nc
+cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00010282
+fpcw=027F: rn 53 puozdi  fpsw=4020: top=0 cc=1000 --p-----  fptw=0000
+fopcode=0000  fpip=0023:72a0a817  fpdp=002b:0bd28798
+st0= 0.000000000000000000000e+0000  st1= 0.000000000000000000000e+0000
+st2= 1.000000000000000000000e+0002  st3= 5.000000000000000000000e+0002
+st4= 0.000000000000000000000e+0000  st5= 0.000000000000000000000e+0000
+st6= 0.000000000000000000000e+0000  st7= 1.600500000000000000000e+0003
+mm0=0000000000000000  mm1=0000000000000000
+mm2=c800000000000000  mm3=fa00000000000000
+mm4=0000000000000000  mm5=0000000000000000
+mm6=0000000000000000  mm7=c810000000000000
+xmm0=0 0 0 0
+xmm1=0 0 0 0
+xmm2=0 0 0 0
+xmm3=0 0 0 0
+xmm4=0 0 0 0
+xmm5=0 0 0 0
+xmm6=56.0654 3.93301e-034 4.67292e+012 -5.42402e-005
+xmm7=2.57754e-029 4.67293e+012 -5.4121e-005 5.94396e-039
+MSHTML!CPtsTextParaclient::CountApes+0x2c:
+7263d06f 8b03            mov     eax,dword ptr [ebx]  ds:002b:dcbabbbb=????????
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-2">Frame 2: MSHTML.dll!Ptls5::FsFormatTextSimple+0x4BD</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-MSHTML.dll!Ptls5::FsFormatTextSimple">MSHTML.dll!Ptls5::FsFormatTextSimple</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!Ptls5::FsFormatTextSimple+0x1c4:
+7263e73a c3              ret
+7263e73b 3c55            cmp     al,55h
+7263e73d 00f7            add     bh,dh
+7263e73f 83f800          cmp     eax,0
+7263e742 0000            add     byte ptr [eax],al
+7263e744 0000            add     byte ptr [eax],al
+7263e746 0008            add     byte ptr [eax],cl
+7263e748 0f8457fcffff    je      MSHTML!Ptls5::FsFormatTextSimple+0x208 (7263e3a5)
+7263e74e 8d8510ffffff    lea     eax,[ebp-0F0h]
+7263e754 50              push    eax
+7263e755 8d8540ffffff    lea     eax,[ebp-0C0h]
+7263e75b 50              push    eax
+7263e75c 8d8558ffffff    lea     eax,[ebp-0A8h]
+7263e762 50              push    eax
+7263e763 6aff            push    0FFFFFFFFh
+7263e765 8bcb            mov     ecx,ebx
+7263e767 e800c40b00      call    MSHTML!Ptls5::FsFetchNextFruit (726fab6c)
+MSHTML!Ptls5::FsFormatTextSimple+0x1f9:
+7263e76a 0b00            or      eax,dword ptr [eax]
+7263e76c 8945a8          mov     dword ptr [ebp-58h],eax
+7263e76f 85c0            test    eax,eax
+7263e771 0f8571ffffff    jne     MSHTML!Ptls5::FsFormatTextSimple+0x70c (7263e6e8)
+7263e777 33c9            xor     ecx,ecx
+7263e779 e927fcffff      jmp     MSHTML!Ptls5::FsFormatTextSimple+0x208 (7263e3a5)
+7263e77e 394a1c          cmp     dword ptr [edx+1Ch],ecx
+7263e781 0f841e3c5500    je      MSHTML!Ptls5::FsFormatTextSimple+0x105 (72b923a5)
+7263e787 8d55dc          lea     edx,[ebp-24h]
+7263e78a 8955d8          mov     dword ptr [ebp-28h],edx
+7263e78d 8d55ac          lea     edx,[ebp-54h]
+7263e790 52              push    edx
+7263e791 8d9578ffffff    lea     edx,[ebp-88h]
+7263e797 52              push    edx
+7263e798 51              push    ecx
+7263e799 51              push    ecx
+7263e79a 57              push    edi
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-3">Frame 3: MSHTML.dll!Ptls5::FsQueryPageProperDetailsCore+0x39E</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-MSHTML.dll!Ptls5::FsQueryPageProperDetailsCore">MSHTML.dll!Ptls5::FsQueryPageProperDetailsCore</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!Ptls5::FsQueryPageProperDetailsCore+0x18af:
+72fe5339 e8557a0000      call    MSHTML!Ptls5::FsCopyBreakRecTextElementsToLstBrokenObj (72fecd93)
+72fe533e 8bf8            mov     edi,eax
+72fe5340 85ff            test    edi,edi
+72fe5342 7527            jne     MSHTML!Ptls5::FsQueryPageProperDetailsCore+0x18e1 (72fe536b)
+72fe5344 8d450c          lea     eax,[ebp+0Ch]
+72fe5347 50              push    eax
+72fe5348 ff7618          push    dword ptr [esi+18h]
+72fe534b 8b4608          mov     eax,dword ptr [esi+8]
+72fe534e ff7614          push    dword ptr [esi+14h]
+72fe5351 ff7610          push    dword ptr [esi+10h]
+72fe5354 e891730000      call    MSHTML!Ptls5::FsConvKStop2Textres (72fec6ea)
+72fe5359 50              push    eax
+72fe535a 8d45f8          lea     eax,[ebp-8]
+72fe535d 50              push    eax
+72fe535e ff760c          push    dword ptr [esi+0Ch]
+72fe5361 ff7508          push    dword ptr [ebp+8]
+72fe5364 e8d2ba0200      call    MSHTML!Ptls5::FsCreateBreakRecText (73010e3b)
+72fe5369 8bf8            mov     edi,eax
+MSHTML!Ptls5::FsQueryPageProperDetailsCore+0x18df:
+72fe5369 8bf8            mov     edi,eax
+72fe536b 8d45f8          lea     eax,[ebp-8]
+72fe536e 50              push    eax
+72fe536f ff7508          push    dword ptr [ebp+8]
+72fe5372 e8967972ff      call    MSHTML!Ptls5::FsEraseListBrokenObj (7270cd0d)
+72fe5377 85ff            test    edi,edi
+72fe5379 7404            je      MSHTML!Ptls5::FsQueryPageProperDetailsCore+0x18f5 (72fe537f)
+72fe537b 8bc7            mov     eax,edi
+72fe537d eb0a            jmp     MSHTML!Ptls5::FsQueryPageProperDetailsCore+0x18ff (72fe5389)
+72fe537f 8b4510          mov     eax,dword ptr [ebp+10h]
+72fe5382 8b4d0c          mov     ecx,dword ptr [ebp+0Ch]
+72fe5385 8908            mov     dword ptr [eax],ecx
+72fe5387 33c0            xor     eax,eax
+72fe5389 5f              pop     edi
+72fe538a 5e              pop     esi
+72fe538b c9              leave
+72fe538c c20c00          ret     0Ch
+72fe538f 90              nop
+72fe5390 90              nop
+72fe5391 90              nop
+72fe5392 90              nop
+72fe5393 90              nop
+72fe5394 8bff            mov     edi,edi
+72fe5396 55              push    ebp
+72fe5397 8bec            mov     ebp,esp
+72fe5399 ff750c          push    dword ptr [ebp+0Ch]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-4">Frame 4: MSHTML.dll!Ptls5::FsQueryPageProperDetailsCore+0x99D</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-MSHTML.dll!Ptls5::FsQueryPageProperDetailsCore">MSHTML.dll!Ptls5::FsQueryPageProperDetailsCore</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!Ptls5::FsDuplicateSubpageBreakRecordCore+0x3a:
+72fe5938 7437            je      MSHTML!Ptls5::FsDuplicateSubpageBreakRecordCore+0x73 (72fe5971)
+72fe593a 3bf3            cmp     esi,ebx
+72fe593c 7417            je      MSHTML!Ptls5::FsDuplicateSubpageBreakRecordCore+0x57 (72fe5955)
+72fe593e 813e4653434f    cmp     dword ptr [esi],4F435346h
+72fe5944 750f            jne     MSHTML!Ptls5::FsDuplicateSubpageBreakRecordCore+0x57 (72fe5955)
+72fe5946 8d4df8          lea     ecx,[ebp-8]
+72fe5949 51              push    ecx
+72fe594a 50              push    eax
+72fe594b 56              push    esi
+72fe594c e88d180200      call    MSHTML!Ptls5::FsDuplicateZooBreakRecordCore (730071de)
+72fe5951 8bd8            mov     ebx,eax
+72fe5953 eb03            jmp     MSHTML!Ptls5::FsDuplicateSubpageBreakRecordCore+0x5a (72fe5958)
+72fe5955 6a99            push    0FFFFFF99h
+72fe5957 5b              pop     ebx
+72fe5958 85db            test    ebx,ebx
+72fe595a 7412            je      MSHTML!Ptls5::FsDuplicateSubpageBreakRecordCore+0x70 (72fe596e)
+72fe595c 8b7dfc          mov     edi,dword ptr [ebp-4]
+72fe595f 85ff            test    edi,edi
+72fe5961 7407            je      MSHTML!Ptls5::FsDuplicateSubpageBreakRecordCore+0x6c (72fe596a)
+72fe5963 8bc6            mov     eax,esi
+72fe5965 e88aefffff      call    MSHTML!Ptls5::FsDestroyTrackBreakRecord (72fe48f4)
+MSHTML!Ptls5::FsDuplicateSubpageBreakRecordCore+0x6a:
+72fe5968 ff              ???
+72fe5969 ff8bc3eb628b    dec     dword ptr [ebx-749D143Dh]
+72fe596f 5d              pop     ebp
+72fe5970 f8              clc
+72fe5971 8b4508          mov     eax,dword ptr [ebp+8]
+72fe5974 8b8030020000    mov     eax,dword ptr [eax+230h]
+72fe597a 6a14            push    14h
+72fe597c 8d75f4          lea     esi,[ebp-0Ch]
+72fe597f e8930a96ff      call    MSHTML!Ptls5::TsAllocMemoryCore (72946417)
+72fe5984 8945f8          mov     dword ptr [ebp-8],eax
+72fe5987 85c0            test    eax,eax
+72fe5989 7422            je      MSHTML!Ptls5::FsDuplicateSubpageBreakRecordCore+0xaf (72fe59ad)
+72fe598b 8b7dfc          mov     edi,dword ptr [ebp-4]
+72fe598e 85ff            test    edi,edi
+72fe5990 7408            je      MSHTML!Ptls5::FsDuplicateSubpageBreakRecordCore+0x9c (72fe599a)
+72fe5992 8b4508          mov     eax,dword ptr [ebp+8]
+72fe5995 e85aefffff      call    MSHTML!Ptls5::FsDestroyTrackBreakRecord (72fe48f4)
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-5">Frame 5: MSHTML.dll!Ptls5::FsDestroyParaFormatResult+0x2C8</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-MSHTML.dll!Ptls5::FsDestroyParaFormatResult">MSHTML.dll!Ptls5::FsDestroyParaFormatResult</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!Ptls5::CheckParaToReuse+0x316:
+726f96a2 7520            jne     MSHTML!Ptls5::CheckParaToReuse+0x3c5 (726f96c4)
+726f96a4 ff7510          push    dword ptr [ebp+10h]
+726f96a7 e81d000000      call    MSHTML!Ptls5::FsStorageGetParaNode (726f96c9)
+726f96ac 8b7df8          mov     edi,dword ptr [ebp-8]
+726f96af 3bc6            cmp     eax,esi
+726f96b1 7502            jne     MSHTML!Ptls5::CheckParaToReuse+0x336 (726f96b5)
+726f96b3 33c0            xor     eax,eax
+726f96b5 3bc6            cmp     eax,esi
+726f96b7 0f8424b84900    je      MSHTML!Ptls5::CheckParaToReuse+0x33e (72b94ee1)
+726f96bd 5f              pop     edi
+726f96be 5e              pop     esi
+726f96bf 5b              pop     ebx
+726f96c0 c9              leave
+726f96c1 c23800          ret     38h
+726f96c4 90              nop
+726f96c5 90              nop
+726f96c6 90              nop
+726f96c7 90              nop
+726f96c8 90              nop
+MSHTML!Ptls5::FsStorageGetParaNode:
+726f96c9 8bff            mov     edi,edi
+726f96cb 55              push    ebp
+726f96cc 8bec            mov     ebp,esp
+726f96ce 8b4d14          mov     ecx,dword ptr [ebp+14h]
+726f96d1 53              push    ebx
+726f96d2 8b5d10          mov     ebx,dword ptr [ebp+10h]
+MSHTML!Ptls5::FsStorageGetParaNode+0x9:
+726f96d2 8b5d10          mov     ebx,dword ptr [ebp+10h]
+726f96d5 56              push    esi
+726f96d6 57              push    edi
+726f96d7 33f6            xor     esi,esi
+726f96d9 8d550c          lea     edx,[ebp+0Ch]
+726f96dc 52              push    edx
+726f96dd 8931            mov     dword ptr [ecx],esi
+726f96df 8b4d18          mov     ecx,dword ptr [ebp+18h]
+726f96e2 8d5510          lea     edx,[ebp+10h]
+726f96e5 52              push    edx
+726f96e6 6a01            push    1
+726f96e8 8931            mov     dword ptr [ecx],esi
+726f96ea 8b4d1c          mov     ecx,dword ptr [ebp+1Ch]
+726f96ed 56              push    esi
+726f96ee 8931            mov     dword ptr [ecx],esi
+726f96f0 8b4d20          mov     ecx,dword ptr [ebp+20h]
+726f96f3 56              push    esi
+726f96f4 ff750c          push    dword ptr [ebp+0Ch]
+726f96f7 8bf8            mov     edi,eax
+726f96f9 8b4718          mov     eax,dword ptr [edi+18h]
+726f96fc 8931            mov     dword ptr [ecx],esi
+726f96fe 8b4f38          mov     ecx,dword ptr [edi+38h]
+726f9701 51              push    ecx
+726f9702 8933            mov     dword ptr [ebx],esi
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-6">Frame 6: MSHTML.dll!Ptls5::FsFormatOrReusePara+0x3AB</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-MSHTML.dll!Ptls5::FsFormatOrReusePara">MSHTML.dll!Ptls5::FsFormatOrReusePara</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!CCssBoxModel::CalculateClear+0xad:
+726fe38b 0f843f594200    je      MSHTML!CCssBoxModel::CalculateClear+0xb3 (72b23cd0)
+726fe391 b9ffffff3f      mov     ecx,3FFFFFFFh
+726fe396 394c240c        cmp     dword ptr [esp+0Ch],ecx
+726fe39a 0f844f5a4200    je      MSHTML!CCssBoxModel::CalculateClear+0x1d9 (72b23def)
+726fe3a0 8b4c240c        mov     ecx,dword ptr [esp+0Ch]
+726fe3a4 8b542418        mov     edx,dword ptr [esp+18h]
+726fe3a8 8d5f04          lea     ebx,[edi+4]
+726fe3ab 53              push    ebx
+726fe3ac 51              push    ecx
+726fe3ad 52              push    edx
+726fe3ae 8d47fc          lea     eax,[edi-4]
+726fe3b1 8bce            mov     ecx,esi
+726fe3b3 e89e6effff      call    MSHTML!CBoxCalculator::GetLogicalPixelValueFromUnitValue (726f5256)
+726fe3b8 85c0            test    eax,eax
+726fe3ba 0f88b1000000    js      MSHTML!CCssBoxModel::CalculateClear+0x314 (726fe471)
+MSHTML!CCssBoxModel::CalculateClear+0x236:
+726fe3bb 88b10000008b    mov     byte ptr [ecx-75000000h],dh
+726fe3c1 44              inc     esp
+726fe3c2 2418            and     al,18h
+726fe3c4 8d0440          lea     eax,[eax+eax*2]
+726fe3c7 833cc5984c6f7200 cmp     dword ptr MSHTML!CBoxCalculator::s_rgValueInfo+0x8 (726f4c98)[eax*8],0
+726fe3cf 0f846a5a4200    je      MSHTML!CCssBoxModel::CalculateClear+0x24c (72b23e3f)
+726fe3d5 c6470900        mov     byte ptr [edi+9],0
+726fe3d9 8b4e14          mov     ecx,dword ptr [esi+14h]
+726fe3dc d94144          fld     dword ptr [ecx+44h]
+726fe3df d9ee            fldz
+726fe3e1 dae9            fucompp
+726fe3e3 dfe0            fnstsw  ax
+726fe3e5 f6c444          test    ah,44h
+726fe3e8 0f8b725a4200    jnp     MSHTML!CCssBoxModel::CalculateClear+0x277 (72b23e60)
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-7">Frame 7: MSHTML.dll!Ptls5::FsDestroyBrtrackElements+0x2B0</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-MSHTML.dll!Ptls5::FsDestroyBrtrackElements">MSHTML.dll!Ptls5::FsDestroyBrtrackElements</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!Ptls5::FsFormatDelayedParas+0x56:
+72ff4b7d c1e016          shl     eax,16h
+72ff4b80 c1f81d          sar     eax,1Dh
+72ff4b83 894620          mov     dword ptr [esi+20h],eax
+72ff4b86 8b452c          mov     eax,dword ptr [ebp+2Ch]
+72ff4b89 8902            mov     dword ptr [edx],eax
+72ff4b8b 8b4530          mov     eax,dword ptr [ebp+30h]
+72ff4b8e 8b5540          mov     edx,dword ptr [ebp+40h]
+72ff4b91 8902            mov     dword ptr [edx],eax
+72ff4b93 8b454c          mov     eax,dword ptr [ebp+4Ch]
+72ff4b96 8d5e10          lea     ebx,[esi+10h]
+72ff4b99 894e24          mov     dword ptr [esi+24h],ecx
+72ff4b9c 8908            mov     dword ptr [eax],ecx
+72ff4b9e 8b03            mov     eax,dword ptr [ebx]
+72ff4ba0 83e0ec          and     eax,0FFFFFFECh
+72ff4ba3 83c80c          or      eax,0Ch
+72ff4ba6 894b04          mov     dword ptr [ebx+4],ecx
+72ff4ba9 894b08          mov     dword ptr [ebx+8],ecx
+72ff4bac 8903            mov     dword ptr [ebx],eax
+MSHTML!Ptls5::FsFormatDelayedParas+0x86:
+72ff4bad 03894b0c894d    add     ecx,dword ptr [ecx+4D890C4Bh]
+72ff4bb3 2839            sub     byte ptr [ecx],bh
+72ff4bb5 4d              dec     ebp
+72ff4bb6 1074108b        adc     byte ptr [eax+edx-75h],dh
+72ff4bba 45              inc     ebp
+72ff4bbb 188b40288b40    sbb     byte ptr [ebx+408B2840h],cl
+72ff4bc1 1c3b            sbb     al,3Bh
+72ff4bc3 c174038320      sal     dword ptr [ebx+eax-7Dh],20h
+72ff4bc8 df894df4394d    fisttp  word ptr [ecx+4D39F44Dh]
+72ff4bce 100f            adc     byte ptr [edi],cl
+72ff4bd0 8e7d03          mov     st(-1),word ptr [ebp+3]
+72ff4bd3 0000            add     byte ptr [eax],al
+72ff4bd5 8b7d0c          mov     edi,dword ptr [ebp+0Ch]
+72ff4bd8 83c70c          add     edi,0Ch
+72ff4bdb 897dec          mov     dword ptr [ebp-14h],edi
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-8">Frame 8: MSHTML.dll!Ptls5::FsFormatDelayedParas+0x1B3A</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-MSHTML.dll!Ptls5::FsFormatDelayedParas">MSHTML.dll!Ptls5::FsFormatDelayedParas</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!Ptls5::FsFormatGeneralSection+0xc39:
+72ff6631 0000            add     byte ptr [eax],al
+72ff6633 8d4328          lea     eax,[ebx+28h]
+72ff6636 50              push    eax
+72ff6637 ff750c          push    dword ptr [ebp+0Ch]
+72ff663a ff7720          push    dword ptr [edi+20h]
+72ff663d ff9788000000    call    dword ptr [edi+88h]
+72ff6643 85c0            test    eax,eax
+72ff6645 0f8509010000    jne     MSHTML!Ptls5::FsFormatGeneralSection+0xd5c (72ff6754)
+72ff664b 50              push    eax
+72ff664c 50              push    eax
+72ff664d ff7328          push    dword ptr [ebx+28h]
+72ff6650 ff7520          push    dword ptr [ebp+20h]
+72ff6653 6aff            push    0FFFFFFFFh
+72ff6655 57              push    edi
+72ff6656 8b7d10          mov     edi,dword ptr [ebp+10h]
+72ff6659 e88dc771ff      call    MSHTML!Ptls5::CFsLayoutSizesMultiSections::AddSpanLayoutGeneral (72712deb)
+72ff665e 85c0            test    eax,eax
+72ff6660 0f85ee000000    jne     MSHTML!Ptls5::FsFormatGeneralSection+0xd5c (72ff6754)
+MSHTML!Ptls5::FsFormatGeneralSection+0xc69:
+72ff6661 85ee            test    esi,ebp
+72ff6663 0000            add     byte ptr [eax],al
+72ff6665 008b464085c0    add     byte ptr [ebx-3F7ABFBAh],cl
+72ff666b 7505            jne     MSHTML!Ptls5::FsFormatGeneralSection+0xc7a (72ff6672)
+72ff666d 8d4e04          lea     ecx,[esi+4]
+72ff6670 eb07            jmp     MSHTML!Ptls5::FsFormatGeneralSection+0xc81 (72ff6679)
+72ff6672 8b4e38          mov     ecx,dword ptr [esi+38h]
+72ff6675 8b4c88fc        mov     ecx,dword ptr [eax+ecx*4-4]
+72ff6679 8b01            mov     eax,dword ptr [ecx]
+72ff667b 8d5304          lea     edx,[ebx+4]
+72ff667e 52              push    edx
+72ff667f ff10            call    dword ptr [eax]
+72ff6681 8b4640          mov     eax,dword ptr [esi+40h]
+72ff6684 8d7b18          lea     edi,[ebx+18h]
+72ff6687 85c0            test    eax,eax
+72ff6689 7505            jne     MSHTML!Ptls5::FsFormatGeneralSection+0xc98 (72ff6690)
+72ff668b 8d4e04          lea     ecx,[esi+4]
+72ff668e eb07            jmp     MSHTML!Ptls5::FsFormatGeneralSection+0xc9f (72ff6697)
+72ff6690 8b4e38          mov     ecx,dword ptr [esi+38h]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-9">Frame 9: MSHTML.dll!Ptls5::FsFillTrackMainFlow+0x3D</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-MSHTML.dll!Ptls5::FsFillTrackMainFlow">MSHTML.dll!Ptls5::FsFillTrackMainFlow</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!Ptls5::FsFillTrackMainFlow+0xd:
+72701d7b 00f6            add     dh,dh
+72701d7d 06              push    es
+72701d7e 0857ff          or      byte ptr [edi-1],dl
+72701d81 7548            jne     MSHTML!Ptls5::FsFormatDelayedParas+0x1779 (72701dcb)
+72701d83 8bf8            mov     edi,eax
+72701d85 0f8434e44800    je      MSHTML!Ptls5::FsFillTrackMainFlow+0x4a (72b901bf)
+72701d8b ff7544          push    dword ptr [ebp+44h]
+72701d8e 8bcf            mov     ecx,edi
+72701d90 ff7540          push    dword ptr [ebp+40h]
+72701d93 ff753c          push    dword ptr [ebp+3Ch]
+72701d96 ff7538          push    dword ptr [ebp+38h]
+72701d99 ff7534          push    dword ptr [ebp+34h]
+72701d9c ff752c          push    dword ptr [ebp+2Ch]
+72701d9f ff7528          push    dword ptr [ebp+28h]
+72701da2 ff7524          push    dword ptr [ebp+24h]
+72701da5 56              push    esi
+72701da6 53              push    ebx
+72701da7 ff7508          push    dword ptr [ebp+8]
+72701daa e812000000      call    MSHTML!Ptls5::FsFormatDelayedParas+0x176f (72701dc1)
+MSHTML!Ptls5::FsFillTrackMainFlow+0x39:
+72701dab 1200            adc     al,byte ptr [eax]
+72701dad 0000            add     byte ptr [eax],al
+72701daf 85c0            test    eax,eax
+72701db1 7502            jne     MSHTML!Ptls5::FsFillTrackMainFlow+0x119 (72701db5)
+72701db3 33c0            xor     eax,eax
+72701db5 5f              pop     edi
+72701db6 5b              pop     ebx
+72701db7 59              pop     ecx
+72701db8 5d              pop     ebp
+72701db9 c24400          ret     44h
+72701dbc 90              nop
+72701dbd 90              nop
+72701dbe 90              nop
+72701dbf 90              nop
+72701dc0 90              nop
+72701dc1 8bff            mov     edi,edi
+72701dc3 55              push    ebp
+72701dc4 8bec            mov     ebp,esp
+72701dc6 83ec7c          sub     esp,7Ch
+72701dc9 8b4524          mov     eax,dword ptr [ebp+24h]
+72701dcc 81200000ffff    and     dword ptr [eax],0FFFF0000h
+72701dd2 8b4518          mov     eax,dword ptr [ebp+18h]
+72701dd5 53              push    ebx
+72701dd6 8b5d34          mov     ebx,dword ptr [ebp+34h]
+72701dd9 56              push    esi
+72701dda 57              push    edi
+72701ddb 8b7d1c          mov     edi,dword ptr [ebp+1Ch]
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Frame-10">Frame 10: MSHTML.dll!Ptls5::FsFillTrack+0x2FD</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden">Function:       <A onclick="openAnchorEvent()" href="#Function-MSHTML.dll!Ptls5::FsFillTrack">MSHTML.dll!Ptls5::FsFillTrack</A>(unknown)<BR>Source:         not available<BR>Local variables: None (or no information available)<BR><FIELDSET class="level2 hidden"><LEGEND onclick="flipLegend()" class="level2">Disassembly</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>MSHTML!Ptls5::FsDestroyLrG+0x12:
+72700184 25508b4508      and     eax,8458B50h
+72700189 8b4004          mov     eax,dword ptr [eax+4]
+7270018c 8b8030020000    mov     eax,dword ptr [eax+230h]
+72700192 e8556b3500      call    MSHTML!Ptls5::TsDestroyMemoryCore (72a56cec)
+72700197 eb11            jmp     MSHTML!Ptls5::FsDestroyLrG+0x25 (727001aa)
+72700199 90              nop
+7270019a 90              nop
+7270019b 90              nop
+7270019c 90              nop
+7270019d 90              nop
+MSHTML!Ptls5::FsDestroyLrG:
+7270019e 8bff            mov     edi,edi
+727001a0 55              push    ebp
+727001a1 8bec            mov     ebp,esp
+727001a3 8b462c          mov     eax,dword ptr [esi+2Ch]
+727001a6 85c0            test    eax,eax
+727001a8 75d4            jne     MSHTML!Ptls5::FsDestroyLrG+0xc (7270017e)
+727001aa 83662c00        and     dword ptr [esi+2Ch],0
+727001ae 33c0            xor     eax,eax
+727001b0 5d              pop     ebp
+727001b1 c20400          ret     4
+727001b4 90              nop
+MSHTML!Ptls5::FsDestroyLrG+0x2f:
+727001b4 90              nop
+727001b5 90              nop
+727001b6 90              nop
+727001b7 90              nop
+727001b8 90              nop
+727001b9 8bff            mov     edi,edi
+727001bb 55              push    ebp
+727001bc 8bec            mov     ebp,esp
+727001be 83ec60          sub     esp,60h
+727001c1 a194c20e73      mov     eax,dword ptr [MSHTML!__security_cookie (730ec294)]
+727001c6 33c5            xor     eax,ebp
+727001c8 8945fc          mov     dword ptr [ebp-4],eax
+727001cb 53              push    ebx
+727001cc 8b5d08          mov     ebx,dword ptr [ebp+8]
+727001cf 56              push    esi
+727001d0 8bf1            mov     esi,ecx
+727001d2 8b06            mov     eax,dword ptr [esi]
+727001d4 8d4dac          lea     ecx,[ebp-54h]
+727001d7 57              push    edi
+727001d8 8975a0          mov     dword ptr [ebp-60h],esi
+727001db 894da8          mov     dword ptr [ebp-58h],ecx
+727001de 394304          cmp     dword ptr [ebx+4],eax
+727001e1 0f85a1b1f3ff    jne     MSHTML!Ptls5::FsFormatParaTrelPost+0x1b5 (7263b388)
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET><HR>(Intermediate frames not shown)<HR></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Memory regions</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"></SPAN></FIELDSET><FIELDSET class="level0 hidden"><LEGEND onclick="flipLegend()" class="level0">Functions</LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-IEFRAME.dll!CTabWindow::_TabWindowThreadProc">IEFRAME.dll!CTabWindow::_TabWindowThreadProc</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        IEFRAME.dll+0xF1CE1
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-IEFRAME.dll!Detour_DefWindowProcA">IEFRAME.dll!Detour_DefWindowProcA</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        IEFRAME.dll+0x9980D
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-IEFRAME.dll!LCIETab_ThreadProc">IEFRAME.dll!LCIETab_ThreadProc</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        IEFRAME.dll+0x111AD9
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CBodyLayout::CalcSizeCore">MSHTML.dll!CBodyLayout::CalcSizeCore</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1CB31A
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CCssDocumentLayout::FindOrFormatPage">MSHTML.dll!CCssDocumentLayout::FindOrFormatPage</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x2C764B
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CCssDocumentLayout::GetPage">MSHTML.dll!CCssDocumentLayout::GetPage</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x2C6692
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CDisplay::RecalcLines">MSHTML.dll!CDisplay::RecalcLines</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1DDC1A
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CDisplay::RecalcLinesWithMeasurer">MSHTML.dll!CDisplay::RecalcLinesWithMeasurer</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1B1B94
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CDisplay::RecalcView">MSHTML.dll!CDisplay::RecalcView</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1AF70F
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CEmbeddedILSObj::Fmt">MSHTML.dll!CEmbeddedILSObj::Fmt</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1D2595
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CFlowLayout::CalcSizeCore">MSHTML.dll!CFlowLayout::CalcSizeCore</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1AEA3A
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CFlowLayout::CalcSizeCoreCompat">MSHTML.dll!CFlowLayout::CalcSizeCoreCompat</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1584A0
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CFlowLayout::CalcSizeVirtual">MSHTML.dll!CFlowLayout::CalcSizeVirtual</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1AE94C
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CFlowLayout::CalcTextSize">MSHTML.dll!CFlowLayout::CalcTextSize</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1AEA95
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CFlowLayout::GetSiteWidth">MSHTML.dll!CFlowLayout::GetSiteWidth</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1D1B81
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CFlowLayout::MeasureSite">MSHTML.dll!CFlowLayout::MeasureSite</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1D1D25
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CHtmlPageLayout::CalcSizeVirtual">MSHTML.dll!CHtmlPageLayout::CalcSizeVirtual</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xC4887
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CLSMeasurer::GetSiteWidth">MSHTML.dll!CLSMeasurer::GetSiteWidth</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1D1ADE
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CLSMeasurer::LSDoCreateLine">MSHTML.dll!CLSMeasurer::LSDoCreateLine</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1A9003
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CLSMeasurer::LSMeasure">MSHTML.dll!CLSMeasurer::LSMeasure</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1B0D7F
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CLSMeasurer::Measure">MSHTML.dll!CLSMeasurer::Measure</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1B0B87
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CLayout::CalcSize">MSHTML.dll!CLayout::CalcSize</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x2FF021
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CLayout::CalcTopLayoutSize">MSHTML.dll!CLayout::CalcTopLayoutSize</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1CAE69
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CPtsDocumentLayout::FormatPage">MSHTML.dll!CPtsDocumentLayout::FormatPage</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xDDB6F
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CPtsTextParaclient::CountApes">MSHTML.dll!CPtsTextParaclient::CountApes</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xD043
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CPtsTextParaclient::GetNumberApeCorners">MSHTML.dll!CPtsTextParaclient::GetNumberApeCorners</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xC68D4
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CRecalcLinePtr::MeasureLine">MSHTML.dll!CRecalcLinePtr::MeasureLine</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x1B0644
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CView::EnsureSize">MSHTML.dll!CView::EnsureSize</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x2B60AF
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CView::EnsureView">MSHTML.dll!CView::EnsureView</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x2B5DDA
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!CView::EnsureViewCallback">MSHTML.dll!CView::EnsureViewCallback</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x2D7B60
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!GlobalWndOnMethodCall">MSHTML.dll!GlobalWndOnMethodCall</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x3E9AF1
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!GlobalWndProc">MSHTML.dll!GlobalWndProc</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x3C412E
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsCreatePageBottomlessCore">MSHTML.dll!Ptls5::FsCreatePageBottomlessCore</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xE0DD2
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsCreateSubpage">MSHTML.dll!Ptls5::FsCreateSubpage</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xDA325
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsCreateSubpageCore">MSHTML.dll!Ptls5::FsCreateSubpageCore</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xDA388
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsDestroyBrtrackElements">MSHTML.dll!Ptls5::FsDestroyBrtrackElements</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x9C48FD
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsDestroyParaFormatResult">MSHTML.dll!Ptls5::FsDestroyParaFormatResult</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xC940A
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsFillLayoutWithSpanAreas">MSHTML.dll!Ptls5::FsFillLayoutWithSpanAreas</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xE3984
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsFillMultiColumnLayout">MSHTML.dll!Ptls5::FsFillMultiColumnLayout</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xE4ED3
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsFillTrack">MSHTML.dll!Ptls5::FsFillTrack</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xCFEB7
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsFillTrackMainFlow">MSHTML.dll!Ptls5::FsFillTrackMainFlow</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xD1D6E
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsFillTrackWraper">MSHTML.dll!Ptls5::FsFillTrackWraper</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xE32DD
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsFormatDelayedParas">MSHTML.dll!Ptls5::FsFormatDelayedParas</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x9C4B27
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsFormatGeneralSection">MSHTML.dll!Ptls5::FsFormatGeneralSection</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xE144A
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsFormatOrReusePara">MSHTML.dll!Ptls5::FsFormatOrReusePara</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xCE010
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsFormatPageBody">MSHTML.dll!Ptls5::FsFormatPageBody</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xD5894
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsFormatParaTrelPost">MSHTML.dll!Ptls5::FsFormatParaTrelPost</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xE0A84
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsFormatPelCore">MSHTML.dll!Ptls5::FsFormatPelCore</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xD636C
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsFormatPelCorePre">MSHTML.dll!Ptls5::FsFormatPelCorePre</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xC8343
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsFormatSection">MSHTML.dll!Ptls5::FsFormatSection</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xE12EA
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsFormatTextSimple">MSHTML.dll!Ptls5::FsFormatTextSimple</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xE2AD
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsInitSubpageContext">MSHTML.dll!Ptls5::FsInitSubpageContext</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xE5475
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsQueryPageProperDetailsCore">MSHTML.dll!Ptls5::FsQueryPageProperDetailsCore</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x9B4FCB
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsRestoreMarginCollapsingState">MSHTML.dll!Ptls5::FsRestoreMarginCollapsingState</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0x9BF36E
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-MSHTML.dll!Ptls5::FsUpdateBottomlessPage">MSHTML.dll!Ptls5::FsUpdateBottomlessPage</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        MSHTML.dll+0xE713B
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-USER32.dll!DispatchMessageW">USER32.dll!DispatchMessageW</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        USER32.dll+0x18B01
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-USER32.dll!DispatchMessageWorker">USER32.dll!DispatchMessageWorker</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        USER32.dll+0x189CB
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-USER32.dll!InternalCallWinProc">USER32.dll!InternalCallWinProc</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        USER32.dll+0x187F4
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-USER32.dll!UserCallWinProcCheckWow">USER32.dll!UserCallWinProcCheckWow</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        USER32.dll+0x188BB
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-kernel32.dll!BaseThreadInitThunk">kernel32.dll!BaseThreadInitThunk</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        kernel32.dll+0x8F263
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-iertutil.dll!CIsoScope::RegisterThread">iertutil.dll!CIsoScope::RegisterThread</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        iertutil.dll+0x144BAD
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-msls31.dll!FetchAppendEscCore">msls31.dll!FetchAppendEscCore</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        msls31.dll+0x6CEE
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-msls31.dll!LsCreateLine">msls31.dll!LsCreateLine</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        msls31.dll+0x28A9
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-msls31.dll!LsDestroyLine">msls31.dll!LsDestroyLine</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        msls31.dll+0x1C66
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-msls31.dll!ProcessOneRun">msls31.dll!ProcessOneRun</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        msls31.dll+0x69F0
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-ntdll32.dll!_RtlUserThreadStart">ntdll32.dll!_RtlUserThreadStart</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        ntdll32.dll+0x7DA10
+Disassembly: not available
+</PRE></SPAN></FIELDSET><FIELDSET class="level1 hidden"><LEGEND onclick="flipLegend()" class="level1"><A name="Function-ntdll32.dll!__RtlUserThreadStart">ntdll32.dll!__RtlUserThreadStart</A></LEGEND><SPAN></SPAN><SPAN class="hideable hidden"><PRE>Arguments:      (unknown)
+Address:        ntdll32.dll+0x7D7F6
+Disassembly: not available
+</PRE></SPAN></FIELDSET></SPAN></FIELDSET></BODY></HTML>
